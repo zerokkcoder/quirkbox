@@ -1,5 +1,3 @@
-import { Badge } from "@/components/ui/badge";
-
 export function PageHeader({
   eyebrow,
   title,
@@ -7,21 +5,20 @@ export function PageHeader({
 }: {
   eyebrow: string;
   title: string;
-  description: string;
+  description?: string;
 }) {
   return (
-    <div className="flex max-w-3xl flex-col gap-4">
-      <Badge variant="secondary" className="w-fit">
+    <header className="stagger flex max-w-3xl flex-col gap-4">
+      <p className="flex items-center gap-2 text-xs font-medium tracking-[0.2em] text-primary uppercase">
+        <span aria-hidden className="size-1.5 rounded-full bg-primary" />
         {eyebrow}
-      </Badge>
-      <div className="flex flex-col gap-2">
-        <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          {title}
-        </h1>
-        <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-          {description}
-        </p>
-      </div>
-    </div>
+      </p>
+      <h1 className="font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+        {title}
+      </h1>
+      {description ? (
+        <p className="max-w-2xl text-base leading-7 text-muted-foreground">{description}</p>
+      ) : null}
+    </header>
   );
 }

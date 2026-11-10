@@ -17,9 +17,9 @@ export default function OpenGraphImage() {
           width: "100%",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(135deg, #ecfeff 0%, #ffffff 52%, #fef3c7 100%)",
+          background: "linear-gradient(135deg, #eaf1ff 0%, #ffffff 52%, #fff4dd 100%)",
           padding: "64px",
-          color: "#134e4a",
+          color: "#1b2440",
         }}
       >
         <div style={{ fontSize: 28 }}>QuirkBox</div>

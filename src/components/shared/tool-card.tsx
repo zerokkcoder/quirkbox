@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 
@@ -22,29 +20,23 @@ export function ToolCard({
   actionLabel: string;
 }) {
   return (
-    <Card className="h-full bg-card/90">
-      <CardHeader>
-        <div className="flex flex-wrap gap-2">
-          {badges.map((badge) => (
-            <Badge key={badge} variant="secondary">
-              {badge}
-            </Badge>
-          ))}
-        </div>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent className="flex-1">
-        <div className="rounded-2xl border border-dashed border-border bg-muted/50 p-4 text-sm text-muted-foreground">
-          Dedicated tool route, SEO metadata, and shareable state are already wired in.
-        </div>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full" render={<Link href={localizePath(locale, href)} />}>
-            <ArrowRightIcon data-icon="inline-end" />
-            {actionLabel}
-        </Button>
-      </CardFooter>
-    </Card>
+    <Link
+      href={localizePath(locale, href)}
+      className="group/card flex h-full flex-col gap-5 rounded-xl border border-border/70 bg-card p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_28px_60px_-46px_var(--color-primary)] focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+    >
+      <span className="flex flex-wrap gap-2">
+        {badges.map((badge) => (
+          <Badge key={badge} variant="secondary">
+            {badge}
+          </Badge>
+        ))}
+      </span>
+      <h3 className="font-heading text-xl font-semibold tracking-tight">{title}</h3>
+      <p className="text-sm leading-6 text-muted-foreground">{description}</p>
+      <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-medium text-primary">
+        {actionLabel}
+        <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover/card:translate-x-1" />
+      </span>
+    </Link>
   );
 }

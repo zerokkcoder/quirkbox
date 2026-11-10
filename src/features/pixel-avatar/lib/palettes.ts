@@ -1,16 +1,14 @@
 export const avatarPalettes = [
   {
-    id: "bubblegum",
-    label: "Bubblegum",
-    skin: "#f2c49b",
-    hair: "#7c3aed",
-    accent: "#ec4899",
-    line: "#3b0764",
-    background: "#fce7f3",
+    id: "cobalt",
+    skin: "#e8c3a2",
+    hair: "#1e3a8a",
+    accent: "#2563eb",
+    line: "#172554",
+    background: "#dbeafe",
   },
   {
     id: "mint",
-    label: "Mint",
     skin: "#ecc6a6",
     hair: "#0f766e",
     accent: "#14b8a6",
@@ -19,7 +17,6 @@ export const avatarPalettes = [
   },
   {
     id: "sunset",
-    label: "Sunset",
     skin: "#e9bb8c",
     hair: "#c2410c",
     accent: "#f97316",
@@ -28,7 +25,6 @@ export const avatarPalettes = [
   },
   {
     id: "midnight",
-    label: "Midnight",
     skin: "#d7b08a",
     hair: "#312e81",
     accent: "#6366f1",

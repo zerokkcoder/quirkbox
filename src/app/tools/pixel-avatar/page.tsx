@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { PixelAvatarPage } from "@/components/sections/pixel-avatar-page";
 import { getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
 import { createSeed } from "@/features/pixel-avatar/lib/seeds";
@@ -21,6 +22,7 @@ export default async function Page({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const resolvedSearchParams = await searchParams;
+  await connection();
 
   return (
     <PixelAvatarPage

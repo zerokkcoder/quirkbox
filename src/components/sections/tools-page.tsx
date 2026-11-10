@@ -14,19 +14,15 @@ export function ToolsPage({
 }) {
   return (
     <SiteShell locale={locale} messages={messages} pathname={localizePath(locale, "/tools")}>
-      <div className="flex flex-col gap-8">
-        <PageHeader
-          eyebrow={messages.nav.tools}
-          title={messages.tools.title}
-          description={messages.tools.description}
-        />
-        <div className="grid gap-6 lg:grid-cols-2">
+      <div className="flex flex-col gap-10">
+        <PageHeader eyebrow={messages.nav.tools} title={messages.tools.title} />
+        <div className="reveal grid gap-5 sm:grid-cols-2">
           <ToolCard
             locale={locale}
             title={messages.tools.randomName.title}
             description={messages.tools.randomName.description}
             href="/tools/random-name"
-            badges={[messages.common.shareable, "Rules + library"]}
+            badges={[messages.common.shareable]}
             actionLabel={messages.common.openTool}
           />
           <ToolCard
@@ -34,7 +30,7 @@ export function ToolsPage({
             title={messages.tools.pixelAvatar.title}
             description={messages.tools.pixelAvatar.description}
             href="/tools/pixel-avatar"
-            badges={[messages.common.browserOnly, "Canvas"]}
+            badges={[messages.common.browserOnly, messages.common.shareable]}
             actionLabel={messages.common.openTool}
           />
         </div>

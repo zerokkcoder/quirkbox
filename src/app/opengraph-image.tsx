@@ -18,9 +18,9 @@ export default function OpenGraphImage() {
           width: "100%",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(135deg, #fff5fb 0%, #fdf7ed 45%, #eef2ff 100%)",
+          background: "linear-gradient(135deg, #eaf1ff 0%, #ffffff 45%, #fff6e4 100%)",
           padding: "64px",
-          color: "#241f37",
+          color: "#131a2e",
         }}
       >
         <div style={{ fontSize: 30, opacity: 0.7 }}>{siteConfig.name}</div>
@@ -33,7 +33,7 @@ export default function OpenGraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", gap: "14px" }}>
-          <div style={{ borderRadius: 9999, background: "#db2777", color: "white", padding: "12px 24px", fontSize: 28 }}>
+          <div style={{ borderRadius: 9999, background: "#1d4ed8", color: "white", padding: "12px 24px", fontSize: 28 }}>
             QuirkBox
           </div>
           <div style={{ borderRadius: 9999, background: "#ffffff", padding: "12px 24px", fontSize: 28 }}>

@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { RandomNamePage } from "@/components/sections/random-name-page";
 import { generateNameSuggestion } from "@/features/random-name/lib/generator";
 import { normalizeNameFilters } from "@/features/random-name/lib/rules";
@@ -21,22 +22,12 @@ export default async function Page({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const resolvedSearchParams = await searchParams;
-  const initialFilters = {
-    ...normalizeNameFilters({
-      culture: typeof resolvedSearchParams.culture === "string" ? resolvedSearchParams.culture : undefined,
-      gender: typeof resolvedSearchParams.gender === "string" ? resolvedSearchParams.gender : undefined,
-      vibe: typeof resolvedSearchParams.vibe === "string" ? resolvedSearchParams.vibe : undefined,
-      includeMeaning:
-        typeof resolvedSearchParams.includeMeaning === "string"
-          ? resolvedSearchParams.includeMeaning
-          : undefined,
-      seed: typeof resolvedSearchParams.seed === "string" ? resolvedSearchParams.seed : undefined,
-    }),
-  };
-  const serverResult = generateNameSuggestion({
-    ...initialFilters,
-    includeMeaning: String(initialFilters.includeMeaning),
+  const initialFilters = normalizeNameFilters({
+    culture: typeof resolvedSearchParams.culture === "string" ? resolvedSearchParams.culture : undefined,
+    gender: typeof resolvedSearchParams.gender === "string" ? resolvedSearchParams.gender : undefined,
   });
+  await connection();
+  const serverResult = generateNameSuggestion(initialFilters);
 
   return <RandomNamePage locale="en" messages={messages} initialFilters={initialFilters} initialResult={serverResult} />;
 }

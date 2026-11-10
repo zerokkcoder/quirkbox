@@ -12,43 +12,20 @@
   },
   "common": {
     "openTool": "打開工具",
-    "browseTools": "瀏覽工具",
-    "learnMore": "了解更多",
     "shareable": "可分享",
-    "browserOnly": "瀏覽器生成",
-    "beta": "測試版"
+    "browserOnly": "瀏覽器生成"
   },
   "home": {
-    "eyebrow": "有趣的生成工具盒",
-    "title": "QuirkBox 把奇怪但好玩的想法，做成大家真的願意分享的小工具。",
-    "description": "先從外國名字產生器與像素頭像產生器開始，之後再把更多輕量、有趣、低摩擦的工具放進這個盒子裡。",
-    "primaryCta": "查看工具",
-    "secondaryCta": "認識 QuirkBox",
-    "stats": [
-      {
-        "label": "首發工具",
-        "value": "2"
-      },
-      {
-        "label": "支援語言",
-        "value": "EN + 繁中"
-      },
-      {
-        "label": "成本模型",
-        "value": "無 AI 呼叫"
-      }
-    ],
-    "featuredTitle": "精選工具",
-    "featuredDescription": "每個工具都會有獨立頁面、SEO 文案與分享入口，方便持續擴充。",
-    "faqTitle": "這類站點為什麼值得做",
-    "faqDescription": "QuirkBox 不是單純堆功能，而是把內容包裝、分享體驗與長尾搜尋一起設計進去。"
+    "title": "隨機名字與像素頭像，直接在瀏覽器裡生成。",
+    "primaryCta": "打開工具",
+    "secondaryCta": "關於"
   },
   "tools": {
     "title": "工具集合",
-    "description": "先做好兩個首發工具，並保留之後擴展更多迷你工具的骨架。",
+    "description": "在瀏覽器裡生成隨機名字與像素頭像的輕量工具。",
     "randomName": {
       "title": "隨機名字產生器",
-      "description": "依照文化、風格與性別傾向，生成更貼近情境的外國名字。"
+      "description": "以 14 種語言生成含姓氏的完整名字，並由瀏覽器直接朗讀。"
     },
     "pixelAvatar": {
       "title": "像素頭像產生器",
@@ -57,36 +34,41 @@
   },
   "about": {
     "title": "關於 QuirkBox",
-    "description": "QuirkBox 是一個偏向內容包裝的趣味工具集合，目標是讓小工具既好玩、又好分享、也能長期擴充。",
-    "principlesTitle": "產品原則"
+    "description": "一個輕巧、好分享的生成工具小天地。"
   },
   "randomName": {
     "title": "隨機名字產生器",
-    "description": "依據文化、風格與發音感受，快速生成帶有解釋的外國名字。",
-    "note": "規則式生成讓結果更穩定、速度更快，也更容易控制品質。",
-    "culture": "目標文化",
+    "description": "選一個語言，得到以當地文字書寫、含姓氏的完整名字，還能請瀏覽器直接朗讀。",
+    "culture": "語言",
     "gender": "名字傾向",
-    "vibe": "風格",
-    "meaning": "顯示含義",
-    "generate": "再產生一次",
-    "seed": "Seed",
     "result": "建議名字",
-    "whyItFits": "推薦原因",
-    "pronunciation": "發音提示",
-    "meaningLabel": "含義",
-    "formal": "正式",
-    "playful": "活潑",
-    "bold": "鮮明",
-    "soft": "柔和",
+    "shuffle": "換一個",
+    "listen": "播放發音",
     "feminine": "偏女性",
     "masculine": "偏男性",
     "neutral": "中性",
-    "any": "不限"
+    "any": "不限",
+    "cultures": {
+      "english": "英文",
+      "french": "法文",
+      "spanish": "西班牙文",
+      "german": "德文",
+      "italian": "義大利文",
+      "portuguese": "葡萄牙文",
+      "russian": "俄文",
+      "japanese": "日文",
+      "korean": "韓文",
+      "chinese-simplified": "簡體中文",
+      "chinese-traditional": "繁體中文",
+      "arabic": "阿拉伯文",
+      "thai": "泰文",
+      "vietnamese": "越南文"
+    },
+    "generating": "生成中…"
   },
   "pixelAvatar": {
     "title": "像素頭像產生器",
     "description": "用可分享的 seed 生成復古像素頭像，調整配色後可直接下載 PNG。",
-    "note": "相同 seed 一定會還原成相同頭像。",
     "palette": "配色",
     "background": "背景",
     "size": "匯出尺寸",
@@ -94,9 +76,35 @@
     "download": "下載 PNG",
     "seed": "Seed",
     "traits": "生成特徵",
-    "preview": "頭像預覽"
-  },
-  "footer": {
-    "tagline": "一組好玩、能分享、也適合繼續擴充的生成工具。"
+    "preview": "頭像預覽",
+    "tabBuilder": "生成器",
+    "tabTraits": "特徵",
+    "seedHint": "保持同一個 seed，就能重建完全相同的頭像。",
+    "sizeHint": "匯出尺寸只改變 PNG 解析度，不影響生成結果。",
+    "traitsHint": "同一個 seed 對應同一組結果，換 seed 就會得到全新面孔。",
+    "palettes": {
+      "cobalt": "鈷藍",
+      "mint": "薄荷",
+      "sunset": "日落",
+      "midnight": "午夜"
+    },
+    "backgrounds": {
+      "grid": "格線",
+      "halo": "光暈",
+      "plain": "純色"
+    },
+    "traitValues": {
+      "flat": "平貼",
+      "spike": "尖角",
+      "cap": "帽子",
+      "dot": "點狀眼",
+      "wide": "圓亮眼",
+      "sleepy": "睡眼",
+      "smile": "微笑",
+      "surprised": "驚訝",
+      "none": "無配件",
+      "earring": "耳環",
+      "patch": "眼罩"
+    }
   }
 }

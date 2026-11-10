@@ -4,6 +4,8 @@ import { prefixedLocaleParams } from "@/i18n/routing";
 import { assertPrefixedLocale, getMessages } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 
+export const instant = false;
+
 export function generateStaticParams() {
   return prefixedLocaleParams;
 }

@@ -20,7 +20,7 @@ export function SiteShell({
     <LocaleProvider locale={locale} messages={messages}>
       <div className="mesh-surface flex min-h-screen flex-col">
         <SiteHeader locale={locale} messages={messages} pathname={pathname} />
-        <main className="page-shell py-8 sm:py-10">{children}</main>
+        <main className="page-shell py-10 sm:py-14">{children}</main>
         <SiteFooter locale={locale} messages={messages} />
       </div>
     </LocaleProvider>

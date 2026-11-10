@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { DownloadIcon, ShuffleIcon } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -69,16 +68,11 @@ export function PixelAvatarTool({
   return (
     <Tabs defaultValue="builder" className="flex flex-col gap-6">
       <TabsList>
-        <TabsTrigger value="builder">Builder</TabsTrigger>
-        <TabsTrigger value="traits">Traits</TabsTrigger>
+        <TabsTrigger value="builder">{labels.tabBuilder}</TabsTrigger>
+        <TabsTrigger value="traits">{labels.tabTraits}</TabsTrigger>
       </TabsList>
 
       <TabsContent value="builder" className="flex flex-col gap-6">
-        <Alert>
-          <AlertTitle>{labels.title}</AlertTitle>
-          <AlertDescription>{labels.note}</AlertDescription>
-        </Alert>
-
         <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
           <Card>
             <CardHeader>
@@ -124,7 +118,7 @@ export function PixelAvatarTool({
           <Card>
             <CardHeader>
               <CardTitle>{labels.seed}</CardTitle>
-              <CardDescription>Keep the same seed to recreate the exact same avatar.</CardDescription>
+              <CardDescription>{labels.seedHint}</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-6">
               <FieldGroup>
@@ -135,7 +129,7 @@ export function PixelAvatarTool({
                 <Field>
                   <FieldLabel>{labels.palette}</FieldLabel>
                   <Select
-                    items={avatarPalettes.map((palette) => ({ value: palette.id, label: palette.label }))}
+                    items={avatarPalettes.map((palette) => ({ value: palette.id, label: labels.palettes[palette.id] }))}
                     value={state.palette}
                     onValueChange={(value) => {
                       if (!value) return;
@@ -149,7 +143,7 @@ export function PixelAvatarTool({
                       <SelectGroup>
                         {avatarPalettes.map((palette) => (
                           <SelectItem key={palette.id} value={palette.id}>
-                            {palette.label}
+                            {labels.palettes[palette.id]}
                           </SelectItem>
                         ))}
                       </SelectGroup>
@@ -159,7 +153,7 @@ export function PixelAvatarTool({
                 <Field>
                   <FieldLabel>{labels.background}</FieldLabel>
                   <Select
-                    items={avatarBackgrounds.map((background) => ({ value: background, label: background }))}
+                    items={avatarBackgrounds.map((background) => ({ value: background, label: labels.backgrounds[background] }))}
                     value={state.background}
                     onValueChange={(value) => {
                       if (!value) return;
@@ -173,7 +167,7 @@ export function PixelAvatarTool({
                       <SelectGroup>
                         {avatarBackgrounds.map((background) => (
                           <SelectItem key={background} value={background}>
-                            {background}
+                            {labels.backgrounds[background]}
                           </SelectItem>
                         ))}
                       </SelectGroup>
@@ -197,7 +191,7 @@ export function PixelAvatarTool({
                       </ToggleGroupItem>
                     ))}
                   </ToggleGroup>
-                  <FieldDescription>Export size changes the PNG resolution without changing the recipe.</FieldDescription>
+                  <FieldDescription>{labels.sizeHint}</FieldDescription>
                 </Field>
               </FieldGroup>
             </CardContent>
@@ -209,15 +203,15 @@ export function PixelAvatarTool({
         <Card>
           <CardHeader>
             <CardTitle>{labels.traits}</CardTitle>
-            <CardDescription>Same seed, same recipe. Change the seed to get a whole new face.</CardDescription>
+            <CardDescription>{labels.traitsHint}</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
-            <Badge variant="secondary">{recipe.hairStyle}</Badge>
-            <Badge variant="secondary">{recipe.eyeStyle}</Badge>
-            <Badge variant="secondary">{recipe.mouthStyle}</Badge>
-            <Badge variant="secondary">{recipe.accessory}</Badge>
-            <Badge variant="secondary">{recipe.background}</Badge>
-            <Badge variant="secondary">{recipe.paletteId}</Badge>
+            <Badge variant="secondary">{labels.traitValues[recipe.hairStyle]}</Badge>
+            <Badge variant="secondary">{labels.traitValues[recipe.eyeStyle]}</Badge>
+            <Badge variant="secondary">{labels.traitValues[recipe.mouthStyle]}</Badge>
+            <Badge variant="secondary">{labels.traitValues[recipe.accessory]}</Badge>
+            <Badge variant="secondary">{labels.backgrounds[recipe.background]}</Badge>
+            <Badge variant="secondary">{labels.palettes[recipe.paletteId]}</Badge>
           </CardContent>
         </Card>
       </TabsContent>

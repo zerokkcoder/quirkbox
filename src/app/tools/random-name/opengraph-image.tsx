@@ -17,16 +17,16 @@ export default function OpenGraphImage() {
           width: "100%",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(135deg, #fdf2f8 0%, #ffffff 55%, #eef2ff 100%)",
+          background: "linear-gradient(135deg, #eaf1ff 0%, #ffffff 55%, #e6efff 100%)",
           padding: "64px",
-          color: "#312e81",
+          color: "#1b2440",
         }}
       >
         <div style={{ fontSize: 28 }}>QuirkBox</div>
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <div style={{ fontSize: 76, fontWeight: 700 }}>Random Name Generator</div>
           <div style={{ fontSize: 32, opacity: 0.85, maxWidth: "820px" }}>
-            Generate a foreign-style name with culture, vibe, pronunciation, and optional meaning.
+            Pick a language and gender, then read the name out loud in your browser.
           </div>
         </div>
         <div style={{ fontSize: 28, opacity: 0.75 }}>Rule-based, shareable, SEO-ready.</div>

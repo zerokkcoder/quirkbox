@@ -12,43 +12,20 @@
   },
   "common": {
     "openTool": "Open tool",
-    "browseTools": "Browse tools",
-    "learnMore": "Learn more",
     "shareable": "Shareable",
-    "browserOnly": "Browser-only",
-    "beta": "Beta"
+    "browserOnly": "Browser-only"
   },
   "home": {
-    "eyebrow": "Fun generator playground",
-    "title": "QuirkBox turns tiny weird ideas into tools people actually want to share.",
-    "description": "Start with a foreign name generator and a pixel avatar maker, then keep expanding the box with delightful, low-friction experiments.",
-    "primaryCta": "Explore tools",
-    "secondaryCta": "Read about QuirkBox",
-    "stats": [
-      {
-        "label": "Launch tools",
-        "value": "2"
-      },
-      {
-        "label": "Languages",
-        "value": "EN + 繁中"
-      },
-      {
-        "label": "Cost profile",
-        "value": "No AI calls"
-      }
-    ],
-    "featuredTitle": "Featured tools",
-    "featuredDescription": "Each tool ships as a dedicated, indexable page with its own SEO and sharing surface.",
-    "faqTitle": "Why this kind of site works",
-    "faqDescription": "QuirkBox is designed like a playful content-led toolbox, not just a pile of widgets."
+    "title": "Random names and pixel avatars, generated in your browser.",
+    "primaryCta": "Open the tools",
+    "secondaryCta": "About"
   },
   "tools": {
     "title": "Tool collection",
-    "description": "Start with two launch tools and keep the structure ready for future mini-apps.",
+    "description": "Tiny browser-based generators for random names and pixel avatars.",
     "randomName": {
       "title": "Random Name Generator",
-      "description": "Generate a fitting foreign name with culture, vibe, and gender preferences."
+      "description": "Generate a full name with a surname in 14 languages, spoken aloud by your browser."
     },
     "pixelAvatar": {
       "title": "Pixel Avatar Maker",
@@ -57,36 +34,41 @@
   },
   "about": {
     "title": "About QuirkBox",
-    "description": "QuirkBox is a small playground for playful, useful generators that feel quick to try and easy to share.",
-    "principlesTitle": "Product principles"
+    "description": "A small playground of fast, shareable generators."
   },
   "randomName": {
     "title": "Random Name Generator",
-    "description": "Generate a foreign-style name with a clear vibe, matching pronunciation hints, and optional meaning.",
-    "note": "Rule-based generation keeps results consistent, fast, and inexpensive.",
-    "culture": "Target culture",
+    "description": "Pick a language and get a full name with a surname, written in its native script and read out loud by your browser.",
+    "culture": "Language",
     "gender": "Name leaning",
-    "vibe": "Vibe",
-    "meaning": "Include meaning",
-    "generate": "Generate another",
-    "seed": "Seed",
     "result": "Suggested name",
-    "whyItFits": "Why it fits",
-    "pronunciation": "Pronunciation",
-    "meaningLabel": "Meaning",
-    "formal": "Formal",
-    "playful": "Playful",
-    "bold": "Bold",
-    "soft": "Soft",
+    "shuffle": "Another name",
+    "listen": "Play pronunciation",
     "feminine": "Feminine",
     "masculine": "Masculine",
     "neutral": "Neutral",
-    "any": "Any"
+    "any": "Any",
+    "cultures": {
+      "english": "English",
+      "french": "French",
+      "spanish": "Spanish",
+      "german": "German",
+      "italian": "Italian",
+      "portuguese": "Portuguese",
+      "russian": "Russian",
+      "japanese": "Japanese",
+      "korean": "Korean",
+      "chinese-simplified": "Simplified Chinese",
+      "chinese-traditional": "Traditional Chinese",
+      "arabic": "Arabic",
+      "thai": "Thai",
+      "vietnamese": "Vietnamese"
+    },
+    "generating": "Generating..."
   },
   "pixelAvatar": {
     "title": "Pixel Avatar Maker",
     "description": "Generate a retro-inspired avatar from a shareable seed, tweak the palette, and export PNG right in the browser.",
-    "note": "The same seed always recreates the same avatar.",
     "palette": "Palette",
     "background": "Background",
     "size": "Export size",
@@ -94,9 +76,35 @@
     "download": "Download PNG",
     "seed": "Seed",
     "traits": "Generated traits",
-    "preview": "Avatar preview"
-  },
-  "footer": {
-    "tagline": "Playful generator tools built for quick sharing and future expansion."
+    "preview": "Avatar preview",
+    "tabBuilder": "Builder",
+    "tabTraits": "Traits",
+    "seedHint": "Keep the same seed to recreate the exact same avatar.",
+    "sizeHint": "Export size changes the PNG resolution without changing the recipe.",
+    "traitsHint": "Same seed, same recipe. Change the seed to get a whole new face.",
+    "palettes": {
+      "cobalt": "Cobalt",
+      "mint": "Mint",
+      "sunset": "Sunset",
+      "midnight": "Midnight"
+    },
+    "backgrounds": {
+      "grid": "Grid",
+      "halo": "Halo",
+      "plain": "Plain"
+    },
+    "traitValues": {
+      "flat": "Flat",
+      "spike": "Spiky",
+      "cap": "Capped",
+      "dot": "Dot eyes",
+      "wide": "Wide eyes",
+      "sleepy": "Sleepy eyes",
+      "smile": "Smile",
+      "surprised": "Surprised",
+      "none": "No accessory",
+      "earring": "Earring",
+      "patch": "Eye patch"
+    }
   }
 }
