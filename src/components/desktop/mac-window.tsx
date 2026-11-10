@@ -111,7 +111,12 @@ export function MacWindow({
           <div aria-hidden className="w-14 shrink-0" />
         </header>
 
-        <div className="min-h-0 flex-1 overflow-auto bg-background p-4">{children}</div>
+        {/* The body is its own query container: tool layouts must respond to the window's width,
+            not the viewport's, otherwise a narrow window falls back to a stacked layout and
+            overflows into a scrollbar. */}
+        <div className="window-scroll @container min-h-0 flex-1 overflow-auto bg-background p-3 sm:p-4">
+          {children}
+        </div>
       </div>
     </Rnd>
   );

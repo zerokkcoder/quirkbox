@@ -60,7 +60,7 @@ export function Desktop({ locale, messages }: { locale: Locale; messages: Messag
     const rect = layerRef.current?.getBoundingClientRect();
     const available = { width: rect?.width ?? window.innerWidth, height: rect?.height ?? window.innerHeight };
     const width = Math.min(920, Math.max(320, available.width - 64));
-    const height = Math.min(620, Math.max(260, available.height - 64));
+    const height = Math.min(680, Math.max(260, available.height - 24));
     const step = 28 * (index % 5);
 
     return {

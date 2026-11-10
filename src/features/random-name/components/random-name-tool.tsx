@@ -142,7 +142,7 @@ export function RandomNameTool({
   }
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[1fr_0.95fr]">
+    <div className="grid gap-6 xl:grid-cols-[1fr_0.95fr] @2xl:grid-cols-[1fr_0.95fr]">
       <Card>
         <CardHeader>
           <CardTitle>{labels.title}</CardTitle>
@@ -220,7 +220,7 @@ export function RandomNameTool({
               isLoading && "opacity-50"
             )}
           >
-            <p className="text-4xl font-semibold tracking-tight">{result.fullName}</p>
+            <p className="min-w-0 break-words text-4xl font-semibold tracking-tight">{result.fullName}</p>
             <Button
               variant="outline"
               size="icon"

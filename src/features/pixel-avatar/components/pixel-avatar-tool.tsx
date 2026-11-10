@@ -76,17 +76,17 @@ export function PixelAvatarTool({
       </TabsList>
 
       <TabsContent value="builder" className="flex flex-col gap-6">
-        <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+        <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr] @2xl:grid-cols-[0.95fr_1.05fr]">
           <Card>
             <CardHeader>
               <CardTitle>{labels.preview}</CardTitle>
               <CardDescription>{labels.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center gap-5">
-              <div className="rounded-[2rem] border border-border bg-card p-4 shadow-sm">
+              <div className="w-full max-w-80 rounded-[2rem] border border-border bg-card p-4 shadow-sm">
                 <canvas
                   ref={canvasRef}
-                  className="size-72 rounded-2xl border border-border bg-background [image-rendering:pixelated]"
+                  className="aspect-square w-full rounded-2xl border border-border bg-background [image-rendering:pixelated]"
                   aria-label={labels.preview}
                 />
               </div>
