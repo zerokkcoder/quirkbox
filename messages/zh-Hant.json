@@ -1,19 +1,12 @@
 {
   "site": {
-    "name": "QuirkBox",
     "title": "QuirkBox - 隨機名字產生器、像素頭像產生器與更多有趣工具",
     "description": "一個偏好英文主站的趣味工具集合，首波提供外國名字產生器與像素風頭像產生器。"
   },
   "nav": {
-    "home": "首頁",
     "tools": "工具",
     "about": "關於",
     "language": "語言"
-  },
-  "common": {
-    "openTool": "打開工具",
-    "shareable": "可分享",
-    "browserOnly": "瀏覽器生成"
   },
   "desktop": {
     "label": "QuirkBox 桌面",
@@ -24,20 +17,16 @@
     "close": "關閉"
   },
   "home": {
-    "title": "隨機名字與像素頭像，直接在瀏覽器裡生成。",
-    "primaryCta": "打開工具",
-    "secondaryCta": "關於"
+    "title": "隨機名字與像素頭像，直接在瀏覽器裡生成。"
   },
   "tools": {
     "title": "工具集合",
     "description": "在瀏覽器裡生成隨機名字與像素頭像的輕量工具。",
     "randomName": {
-      "title": "隨機名字產生器",
-      "description": "以 14 種語言生成含姓氏的完整名字，並由瀏覽器直接朗讀。"
+      "title": "隨機名字產生器"
     },
     "pixelAvatar": {
-      "title": "像素頭像產生器",
-      "description": "使用 seed 穩定生成像素風頭像，並立即匯出 PNG。"
+      "title": "像素頭像產生器"
     }
   },
   "about": {
@@ -76,43 +65,28 @@
   },
   "pixelAvatar": {
     "title": "像素頭像產生器",
-    "description": "用可分享的 seed 生成復古像素頭像，調整配色後可直接下載 PNG。",
+    "description": "挑一種像素風格，用可分享的 seed 長出獨一無二的頭像，並直接匯出 PNG。",
     "palette": "配色",
-    "background": "背景",
-    "size": "匯出尺寸",
-    "randomize": "隨機 seed",
-    "download": "下載 PNG",
+    "style": "風格",
+    "styleHint": "每種風格有自己的像素密度與細節程度。",
     "seed": "Seed",
-    "traits": "生成特徵",
-    "preview": "頭像預覽",
-    "tabBuilder": "生成器",
-    "tabTraits": "特徵",
     "seedHint": "保持同一個 seed，就能重建完全相同的頭像。",
-    "sizeHint": "匯出尺寸只改變 PNG 解析度，不影響生成結果。",
-    "traitsHint": "同一個 seed 對應同一組結果，換 seed 就會得到全新面孔。",
+    "shuffle": "換一個",
+    "download": "下載 PNG",
+    "preview": "頭像預覽",
+    "styles": {
+      "pixel-art": "像素人物",
+      "pixelbot": "像素機器人",
+      "voxel-art": "立體像素",
+      "identicon": "識別圖騰"
+    },
     "palettes": {
       "cobalt": "鈷藍",
       "mint": "薄荷",
       "sunset": "日落",
-      "midnight": "午夜"
-    },
-    "backgrounds": {
-      "grid": "格線",
-      "halo": "光暈",
-      "plain": "純色"
-    },
-    "traitValues": {
-      "flat": "平貼",
-      "spike": "尖角",
-      "cap": "帽子",
-      "dot": "點狀眼",
-      "wide": "圓亮眼",
-      "sleepy": "睡眼",
-      "smile": "微笑",
-      "surprised": "驚訝",
-      "none": "無配件",
-      "earring": "耳環",
-      "patch": "眼罩"
+      "midnight": "午夜",
+      "rose": "玫瑰",
+      "grape": "葡萄"
     }
   }
 }

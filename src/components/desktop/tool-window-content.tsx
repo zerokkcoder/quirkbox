@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { PixelAvatarTool } from "@/features/pixel-avatar/components/pixel-avatar-tool";
 import { RandomNameTool } from "@/features/random-name/components/random-name-tool";
+import { defaultAvatarStyle } from "@/features/pixel-avatar/lib/generate-avatar";
 import { getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
 import { createSeed } from "@/features/pixel-avatar/lib/seeds";
 import { normalizeNameFilters } from "@/features/random-name/lib/rules";
@@ -77,9 +78,8 @@ function RandomNameWindow({ labels }: { labels: Messages["randomName"] }) {
 function PixelAvatarWindow({ labels }: { labels: Messages["pixelAvatar"] }) {
   const [initialState] = useState(() => ({
     seed: createSeed(10),
+    style: String(defaultAvatarStyle),
     palette: getAvatarPalette().id,
-    background: "grid",
-    size: "256",
   }));
 
   return <PixelAvatarTool labels={labels} initialState={initialState} syncUrl={false} />;

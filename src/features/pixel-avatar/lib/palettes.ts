@@ -1,42 +1,13 @@
 export const avatarPalettes = [
-  {
-    id: "cobalt",
-    skin: "#e8c3a2",
-    hair: "#1e3a8a",
-    accent: "#2563eb",
-    line: "#172554",
-    background: "#dbeafe",
-  },
-  {
-    id: "mint",
-    skin: "#ecc6a6",
-    hair: "#0f766e",
-    accent: "#14b8a6",
-    line: "#134e4a",
-    background: "#ccfbf1",
-  },
-  {
-    id: "sunset",
-    skin: "#e9bb8c",
-    hair: "#c2410c",
-    accent: "#f97316",
-    line: "#7c2d12",
-    background: "#ffedd5",
-  },
-  {
-    id: "midnight",
-    skin: "#d7b08a",
-    hair: "#312e81",
-    accent: "#6366f1",
-    line: "#1e1b4b",
-    background: "#e0e7ff",
-  }
+  { id: "cobalt", background: "#dbeafe", swatch: "#2563eb" },
+  { id: "mint", background: "#ccfbf1", swatch: "#0d9488" },
+  { id: "sunset", background: "#ffedd5", swatch: "#ea580c" },
+  { id: "midnight", background: "#e0e7ff", swatch: "#4338ca" },
+  { id: "rose", background: "#ffe4e6", swatch: "#e11d48" },
+  { id: "grape", background: "#f3e8ff", swatch: "#9333ea" },
 ] as const;
 
 export type AvatarPaletteId = (typeof avatarPalettes)[number]["id"];
-
-export const avatarBackgrounds = ["grid", "halo", "plain"] as const;
-export type AvatarBackground = (typeof avatarBackgrounds)[number];
 
 export function getAvatarPalette(paletteId?: string) {
   return avatarPalettes.find((palette) => palette.id === paletteId) ?? avatarPalettes[0];

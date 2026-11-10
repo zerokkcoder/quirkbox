@@ -2,28 +2,28 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { cn } from "cn";
 import { DownloadIcon, ShuffleIcon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { trackEvent } from "@/lib/analytics";
-import { replaceSearchState } from "@/lib/url-state";
 import { downloadCanvas } from "@/features/pixel-avatar/lib/export";
-import { avatarBackgrounds, avatarPalettes } from "@/features/pixel-avatar/lib/palettes";
+import {
+  avatarExportSize,
+  avatarStyles,
+  generateAvatarDataUri,
+} from "@/features/pixel-avatar/lib/generate-avatar";
+import { avatarPalettes, getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
 import { createSeed } from "@/features/pixel-avatar/lib/seeds";
-import { drawPixelAvatar, generatePixelAvatarRecipe } from "@/features/pixel-avatar/lib/generate-avatar";
+import { trackEvent } from "@/lib/analytics";
 import type { Messages } from "@/lib/i18n";
+import { replaceSearchState } from "@/lib/url-state";
 
-type PixelAvatarState = {
+export type PixelAvatarState = {
   seed: string;
+  style: string;
   palette: string;
-  background: string;
-  size: string;
 };
 
 export function PixelAvatarTool({
@@ -40,184 +40,145 @@ export function PixelAvatarTool({
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [state, setState] = useState(initialState);
 
-  const recipe = useMemo(
-    () => generatePixelAvatarRecipe(state.seed, { paletteId: state.palette, background: state.background }),
-    [state.background, state.palette, state.seed]
+  const activePalette = getAvatarPalette(state.palette);
+  const dataUri = useMemo(
+    () => generateAvatarDataUri(state.seed, { styleId: state.style, paletteId: state.palette }),
+    [state.palette, state.seed, state.style]
   );
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const context = canvas.getContext("2d");
-    if (!context) return;
+    const context = canvas?.getContext("2d");
+    if (!canvas || !context) return;
 
-    const size = Number(state.size);
-    canvas.width = size;
-    canvas.height = size;
-    drawPixelAvatar(context, recipe, size);
-  }, [recipe, state.size]);
+    canvas.width = avatarExportSize;
+    canvas.height = avatarExportSize;
 
-  function syncUrl(nextState: PixelAvatarState) {
-    if (!shouldSyncUrl) return;
-    replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), nextState);
-  }
+    let cancelled = false;
+    const image = new Image();
+
+    image.onload = () => {
+      if (cancelled) return;
+
+      context.fillStyle = activePalette.background;
+      context.fillRect(0, 0, avatarExportSize, avatarExportSize);
+      context.drawImage(image, 0, 0, avatarExportSize, avatarExportSize);
+    };
+    image.src = dataUri;
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activePalette, dataUri]);
 
   function updateState(nextPartial: Partial<PixelAvatarState>) {
     const nextState = { ...state, ...nextPartial };
     setState(nextState);
-    syncUrl(nextState);
+
+    if (!shouldSyncUrl) return;
+    replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), nextState);
+  }
+
+  function shuffle() {
+    updateState({ seed: createSeed(10) });
+    trackEvent({ name: "pixel_avatar_shuffled" });
+  }
+
+  function download() {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    downloadCanvas(canvas, `quirkbox-avatar-${state.seed}-${state.style}.png`);
+    trackEvent({ name: "pixel_avatar_downloaded", metadata: { style: state.style } });
   }
 
   return (
-    <Tabs defaultValue="builder" className="flex flex-col gap-6">
-      <TabsList>
-        <TabsTrigger value="builder">{labels.tabBuilder}</TabsTrigger>
-        <TabsTrigger value="traits">{labels.tabTraits}</TabsTrigger>
-      </TabsList>
+    <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr] @2xl:grid-cols-[0.9fr_1.1fr]">
+      <div className="flex flex-col items-center gap-3">
+        <button
+          type="button"
+          onClick={shuffle}
+          aria-label={labels.shuffle}
+          className="w-full max-w-72 cursor-pointer rounded-[2rem] border border-border bg-card p-4 shadow-sm transition hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        >
+          <canvas
+            ref={canvasRef}
+            className="aspect-square w-full rounded-2xl border border-border bg-background"
+            aria-label={labels.preview}
+          />
+        </button>
+      </div>
 
-      <TabsContent value="builder" className="flex flex-col gap-6">
-        <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr] @2xl:grid-cols-[0.95fr_1.05fr]">
-          <Card>
-            <CardHeader>
-              <CardTitle>{labels.preview}</CardTitle>
-              <CardDescription>{labels.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col items-center gap-5">
-              <div className="w-full max-w-80 rounded-[2rem] border border-border bg-card p-4 shadow-sm">
-                <canvas
-                  ref={canvasRef}
-                  className="aspect-square w-full rounded-2xl border border-border bg-background [image-rendering:pixelated]"
-                  aria-label={labels.preview}
-                />
-              </div>
-              <div className="flex w-full flex-col gap-3 sm:flex-row">
-                <Button
-                  className="flex-1"
-                  onClick={() => {
-                    const nextState = { ...state, seed: createSeed(10) };
-                    updateState(nextState);
-                    trackEvent({ name: "pixel_avatar_randomized" });
-                  }}
-                >
-                  <ShuffleIcon data-icon="inline-start" />
-                  {labels.randomize}
-                </Button>
-                <Button
-                  variant="outline"
-                  className="flex-1"
-                  onClick={() => {
-                    if (!canvasRef.current) return;
-                    downloadCanvas(canvasRef.current, `quirkbox-avatar-${state.seed}.png`);
-                    trackEvent({ name: "pixel_avatar_downloaded", metadata: { size: state.size } });
-                  }}
-                >
-                  <DownloadIcon data-icon="inline-start" />
-                  {labels.download}
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>{labels.seed}</CardTitle>
-              <CardDescription>{labels.seedHint}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-6">
-              <FieldGroup>
-                <Field>
-                  <FieldLabel>{labels.seed}</FieldLabel>
-                  <Input value={state.seed} onChange={(event) => updateState({ seed: event.target.value })} />
-                </Field>
-                <Field>
-                  <FieldLabel>{labels.palette}</FieldLabel>
-                  <Select
-                    items={avatarPalettes.map((palette) => ({ value: palette.id, label: labels.palettes[palette.id] }))}
-                    value={state.palette}
-                    onValueChange={(value) => {
-                      if (!value) return;
-                      updateState({ palette: value });
-                    }}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder={labels.palette} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        {avatarPalettes.map((palette) => (
-                          <SelectItem key={palette.id} value={palette.id}>
-                            {labels.palettes[palette.id]}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </Field>
-                <Field>
-                  <FieldLabel>{labels.background}</FieldLabel>
-                  <Select
-                    items={avatarBackgrounds.map((background) => ({ value: background, label: labels.backgrounds[background] }))}
-                    value={state.background}
-                    onValueChange={(value) => {
-                      if (!value) return;
-                      updateState({ background: value });
-                    }}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder={labels.background} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        {avatarBackgrounds.map((background) => (
-                          <SelectItem key={background} value={background}>
-                            {labels.backgrounds[background]}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </Field>
-                <Field>
-                  <FieldLabel>{labels.size}</FieldLabel>
-                  <ToggleGroup
-                    variant="outline"
-                    value={[state.size]}
-                    onValueChange={(value) => {
-                      const nextValue = value[0];
-                      if (!nextValue) return;
-                      updateState({ size: nextValue });
-                    }}
-                  >
-                    {["128", "256", "512"].map((size) => (
-                      <ToggleGroupItem key={size} value={size}>
-                        {size}px
-                      </ToggleGroupItem>
-                    ))}
-                  </ToggleGroup>
-                  <FieldDescription>{labels.sizeHint}</FieldDescription>
-                </Field>
-              </FieldGroup>
-            </CardContent>
-          </Card>
+      <div className="flex flex-col gap-6">
+        <div className="flex gap-3">
+          <Button className="flex-1" onClick={shuffle}>
+            <ShuffleIcon data-icon="inline-start" />
+            {labels.shuffle}
+          </Button>
+          <Button variant="outline" className="flex-1" onClick={download}>
+            <DownloadIcon data-icon="inline-start" />
+            {labels.download}
+          </Button>
         </div>
-      </TabsContent>
 
-      <TabsContent value="traits">
-        <Card>
-          <CardHeader>
-            <CardTitle>{labels.traits}</CardTitle>
-            <CardDescription>{labels.traitsHint}</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-wrap gap-2">
-            <Badge variant="secondary">{labels.traitValues[recipe.hairStyle]}</Badge>
-            <Badge variant="secondary">{labels.traitValues[recipe.eyeStyle]}</Badge>
-            <Badge variant="secondary">{labels.traitValues[recipe.mouthStyle]}</Badge>
-            <Badge variant="secondary">{labels.traitValues[recipe.accessory]}</Badge>
-            <Badge variant="secondary">{labels.backgrounds[recipe.background]}</Badge>
-            <Badge variant="secondary">{labels.palettes[recipe.paletteId]}</Badge>
-          </CardContent>
-        </Card>
-      </TabsContent>
-    </Tabs>
+        <FieldGroup>
+          <Field>
+            <FieldLabel>{labels.style}</FieldLabel>
+            <ToggleGroup
+              className="w-full flex-wrap"
+              variant="outline"
+              value={[state.style]}
+              onValueChange={(value) => {
+                const nextValue = value[0];
+                if (!nextValue) return;
+                updateState({ style: nextValue });
+              }}
+            >
+              {avatarStyles.map((styleId) => (
+                <ToggleGroupItem key={styleId} value={styleId}>
+                  {labels.styles[styleId]}
+                </ToggleGroupItem>
+              ))}
+            </ToggleGroup>
+            <FieldDescription>{labels.styleHint}</FieldDescription>
+          </Field>
+
+          <Field>
+            <FieldLabel>{labels.palette}</FieldLabel>
+            <div className="flex flex-wrap gap-2">
+              {avatarPalettes.map((palette) => {
+                const active = palette.id === activePalette.id;
+
+                return (
+                  <button
+                    key={palette.id}
+                    type="button"
+                    aria-label={labels.palettes[palette.id]}
+                    aria-pressed={active}
+                    title={labels.palettes[palette.id]}
+                    onClick={() => updateState({ palette: palette.id })}
+                    style={{ backgroundColor: palette.swatch }}
+                    className={cn(
+                      "size-9 cursor-pointer rounded-full border-2 transition hover:scale-105 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+                      active ? "border-foreground" : "border-transparent"
+                    )}
+                  />
+                );
+              })}
+            </div>
+          </Field>
+
+          <Field>
+            <FieldLabel htmlFor="pixel-avatar-seed">{labels.seed}</FieldLabel>
+            <Input
+              id="pixel-avatar-seed"
+              value={state.seed}
+              onChange={(event) => updateState({ seed: event.target.value })}
+            />
+            <FieldDescription>{labels.seedHint}</FieldDescription>
+          </Field>
+        </FieldGroup>
+      </div>
+    </div>
   );
 }

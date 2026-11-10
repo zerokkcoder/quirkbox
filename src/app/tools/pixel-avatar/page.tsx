@@ -1,5 +1,6 @@
 import { connection } from "next/server";
 import { PixelAvatarPage } from "@/components/sections/pixel-avatar-page";
+import { defaultAvatarStyle, normalizeAvatarStyle } from "@/features/pixel-avatar/lib/generate-avatar";
 import { getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
 import { createSeed } from "@/features/pixel-avatar/lib/seeds";
 import { getMessages } from "@/lib/i18n";
@@ -34,11 +35,9 @@ export default async function Page({
           typeof resolvedSearchParams.palette === "string"
             ? getAvatarPalette(resolvedSearchParams.palette).id
             : getAvatarPalette().id,
-        background:
-          typeof resolvedSearchParams.background === "string"
-            ? resolvedSearchParams.background
-            : "grid",
-        size: typeof resolvedSearchParams.size === "string" ? resolvedSearchParams.size : "256",
+        style: normalizeAvatarStyle(
+          typeof resolvedSearchParams.style === "string" ? resolvedSearchParams.style : defaultAvatarStyle
+        ),
       }}
     />
   );

@@ -1,19 +1,12 @@
 {
   "site": {
-    "name": "QuirkBox",
     "title": "QuirkBox - Random Name Generator, Pixel Avatar Maker & More Fun Tools",
     "description": "A playful collection of tiny tools with a random foreign name generator, a pixel avatar maker, and room for more experiments."
   },
   "nav": {
-    "home": "Home",
     "tools": "Tools",
     "about": "About",
     "language": "Language"
-  },
-  "common": {
-    "openTool": "Open tool",
-    "shareable": "Shareable",
-    "browserOnly": "Browser-only"
   },
   "desktop": {
     "label": "QuirkBox desktop",
@@ -24,20 +17,16 @@
     "close": "Close"
   },
   "home": {
-    "title": "Random names and pixel avatars, generated in your browser.",
-    "primaryCta": "Open the tools",
-    "secondaryCta": "About"
+    "title": "Random names and pixel avatars, generated in your browser."
   },
   "tools": {
     "title": "Tool collection",
     "description": "Tiny browser-based generators for random names and pixel avatars.",
     "randomName": {
-      "title": "Random Name Generator",
-      "description": "Generate a full name with a surname in 14 languages, spoken aloud by your browser."
+      "title": "Random Name Generator"
     },
     "pixelAvatar": {
-      "title": "Pixel Avatar Maker",
-      "description": "Create a deterministic pixel face from a seed and export it instantly."
+      "title": "Pixel Avatar Maker"
     }
   },
   "about": {
@@ -76,43 +65,28 @@
   },
   "pixelAvatar": {
     "title": "Pixel Avatar Maker",
-    "description": "Generate a retro-inspired avatar from a shareable seed, tweak the palette, and export PNG right in the browser.",
+    "description": "Pick a pixel-art style, then grow a one-of-a-kind avatar from a shareable seed and export it as a PNG.",
     "palette": "Palette",
-    "background": "Background",
-    "size": "Export size",
-    "randomize": "Randomize seed",
-    "download": "Download PNG",
+    "style": "Style",
+    "styleHint": "Each style has its own pixel density and level of detail.",
     "seed": "Seed",
-    "traits": "Generated traits",
-    "preview": "Avatar preview",
-    "tabBuilder": "Builder",
-    "tabTraits": "Traits",
     "seedHint": "Keep the same seed to recreate the exact same avatar.",
-    "sizeHint": "Export size changes the PNG resolution without changing the recipe.",
-    "traitsHint": "Same seed, same recipe. Change the seed to get a whole new face.",
+    "shuffle": "Shuffle",
+    "download": "Download PNG",
+    "preview": "Avatar preview",
+    "styles": {
+      "pixel-art": "Pixel art",
+      "pixelbot": "Pixelbot",
+      "voxel-art": "Voxel",
+      "identicon": "Identicon"
+    },
     "palettes": {
       "cobalt": "Cobalt",
       "mint": "Mint",
       "sunset": "Sunset",
-      "midnight": "Midnight"
-    },
-    "backgrounds": {
-      "grid": "Grid",
-      "halo": "Halo",
-      "plain": "Plain"
-    },
-    "traitValues": {
-      "flat": "Flat",
-      "spike": "Spiky",
-      "cap": "Capped",
-      "dot": "Dot eyes",
-      "wide": "Wide eyes",
-      "sleepy": "Sleepy eyes",
-      "smile": "Smile",
-      "surprised": "Surprised",
-      "none": "No accessory",
-      "earring": "Earring",
-      "patch": "Eye patch"
+      "midnight": "Midnight",
+      "rose": "Rose",
+      "grape": "Grape"
     }
   }
 }

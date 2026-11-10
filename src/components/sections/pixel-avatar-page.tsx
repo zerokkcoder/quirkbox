@@ -14,9 +14,8 @@ export function PixelAvatarPage({
   messages: Messages;
   initialState: {
     seed: string;
+    style: string;
     palette: string;
-    background: string;
-    size: string;
   };
 }) {
   return (
