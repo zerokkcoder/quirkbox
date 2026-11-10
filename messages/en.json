@@ -1,0 +1,102 @@
+{
+  "site": {
+    "name": "QuirkBox",
+    "title": "QuirkBox - Random Name Generator, Pixel Avatar Maker & More Fun Tools",
+    "description": "A playful collection of tiny tools with a random foreign name generator, a pixel avatar maker, and room for more experiments."
+  },
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "about": "About",
+    "language": "Language"
+  },
+  "common": {
+    "openTool": "Open tool",
+    "browseTools": "Browse tools",
+    "learnMore": "Learn more",
+    "shareable": "Shareable",
+    "browserOnly": "Browser-only",
+    "beta": "Beta"
+  },
+  "home": {
+    "eyebrow": "Fun generator playground",
+    "title": "QuirkBox turns tiny weird ideas into tools people actually want to share.",
+    "description": "Start with a foreign name generator and a pixel avatar maker, then keep expanding the box with delightful, low-friction experiments.",
+    "primaryCta": "Explore tools",
+    "secondaryCta": "Read about QuirkBox",
+    "stats": [
+      {
+        "label": "Launch tools",
+        "value": "2"
+      },
+      {
+        "label": "Languages",
+        "value": "EN + 繁中"
+      },
+      {
+        "label": "Cost profile",
+        "value": "No AI calls"
+      }
+    ],
+    "featuredTitle": "Featured tools",
+    "featuredDescription": "Each tool ships as a dedicated, indexable page with its own SEO and sharing surface.",
+    "faqTitle": "Why this kind of site works",
+    "faqDescription": "QuirkBox is designed like a playful content-led toolbox, not just a pile of widgets."
+  },
+  "tools": {
+    "title": "Tool collection",
+    "description": "Start with two launch tools and keep the structure ready for future mini-apps.",
+    "randomName": {
+      "title": "Random Name Generator",
+      "description": "Generate a fitting foreign name with culture, vibe, and gender preferences."
+    },
+    "pixelAvatar": {
+      "title": "Pixel Avatar Maker",
+      "description": "Create a deterministic pixel face from a seed and export it instantly."
+    }
+  },
+  "about": {
+    "title": "About QuirkBox",
+    "description": "QuirkBox is a small playground for playful, useful generators that feel quick to try and easy to share.",
+    "principlesTitle": "Product principles"
+  },
+  "randomName": {
+    "title": "Random Name Generator",
+    "description": "Generate a foreign-style name with a clear vibe, matching pronunciation hints, and optional meaning.",
+    "note": "Rule-based generation keeps results consistent, fast, and inexpensive.",
+    "culture": "Target culture",
+    "gender": "Name leaning",
+    "vibe": "Vibe",
+    "meaning": "Include meaning",
+    "generate": "Generate another",
+    "seed": "Seed",
+    "result": "Suggested name",
+    "whyItFits": "Why it fits",
+    "pronunciation": "Pronunciation",
+    "meaningLabel": "Meaning",
+    "formal": "Formal",
+    "playful": "Playful",
+    "bold": "Bold",
+    "soft": "Soft",
+    "feminine": "Feminine",
+    "masculine": "Masculine",
+    "neutral": "Neutral",
+    "any": "Any"
+  },
+  "pixelAvatar": {
+    "title": "Pixel Avatar Maker",
+    "description": "Generate a retro-inspired avatar from a shareable seed, tweak the palette, and export PNG right in the browser.",
+    "note": "The same seed always recreates the same avatar.",
+    "palette": "Palette",
+    "background": "Background",
+    "size": "Export size",
+    "randomize": "Randomize seed",
+    "download": "Download PNG",
+    "seed": "Seed",
+    "traits": "Generated traits",
+    "preview": "Avatar preview"
+  },
+  "footer": {
+    "tagline": "Playful generator tools built for quick sharing and future expansion."
+  }
+}

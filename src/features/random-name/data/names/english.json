@@ -1,0 +1,6 @@
+[
+  { "name": "Claire", "gender": "feminine", "vibes": ["formal", "soft"], "meaning": "bright and clear", "pronunciation": "KLAIR" },
+  { "name": "Elliot", "gender": "neutral", "vibes": ["formal", "soft"], "meaning": "the Lord is my God", "pronunciation": "EL-ee-uht" },
+  { "name": "Rowan", "gender": "neutral", "vibes": ["playful", "soft"], "meaning": "little red one", "pronunciation": "ROH-uhn" },
+  { "name": "Jasper", "gender": "masculine", "vibes": ["bold", "playful"], "meaning": "treasurer", "pronunciation": "JAS-per" }
+]

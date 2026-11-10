@@ -1,0 +1,37 @@
+import { ImageResponse } from "next/og";
+
+export const size = {
+  width: 1200,
+  height: 630,
+};
+
+export const contentType = "image/png";
+
+export default function OpenGraphImage() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          display: "flex",
+          height: "100%",
+          width: "100%",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          background: "linear-gradient(135deg, #ecfeff 0%, #ffffff 52%, #fef3c7 100%)",
+          padding: "64px",
+          color: "#134e4a",
+        }}
+      >
+        <div style={{ fontSize: 28 }}>QuirkBox</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+          <div style={{ fontSize: 76, fontWeight: 700 }}>Pixel Avatar Maker</div>
+          <div style={{ fontSize: 32, opacity: 0.85, maxWidth: "820px" }}>
+            Deterministic pixel portraits, palette controls, and one-click PNG export.
+          </div>
+        </div>
+        <div style={{ fontSize: 28, opacity: 0.75 }}>Browser-only generation with shareable seeds.</div>
+      </div>
+    ),
+    size
+  );
+}

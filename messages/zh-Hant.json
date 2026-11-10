@@ -1,0 +1,102 @@
+{
+  "site": {
+    "name": "QuirkBox",
+    "title": "QuirkBox - 隨機名字產生器、像素頭像產生器與更多有趣工具",
+    "description": "一個偏好英文主站的趣味工具集合，首波提供外國名字產生器與像素風頭像產生器。"
+  },
+  "nav": {
+    "home": "首頁",
+    "tools": "工具",
+    "about": "關於",
+    "language": "語言"
+  },
+  "common": {
+    "openTool": "打開工具",
+    "browseTools": "瀏覽工具",
+    "learnMore": "了解更多",
+    "shareable": "可分享",
+    "browserOnly": "瀏覽器生成",
+    "beta": "測試版"
+  },
+  "home": {
+    "eyebrow": "有趣的生成工具盒",
+    "title": "QuirkBox 把奇怪但好玩的想法，做成大家真的願意分享的小工具。",
+    "description": "先從外國名字產生器與像素頭像產生器開始，之後再把更多輕量、有趣、低摩擦的工具放進這個盒子裡。",
+    "primaryCta": "查看工具",
+    "secondaryCta": "認識 QuirkBox",
+    "stats": [
+      {
+        "label": "首發工具",
+        "value": "2"
+      },
+      {
+        "label": "支援語言",
+        "value": "EN + 繁中"
+      },
+      {
+        "label": "成本模型",
+        "value": "無 AI 呼叫"
+      }
+    ],
+    "featuredTitle": "精選工具",
+    "featuredDescription": "每個工具都會有獨立頁面、SEO 文案與分享入口，方便持續擴充。",
+    "faqTitle": "這類站點為什麼值得做",
+    "faqDescription": "QuirkBox 不是單純堆功能，而是把內容包裝、分享體驗與長尾搜尋一起設計進去。"
+  },
+  "tools": {
+    "title": "工具集合",
+    "description": "先做好兩個首發工具，並保留之後擴展更多迷你工具的骨架。",
+    "randomName": {
+      "title": "隨機名字產生器",
+      "description": "依照文化、風格與性別傾向，生成更貼近情境的外國名字。"
+    },
+    "pixelAvatar": {
+      "title": "像素頭像產生器",
+      "description": "使用 seed 穩定生成像素風頭像，並立即匯出 PNG。"
+    }
+  },
+  "about": {
+    "title": "關於 QuirkBox",
+    "description": "QuirkBox 是一個偏向內容包裝的趣味工具集合，目標是讓小工具既好玩、又好分享、也能長期擴充。",
+    "principlesTitle": "產品原則"
+  },
+  "randomName": {
+    "title": "隨機名字產生器",
+    "description": "依據文化、風格與發音感受，快速生成帶有解釋的外國名字。",
+    "note": "規則式生成讓結果更穩定、速度更快，也更容易控制品質。",
+    "culture": "目標文化",
+    "gender": "名字傾向",
+    "vibe": "風格",
+    "meaning": "顯示含義",
+    "generate": "再產生一次",
+    "seed": "Seed",
+    "result": "建議名字",
+    "whyItFits": "推薦原因",
+    "pronunciation": "發音提示",
+    "meaningLabel": "含義",
+    "formal": "正式",
+    "playful": "活潑",
+    "bold": "鮮明",
+    "soft": "柔和",
+    "feminine": "偏女性",
+    "masculine": "偏男性",
+    "neutral": "中性",
+    "any": "不限"
+  },
+  "pixelAvatar": {
+    "title": "像素頭像產生器",
+    "description": "用可分享的 seed 生成復古像素頭像，調整配色後可直接下載 PNG。",
+    "note": "相同 seed 一定會還原成相同頭像。",
+    "palette": "配色",
+    "background": "背景",
+    "size": "匯出尺寸",
+    "randomize": "隨機 seed",
+    "download": "下載 PNG",
+    "seed": "Seed",
+    "traits": "生成特徵",
+    "preview": "頭像預覽"
+  },
+  "footer": {
+    "tagline": "一組好玩、能分享、也適合繼續擴充的生成工具。"
+  }
+}

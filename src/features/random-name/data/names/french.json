@@ -1,0 +1,6 @@
+[
+  { "name": "Camille", "gender": "neutral", "vibes": ["formal", "soft"], "meaning": "young ceremonial attendant", "pronunciation": "ka-MEE" },
+  { "name": "Amelie", "gender": "feminine", "vibes": ["playful", "soft"], "meaning": "hardworking", "pronunciation": "a-meh-LEE" },
+  { "name": "Lucien", "gender": "masculine", "vibes": ["formal", "bold"], "meaning": "light", "pronunciation": "loo-SYEN" },
+  { "name": "Noe", "gender": "neutral", "vibes": ["playful", "bold"], "meaning": "rest and comfort", "pronunciation": "noh-AY" }
+]
