@@ -15,6 +15,14 @@
     "shareable": "Shareable",
     "browserOnly": "Browser-only"
   },
+  "desktop": {
+    "label": "QuirkBox desktop",
+    "dock": "Dock",
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "restore": "Restore",
+    "close": "Close"
+  },
   "home": {
     "title": "Random names and pixel avatars, generated in your browser.",
     "primaryCta": "Open the tools",

@@ -53,10 +53,12 @@ export function RandomNameTool({
   labels,
   initialFilters,
   initialResult,
+  syncUrl = true,
 }: {
   labels: Messages["randomName"];
   initialFilters: NameFilters;
   initialResult: NameSuggestion;
+  syncUrl?: boolean;
 }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -89,10 +91,12 @@ export function RandomNameTool({
   async function requestSuggestion(nextFilters: NameFilters) {
     setIsLoading(true);
     setFilters(nextFilters);
-    replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), {
-      culture: nextFilters.culture,
-      gender: nextFilters.gender,
-    });
+    if (syncUrl) {
+      replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), {
+        culture: nextFilters.culture,
+        gender: nextFilters.gender,
+      });
+    }
 
     try {
       const response = await fetch(`/api/random-name?${toApiQuery(nextFilters).toString()}`);

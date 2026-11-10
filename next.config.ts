@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  // The dev server blocks its dev-only resources (HMR, hydration payload) for any origin it
+  // does not recognise. Playwright drives the app from 127.0.0.1, which would otherwise arrive
+  // as a cross-origin request and leave every page un-hydrated.
+  allowedDevOrigins: ["127.0.0.1"],
   async headers() {
     // The pronunciation fallback loads audio straight from translate.google.com, which
     // rejects any request that carries a Referer. Keep same-origin referrers intact.

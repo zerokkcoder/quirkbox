@@ -15,6 +15,14 @@
     "shareable": "可分享",
     "browserOnly": "瀏覽器生成"
   },
+  "desktop": {
+    "label": "QuirkBox 桌面",
+    "dock": "Dock",
+    "minimize": "縮到最小",
+    "maximize": "放到最大",
+    "restore": "還原",
+    "close": "關閉"
+  },
   "home": {
     "title": "隨機名字與像素頭像，直接在瀏覽器裡生成。",
     "primaryCta": "打開工具",

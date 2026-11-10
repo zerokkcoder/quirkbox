@@ -29,9 +29,11 @@ type PixelAvatarState = {
 export function PixelAvatarTool({
   labels,
   initialState,
+  syncUrl: shouldSyncUrl = true,
 }: {
   labels: Messages["pixelAvatar"];
   initialState: PixelAvatarState;
+  syncUrl?: boolean;
 }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -56,6 +58,7 @@ export function PixelAvatarTool({
   }, [recipe, state.size]);
 
   function syncUrl(nextState: PixelAvatarState) {
+    if (!shouldSyncUrl) return;
     replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), nextState);
   }
 

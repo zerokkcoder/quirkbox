@@ -170,6 +170,24 @@
     );
   }
 
+  /* Desktop wallpaper: one deep saturated wash so the frosted chrome above it stays legible. */
+  .desktop-wallpaper {
+    background-color: oklch(0.26 0.06 282);
+    background-image:
+      radial-gradient(64rem 40rem at 14% 4%, oklch(0.52 0.19 262 / 62%), transparent 62%),
+      radial-gradient(52rem 36rem at 86% 10%, oklch(0.54 0.17 318 / 52%), transparent 64%),
+      radial-gradient(76rem 48rem at 62% 108%, oklch(0.46 0.13 214 / 55%), transparent 66%),
+      linear-gradient(158deg, oklch(0.3 0.075 274), oklch(0.17 0.045 298));
+  }
+
+  /* Icon captions sit straight on the wallpaper, so they carry their own contrast.
+     Use --foreground, not --color-foreground: the latter is resolved once on :root and
+     would keep the light theme's near-black text under the desktop's .dark scope. */
+  .desktop-icon-label {
+    color: var(--foreground);
+    text-shadow: 0 1px 3px oklch(0 0 0 / 55%);
+  }
+
   /* Entrance: direct children rise in sequence, once, on first paint. */
   .stagger > * {
     animation: quirk-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
