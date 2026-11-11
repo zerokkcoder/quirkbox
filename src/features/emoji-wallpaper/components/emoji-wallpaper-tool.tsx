@@ -180,7 +180,7 @@ export function EmojiWallpaperTool({
     <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr] @2xl:grid-cols-[0.9fr_1.1fr]">
       {/* `self-start` is what gives the preview room to move inside its grid area — a stretched
           grid item is as tall as the controls column, so sticky would have nowhere to travel. */}
-      <div className="flex flex-col items-center gap-3 xl:sticky xl:top-[var(--tool-sticky-top,1rem)] xl:self-start @2xl:sticky @2xl:top-[var(--tool-sticky-top,1rem)] @2xl:self-start">
+      <div className="flex flex-col items-center gap-3 xl:sticky xl:top-(--tool-sticky-top,1rem) xl:self-start @2xl:sticky @2xl:top-(--tool-sticky-top,1rem) @2xl:self-start">
         <canvas
           ref={canvasRef}
           style={{ aspectRatio: `${previewWidth} / ${previewHeight}` }}
@@ -312,7 +312,7 @@ export function EmojiWallpaperTool({
               </span>
               <ChevronDownIcon
                 data-icon="inline-end"
-                className="transition-transform group-data-[panel-open]/collapsible-trigger:rotate-180"
+                className="transition-transform group-data-panel-open/collapsible-trigger:rotate-180"
               />
             </CollapsibleTrigger>
             <CollapsiblePanel>
