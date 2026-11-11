@@ -220,7 +220,7 @@ export function RandomNameTool({
               isLoading && "opacity-50"
             )}
           >
-            <p className="min-w-0 break-words text-4xl font-semibold tracking-tight">{result.fullName}</p>
+            <p className="min-w-0 wrap-break-word text-4xl font-semibold tracking-tight">{result.fullName}</p>
             <Button
               variant="outline"
               size="icon"

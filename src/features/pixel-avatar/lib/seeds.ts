@@ -14,15 +14,3 @@ export function hashSeed(seed: string) {
 
   return hash >>> 0;
 }
-
-export function createSeededRandom(seed: string) {
-  let value = hashSeed(seed) || 1;
-
-  return () => {
-    value ^= value << 13;
-    value ^= value >>> 17;
-    value ^= value << 5;
-
-    return ((value >>> 0) % 10_000) / 10_000;
-  };
-}
