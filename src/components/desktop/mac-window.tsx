@@ -113,8 +113,9 @@ export function MacWindow({
 
         {/* The body is its own query container: tool layouts must respond to the window's width,
             not the viewport's, otherwise a narrow window falls back to a stacked layout and
-            overflows into a scrollbar. */}
-        <div className="window-scroll @container min-h-0 flex-1 overflow-auto bg-background p-3 sm:p-4">
+            overflows into a scrollbar. The title bar sits outside this scrollport, so sticky
+            tool previews only need a small inset. */}
+        <div className="window-scroll @container min-h-0 flex-1 overflow-auto bg-background p-3 sm:p-4 [--tool-sticky-top:0.75rem]">
           {children}
         </div>
       </div>

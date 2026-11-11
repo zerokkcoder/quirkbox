@@ -8,6 +8,7 @@ test("home page renders the desktop shell", async ({ page }) => {
   await expect(page.getByRole("toolbar", { name: "Dock" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Random Name Generator" })).toHaveCount(2);
   await expect(page.getByRole("button", { name: "Pixel Avatar Maker" })).toHaveCount(2);
+  await expect(page.getByRole("button", { name: "Emoji Wallpaper Maker" })).toHaveCount(2);
 });
 
 test("tool windows open, drag, minimize, maximize and close", async ({ page }) => {

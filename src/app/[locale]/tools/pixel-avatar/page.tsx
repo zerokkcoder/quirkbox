@@ -3,7 +3,7 @@ import { connection } from "next/server";
 import { PixelAvatarPage } from "@/components/sections/pixel-avatar-page";
 import { defaultAvatarStyle, normalizeAvatarStyle } from "@/features/pixel-avatar/lib/generate-avatar";
 import { getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
-import { createSeed } from "@/features/pixel-avatar/lib/seeds";
+import { createSeed } from "@/lib/seeds";
 import { prefixedLocaleParams } from "@/i18n/routing";
 import { assertPrefixedLocale, getMessages } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";

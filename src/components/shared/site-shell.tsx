@@ -20,7 +20,8 @@ export function SiteShell({
     <LocaleProvider locale={locale} messages={messages}>
       <div className="mesh-surface flex min-h-screen flex-col">
         <SiteHeader locale={locale} messages={messages} pathname={pathname} />
-        <main className="page-shell py-10 sm:py-14">{children}</main>
+        {/* The sticky header is 4rem tall, so sticky tool previews dock just below it. */}
+        <main className="page-shell py-10 sm:py-14 [--tool-sticky-top:5rem]">{children}</main>
         <SiteFooter locale={locale} messages={messages} />
       </div>
     </LocaleProvider>

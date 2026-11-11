@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { trackEvent } from "@/lib/analytics";
 import { replaceSearchState } from "@/lib/url-state";
-import { createSeed } from "@/features/pixel-avatar/lib/seeds";
+import { createSeed } from "@/lib/seeds";
 import { cultures, nameGenders, type NameFilters, type NameSuggestion } from "@/features/random-name/lib/types";
 import type { Messages } from "@/lib/i18n";
 

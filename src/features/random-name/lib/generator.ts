@@ -12,7 +12,7 @@ import { faker as fakerTH } from "@faker-js/faker/locale/th";
 import { faker as fakerVI } from "@faker-js/faker/locale/vi";
 import { faker as fakerZH_CN } from "@faker-js/faker/locale/zh_CN";
 import { faker as fakerZH_TW } from "@faker-js/faker/locale/zh_TW";
-import { createSeed, hashSeed } from "@/features/pixel-avatar/lib/seeds";
+import { createSeed, hashSeed } from "@/lib/seeds";
 import { normalizeNameFilters } from "@/features/random-name/lib/rules";
 import type {
   Culture,

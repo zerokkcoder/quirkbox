@@ -15,7 +15,7 @@ import {
   generateAvatarDataUri,
 } from "@/features/pixel-avatar/lib/generate-avatar";
 import { avatarPalettes, getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
-import { createSeed } from "@/features/pixel-avatar/lib/seeds";
+import { createSeed } from "@/lib/seeds";
 import { trackEvent } from "@/lib/analytics";
 import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";

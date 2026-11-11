@@ -27,6 +27,9 @@
     },
     "pixelAvatar": {
       "title": "像素頭像產生器"
+    },
+    "emojiWallpaper": {
+      "title": "Emoji 手機壁紙產生器"
     }
   },
   "about": {
@@ -88,5 +91,76 @@
       "rose": "玫瑰",
       "grape": "葡萄"
     }
+  },
+  "emojiWallpaper": {
+    "title": "Emoji 手機壁紙產生器",
+    "description": "把一組 emoji 鋪成一張手機壁紙，自選 emoji、排列方式與畫面比例，再以 4K 匯出。",
+    "theme": "Emoji 組合",
+    "themeHint": "每個組合是一組同主題的 emoji，用來鋪滿畫面。",
+    "themes": {
+      "space": "太空",
+      "nature": "自然",
+      "animals": "動物",
+      "food": "食物",
+      "hearts": "愛心",
+      "symbols": "符號"
+    },
+    "emoji": "自訂 emoji",
+    "emojiHint": "挑選自己的 emoji 會覆蓋上方組合，最多 12 個；留空則使用上方組合。",
+    "emojiBrowse": "瀏覽 emoji",
+    "emojiReset": "清除",
+    "emojiUsingPreset": "目前使用上方組合。",
+    "emojiPlaceholder": "搜尋 emoji",
+    "emojiLoading": "載入 emoji…",
+    "emojiEmpty": "找不到 emoji。",
+    "pattern": "排列方式",
+    "patternHint": "emoji 在畫面上的鋪排方式。",
+    "patterns": {
+      "grid": "整齊網格",
+      "brick": "交錯磚塊",
+      "wave": "波浪",
+      "scatter": "隨機散布"
+    },
+    "ratio": "畫面比例",
+    "ratioHint": "每個比例的短邊都以 4K 以上匯出。",
+    "ratios": {
+      "9:16": "9:16",
+      "9:19.5": "9:19.5",
+      "9:20": "9:20",
+      "16:9": "16:9 橫版"
+    },
+    "advanced": "進階選項",
+    "columns": "每行個數",
+    "columnsHint": "每行放幾個 emoji。數量越少，emoji 越大。",
+    "columnOptions": {
+      "4": "4",
+      "6": "6",
+      "8": "8"
+    },
+    "palette": "底色",
+    "palettes": {
+      "cobalt": "鈷藍",
+      "mint": "薄荷",
+      "sunset": "日落",
+      "midnight": "午夜",
+      "rose": "玫瑰",
+      "grape": "葡萄"
+    },
+    "tone": "Emoji 著色",
+    "tones": {
+      "colorful": "彩色",
+      "mono": "單色"
+    },
+    "format": "檔案格式",
+    "formats": {
+      "png": "PNG",
+      "jpg": "JPG"
+    },
+    "seed": "Seed",
+    "seedHint": "保持同一個 seed，就能重建完全相同的壁紙。",
+    "shuffle": "換一個",
+    "download": "下載",
+    "rendering": "產生中…",
+    "preview": "壁紙預覽"
   }
 }

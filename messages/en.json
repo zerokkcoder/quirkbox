@@ -27,6 +27,9 @@
     },
     "pixelAvatar": {
       "title": "Pixel Avatar Maker"
+    },
+    "emojiWallpaper": {
+      "title": "Emoji Wallpaper Maker"
     }
   },
   "about": {
@@ -88,5 +91,76 @@
       "rose": "Rose",
       "grape": "Grape"
     }
+  },
+  "emojiWallpaper": {
+    "title": "Emoji Wallpaper Maker",
+    "description": "Tile a set of emoji into a phone wallpaper, pick the emoji, the arrangement and the aspect ratio, then export it at 4K.",
+    "theme": "Emoji set",
+    "themeHint": "Each set is a themed pile of emoji to tile with.",
+    "themes": {
+      "space": "Space",
+      "nature": "Nature",
+      "animals": "Animals",
+      "food": "Food",
+      "hearts": "Hearts",
+      "symbols": "Symbols"
+    },
+    "emoji": "Custom emoji",
+    "emojiHint": "Pick your own emoji to override the set. Up to 12; leave empty to use the set above.",
+    "emojiBrowse": "Browse emoji",
+    "emojiReset": "Clear",
+    "emojiUsingPreset": "Using the set above.",
+    "emojiPlaceholder": "Search emoji",
+    "emojiLoading": "Loading emoji…",
+    "emojiEmpty": "No emoji found.",
+    "pattern": "Arrangement",
+    "patternHint": "How the emoji are laid out across the canvas.",
+    "patterns": {
+      "grid": "Grid",
+      "brick": "Brick",
+      "wave": "Wave",
+      "scatter": "Scatter"
+    },
+    "ratio": "Aspect ratio",
+    "ratioHint": "Every ratio exports at 4K or larger on the short edge.",
+    "ratios": {
+      "9:16": "9:16",
+      "9:19.5": "9:19.5",
+      "9:20": "9:20",
+      "16:9": "16:9 landscape"
+    },
+    "advanced": "Advanced options",
+    "columns": "Per row",
+    "columnsHint": "How many emoji fit across. Fewer means bigger emoji.",
+    "columnOptions": {
+      "4": "4",
+      "6": "6",
+      "8": "8"
+    },
+    "palette": "Background",
+    "palettes": {
+      "cobalt": "Cobalt",
+      "mint": "Mint",
+      "sunset": "Sunset",
+      "midnight": "Midnight",
+      "rose": "Rose",
+      "grape": "Grape"
+    },
+    "tone": "Emoji color",
+    "tones": {
+      "colorful": "Colorful",
+      "mono": "Single color"
+    },
+    "format": "File format",
+    "formats": {
+      "png": "PNG",
+      "jpg": "JPG"
+    },
+    "seed": "Seed",
+    "seedHint": "Keep the same seed to recreate the exact same wallpaper.",
+    "shuffle": "Shuffle",
+    "download": "Download",
+    "rendering": "Rendering...",
+    "preview": "Wallpaper preview"
   }
 }

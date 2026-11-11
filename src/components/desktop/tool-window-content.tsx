@@ -2,16 +2,30 @@
 
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  EmojiWallpaperTool,
+  type EmojiWallpaperState,
+} from "@/features/emoji-wallpaper/components/emoji-wallpaper-tool";
+import { defaultEmojiTheme } from "@/features/emoji-wallpaper/lib/emoji-sets";
+import { defaultWallpaperPaletteId } from "@/features/emoji-wallpaper/lib/palettes";
+import {
+  defaultEmojiColumns,
+  defaultEmojiFormat,
+  defaultEmojiPattern,
+  defaultEmojiTone,
+} from "@/features/emoji-wallpaper/lib/patterns";
+import { defaultWallpaperRatio } from "@/features/emoji-wallpaper/lib/ratios";
 import { PixelAvatarTool } from "@/features/pixel-avatar/components/pixel-avatar-tool";
 import { RandomNameTool } from "@/features/random-name/components/random-name-tool";
 import { defaultAvatarStyle } from "@/features/pixel-avatar/lib/generate-avatar";
 import { getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
-import { createSeed } from "@/features/pixel-avatar/lib/seeds";
+import { createSeed } from "@/lib/seeds";
 import { normalizeNameFilters } from "@/features/random-name/lib/rules";
 import type { NameFilters, NameSuggestion } from "@/features/random-name/lib/types";
+import type { Locale } from "@/config/site";
 import type { Messages } from "@/lib/i18n";
 
-export type DesktopToolId = "random-name" | "pixel-avatar";
+export type DesktopToolId = "random-name" | "pixel-avatar" | "emoji-wallpaper";
 
 function WindowPlaceholder() {
   return (
@@ -85,9 +99,37 @@ function PixelAvatarWindow({ labels }: { labels: Messages["pixelAvatar"] }) {
   return <PixelAvatarTool labels={labels} initialState={initialState} syncUrl={false} />;
 }
 
-export function ToolWindowContent({ toolId, messages }: { toolId: DesktopToolId; messages: Messages }) {
+function EmojiWallpaperWindow({ locale, labels }: { locale: Locale; labels: Messages["emojiWallpaper"] }) {
+  const [initialState] = useState<EmojiWallpaperState>(() => ({
+    seed: createSeed(10),
+    theme: defaultEmojiTheme,
+    emoji: "",
+    pattern: defaultEmojiPattern,
+    ratio: defaultWallpaperRatio,
+    columns: defaultEmojiColumns,
+    palette: defaultWallpaperPaletteId,
+    tone: defaultEmojiTone,
+    format: defaultEmojiFormat,
+  }));
+
+  return <EmojiWallpaperTool locale={locale} labels={labels} initialState={initialState} syncUrl={false} />;
+}
+
+export function ToolWindowContent({
+  toolId,
+  locale,
+  messages,
+}: {
+  toolId: DesktopToolId;
+  locale: Locale;
+  messages: Messages;
+}) {
   if (toolId === "random-name") {
     return <RandomNameWindow labels={messages.randomName} />;
+  }
+
+  if (toolId === "emoji-wallpaper") {
+    return <EmojiWallpaperWindow locale={locale} labels={messages.emojiWallpaper} />;
   }
 
   return <PixelAvatarWindow labels={messages.pixelAvatar} />;

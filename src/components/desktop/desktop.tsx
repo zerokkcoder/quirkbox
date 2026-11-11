@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ComponentType } from "react";
 import Link from "next/link";
-import { DicesIcon, Grid2x2Icon, LayoutGridIcon, SparklesIcon } from "lucide-react";
+import { DicesIcon, Grid2x2Icon, LayoutGridIcon, SmileIcon, SparklesIcon } from "lucide-react";
 import { MacWindow, type MacWindowBounds } from "@/components/desktop/mac-window";
 import { ToolWindowContent, type DesktopToolId } from "@/components/desktop/tool-window-content";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
@@ -20,6 +20,7 @@ type DesktopApp = {
 const desktopApps: DesktopApp[] = [
   { id: "random-name", icon: DicesIcon, accent: "from-chart-1 to-chart-4" },
   { id: "pixel-avatar", icon: Grid2x2Icon, accent: "from-chart-3 to-chart-2" },
+  { id: "emoji-wallpaper", icon: SmileIcon, accent: "from-chart-5 to-chart-1" },
 ];
 
 const appTile = "flex items-center justify-center bg-gradient-to-br shadow-lg ring-1 ring-black/20 transition duration-300";
@@ -52,8 +53,14 @@ export function Desktop({ locale, messages }: { locale: Locale; messages: Messag
     return () => window.clearInterval(timer);
   }, [locale]);
 
+  const toolNames: Record<DesktopToolId, string> = {
+    "random-name": messages.tools.randomName.title,
+    "pixel-avatar": messages.tools.pixelAvatar.title,
+    "emoji-wallpaper": messages.tools.emojiWallpaper.title,
+  };
+
   function toolName(toolId: DesktopToolId) {
-    return toolId === "random-name" ? messages.tools.randomName.title : messages.tools.pixelAvatar.title;
+    return toolNames[toolId];
   }
 
   function defaultBounds(index: number): MacWindowBounds {
@@ -191,7 +198,7 @@ export function Desktop({ locale, messages }: { locale: Locale; messages: Messag
               onToggleMaximize={() => toggleMaximizeWindow(item.id)}
               onClose={() => closeWindow(item.id)}
             >
-              <ToolWindowContent toolId={item.id} messages={messages} />
+              <ToolWindowContent toolId={item.id} locale={locale} messages={messages} />
             </MacWindow>
           );
         })}
