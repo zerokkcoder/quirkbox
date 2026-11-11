@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { cn } from "cn";
 import { ChevronDownIcon, DownloadIcon, ShuffleIcon, SlidersHorizontalIcon, SmilePlusIcon } from "lucide-react";
+import { ShareToXButton } from "@/components/shared/share-to-x-button";
 import { Button } from "@/components/ui/button";
 import {
   Collapsible,
@@ -36,8 +37,9 @@ import { getWallpaperSize, wallpaperRatioIds } from "@/features/emoji-wallpaper/
 import { exportWallpaper, renderEmojiWallpaper } from "@/features/emoji-wallpaper/lib/render";
 import { createSeed } from "@/lib/seeds";
 import { trackEvent } from "@/lib/analytics";
-import type { Locale } from "@/config/site";
-import type { Messages } from "@/lib/i18n";
+import { siteConfig, type Locale } from "@/config/site";
+import { getMessages, type Messages } from "@/lib/i18n";
+import { localizePath } from "@/i18n/navigation";
 import { replaceSearchState } from "@/lib/url-state";
 
 export type EmojiWallpaperState = {
@@ -70,6 +72,8 @@ export function EmojiWallpaperTool({
   const [rendering, setRendering] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
 
+  const shareLabels = getMessages(locale).share;
+  const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/emoji-wallpaper")}`;
   const selectedEmojis = useMemo(() => splitEmojiInput(state.emoji), [state.emoji]);
   const usingCustomEmojis = selectedEmojis.length > 0;
   const activePalette = getWallpaperPalette(state.palette);
@@ -199,6 +203,13 @@ export function EmojiWallpaperTool({
             <DownloadIcon data-icon="inline-start" />
             {rendering ? labels.rendering : labels.download}
           </Button>
+          <ShareToXButton
+            labels={shareLabels}
+            tool="emoji-wallpaper"
+            title={labels.title}
+            description={labels.description}
+            url={shareUrl}
+          />
         </div>
 
         <FieldGroup>

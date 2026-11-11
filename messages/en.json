@@ -16,6 +16,11 @@
     "restore": "Restore",
     "close": "Close"
   },
+  "share": {
+    "action": "Share to X",
+    "opened": "Opened X — finish your post there.",
+    "failed": "Couldn't open X. Please try again."
+  },
   "home": {
     "title": "Random names and pixel avatars, generated in your browser."
   },

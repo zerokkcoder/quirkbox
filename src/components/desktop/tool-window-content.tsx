@@ -42,7 +42,7 @@ function WindowPlaceholder() {
  * shipping all 14 Faker locales to the browser. The window asks the same API the tool
  * itself uses and only mounts the tool once a suggestion is in hand.
  */
-function RandomNameWindow({ labels }: { labels: Messages["randomName"] }) {
+function RandomNameWindow({ locale, labels }: { locale: Locale; labels: Messages["randomName"] }) {
   const [initial, setInitial] = useState<{ filters: NameFilters; result: NameSuggestion } | null>(null);
 
   useEffect(() => {
@@ -81,6 +81,7 @@ function RandomNameWindow({ labels }: { labels: Messages["randomName"] }) {
 
   return (
     <RandomNameTool
+      locale={locale}
       labels={labels}
       initialFilters={initial.filters}
       initialResult={initial.result}
@@ -89,14 +90,14 @@ function RandomNameWindow({ labels }: { labels: Messages["randomName"] }) {
   );
 }
 
-function PixelAvatarWindow({ labels }: { labels: Messages["pixelAvatar"] }) {
+function PixelAvatarWindow({ locale, labels }: { locale: Locale; labels: Messages["pixelAvatar"] }) {
   const [initialState] = useState(() => ({
     seed: createSeed(10),
     style: String(defaultAvatarStyle),
     palette: getAvatarPalette().id,
   }));
 
-  return <PixelAvatarTool labels={labels} initialState={initialState} syncUrl={false} />;
+  return <PixelAvatarTool locale={locale} labels={labels} initialState={initialState} syncUrl={false} />;
 }
 
 function EmojiWallpaperWindow({ locale, labels }: { locale: Locale; labels: Messages["emojiWallpaper"] }) {
@@ -125,12 +126,12 @@ export function ToolWindowContent({
   messages: Messages;
 }) {
   if (toolId === "random-name") {
-    return <RandomNameWindow labels={messages.randomName} />;
+    return <RandomNameWindow locale={locale} labels={messages.randomName} />;
   }
 
   if (toolId === "emoji-wallpaper") {
     return <EmojiWallpaperWindow locale={locale} labels={messages.emojiWallpaper} />;
   }
 
-  return <PixelAvatarWindow labels={messages.pixelAvatar} />;
+  return <PixelAvatarWindow locale={locale} labels={messages.pixelAvatar} />;
 }

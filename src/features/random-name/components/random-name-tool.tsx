@@ -9,12 +9,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ShareToXButton } from "@/components/shared/share-to-x-button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { trackEvent } from "@/lib/analytics";
 import { replaceSearchState } from "@/lib/url-state";
 import { createSeed } from "@/lib/seeds";
 import { cultures, nameGenders, type NameFilters, type NameSuggestion } from "@/features/random-name/lib/types";
-import type { Messages } from "@/lib/i18n";
+import { getMessages, type Messages } from "@/lib/i18n";
+import { localizePath } from "@/i18n/navigation";
+import { siteConfig, type Locale } from "@/config/site";
 
 function toApiQuery(filters: NameFilters) {
   return new URLSearchParams({
@@ -50,11 +53,13 @@ function onlineSpeechUrl(name: string, langCode: string) {
 }
 
 export function RandomNameTool({
+  locale,
   labels,
   initialFilters,
   initialResult,
   syncUrl = true,
 }: {
+  locale: Locale;
   labels: Messages["randomName"];
   initialFilters: NameFilters;
   initialResult: NameSuggestion;
@@ -67,6 +72,9 @@ export function RandomNameTool({
   const [isLoading, setIsLoading] = useState(false);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const shareLabels = getMessages(locale).share;
+  const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/random-name")}`;
 
   useEffect(() => {
     const synth = getSpeechSynthesis();
@@ -197,16 +205,26 @@ export function RandomNameTool({
         <CardHeader>
           <CardTitle>{labels.result}</CardTitle>
           <CardAction>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={shuffle}
-              disabled={isLoading}
-              title={labels.shuffle}
-            >
-              <RefreshCcwIcon data-icon="inline-start" />
-              {isLoading ? labels.generating : labels.shuffle}
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={shuffle}
+                disabled={isLoading}
+                title={labels.shuffle}
+              >
+                <RefreshCcwIcon data-icon="inline-start" />
+                {isLoading ? labels.generating : labels.shuffle}
+              </Button>
+              <ShareToXButton
+                labels={shareLabels}
+                tool="random-name"
+                size="sm"
+                title={labels.title}
+                description={labels.description}
+                url={shareUrl}
+              />
+            </div>
           </CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-5">

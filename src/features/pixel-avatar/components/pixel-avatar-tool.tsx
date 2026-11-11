@@ -7,6 +7,7 @@ import { DownloadIcon, ShuffleIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { ShareToXButton } from "@/components/shared/share-to-x-button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { downloadCanvas } from "@/features/pixel-avatar/lib/export";
 import {
@@ -17,8 +18,12 @@ import {
 import { avatarPalettes, getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
 import { createSeed } from "@/lib/seeds";
 import { trackEvent } from "@/lib/analytics";
+import { getMessages } from "@/lib/i18n";
 import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
+import { localizePath } from "@/i18n/navigation";
+import { siteConfig } from "@/config/site";
+import type { Locale } from "@/config/site";
 
 export type PixelAvatarState = {
   seed: string;
@@ -27,10 +32,12 @@ export type PixelAvatarState = {
 };
 
 export function PixelAvatarTool({
+  locale,
   labels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
+  locale: Locale;
   labels: Messages["pixelAvatar"];
   initialState: PixelAvatarState;
   syncUrl?: boolean;
@@ -40,6 +47,8 @@ export function PixelAvatarTool({
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [state, setState] = useState(initialState);
 
+  const shareLabels = getMessages(locale).share;
+  const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/pixel-avatar")}`;
   const activePalette = getAvatarPalette(state.palette);
   const dataUri = useMemo(
     () => generateAvatarDataUri(state.seed, { styleId: state.style, paletteId: state.palette }),
@@ -119,6 +128,13 @@ export function PixelAvatarTool({
             <DownloadIcon data-icon="inline-start" />
             {labels.download}
           </Button>
+          <ShareToXButton
+            labels={shareLabels}
+            tool="pixel-avatar"
+            title={labels.title}
+            description={labels.description}
+            url={shareUrl}
+          />
         </div>
 
         <FieldGroup>

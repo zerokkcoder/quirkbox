@@ -26,7 +26,7 @@ export function PixelAvatarPage({
           title={messages.pixelAvatar.title}
           description={messages.pixelAvatar.description}
         />
-        <PixelAvatarTool labels={messages.pixelAvatar} initialState={initialState} />
+        <PixelAvatarTool locale={locale} labels={messages.pixelAvatar} initialState={initialState} />
       </div>
     </SiteShell>
   );

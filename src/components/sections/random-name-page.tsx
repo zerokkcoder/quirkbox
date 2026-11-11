@@ -25,7 +25,12 @@ export function RandomNamePage({
           title={messages.randomName.title}
           description={messages.randomName.description}
         />
-        <RandomNameTool labels={messages.randomName} initialFilters={initialFilters} initialResult={initialResult} />
+        <RandomNameTool
+          locale={locale}
+          labels={messages.randomName}
+          initialFilters={initialFilters}
+          initialResult={initialResult}
+        />
       </div>
     </SiteShell>
   );
