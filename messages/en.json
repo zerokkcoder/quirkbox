@@ -35,6 +35,9 @@
     },
     "emojiWallpaper": {
       "title": "Emoji Wallpaper Maker"
+    },
+    "travelFootprint": {
+      "title": "Travel Footprint"
     }
   },
   "about": {
@@ -167,5 +170,85 @@
     "download": "Download",
     "rendering": "Rendering...",
     "preview": "Wallpaper preview"
+  },
+  "travelFootprint": {
+    "title": "Travel Footprint",
+    "description": "Set a home point, drop in every place you have been, and let the map draw a route from home to each one. Restyle the lines, then export your map.",
+    "mapLoading": "Loading map…",
+    "mapError": "The map couldn't load. You can still manage your footprints below.",
+    "mapHint": "Click the map to drop a point · drag a marker to fine-tune it",
+    "home": "Home",
+    "homeUnset": "No home yet",
+    "homeHint": "Click the map, search a place, or enter coordinates to set your home.",
+    "homeName": "Home name",
+    "useMyLocation": "Use my location",
+    "locating": "Locating…",
+    "locationFailed": "Couldn't read your location. Try clicking the map instead.",
+    "clearHome": "Clear home",
+    "fitView": "Fit all points",
+    "searchPlaceholder": "Search a city or landmark",
+    "searching": "Searching…",
+    "searchNoResults": "No matching places.",
+    "searchFailed": "Place search is unavailable right now.",
+    "addByCoordinates": "Add by coordinates",
+    "coordName": "Name (optional)",
+    "coordLatitude": "Latitude",
+    "coordLongitude": "Longitude",
+    "coordInvalid": "Enter a valid latitude (-90 to 90) and longitude (-180 to 180).",
+    "setAsHome": "Set as home",
+    "addFootprint": "Add footprint",
+    "spotList": "Your footprints",
+    "spotEmpty": "No footprints yet. Click the map, search a place, or enter coordinates.",
+    "spotName": "Name",
+    "spotDelete": "Remove",
+    "editCoordinates": "Edit coordinates",
+    "save": "Save",
+    "cancel": "Cancel",
+    "spotCount": "Footprints",
+    "totalDistance": "Total distance",
+    "furthest": "Furthest point",
+    "distanceUnit": "km",
+    "lineStyle": "Line style",
+    "lineColor": "Line color",
+    "lineWidth": "Line width",
+    "lineAnimation": "Animation",
+    "lineShape": "Line shape",
+    "connectMode": "Connect mode",
+    "lineStyles": {
+      "solid": "Solid",
+      "dashed": "Dashed",
+      "dotted": "Dotted"
+    },
+    "lineColors": {
+      "ocean": "Ocean",
+      "coral": "Coral",
+      "forest": "Forest",
+      "violet": "Violet",
+      "amber": "Amber"
+    },
+    "animations": {
+      "none": "None",
+      "pulse": "Pulse",
+      "comet": "Comet",
+      "flow": "Flow"
+    },
+    "shapes": {
+      "straight": "Straight",
+      "arc": "Curved"
+    },
+    "modes": {
+      "star": "Home to each",
+      "chain": "In order"
+    },
+    "dataTitle": "Save & export",
+    "export": "Export PNG",
+    "exportNeedsHome": "Set a home first.",
+    "exportMapUnavailable": "The map isn't ready yet.",
+    "exportJson": "Export data",
+    "importJson": "Import data",
+    "importSuccess": "Data imported.",
+    "importFailed": "That file isn't a valid travel footprint file.",
+    "clearAll": "Clear all",
+    "clearConfirm": "Clear home and every footprint? This cannot be undone."
   }
 }

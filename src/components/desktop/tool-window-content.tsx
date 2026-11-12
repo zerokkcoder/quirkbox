@@ -17,6 +17,7 @@ import {
 import { defaultWallpaperRatio } from "@/features/emoji-wallpaper/lib/ratios";
 import { PixelAvatarTool } from "@/features/pixel-avatar/components/pixel-avatar-tool";
 import { RandomNameTool } from "@/features/random-name/components/random-name-tool";
+import { TravelFootprintTool } from "@/features/travel-footprint/components/travel-footprint-tool";
 import { defaultAvatarStyle } from "@/features/pixel-avatar/lib/generate-avatar";
 import { getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
 import { createSeed } from "@/lib/seeds";
@@ -25,7 +26,7 @@ import type { NameFilters, NameSuggestion } from "@/features/random-name/lib/typ
 import type { Locale } from "@/config/site";
 import type { Messages } from "@/lib/i18n";
 
-export type DesktopToolId = "random-name" | "pixel-avatar" | "emoji-wallpaper";
+export type DesktopToolId = "random-name" | "pixel-avatar" | "emoji-wallpaper" | "travel-footprint";
 
 function WindowPlaceholder() {
   return (
@@ -131,6 +132,10 @@ export function ToolWindowContent({
 
   if (toolId === "emoji-wallpaper") {
     return <EmojiWallpaperWindow locale={locale} labels={messages.emojiWallpaper} />;
+  }
+
+  if (toolId === "travel-footprint") {
+    return <TravelFootprintTool locale={locale} labels={messages.travelFootprint} theme="dark" compact />;
   }
 
   return <PixelAvatarWindow locale={locale} labels={messages.pixelAvatar} />;

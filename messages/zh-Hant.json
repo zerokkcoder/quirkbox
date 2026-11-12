@@ -35,6 +35,9 @@
     },
     "emojiWallpaper": {
       "title": "Emoji 手機壁紙產生器"
+    },
+    "travelFootprint": {
+      "title": "旅行足跡"
     }
   },
   "about": {
@@ -167,5 +170,85 @@
     "download": "下載",
     "rendering": "產生中…",
     "preview": "壁紙預覽"
+  },
+  "travelFootprint": {
+    "title": "旅行足跡",
+    "description": "設定一個家為起點，把走過的每個地方放上地圖，讓它從家畫出連線。自由調整路線樣式，再把地圖匯出。",
+    "mapLoading": "地圖載入中…",
+    "mapError": "地圖載入失敗，你還是可以在下方管理你的足跡。",
+    "mapHint": "點擊地圖新增地點 · 拖曳標記可微調位置",
+    "home": "家",
+    "homeUnset": "尚未設定起點",
+    "homeHint": "點擊地圖、搜尋地點，或輸入座標來設定你的家。",
+    "homeName": "家的名稱",
+    "useMyLocation": "使用我的位置",
+    "locating": "定位中…",
+    "locationFailed": "無法取得你的位置，改為點擊地圖試試。",
+    "clearHome": "清除起點",
+    "fitView": "自動調整視野",
+    "searchPlaceholder": "搜尋城市或地標",
+    "searching": "搜尋中…",
+    "searchNoResults": "找不到符合的地點。",
+    "searchFailed": "目前無法使用地點搜尋。",
+    "addByCoordinates": "輸入座標新增",
+    "coordName": "名稱（選填）",
+    "coordLatitude": "緯度",
+    "coordLongitude": "經度",
+    "coordInvalid": "請輸入有效座標（緯度 -90～90、經度 -180～180）。",
+    "setAsHome": "設為家",
+    "addFootprint": "新增足跡",
+    "spotList": "你的足跡",
+    "spotEmpty": "還沒有足跡。點擊地圖、搜尋地點，或輸入座標來新增。",
+    "spotName": "名稱",
+    "spotDelete": "移除",
+    "editCoordinates": "編輯座標",
+    "save": "儲存",
+    "cancel": "取消",
+    "spotCount": "足跡數",
+    "totalDistance": "總距離",
+    "furthest": "最遠的地點",
+    "distanceUnit": "公里",
+    "lineStyle": "連線樣式",
+    "lineColor": "連線顏色",
+    "lineWidth": "連線粗細",
+    "lineAnimation": "動畫效果",
+    "lineShape": "連線形狀",
+    "connectMode": "連線方式",
+    "lineStyles": {
+      "solid": "實線",
+      "dashed": "虛線",
+      "dotted": "點線"
+    },
+    "lineColors": {
+      "ocean": "海洋",
+      "coral": "珊瑚",
+      "forest": "森林",
+      "violet": "紫羅蘭",
+      "amber": "琥珀"
+    },
+    "animations": {
+      "none": "無",
+      "pulse": "呼吸",
+      "comet": "流光",
+      "flow": "流動"
+    },
+    "shapes": {
+      "straight": "直線",
+      "arc": "弧線"
+    },
+    "modes": {
+      "star": "家連到各點",
+      "chain": "依序串連"
+    },
+    "dataTitle": "儲存與匯出",
+    "export": "匯出 PNG",
+    "exportNeedsHome": "請先設定起點。",
+    "exportMapUnavailable": "地圖還沒準備好。",
+    "exportJson": "匯出資料",
+    "importJson": "匯入資料",
+    "importSuccess": "資料已匯入。",
+    "importFailed": "這不是有效的旅行足跡資料檔。",
+    "clearAll": "全部清除",
+    "clearConfirm": "確定清除起點與所有足跡？此動作無法復原。"
   }
 }

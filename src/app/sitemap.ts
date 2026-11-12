@@ -2,7 +2,15 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 
-const routes = ["/", "/tools", "/tools/random-name", "/tools/pixel-avatar", "/tools/emoji-wallpaper", "/about"];
+const routes = [
+  "/",
+  "/tools",
+  "/tools/random-name",
+  "/tools/pixel-avatar",
+  "/tools/emoji-wallpaper",
+  "/tools/travel-footprint",
+  "/about",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.flatMap((route) =>

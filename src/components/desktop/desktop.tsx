@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ComponentType } from "react";
 import Link from "next/link";
-import { DicesIcon, Grid2x2Icon, LayoutGridIcon, SmileIcon, SparklesIcon } from "lucide-react";
+import { DicesIcon, Grid2x2Icon, LayoutGridIcon, MapPinnedIcon, SmileIcon, SparklesIcon } from "lucide-react";
 import { MacWindow, type MacWindowBounds } from "@/components/desktop/mac-window";
 import { ToolWindowContent, type DesktopToolId } from "@/components/desktop/tool-window-content";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
@@ -21,6 +21,7 @@ const desktopApps: DesktopApp[] = [
   { id: "random-name", icon: DicesIcon, accent: "from-chart-1 to-chart-4" },
   { id: "pixel-avatar", icon: Grid2x2Icon, accent: "from-chart-3 to-chart-2" },
   { id: "emoji-wallpaper", icon: SmileIcon, accent: "from-chart-5 to-chart-1" },
+  { id: "travel-footprint", icon: MapPinnedIcon, accent: "from-chart-2 to-chart-3" },
 ];
 
 const appTile = "flex items-center justify-center bg-gradient-to-br shadow-lg ring-1 ring-black/20 transition duration-300";
@@ -57,6 +58,7 @@ export function Desktop({ locale, messages }: { locale: Locale; messages: Messag
     "random-name": messages.tools.randomName.title,
     "pixel-avatar": messages.tools.pixelAvatar.title,
     "emoji-wallpaper": messages.tools.emojiWallpaper.title,
+    "travel-footprint": messages.tools.travelFootprint.title,
   };
 
   function toolName(toolId: DesktopToolId) {
