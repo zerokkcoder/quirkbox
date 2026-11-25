@@ -34,6 +34,7 @@ test("tool pages expose what/how copy and a keyword-rich meta description", asyn
     { path: "/tools/emoji-wallpaper", title: "Emoji Wallpaper Maker", hint: "Choose an emoji set" },
     { path: "/tools/travel-footprint", title: "Travel Footprint", hint: "Set home" },
     { path: "/tools/palette-studio", title: "Palette Studio", hint: "Start from a style preset" },
+    { path: "/tools/image-studio", title: "Image Studio", hint: "Drop or paste images" },
   ];
 
   for (const item of cases) {

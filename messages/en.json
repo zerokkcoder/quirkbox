@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "StarRudder — Free Browser Tools, No Signup",
-    "description": "Free tools that run entirely in your browser. Generate names, avatars, emoji wallpapers and travel maps — nothing uploaded, nothing stored."
+    "description": "Free browser tools: generate names, avatars, palettes, wallpapers and travel maps, or convert images — nothing uploaded, nothing stored."
   },
   "nav": {
     "main": "Main navigation",
@@ -26,7 +26,8 @@
       "pixelAvatar": "Turn a seed into a pixel avatar",
       "emojiWallpaper": "Tile emoji into a 4K wallpaper",
       "travelFootprint": "Map places and draw routes",
-      "paletteStudio": "Build a palette from one color"
+      "paletteStudio": "Build a palette from one color",
+      "imageStudio": "Convert images between formats"
     },
     "tools": {
       "eyebrow": "The tools",
@@ -36,7 +37,8 @@
       "pixelAvatar": "Turn a seed into a unique pixel avatar and download it as PNG.",
       "emojiWallpaper": "Tile emoji into a 4K phone wallpaper in the pattern you choose.",
       "travelFootprint": "Plot home and visited places on a map, then draw and export routes.",
-      "paletteStudio": "Turn one seed color into a harmonious palette with contrast checks."
+      "paletteStudio": "Turn one seed color into a harmonious palette with contrast checks.",
+      "imageStudio": "Convert PNG, JPG, WebP and more in batch — with presets and no uploads."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -99,6 +101,9 @@
     },
     "paletteStudio": {
       "title": "Palette Studio"
+    },
+    "imageStudio": {
+      "title": "Image Studio"
     }
   },
   "paletteStudio": {
@@ -118,9 +123,9 @@
     "seedHint": "One color is all it takes — the rest is generated around it.",
     "harmony": "Harmony rule",
     "harmonyHint": "How the colors relate to your seed.",
-  "count": "Colors",
-  "shuffle": "Shuffle",
-  "copyAll": "Copy all hex",
+    "count": "Colors",
+    "shuffle": "Shuffle",
+    "copyAll": "Copy all hex",
     "preview": "Palette preview",
     "copyHint": "Click any swatch to copy its hex",
     "copied": "Copied",
@@ -136,30 +141,30 @@
       "split": "Split complementary",
       "triadic": "Triadic",
       "tetradic": "Tetradic",
-    "mono": "Monochrome"
-  },
-  "presets": {
-    "title": "Style presets",
-    "hint": "One click applies a complete palette. Fine-tune anytime.",
-    "custom": "Custom",
-    "applied": "Applied: "
-  },
-  "presetNames": {
-    "tech": "Tech",
-    "business": "Business",
-    "minimal": "Minimal",
-    "geek": "Geek",
-    "nature": "Nature",
-    "retro": "Retro",
-    "ecommerce": "E-commerce",
-    "education": "Education",
-    "health": "Healthcare",
-    "luxury": "Luxury",
-    "playful": "Playful",
-    "gaming": "Gaming"
-  },
-  "fineTune": "Fine-tune (optional)",
-  "contrast": {
+      "mono": "Monochrome"
+    },
+    "presets": {
+      "title": "Style presets",
+      "hint": "One click applies a complete palette. Fine-tune anytime.",
+      "custom": "Custom",
+      "applied": "Applied: "
+    },
+    "presetNames": {
+      "tech": "Tech",
+      "business": "Business",
+      "minimal": "Minimal",
+      "geek": "Geek",
+      "nature": "Nature",
+      "retro": "Retro",
+      "ecommerce": "E-commerce",
+      "education": "Education",
+      "health": "Healthcare",
+      "luxury": "Luxury",
+      "playful": "Playful",
+      "gaming": "Gaming"
+    },
+    "fineTune": "Fine-tune (optional)",
+    "contrast": {
       "title": "WCAG contrast",
       "white": "White text",
       "black": "Black text",
@@ -185,7 +190,12 @@
     "description": "Generate random full names in 14 languages with native scripts and browser pronunciation. Pick a language and style, then shuffle.",
     "intro": "A free random name generator for full names in 14 languages, written in native script and read aloud by your browser.",
     "howTo": "Choose a language and name style, then click Shuffle. Play the pronunciation to hear it, or share the result.",
-    "keywords": ["random name generator", "foreign name generator", "name generator with pronunciation", "14 languages names"],
+    "keywords": [
+      "random name generator",
+      "foreign name generator",
+      "name generator with pronunciation",
+      "14 languages names"
+    ],
     "culture": "Language",
     "gender": "Name leaning",
     "result": "Suggested name",
@@ -220,7 +230,12 @@
     "description": "Turn a seed into a unique pixel avatar online. Choose a style and palette, shuffle, then download a PNG — no signup.",
     "intro": "A pixel art avatar generator that turns a shareable seed into a unique profile picture you can export as PNG.",
     "howTo": "Pick a style and palette, keep or shuffle the seed, then click Download PNG. The same seed always recreates the same avatar.",
-    "keywords": ["pixel avatar maker", "pixel art avatar generator", "8 bit avatar maker", "random avatar PNG"],
+    "keywords": [
+      "pixel avatar maker",
+      "pixel art avatar generator",
+      "8 bit avatar maker",
+      "random avatar PNG"
+    ],
     "palette": "Palette",
     "style": "Style",
     "styleHint": "Each style has its own pixel density and level of detail.",
@@ -250,7 +265,12 @@
     "description": "Make a 4K emoji wallpaper in your browser. Pick emoji, pattern and aspect ratio, then download PNG or JPG.",
     "intro": "An emoji wallpaper maker that tiles your emoji into a 4K phone or desktop wallpaper.",
     "howTo": "Choose an emoji set or enter your own, pick a pattern and ratio, then download a PNG or JPG.",
-    "keywords": ["emoji wallpaper maker", "emoji wallpaper generator", "4K phone wallpaper", "emoji pattern wallpaper"],
+    "keywords": [
+      "emoji wallpaper maker",
+      "emoji wallpaper generator",
+      "4K phone wallpaper",
+      "emoji pattern wallpaper"
+    ],
     "theme": "Emoji set",
     "themeHint": "Each set is a themed pile of emoji to tile with.",
     "themes": {
@@ -325,7 +345,12 @@
     "description": "Plot home and visited places on a travel map, draw animated routes, then export PNG or JSON. Runs in your browser.",
     "intro": "A travel footprint map that plots your home and visited places, then draws routes between them.",
     "howTo": "Set home, add places by clicking the map, searching, or entering coordinates, then style the lines and export PNG or data.",
-    "keywords": ["travel footprint map", "travel map generator", "route map maker", "map with home and visited places"],
+    "keywords": [
+      "travel footprint map",
+      "travel map generator",
+      "route map maker",
+      "map with home and visited places"
+    ],
     "mapLoading": "Loading map…",
     "mapError": "The map couldn't load. You can still manage your footprints below.",
     "mapHint": "Click the map to drop a point · drag a marker to fine-tune it",
@@ -402,5 +427,84 @@
     "importFailed": "That file isn't a valid travel footprint file.",
     "clearAll": "Clear all",
     "clearConfirm": "Clear home and every footprint? This cannot be undone."
+  },
+  "imageStudio": {
+    "title": "Image Studio",
+    "seoTitle": "Image Converter — Convert PNG, JPG, WebP & More Online",
+    "description": "Convert images between PNG, JPEG, WebP, AVIF, GIF, ICO and BMP entirely in your browser. Batch convert, resize and compress locally — no uploads, no signup.",
+    "intro": "A browser-only image converter that changes formats, resizes and compresses in batch — your files never leave the device.",
+    "howTo": "Drop or paste images, choose a target format, tune quality or size, then download one image or the whole batch as a ZIP.",
+    "keywords": [
+      "image converter",
+      "png to webp",
+      "jpg to png",
+      "webp to jpg",
+      "batch image converter"
+    ],
+    "dropTitle": "Drop images here",
+    "browse": "Choose images",
+    "addMore": "Add more",
+    "uploadTitle": "Images",
+    "preview": "Preview",
+    "livePreview": "Live",
+    "previewEmpty": "Pick an image on the left.",
+    "pasteHint": "Or paste a screenshot with Ctrl/Cmd + V.",
+    "formatsHint": "SVG in · GIF single frame · ICO ≤ 256px",
+    "formatTitle": "Target format",
+    "formatNames": {
+      "png": "PNG",
+      "jpeg": "JPG",
+      "webp": "WebP",
+      "avif": "AVIF",
+      "gif": "GIF",
+      "bmp": "BMP",
+      "ico": "ICO"
+    },
+    "formatNotes": {
+      "lossless": "PNG · lossless, keeps transparency.",
+      "flatten": "JPG · smaller files; transparency is filled with the background color.",
+      "modern": "WebP · best balance of size and quality.",
+      "avif": "AVIF · smallest files where supported.",
+      "staticGif": "GIF · one static frame, up to 256 colors.",
+      "large": "BMP · uncompressed and large.",
+      "icon": "ICO · a single icon up to 256×256."
+    },
+    "unavailable": "Not supported by this browser",
+    "quality": "Quality",
+    "maxWidth": "Max width (px)",
+    "maxHeight": "Max height (px)",
+    "background": "Background",
+    "suffix": "Add format to filename",
+    "suffixHint": "e.g. photo-webp.webp instead of photo.webp",
+    "advancedTitle": "Fine-tuning",
+    "convertAll": "Convert all",
+    "downloadAll": "Download ZIP",
+    "clear": "Clear",
+    "download": "Download",
+    "remove": "Remove",
+    "emptyTitle": "No images yet",
+    "emptyHint": "Add images above to get started.",
+    "status": {
+      "queued": "Waiting",
+      "decoding": "Reading…",
+      "converting": "Converting…",
+      "done": "Done",
+      "error": "Failed"
+    },
+    "original": "Original",
+    "originalSize": "Original size",
+    "result": "Result",
+    "saved": "Saved",
+    "feedback": {
+      "added": "Images added.",
+      "converted": "All conversions finished.",
+      "failed": "Some images could not be converted.",
+      "downloaded": "Download started.",
+      "downloadedAll": "ZIP download started.",
+      "cleared": "Queue cleared.",
+      "zipEmpty": "Convert at least one image first."
+    },
+    "privacyNote": "Everything runs in this tab. Images are never uploaded or stored, and the share link contains settings only.",
+    "auto": "Auto"
   }
 }

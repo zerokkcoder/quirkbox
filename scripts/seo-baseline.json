@@ -1,14 +1,14 @@
 {
   "https://starrudder.cc/": {
     "title": "StarRudder — Free Browser Tools, No Signup",
-    "description": "Free tools that run entirely in your browser. Generate names, avatars, color palettes, emoji wallpapers and travel maps — nothing uploaded, nothing stored.",
+    "description": "Free browser tools: generate names, avatars, palettes, wallpapers and travel maps, or convert images — nothing uploaded, nothing stored.",
     "h1": [
       "Tools that stay in your browser."
     ]
   },
   "https://starrudder.cc/zh-Hant": {
     "title": "星舵工坊 — 免註冊的瀏覽器工具 | StarRudder",
-    "description": "所有工具都在瀏覽器中執行：產生名字、像素頭像、Emoji 桌布與旅行足跡地圖。不上傳、不儲存任何資料。",
+    "description": "所有工具都在瀏覽器中執行：產生名字、頭像、配色、Emoji 桌布、旅行足跡地圖，以及轉換圖片格式。不上傳、不儲存任何資料。",
     "h1": [
       "工具，只留在你的瀏覽器。"
     ]
@@ -109,6 +109,20 @@
     "description": "星舵工坊製作在瀏覽器執行的免費工具。免帳號、不上傳、不保存資料，打開就能用。",
     "h1": [
       "關於星舵工坊"
+    ]
+  },
+  "https://starrudder.cc/tools/image-studio": {
+    "title": "Image Converter — Convert PNG, JPG, WebP & More Online | StarRudder",
+    "description": "Convert images between PNG, JPEG, WebP, AVIF, GIF, ICO and BMP entirely in your browser. Batch convert, resize and compress locally — no uploads, no signup.",
+    "h1": [
+      "Image Studio"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/image-studio": {
+    "title": "圖片格式轉換器 — 在線 PNG/JPG/WebP 互轉 | StarRudder",
+    "description": "在瀏覽器中將圖片於 PNG、JPG、WebP、AVIF、GIF、ICO、BMP 間互轉，支援批量、壓縮與尺寸調整。不上傳、不註冊。",
+    "h1": [
+      "圖片格式轉換器"
     ]
   }
 }

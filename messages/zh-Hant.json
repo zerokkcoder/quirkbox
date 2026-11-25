@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "星舵工坊 — 免註冊的瀏覽器工具",
-    "description": "所有工具都在瀏覽器中執行：產生名字、像素頭像、Emoji 桌布與旅行足跡地圖。不上傳、不儲存任何資料。"
+    "description": "所有工具都在瀏覽器中執行：產生名字、頭像、配色、Emoji 桌布、旅行足跡地圖，以及轉換圖片格式。不上傳、不儲存任何資料。"
   },
   "nav": {
     "main": "主導覽",
@@ -26,7 +26,8 @@
       "pixelAvatar": "用種子畫出像素頭像",
       "emojiWallpaper": "用 emoji 拼出 4K 桌布",
       "travelFootprint": "標註地點並畫出路線",
-      "paletteStudio": "用一個顏色配出整組色盤"
+      "paletteStudio": "用一個顏色配出整組色盤",
+      "imageStudio": "在各式圖片格式間轉換"
     },
     "tools": {
       "eyebrow": "工具清單",
@@ -36,7 +37,8 @@
       "pixelAvatar": "用種子產生獨一無二的像素頭像，直接匯出 PNG。",
       "emojiWallpaper": "自選 emoji 與排列方式，拼出 4K 手機桌布。",
       "travelFootprint": "在地圖上標註家與去過的地點，畫出並匯出路線。",
-      "paletteStudio": "用一個種子色產生和諧配色，並檢查對比度。"
+      "paletteStudio": "用一個種子色產生和諧配色，並檢查對比度。",
+      "imageStudio": "批次轉換 PNG、JPG、WebP 等格式，內建常用預設且不上傳。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -99,6 +101,9 @@
     },
     "paletteStudio": {
       "title": "配色方案生成器"
+    },
+    "imageStudio": {
+      "title": "圖片格式轉換器"
     }
   },
   "paletteStudio": {
@@ -118,9 +123,9 @@
     "seedHint": "只要一個顏色，其餘配色會自動圍繞它產生。",
     "harmony": "配色規則",
     "harmonyHint": "決定其他顏色與種子色的關係。",
-  "count": "顏色數量",
-  "shuffle": "換一套",
-  "copyAll": "複製全部色值",
+    "count": "顏色數量",
+    "shuffle": "換一套",
+    "copyAll": "複製全部色值",
     "preview": "配色預覽",
     "copyHint": "點擊任一色塊即可複製色值",
     "copied": "已複製",
@@ -136,30 +141,30 @@
       "split": "分裂互補",
       "triadic": "三角色",
       "tetradic": "四角色",
-    "mono": "單色"
-  },
-  "presets": {
-    "title": "風格預設",
-    "hint": "一鍵套用完整配色，之後仍可隨時微調。",
-    "custom": "自訂",
-    "applied": "已套用："
-  },
-  "presetNames": {
-    "tech": "科技風",
-    "business": "商業風",
-    "minimal": "簡約風",
-    "geek": "極客風",
-    "nature": "自然風",
-    "retro": "復古風",
-    "ecommerce": "電商風",
-    "education": "教育風",
-    "health": "醫療風",
-    "luxury": "輕奢風",
-    "playful": "活潑風",
-    "gaming": "電競風"
-  },
-  "fineTune": "進階微調（選用）",
-  "contrast": {
+      "mono": "單色"
+    },
+    "presets": {
+      "title": "風格預設",
+      "hint": "一鍵套用完整配色，之後仍可隨時微調。",
+      "custom": "自訂",
+      "applied": "已套用："
+    },
+    "presetNames": {
+      "tech": "科技風",
+      "business": "商業風",
+      "minimal": "簡約風",
+      "geek": "極客風",
+      "nature": "自然風",
+      "retro": "復古風",
+      "ecommerce": "電商風",
+      "education": "教育風",
+      "health": "醫療風",
+      "luxury": "輕奢風",
+      "playful": "活潑風",
+      "gaming": "電競風"
+    },
+    "fineTune": "進階微調（選用）",
+    "contrast": {
       "title": "WCAG 對比度",
       "white": "白字",
       "black": "黑字",
@@ -185,7 +190,12 @@
     "description": "以 14 種語言產生完整名字，保留當地文字並可朗讀。選語言與名字傾向，一鍵就能換一個。",
     "intro": "免費的隨機名字產生器，支援 14 種語言，以當地文字書寫完整姓名，並由瀏覽器朗讀發音。",
     "howTo": "選擇語言與名字傾向，按「換一個」即可產生新名字；想聽發音就按播放，或一鍵分享。",
-    "keywords": ["隨機名字產生器", "外文名字產生器", "名字產生器", "名字發音"],
+    "keywords": [
+      "隨機名字產生器",
+      "外文名字產生器",
+      "名字產生器",
+      "名字發音"
+    ],
     "culture": "語言",
     "gender": "名字傾向",
     "result": "建議名字",
@@ -220,7 +230,12 @@
     "description": "用種子產生獨一無二的像素頭像。選風格與配色，換一個或直接匯出 PNG，免註冊。",
     "intro": "像素頭像產生器會把可分享的種子變成獨特的像素頭像，並可匯出成 PNG 圖片。",
     "howTo": "挑選風格與配色，保留或更換種子，再按「下載 PNG」。相同種子會重製出完全一樣的頭像。",
-    "keywords": ["像素頭像產生器", "像素頭像產生", "點陣頭像", "PNG 頭像"],
+    "keywords": [
+      "像素頭像產生器",
+      "像素頭像產生",
+      "點陣頭像",
+      "PNG 頭像"
+    ],
     "palette": "配色",
     "style": "風格",
     "styleHint": "每種風格有自己的像素密度與細節程度。",
@@ -250,7 +265,12 @@
     "description": "在瀏覽器製作 4K emoji 桌布。挑 emoji、排列與比例，再匯出 PNG 或 JPG。",
     "intro": "Emoji 桌布產生器會把你選的 emoji 鋪成 4K 手機或電腦桌布。",
     "howTo": "選擇 emoji 組合或輸入自訂 emoji，設定排列方式與畫面比例，最後匯出 PNG 或 JPG。",
-    "keywords": ["emoji 桌布產生器", "emoji 壁紙產生器", "4K 手機桌布", "emoji 排列"],
+    "keywords": [
+      "emoji 桌布產生器",
+      "emoji 壁紙產生器",
+      "4K 手機桌布",
+      "emoji 排列"
+    ],
     "theme": "Emoji 組合",
     "themeHint": "每個組合是一組同主題的 emoji，用來鋪滿畫面。",
     "themes": {
@@ -325,7 +345,12 @@
     "description": "在地圖上標註家與去過的地點，畫出連線並匯出 PNG 或資料檔，全部在瀏覽器完成。",
     "intro": "旅行足跡地圖會標出你的家與去過的地點，並自動畫出彼此之間的連線。",
     "howTo": "先設定家，再點擊地圖、搜尋地點或輸入座標加入足跡；調整連線樣式後即可匯出 PNG 或資料檔。",
-    "keywords": ["旅行足跡", "旅行地圖產生器", "路線地圖", "足跡地圖"],
+    "keywords": [
+      "旅行足跡",
+      "旅行地圖產生器",
+      "路線地圖",
+      "足跡地圖"
+    ],
     "mapLoading": "地圖載入中…",
     "mapError": "地圖載入失敗，你還是可以在下方管理你的足跡。",
     "mapHint": "點擊地圖新增地點 · 拖曳標記可微調位置",
@@ -402,5 +427,84 @@
     "importFailed": "這不是有效的旅行足跡資料檔。",
     "clearAll": "全部清除",
     "clearConfirm": "確定清除起點與所有足跡？此動作無法復原。"
+  },
+  "imageStudio": {
+    "title": "圖片格式轉換器",
+    "seoTitle": "圖片格式轉換器 — 在線 PNG/JPG/WebP 互轉",
+    "description": "在瀏覽器中將圖片於 PNG、JPG、WebP、AVIF、GIF、ICO、BMP 間互轉，支援批量、壓縮與尺寸調整。不上傳、不註冊。",
+    "intro": "在瀏覽器執行的圖片格式轉換器，可批次互轉格式、縮放與壓縮，檔案完全不離開你的裝置。",
+    "howTo": "拖入或貼上圖片，選擇目標格式與品質，再單張下載或整批打包。",
+    "keywords": [
+      "圖片格式轉換器",
+      "png 轉 webp",
+      "jpg 轉 png",
+      "在線圖片轉換",
+      "批量圖片壓縮"
+    ],
+    "dropTitle": "把圖片拖到這裡",
+    "browse": "選擇圖片",
+    "addMore": "繼續加入",
+    "uploadTitle": "圖片",
+    "preview": "預覽",
+    "livePreview": "即時",
+    "previewEmpty": "在左側選擇一張圖片。",
+    "pasteHint": "或按 Ctrl/Cmd + V 貼上截圖。",
+    "formatsHint": "SVG 僅作輸入 · GIF 只出單幀 · ICO ≤ 256px",
+    "formatTitle": "目標格式",
+    "formatNames": {
+      "png": "PNG",
+      "jpeg": "JPG",
+      "webp": "WebP",
+      "avif": "AVIF",
+      "gif": "GIF",
+      "bmp": "BMP",
+      "ico": "ICO"
+    },
+    "formatNotes": {
+      "lossless": "PNG · 無損，保留透明度。",
+      "flatten": "JPG · 體積較小；透明度會填入背景色。",
+      "modern": "WebP · 體積與畫質的最佳平衡。",
+      "avif": "AVIF · 在支援的裝置上體積最小。",
+      "staticGif": "GIF · 單一靜態影格，最多 256 色。",
+      "large": "BMP · 未壓縮，檔案較大。",
+      "icon": "ICO · 單一圖示，上限 256×256。"
+    },
+    "unavailable": "目前瀏覽器不支援",
+    "quality": "品質",
+    "maxWidth": "最大寬度（px）",
+    "maxHeight": "最大高度（px）",
+    "background": "背景",
+    "suffix": "檔名加上格式後綴",
+    "suffixHint": "例如 photo-webp.webp，而非 photo.webp",
+    "advancedTitle": "進階微調",
+    "convertAll": "全部轉換",
+    "downloadAll": "下載 ZIP",
+    "clear": "清空",
+    "download": "下載",
+    "remove": "移除",
+    "emptyTitle": "還沒有圖片",
+    "emptyHint": "先從上方加入圖片。",
+    "status": {
+      "queued": "等待中",
+      "decoding": "讀取中…",
+      "converting": "轉換中…",
+      "done": "完成",
+      "error": "失敗"
+    },
+    "original": "原始",
+    "originalSize": "原始尺寸",
+    "result": "結果",
+    "saved": "節省",
+    "feedback": {
+      "added": "已加入圖片。",
+      "converted": "全部轉換完成。",
+      "failed": "部分圖片無法轉換。",
+      "downloaded": "已開始下載。",
+      "downloadedAll": "已開始下載 ZIP。",
+      "cleared": "已清空清單。",
+      "zipEmpty": "請先轉換至少一張圖片。"
+    },
+    "privacyNote": "全部作業都在這個分頁完成，圖片絕不上傳或保存，分享連結只包含設定。",
+    "auto": "自動"
   }
 }

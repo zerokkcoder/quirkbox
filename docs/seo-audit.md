@@ -22,7 +22,7 @@ deployed Vercel preview.
 | SSR | Head | title / description 存在且全站唯一；canonical 与 sitemap URL 完全一致 |
 | SSR | Headings | 恰好一个 `<h1>`，不得跳级（h1 → h3） |
 | SSR | Content | 正文达到最少词数；FAQ 问题位于真实 `<h3>` 中 |
-| SSR | Structured data | 每个 JSON-LD 块可解析；含 WebSite；有 FAQ 的页面含 FAQPage |
+| SSR | Structured data | 每个 JSON-LD 块可解析；含 WebSite；有 FAQ 的页面含 FAQPage（FAQ = `<details>` 且摘要为问句，设置类折叠面板不计） |
 | SSR | Discovery | `robots.txt` 声明 Sitemap，且没有 `Disallow: /` |
 
 标题 15–70（英文）/ 10–45（繁中）、描述 40–170 / 12–120（字符）、最少词数

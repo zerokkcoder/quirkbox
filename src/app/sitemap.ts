@@ -4,7 +4,7 @@ import { localizePath } from "@/i18n/navigation";
 
 // A fresh Date() on every request makes lastmod change on every crawl and
 // Google ends up ignoring it. Bump this constant when published content changes.
-const lastModified = new Date("2026-11-25T00:00:00.000Z");
+const lastModified = new Date("2026-11-26T00:00:00.000Z");
 
 const routes = [
   "/",
@@ -14,6 +14,7 @@ const routes = [
   "/tools/emoji-wallpaper",
   "/tools/travel-footprint",
   "/tools/palette-studio",
+  "/tools/image-studio",
   "/about",
 ];
 

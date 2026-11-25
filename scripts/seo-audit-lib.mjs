@@ -123,6 +123,21 @@ export function checkHeadingHierarchy(headings) {
   return errors;
 }
 
+/**
+ * FAQ markup means a disclosure whose summary is a question. A `<details>` used
+ * for a settings panel or any other non-question disclosure is not an FAQ and
+ * must not force FAQPage structured data. Both the ASCII and the full-width
+ * question mark count, since the Traditional Chinese copy uses `？`.
+ */
+function hasFaqMarkup(html) {
+  for (const match of html.matchAll(/<details\b[^>]*>[\s\S]*?<\/details>/gi)) {
+    const summary = match[0].match(/<summary\b[^>]*>([\s\S]*?)<\/summary>/i);
+    if (!summary) continue;
+    if (/[?？]/.test(summary[1].replace(/<[^>]+>/g, " "))) return true;
+  }
+  return false;
+}
+
 /** Extract the SEO signals that matter from an unhydrated HTML response. */
 export function extractSeoSignals(html, { url }) {
   const pathname = new URL(url).pathname;
@@ -193,6 +208,6 @@ export function extractSeoSignals(html, { url }) {
     links,
     prose: proseText(html),
     wordCount: contentLength(text, locale),
-    hasFaq: /<details\b/i.test(html),
+    hasFaq: hasFaqMarkup(html),
   };
 }

@@ -6,6 +6,7 @@ import {
   DicesIcon,
   Grid2x2Icon,
   HeartIcon,
+  ImageIcon,
   Link2Icon,
   MapPinnedIcon,
   PaletteIcon,
@@ -102,6 +103,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       title: messages.tools.paletteStudio.title,
       description: labels.tools.paletteStudio,
     },
+    {
+      href: "/tools/image-studio",
+      icon: <ImageIcon />,
+      title: messages.tools.imageStudio.title,
+      description: labels.tools.imageStudio,
+    },
   ];
   const featureIcons = [<ZapIcon key="zap" />, <Link2Icon key="link" />, <HeartIcon key="heart" />];
   const faqStructuredData = {
@@ -185,6 +192,9 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
                 </PreviewTile>
                 <PreviewTile icon={<PaletteIcon />}>
                   {labels.preview.paletteStudio}
+                </PreviewTile>
+                <PreviewTile icon={<ImageIcon />}>
+                  {labels.preview.imageStudio}
                 </PreviewTile>
               </div>
             </div>

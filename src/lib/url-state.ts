@@ -16,6 +16,11 @@ export function buildSearchString(
   return next.toString();
 }
 
+/**
+ * Call only from event handlers or effects — never from a `setState` updater
+ * or the render phase. `history.replaceState` is patched by the App Router and
+ * updates the Router component, which React forbids while rendering.
+ */
 export function replaceSearchState(
   pathname: string,
   current: URLSearchParams,
