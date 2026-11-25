@@ -11,9 +11,9 @@ export const contentType = "image/png";
 export default function OpenGraphImage() {
   return new ImageResponse(
     <OGCard
-      title="Small tools for the journey."
-      description="Generate a name, draw an avatar, compose a wallpaper, or chart a route — then share where you landed."
-      footer="Four free tools · starrudder.cc"
+      title="Tools that stay in your browser."
+      description="Free tools for names, avatars, emoji wallpapers and travel maps. No account, no uploads, no data saved."
+      footer="Free browser tools · starrudder.cc"
       accent="#3B5FA8"
     />,
     size

@@ -1,5 +1,6 @@
 import { PageHeader } from "@/components/shared/page-header";
 import { SiteShell } from "@/components/shared/site-shell";
+import { ToolPageIntro } from "@/components/shared/tool-page-intro";
 import { PixelAvatarTool } from "@/features/pixel-avatar/components/pixel-avatar-tool";
 import type { Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
@@ -24,7 +25,15 @@ export function PixelAvatarPage({
         <PageHeader
           eyebrow={messages.tools.pixelAvatar.title}
           title={messages.pixelAvatar.title}
-          description={messages.pixelAvatar.description}
+          description={messages.pixelAvatar.intro}
+        />
+        <ToolPageIntro
+          locale={locale}
+          pathname="/tools/pixel-avatar"
+          title={messages.pixelAvatar.title}
+          intro={messages.pixelAvatar.intro}
+          howTo={messages.pixelAvatar.howTo}
+          howToLabel={messages.tools.howToTitle}
         />
         <PixelAvatarTool locale={locale} labels={messages.pixelAvatar} initialState={initialState} />
       </div>

@@ -13,7 +13,7 @@ for (const path of ["/tools/travel-footprint", "/zh-Hant/tools/travel-footprint"
     expect(mapBox.height).toBeGreaterThan(300);
 
     // The first control panel must start below the map, not beside it.
-    const firstPanel = page.locator("main section").first();
+    const firstPanel = page.locator("main section:not([data-testid='tool-how-to'])").first();
     const panelBox = (await firstPanel.boundingBox())!;
     expect(panelBox.y).toBeGreaterThanOrEqual(mapBox.y + mapBox.height);
   });
@@ -87,6 +87,18 @@ test("legacy footprint data is migrated to the StarRudder storage key", async ({
 
 test("map loads without the external worker CDN", async ({ page }) => {
   await page.route("https://unpkg.com/**", (route) => route.abort());
+  // Keep the test independent of a third-party basemap being reachable.
+  await page.route("https://basemaps.cartocdn.com/**", (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        version: 8,
+        sources: {},
+        layers: [{ id: "background", type: "background", paint: { "background-color": "#0b1020" } }],
+      }),
+    })
+  );
   await page.goto("/tools/travel-footprint");
 
   await expect(page.getByTestId("travel-footprint-map")).toBeVisible();

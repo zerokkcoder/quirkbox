@@ -141,7 +141,7 @@ export function OGCard({
           <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: 1, color: GOLD }}>
             StarRudder
           </div>
-          <div style={{ fontSize: 20, color: MUTED }}>Small tools for the journey</div>
+          <div style={{ fontSize: 20, color: MUTED }}>Free browser tools, no signup</div>
         </div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>

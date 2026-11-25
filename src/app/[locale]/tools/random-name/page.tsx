@@ -29,9 +29,10 @@ export async function generateMetadata({
 
   return buildMetadata({
     locale,
-    title: messages.randomName.title,
+    title: messages.randomName.seoTitle,
     description: messages.randomName.description,
     pathname: "/tools/random-name",
+    keywords: messages.randomName.keywords,
   });
 }
 

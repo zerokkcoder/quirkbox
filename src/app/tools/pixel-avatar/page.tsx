@@ -11,10 +11,10 @@ export const instant = false;
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: messages.pixelAvatar.title,
+  title: messages.pixelAvatar.seoTitle,
   description: messages.pixelAvatar.description,
   pathname: "/tools/pixel-avatar",
-  keywords: ["pixel avatar maker", "pixel art avatar generator", "random avatar maker"],
+  keywords: messages.pixelAvatar.keywords,
 });
 
 export default async function Page({

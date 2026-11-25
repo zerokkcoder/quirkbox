@@ -37,9 +37,10 @@ export async function generateMetadata({
 
   return buildMetadata({
     locale,
-    title: messages.emojiWallpaper.title,
+    title: messages.emojiWallpaper.seoTitle,
     description: messages.emojiWallpaper.description,
     pathname: "/tools/emoji-wallpaper",
+    keywords: messages.emojiWallpaper.keywords,
   });
 }
 

@@ -7,10 +7,10 @@ export const instant = false;
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: messages.travelFootprint.title,
+  title: messages.travelFootprint.seoTitle,
   description: messages.travelFootprint.description,
   pathname: "/tools/travel-footprint",
-  keywords: ["travel footprint map", "travel map generator", "map route visualizer"],
+  keywords: messages.travelFootprint.keywords,
 });
 
 export default function Page() {

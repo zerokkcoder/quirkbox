@@ -13,11 +13,14 @@ export function AboutPage({
 }) {
   return (
     <SiteShell locale={locale} messages={messages} pathname={localizePath(locale, "/about")}>
-      <PageHeader
-        eyebrow={messages.nav.about}
-        title={messages.about.title}
-        description={messages.about.description}
-      />
+      <div className="flex flex-col gap-6">
+        <PageHeader
+          eyebrow={messages.nav.about}
+          title={messages.about.title}
+          description={messages.about.description}
+        />
+        <p className="max-w-2xl text-base leading-7 text-muted-foreground">{messages.about.body}</p>
+      </div>
     </SiteShell>
   );
 }

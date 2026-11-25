@@ -12,8 +12,8 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <OGCard
       title="Random Name Generator"
-      description="Pick a language and gender, then have the name read aloud in your browser."
-      footer="Rule-based · shareable · no sign-up"
+      description="Full names in 14 languages, written in native script and read aloud by your browser."
+      footer="No signup · runs in your browser"
       accent="#2F5596"
     />,
     size

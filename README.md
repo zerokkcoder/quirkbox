@@ -1,8 +1,8 @@
 # StarRudder · 星舵工坊
 
-StarRudder is a small workshop of browser-sized tools, built with Next.js 16, TypeScript, Tailwind CSS v4, and shadcn/ui. A star to steer by, a rudder to hold the course — [starrudder.cc](https://starrudder.cc).
+StarRudder is a collection of free tools that run entirely in your browser, built with Next.js 16, TypeScript, Tailwind CSS v4, and shadcn/ui. No account, no uploads, no stored data — [starrudder.cc](https://starrudder.cc).
 
-星舵工坊是一间放在浏览器里的小工具工坊。以星导航、以舵定向，把一次命名、一张头像、一条路线变成可以分享的成果。
+星舵工坊是一组完全在浏览器中执行的免费工具。免注册、不上传、不保存任何用户数据，打开即可使用。
 
 See [docs/brand.md](docs/brand.md) for the full brand guide (中文 / English).
 

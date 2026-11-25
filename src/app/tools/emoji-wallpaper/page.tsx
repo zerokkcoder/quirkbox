@@ -18,10 +18,10 @@ export const instant = false;
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: messages.emojiWallpaper.title,
+  title: messages.emojiWallpaper.seoTitle,
   description: messages.emojiWallpaper.description,
   pathname: "/tools/emoji-wallpaper",
-  keywords: ["emoji wallpaper maker", "emoji pattern wallpaper generator", "phone emoji wallpaper builder"],
+  keywords: messages.emojiWallpaper.keywords,
 });
 
 export default async function Page({

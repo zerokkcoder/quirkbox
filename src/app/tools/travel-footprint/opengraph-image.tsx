@@ -12,8 +12,8 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <OGCard
       title="Travel Footprint"
-      description="Drop a home, add every place you have been, and draw your own routes."
-      footer="Custom lines · auto-fit view · PNG & data export"
+      description="Plot home and visited places, then draw and export your routes."
+      footer="No signup · runs in your browser"
       accent="#2C608E"
     />,
     size

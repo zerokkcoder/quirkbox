@@ -16,7 +16,12 @@ export function ToolsPage({
   return (
     <SiteShell locale={locale} messages={messages} pathname={localizePath(locale, "/tools")}>
       <div className="flex flex-col gap-10">
-        <PageHeader eyebrow={messages.nav.tools} title={messages.tools.title} />
+        <PageHeader
+          eyebrow={messages.nav.tools}
+          title={messages.tools.title}
+          description={messages.tools.description}
+        />
+        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{messages.tools.note}</p>
         <div className="reveal grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
           <ToolCard
             locale={locale}

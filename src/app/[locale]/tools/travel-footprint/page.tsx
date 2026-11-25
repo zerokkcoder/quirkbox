@@ -26,9 +26,10 @@ export async function generateMetadata({
 
   return buildMetadata({
     locale,
-    title: messages.travelFootprint.title,
+    title: messages.travelFootprint.seoTitle,
     description: messages.travelFootprint.description,
     pathname: "/tools/travel-footprint",
+    keywords: messages.travelFootprint.keywords,
   });
 }
 

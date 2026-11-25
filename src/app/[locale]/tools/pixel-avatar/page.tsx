@@ -30,9 +30,10 @@ export async function generateMetadata({
 
   return buildMetadata({
     locale,
-    title: messages.pixelAvatar.title,
+    title: messages.pixelAvatar.seoTitle,
     description: messages.pixelAvatar.description,
     pathname: "/tools/pixel-avatar",
+    keywords: messages.pixelAvatar.keywords,
   });
 }
 

@@ -25,9 +25,9 @@
 
 ## 2. 释义 / Meaning
 
-**中文**：星为引路之标，舵为掌向之器。星舵工坊是一间以星导航的小工坊——不承诺宏大旅程，只提供几件趁手的小工具，帮你把一次命名、一张头像、一条路线变成可以分享的成果。
+**中文**：星为引路之标，舵为掌向之器。星舵工坊是一组放在浏览器里的纯工具——打开就能用，不注册、不上传、不保存任何用户数据。
 
-**English**: A star to steer by, a rudder to hold the course. StarRudder is a small workshop for browser-sized voyages — no grand promises, just a handful of tools that turn a name, an avatar, or a route into something worth sharing.
+**English**: A star to steer by, a rudder to hold the course. StarRudder is a set of pure browser tools — open and use them immediately, with no account, no uploads and no stored user data.
 
 ---
 
@@ -88,12 +88,12 @@
 
 | 场景 / Context | 英文 / English | 中文 / Chinese |
 | --- | --- | --- |
-| Hero 标题 | Small tools for the journey. | 为旅程准备的小工具。 |
-| Hero 描述 | Set your course with a name, a portrait, a wallpaper, or a route — then share where you landed. | 用名字、头像、桌布或路线定好方向，再把落点分享出去。 |
-| 工具区眉标 | The workshop | 工坊清单 |
+| Hero 标题 | Tools that stay in your browser. | 工具，只留在你的浏览器。 |
+| Hero 描述 | Small, fast tools that run on your device — no account, no uploads, no data saved. | 工具全部在你的装置上执行，不须账号、不须上传，也不会保存任何资料。 |
+| 工具区眉标 | The tools | 工具清单 |
 | 特性眉标 | Why StarRudder | 为什么是星舵工坊 |
-| FAQ 眉标 | Ship log | 航行日志 |
-| CTA | Ready to set sail? | 准备起航？ |
+| FAQ 眉标 | Good to know | 常见问题 |
+| CTA | Open a tool | 打开一个工具 |
 
 ---
 

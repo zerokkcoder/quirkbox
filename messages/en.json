@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "StarRudder — Small tools for the journey",
-    "description": "A workshop of browser-sized tools: generate a name, draw an avatar, compose a wallpaper, or chart a route — then share where you landed."
+    "title": "StarRudder — Free Browser Tools, No Signup",
+    "description": "Free tools that run entirely in your browser. Generate names, avatars, emoji wallpapers and travel maps — nothing uploaded, nothing stored."
   },
   "nav": {
     "main": "Main navigation",
@@ -15,72 +15,74 @@
     "failed": "Couldn't open X. Please try again."
   },
   "home": {
-    "badge": "4 free tools · No sign-up",
-    "title": "Small tools for the journey.",
-    "description": "StarRudder is a workshop of browser-sized tools. Set your course with a name, a portrait, a wallpaper, or a route — then share where you landed.",
+    "badge": "Free browser tools · No sign-up",
+    "title": "Tools that stay in your browser.",
+    "description": "StarRudder builds small, fast tools that run on your device. Everything happens in the browser — no account, no uploads, no data saved.",
     "primaryCta": "Explore the tools",
     "secondaryCta": "About StarRudder",
     "preview": {
-      "label": "A look at the workshop",
-      "randomName": "A name, ready in a click",
-      "pixelAvatar": "A portrait from a seed",
-      "emojiWallpaper": "A wallpaper you composed",
-      "travelFootprint": "Routes across your map"
+      "label": "What you can do here",
+      "randomName": "Generate a name in 14 languages",
+      "pixelAvatar": "Turn a seed into a pixel avatar",
+      "emojiWallpaper": "Tile emoji into a 4K wallpaper",
+      "travelFootprint": "Map places and draw routes"
     },
     "tools": {
-      "eyebrow": "The workshop",
-      "title": "Pick a tool, chart a course",
-      "description": "Each tool has its own page, its own link, and no setup to get started.",
-      "randomName": "Culture-aware name suggestions with a single click.",
-      "pixelAvatar": "Deterministic pixel portraits you can export as PNG.",
-      "emojiWallpaper": "Arrange emoji into a wallpaper in any aspect ratio.",
-      "travelFootprint": "Drop places on a map and style the routes between them."
+      "eyebrow": "The tools",
+      "title": "Pick a tool and start",
+      "description": "Each tool opens with a link and runs locally — no setup, no waiting.",
+      "randomName": "Generate full names in 14 languages, with native scripts and pronunciation.",
+      "pixelAvatar": "Turn a seed into a unique pixel avatar and download it as PNG.",
+      "emojiWallpaper": "Tile emoji into a 4K phone wallpaper in the pattern you choose.",
+      "travelFootprint": "Plot home and visited places on a map, then draw and export routes."
     },
     "features": {
       "eyebrow": "Why StarRudder",
-      "title": "Built for the journey",
+      "title": "Private by design",
       "items": [
         {
-          "title": "Ready when you are",
-          "description": "No setup, no waiting. Open a tool and get your bearings right away."
+          "title": "Runs in your browser",
+          "description": "Names, avatars, wallpapers and maps are generated on your device. Your input never leaves the page."
         },
         {
-          "title": "Coordinates to share",
-          "description": "Every tool has its own URL, metadata and a one-click share button."
+          "title": "Nothing saved",
+          "description": "We don't store your data, require an account, or track what you make. Close the tab and it's gone."
         },
         {
-          "title": "Free to wander",
-          "description": "No account, no subscription, and no paid AI behind the curtain."
+          "title": "Open and free",
+          "description": "Every tool has a direct URL, so you can bookmark it or share the result in one click."
         }
       ]
     },
     "faq": {
-      "eyebrow": "Ship log",
-      "title": "Good to know",
+      "eyebrow": "Good to know",
+      "title": "Privacy, plainly",
       "items": [
         {
           "question": "Do I need an account?",
-          "answer": "No. Open any tool and start using it right away — nothing to install and nothing to sign up for."
+          "answer": "No. Open any tool and use it immediately — no signup and no setup."
         },
         {
-          "question": "Are there paid AI features?",
-          "answer": "No. The tools use local rules and browser code, so the site stays fast and free to run."
+          "question": "Is my data uploaded or stored?",
+          "answer": "No. All work happens in your browser. We don't save your inputs or results on a server."
         },
         {
           "question": "Can I share what I made?",
-          "answer": "Yes. Each tool has its own URL and a share button that opens a ready-to-post composer."
+          "answer": "Yes. Each tool has its own URL and a share button; your data goes only where you choose to send it."
         }
       ]
     },
     "cta": {
-      "title": "Ready to set sail?",
-      "description": "Four small tools are waiting. Pick one and try it now.",
-      "button": "Open the workshop"
+      "title": "Open a tool",
+      "description": "Choose a tool above and start in your browser — no account needed.",
+      "button": "Browse the tools"
     }
   },
   "tools": {
-    "title": "The workshop",
-    "description": "Browser-sized tools for names, avatars, wallpapers, and routes.",
+    "title": "The tools",
+    "description": "Free browser tools for names, avatars, wallpapers and maps. No signup, no uploads, no stored data.",
+    "note": "Every tool works locally in your browser. Your inputs and results are never uploaded or saved — open a tool and start.",
+    "howToTitle": "How to use",
     "randomName": {
       "title": "Random Name Generator"
     },
@@ -96,11 +98,16 @@
   },
   "about": {
     "title": "About StarRudder",
-    "description": "A small workshop of fast, shareable tools."
+    "description": "StarRudder makes free tools that run in your browser. No account, no uploads, no stored data — just open a tool and use it.",
+    "body": "Everything runs on your device: name generation, pixel avatars, emoji wallpapers and travel maps are built in the browser. We don't store your inputs, require an account, or send your results to a server."
   },
   "randomName": {
     "title": "Random Name Generator",
-    "description": "Pick a language and get a full name with a surname, written in its native script and read out loud by your browser.",
+    "seoTitle": "Random Name Generator — 14 Languages",
+    "description": "Generate random full names in 14 languages with native scripts and browser pronunciation. Pick a language and style, then shuffle.",
+    "intro": "A free random name generator for full names in 14 languages, written in native script and read aloud by your browser.",
+    "howTo": "Choose a language and name style, then click Shuffle. Play the pronunciation to hear it, or share the result.",
+    "keywords": ["random name generator", "foreign name generator", "name generator with pronunciation", "14 languages names"],
     "culture": "Language",
     "gender": "Name leaning",
     "result": "Suggested name",
@@ -131,7 +138,11 @@
   },
   "pixelAvatar": {
     "title": "Pixel Avatar Maker",
-    "description": "Pick a pixel-art style, then grow a one-of-a-kind avatar from a shareable seed and export it as a PNG.",
+    "seoTitle": "Pixel Avatar Maker — Download PNG",
+    "description": "Turn a seed into a unique pixel avatar online. Choose a style and palette, shuffle, then download a PNG — no signup.",
+    "intro": "A pixel art avatar generator that turns a shareable seed into a unique profile picture you can export as PNG.",
+    "howTo": "Pick a style and palette, keep or shuffle the seed, then click Download PNG. The same seed always recreates the same avatar.",
+    "keywords": ["pixel avatar maker", "pixel art avatar generator", "8 bit avatar maker", "random avatar PNG"],
     "palette": "Palette",
     "style": "Style",
     "styleHint": "Each style has its own pixel density and level of detail.",
@@ -157,7 +168,11 @@
   },
   "emojiWallpaper": {
     "title": "Emoji Wallpaper Maker",
-    "description": "Tile a set of emoji into a phone wallpaper, pick the emoji, the arrangement and the aspect ratio, then export it at 4K.",
+    "seoTitle": "Emoji Wallpaper Maker — 4K Phone Wallpaper",
+    "description": "Make a 4K emoji wallpaper in your browser. Pick emoji, pattern and aspect ratio, then download PNG or JPG.",
+    "intro": "An emoji wallpaper maker that tiles your emoji into a 4K phone or desktop wallpaper.",
+    "howTo": "Choose an emoji set or enter your own, pick a pattern and ratio, then download a PNG or JPG.",
+    "keywords": ["emoji wallpaper maker", "emoji wallpaper generator", "4K phone wallpaper", "emoji pattern wallpaper"],
     "theme": "Emoji set",
     "themeHint": "Each set is a themed pile of emoji to tile with.",
     "themes": {
@@ -228,7 +243,11 @@
   },
   "travelFootprint": {
     "title": "Travel Footprint",
-    "description": "Set a home point, drop in every place you have been, and let the map draw a route from home to each one. Restyle the lines, then export your map.",
+    "seoTitle": "Travel Footprint Map — Plot & Export Routes",
+    "description": "Plot home and visited places on a travel map, draw animated routes, then export PNG or JSON. Runs in your browser.",
+    "intro": "A travel footprint map that plots your home and visited places, then draws routes between them.",
+    "howTo": "Set home, add places by clicking the map, searching, or entering coordinates, then style the lines and export PNG or data.",
+    "keywords": ["travel footprint map", "travel map generator", "route map maker", "map with home and visited places"],
     "mapLoading": "Loading map…",
     "mapError": "The map couldn't load. You can still manage your footprints below.",
     "mapHint": "Click the map to drop a point · drag a marker to fine-tune it",

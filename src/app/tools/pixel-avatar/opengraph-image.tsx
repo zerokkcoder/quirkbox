@@ -12,8 +12,8 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <OGCard
       title="Pixel Avatar Maker"
-      description="Deterministic pixel portraits, palette controls, and one-click PNG export."
-      footer="Browser-only generation with shareable seeds"
+      description="Turn a seed into a unique pixel avatar, then download a PNG."
+      footer="No signup · runs in your browser"
       accent="#3E5C9E"
     />,
     size

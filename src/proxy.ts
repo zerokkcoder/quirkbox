@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { siteConfig } from "@/config/site";
+import { siteConfig, type Locale } from "@/config/site";
 
 // These are real first-level routes that must never be treated as a bad locale.
 const publicRoots = new Set([
@@ -14,13 +14,45 @@ const publicRoots = new Set([
   "_next",
 ]);
 
-const notFoundHtml = `<!DOCTYPE html>
-<html lang="en">
+const toolSlugs = new Set([
+  "emoji-wallpaper",
+  "pixel-avatar",
+  "random-name",
+  "travel-footprint",
+]);
+
+type NotFoundCopy = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  cta: string;
+};
+
+const notFoundCopy: Record<Locale, NotFoundCopy> = {
+  en: {
+    eyebrow: `404 · ${siteConfig.name}`,
+    title: "Page not found",
+    body: "This address isn't on the map. Head back to the tools.",
+    cta: "Back to home",
+  },
+  "zh-Hant": {
+    eyebrow: `404 · ${siteConfig.nameZh}`,
+    title: "找不到頁面",
+    body: "這個網址不存在。回到首頁，繼續使用瀏覽器工具。",
+    cta: "返回首頁",
+  },
+};
+
+function notFoundHtml(locale: Locale) {
+  const copy = notFoundCopy[locale];
+
+  return `<!DOCTYPE html>
+<html lang="${locale}">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
-<title>404 — Page not found | ${siteConfig.name}</title>
+<title>${copy.title} | ${locale === "zh-Hant" ? siteConfig.nameZh : siteConfig.name}</title>
 <style>
   :root { color-scheme: dark; }
   body { margin: 0; min-height: 100vh; display: grid; place-items: center;
@@ -35,28 +67,60 @@ const notFoundHtml = `<!DOCTYPE html>
 </head>
 <body>
 <main>
-  <p class="eyebrow">404 · ${siteConfig.nameZh}</p>
-  <h1>航线未找到 / Page not found</h1>
-  <p>这个地址不在星图上。This address is not on our chart.</p>
-  <a href="/">返回首页 / Back home</a>
+  <p class="eyebrow">${copy.eyebrow}</p>
+  <h1>${copy.title}</h1>
+  <p>${copy.body}</p>
+  <a href="/">${copy.cta}</a>
 </main>
 </body>
 </html>`;
+}
+
+function notFoundResponse(locale: Locale) {
+  return new Response(notFoundHtml(locale), {
+    status: 404,
+    headers: {
+      "content-type": "text/html; charset=utf-8",
+      "cache-control": "no-store",
+      "x-robots-tag": "noindex",
+    },
+  });
+}
+
+/** Only real locale-prefixed routes may continue to the App Router. */
+function isKnownPrefixedPath(segments: string[]) {
+  if (segments.length === 1) return true;
+
+  const [, second, third] = segments;
+  if (second === "about") return segments.length === 2;
+  if (second === "tools") {
+    if (segments.length === 2) return true;
+    return segments.length === 3 && toolSlugs.has(third);
+  }
+
+  return false;
+}
 
 /**
  * `[locale]` is a dynamic segment. Under Cache Components, calling notFound()
  * inside a page happens after streaming starts, so Next.js keeps HTTP 200.
- * Reject unsupported locale-like first segments before rendering instead.
+ * Reject unsupported locale-like paths before rendering instead.
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const segment = pathname.split("/")[1];
+  const segments = pathname.split("/").filter(Boolean);
+  const segment = segments[0];
 
   if (!segment) return NextResponse.next();
 
-  // Any path that looks like a static file (e.g. /emoji-data/en/data.json)
-  // is never a locale candidate.
-  if (/\.[a-z0-9]+$/i.test(pathname)) return NextResponse.next();
+  // Known static-file roots continue; unknown dotted paths still get a real
+  // single-language 404 instead of Next's streaming fallback.
+  if (/\.[a-z0-9]+$/i.test(pathname)) {
+    if (publicRoots.has(segment)) return NextResponse.next();
+    return notFoundResponse(
+      siteConfig.locales.includes(segment as Locale) ? (segment as Locale) : "en"
+    );
+  }
 
   // English is the unprefixed default locale; keep /en out of the index.
   if (segment === "en") {
@@ -65,21 +129,16 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
-  if (
-    publicRoots.has(segment) ||
-    siteConfig.locales.includes(segment as (typeof siteConfig.locales)[number])
-  ) {
+  if (publicRoots.has(segment)) return NextResponse.next();
+
+  if (siteConfig.locales.includes(segment as Locale)) {
+    if (!isKnownPrefixedPath(segments)) {
+      return notFoundResponse(segment as Locale);
+    }
     return NextResponse.next();
   }
 
-  return new Response(notFoundHtml, {
-    status: 404,
-    headers: {
-      "content-type": "text/html; charset=utf-8",
-      "cache-control": "no-store",
-      "x-robots-tag": "noindex",
-    },
-  });
+  return notFoundResponse("en");
 }
 
 export const config = {

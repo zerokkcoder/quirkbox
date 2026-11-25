@@ -10,10 +10,10 @@ export const instant = false;
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: messages.randomName.title,
+  title: messages.randomName.seoTitle,
   description: messages.randomName.description,
   pathname: "/tools/random-name",
-  keywords: ["random name generator", "foreign name generator", "english name generator"],
+  keywords: messages.randomName.keywords,
 });
 
 export default async function Page({
