@@ -12,7 +12,7 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <OGCard
       title="Tools that stay in your browser."
-      description="Free tools for names, avatars, emoji wallpapers and travel maps. No account, no uploads, no data saved."
+      description="Free tools for names, avatars, color palettes, emoji wallpapers and travel maps. No account, no uploads, no data saved."
       footer="Free browser tools · starrudder.cc"
       accent="#3B5FA8"
     />,

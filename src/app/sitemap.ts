@@ -13,6 +13,7 @@ const routes = [
   "/tools/pixel-avatar",
   "/tools/emoji-wallpaper",
   "/tools/travel-footprint",
+  "/tools/palette-studio",
   "/about",
 ];
 

@@ -25,7 +25,8 @@
       "randomName": "產生 14 種語言的名字",
       "pixelAvatar": "用種子畫出像素頭像",
       "emojiWallpaper": "用 emoji 拼出 4K 桌布",
-      "travelFootprint": "標註地點並畫出路線"
+      "travelFootprint": "標註地點並畫出路線",
+      "paletteStudio": "用一個顏色配出整組色盤"
     },
     "tools": {
       "eyebrow": "工具清單",
@@ -34,7 +35,8 @@
       "randomName": "產生 14 種語言的完整名字，保留當地文字並可朗讀。",
       "pixelAvatar": "用種子產生獨一無二的像素頭像，直接匯出 PNG。",
       "emojiWallpaper": "自選 emoji 與排列方式，拼出 4K 手機桌布。",
-      "travelFootprint": "在地圖上標註家與去過的地點，畫出並匯出路線。"
+      "travelFootprint": "在地圖上標註家與去過的地點，畫出並匯出路線。",
+      "paletteStudio": "用一個種子色產生和諧配色，並檢查對比度。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -94,6 +96,82 @@
     },
     "travelFootprint": {
       "title": "旅行足跡"
+    },
+    "paletteStudio": {
+      "title": "配色方案生成器"
+    }
+  },
+  "paletteStudio": {
+    "title": "配色方案生成器",
+    "seoTitle": "配色方案生成器 — 在線調色盤與色卡匯出",
+    "description": "輸入一個種子色即可產生和諧配色，即時檢查 WCAG 對比度與色盲模擬，並複製 CSS 變數或 Tailwind token。免註冊、全部在瀏覽器完成。",
+    "intro": "在瀏覽器執行的配色方案生成器，把一個種子色變成和諧、可讀、可複製與分享的配色。",
+    "howTo": "先選一個風格預設，或微調種子色與配色規則，再複製任一色值或匯出 CSS 與 Tailwind token。網址會保留完整設定。",
+    "keywords": [
+      "配色方案生成器",
+      "在線調色盤",
+      "色卡產生器",
+      "無障礙配色",
+      "tailwind 配色"
+    ],
+    "seed": "種子色",
+    "seedHint": "只要一個顏色，其餘配色會自動圍繞它產生。",
+    "harmony": "配色規則",
+    "harmonyHint": "決定其他顏色與種子色的關係。",
+  "count": "顏色數量",
+  "shuffle": "換一套",
+  "copyAll": "複製全部色值",
+    "preview": "配色預覽",
+    "copyHint": "點擊任一色塊即可複製色值",
+    "copied": "已複製",
+    "copyFailed": "複製失敗，請手動選取文字",
+    "copyCss": "複製 CSS",
+    "copyTailwind": "複製 Tailwind",
+    "copyJson": "複製 JSON",
+    "copyLink": "複製連結",
+    "downloadPng": "下載 PNG",
+    "harmonyNames": {
+      "analogous": "鄰近色",
+      "complementary": "互補色",
+      "split": "分裂互補",
+      "triadic": "三角色",
+      "tetradic": "四角色",
+    "mono": "單色"
+  },
+  "presets": {
+    "title": "風格預設",
+    "hint": "一鍵套用完整配色，之後仍可隨時微調。",
+    "custom": "自訂",
+    "applied": "已套用："
+  },
+  "presetNames": {
+    "tech": "科技風",
+    "business": "商業風",
+    "minimal": "簡約風",
+    "geek": "極客風",
+    "nature": "自然風",
+    "retro": "復古風",
+    "ecommerce": "電商風",
+    "education": "教育風",
+    "health": "醫療風",
+    "luxury": "輕奢風",
+    "playful": "活潑風",
+    "gaming": "電競風"
+  },
+  "fineTune": "進階微調（選用）",
+  "contrast": {
+      "title": "WCAG 對比度",
+      "white": "白字",
+      "black": "黑字",
+      "hint": "數值代表在白底與黑底上的可讀性。AA 需 4.5:1，AAA 需 7:1。"
+    },
+    "simulation": {
+      "title": "色盲模擬",
+      "hint": "常見色覺障礙的近似模擬，僅供參考。",
+      "none": "關閉",
+      "protanopia": "紅色盲",
+      "deuteranopia": "綠色盲",
+      "tritanopia": "藍色盲"
     }
   },
   "about": {

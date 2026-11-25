@@ -25,7 +25,8 @@
       "randomName": "Generate a name in 14 languages",
       "pixelAvatar": "Turn a seed into a pixel avatar",
       "emojiWallpaper": "Tile emoji into a 4K wallpaper",
-      "travelFootprint": "Map places and draw routes"
+      "travelFootprint": "Map places and draw routes",
+      "paletteStudio": "Build a palette from one color"
     },
     "tools": {
       "eyebrow": "The tools",
@@ -34,7 +35,8 @@
       "randomName": "Generate full names in 14 languages, with native scripts and pronunciation.",
       "pixelAvatar": "Turn a seed into a unique pixel avatar and download it as PNG.",
       "emojiWallpaper": "Tile emoji into a 4K phone wallpaper in the pattern you choose.",
-      "travelFootprint": "Plot home and visited places on a map, then draw and export routes."
+      "travelFootprint": "Plot home and visited places on a map, then draw and export routes.",
+      "paletteStudio": "Turn one seed color into a harmonious palette with contrast checks."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -94,6 +96,82 @@
     },
     "travelFootprint": {
       "title": "Travel Footprint"
+    },
+    "paletteStudio": {
+      "title": "Palette Studio"
+    }
+  },
+  "paletteStudio": {
+    "title": "Palette Studio",
+    "seoTitle": "Color Palette Generator — Free Online Palette Maker",
+    "description": "Generate a harmonious color palette from one seed color. Check WCAG contrast, simulate color blindness, and copy CSS variables or Tailwind tokens — no signup.",
+    "intro": "A browser-based color palette generator that turns one seed color into a harmonious, readable palette you can copy or share.",
+    "howTo": "Start from a style preset or fine-tune a seed color and harmony rule, then copy any hex or export CSS and Tailwind tokens. The URL keeps your exact settings.",
+    "keywords": [
+      "color palette generator",
+      "online palette maker",
+      "tailwind color generator",
+      "accessible color palette",
+      "oklch palette"
+    ],
+    "seed": "Seed color",
+    "seedHint": "One color is all it takes — the rest is generated around it.",
+    "harmony": "Harmony rule",
+    "harmonyHint": "How the colors relate to your seed.",
+  "count": "Colors",
+  "shuffle": "Shuffle",
+  "copyAll": "Copy all hex",
+    "preview": "Palette preview",
+    "copyHint": "Click any swatch to copy its hex",
+    "copied": "Copied",
+    "copyFailed": "Copy failed — select the text manually",
+    "copyCss": "Copy CSS",
+    "copyTailwind": "Copy Tailwind",
+    "copyJson": "Copy JSON",
+    "copyLink": "Copy link",
+    "downloadPng": "Download PNG",
+    "harmonyNames": {
+      "analogous": "Analogous",
+      "complementary": "Complementary",
+      "split": "Split complementary",
+      "triadic": "Triadic",
+      "tetradic": "Tetradic",
+    "mono": "Monochrome"
+  },
+  "presets": {
+    "title": "Style presets",
+    "hint": "One click applies a complete palette. Fine-tune anytime.",
+    "custom": "Custom",
+    "applied": "Applied: "
+  },
+  "presetNames": {
+    "tech": "Tech",
+    "business": "Business",
+    "minimal": "Minimal",
+    "geek": "Geek",
+    "nature": "Nature",
+    "retro": "Retro",
+    "ecommerce": "E-commerce",
+    "education": "Education",
+    "health": "Healthcare",
+    "luxury": "Luxury",
+    "playful": "Playful",
+    "gaming": "Gaming"
+  },
+  "fineTune": "Fine-tune (optional)",
+  "contrast": {
+      "title": "WCAG contrast",
+      "white": "White text",
+      "black": "Black text",
+      "hint": "Ratios show legibility on white and black. AA needs 4.5:1, AAA needs 7:1."
+    },
+    "simulation": {
+      "title": "Color-blind preview",
+      "hint": "Approximate simulation of common color vision deficiencies.",
+      "none": "None",
+      "protanopia": "Protanopia",
+      "deuteranopia": "Deuteranopia",
+      "tritanopia": "Tritanopia"
     }
   },
   "about": {

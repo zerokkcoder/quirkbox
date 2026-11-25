@@ -5,6 +5,7 @@ const toolNames = [
   "Pixel Avatar Maker",
   "Emoji Wallpaper Maker",
   "Travel Footprint",
+  "Palette Studio",
 ];
 
 test("home page renders the official landing page, not a desktop shell", async ({ page }) => {

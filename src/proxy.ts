@@ -16,6 +16,7 @@ const publicRoots = new Set([
 
 const toolSlugs = new Set([
   "emoji-wallpaper",
+  "palette-studio",
   "pixel-avatar",
   "random-name",
   "travel-footprint",

@@ -1,4 +1,4 @@
-import { DicesIcon, Grid2x2Icon, MapPinnedIcon, SmileIcon } from "lucide-react";
+import { DicesIcon, Grid2x2Icon, MapPinnedIcon, PaletteIcon, SmileIcon } from "lucide-react";
 import { SiteShell } from "@/components/shared/site-shell";
 import { ToolCard } from "@/components/shared/tool-card";
 import { PageHeader } from "@/components/shared/page-header";
@@ -46,6 +46,12 @@ export function ToolsPage({
             icon={<MapPinnedIcon />}
             title={messages.tools.travelFootprint.title}
             href="/tools/travel-footprint"
+          />
+          <ToolCard
+            locale={locale}
+            icon={<PaletteIcon />}
+            title={messages.tools.paletteStudio.title}
+            href="/tools/palette-studio"
           />
         </div>
       </div>

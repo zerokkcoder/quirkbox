@@ -1,7 +1,7 @@
 {
   "https://starrudder.cc/": {
     "title": "StarRudder — Free Browser Tools, No Signup",
-    "description": "Free tools that run entirely in your browser. Generate names, avatars, emoji wallpapers and travel maps — nothing uploaded, nothing stored.",
+    "description": "Free tools that run entirely in your browser. Generate names, avatars, color palettes, emoji wallpapers and travel maps — nothing uploaded, nothing stored.",
     "h1": [
       "Tools that stay in your browser."
     ]
@@ -81,6 +81,20 @@
     "description": "在地圖上標註家與去過的地點，畫出連線並匯出 PNG 或資料檔，全部在瀏覽器完成。",
     "h1": [
       "旅行足跡"
+    ]
+  },
+  "https://starrudder.cc/tools/palette-studio": {
+    "title": "Color Palette Generator — Free Online Palette Maker | StarRudder",
+    "description": "Generate a harmonious color palette from one seed color. Check WCAG contrast, simulate color blindness, and copy CSS variables or Tailwind tokens — no signup.",
+    "h1": [
+      "Palette Studio"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/palette-studio": {
+    "title": "配色方案生成器 — 在線調色盤與色卡匯出 | StarRudder",
+    "description": "輸入一個種子色即可產生和諧配色，即時檢查 WCAG 對比度與色盲模擬，並複製 CSS 變數或 Tailwind token。免註冊、全部在瀏覽器完成。",
+    "h1": [
+      "配色方案生成器"
     ]
   },
   "https://starrudder.cc/about": {

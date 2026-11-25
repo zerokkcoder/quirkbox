@@ -8,6 +8,7 @@ import {
   HeartIcon,
   Link2Icon,
   MapPinnedIcon,
+  PaletteIcon,
   PlusIcon,
   SmileIcon,
   ZapIcon,
@@ -95,6 +96,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       title: messages.tools.travelFootprint.title,
       description: labels.tools.travelFootprint,
     },
+    {
+      href: "/tools/palette-studio",
+      icon: <PaletteIcon />,
+      title: messages.tools.paletteStudio.title,
+      description: labels.tools.paletteStudio,
+    },
   ];
   const featureIcons = [<ZapIcon key="zap" />, <Link2Icon key="link" />, <HeartIcon key="heart" />];
   const faqStructuredData = {
@@ -175,6 +182,9 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
                 </PreviewTile>
                 <PreviewTile icon={<MapPinnedIcon />}>
                   {labels.preview.travelFootprint}
+                </PreviewTile>
+                <PreviewTile icon={<PaletteIcon />}>
+                  {labels.preview.paletteStudio}
                 </PreviewTile>
               </div>
             </div>
