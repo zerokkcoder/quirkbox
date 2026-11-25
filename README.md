@@ -48,6 +48,12 @@ instead of a local build, use `SEO_AUDIT_URL=https://… npm run seo:audit -- --
 Intentional SEO copy changes need `npm run seo:audit:baseline` to refresh the
 protected snapshot. Add `--strict` to turn length/word-count warnings into errors.
 
+`src/proxy.ts` rejects unsupported first path segments before rendering, so paths
+like `/sitemap` or `/nope` return a real HTTP 404 (and `/en` redirects to `/`);
+without it, `notFound()` after streaming starts would keep a 200 status.
+`src/app/sitemap.ts` uses a fixed `lastModified` instead of `new Date()` so the
+output stays stable across crawls — bump that constant when content changes.
+
 ## Stack
 
 - Next.js 16 App Router
