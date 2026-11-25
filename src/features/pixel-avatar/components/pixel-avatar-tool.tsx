@@ -97,7 +97,7 @@ export function PixelAvatarTool({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    downloadCanvas(canvas, `quirkbox-avatar-${state.seed}-${state.style}.png`);
+    downloadCanvas(canvas, `starrudder-avatar-${state.seed}-${state.style}.png`);
     trackEvent({ name: "pixel_avatar_downloaded", metadata: { style: state.style } });
   }
 

@@ -30,9 +30,9 @@ function loadMapLibre() {
   maplibrePromise ??= import("maplibre-gl")
     .then((lib) => {
       if (!lib.getWorkerUrl()) {
-        lib.setWorkerUrl(
-          `https://unpkg.com/maplibre-gl@${lib.getVersion()}/dist/maplibre-gl-worker.mjs`,
-        );
+        // Bundle the worker locally. Pulling it from a CDN at runtime makes the
+        // whole map fail whenever that host is unreachable.
+        lib.setWorkerUrl(new URL("maplibre-gl/dist/maplibre-gl-worker.mjs", import.meta.url).href);
       }
       return lib;
     })

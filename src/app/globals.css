@@ -49,72 +49,72 @@
 }
 
 :root {
-  --background: oklch(0.99 0.003 264);
-  --foreground: oklch(0.22 0.03 264);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.03 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.03 264);
-  --primary: oklch(0.51 0.21 264);
-  --primary-foreground: oklch(0.99 0.005 264);
-  --secondary: oklch(0.96 0.014 262);
-  --secondary-foreground: oklch(0.31 0.06 264);
-  --muted: oklch(0.965 0.008 264);
-  --muted-foreground: oklch(0.5 0.02 264);
-  --accent: oklch(0.95 0.05 88);
-  --accent-foreground: oklch(0.36 0.09 68);
-  --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.92 0.012 262);
-  --input: oklch(0.92 0.012 262);
-  --ring: oklch(0.51 0.21 264);
-  --chart-1: oklch(0.55 0.21 264);
-  --chart-2: oklch(0.76 0.15 75);
-  --chart-3: oklch(0.62 0.13 195);
-  --chart-4: oklch(0.58 0.17 300);
-  --chart-5: oklch(0.64 0.19 20);
+  --background: oklch(0.18 0.035 265);
+  --foreground: oklch(0.96 0.012 255);
+  --card: oklch(0.22 0.032 265);
+  --card-foreground: oklch(0.96 0.012 255);
+  --popover: oklch(0.22 0.032 265);
+  --popover-foreground: oklch(0.96 0.012 255);
+  --primary: oklch(0.84 0.14 88);
+  --primary-foreground: oklch(0.19 0.03 265);
+  --secondary: oklch(0.28 0.035 262);
+  --secondary-foreground: oklch(0.94 0.014 255);
+  --muted: oklch(0.24 0.03 265);
+  --muted-foreground: oklch(0.72 0.025 255);
+  --accent: oklch(0.55 0.13 235);
+  --accent-foreground: oklch(0.96 0.012 255);
+  --destructive: oklch(0.68 0.19 25);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.84 0.14 88);
+  --chart-1: oklch(0.84 0.14 88);
+  --chart-2: oklch(0.62 0.13 235);
+  --chart-3: oklch(0.72 0.11 195);
+  --chart-4: oklch(0.7 0.14 300);
+  --chart-5: oklch(0.72 0.15 25);
   --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.005 264);
-  --sidebar-foreground: oklch(0.22 0.03 264);
-  --sidebar-primary: oklch(0.51 0.21 264);
-  --sidebar-primary-foreground: oklch(0.99 0.005 264);
-  --sidebar-accent: oklch(0.95 0.05 88);
-  --sidebar-accent-foreground: oklch(0.36 0.09 68);
-  --sidebar-border: oklch(0.92 0.012 262);
-  --sidebar-ring: oklch(0.51 0.21 264);
+  --sidebar: oklch(0.21 0.032 265);
+  --sidebar-foreground: oklch(0.96 0.012 255);
+  --sidebar-primary: oklch(0.84 0.14 88);
+  --sidebar-primary-foreground: oklch(0.19 0.03 265);
+  --sidebar-accent: oklch(0.55 0.13 235);
+  --sidebar-accent-foreground: oklch(0.96 0.012 255);
+  --sidebar-border: oklch(1 0 0 / 14%);
+  --sidebar-ring: oklch(0.84 0.14 88);
 }
 
 .dark {
-  --background: oklch(0.2 0.02 264);
-  --foreground: oklch(0.97 0.004 264);
-  --card: oklch(0.25 0.022 264);
-  --card-foreground: oklch(0.97 0.004 264);
-  --popover: oklch(0.25 0.022 264);
-  --popover-foreground: oklch(0.97 0.004 264);
-  --primary: oklch(0.72 0.15 258);
-  --primary-foreground: oklch(0.18 0.03 264);
-  --secondary: oklch(0.32 0.02 264);
-  --secondary-foreground: oklch(0.97 0.004 264);
-  --muted: oklch(0.3 0.02 264);
-  --muted-foreground: oklch(0.75 0.02 262);
-  --accent: oklch(0.42 0.08 76);
-  --accent-foreground: oklch(0.95 0.04 88);
-  --destructive: oklch(0.68 0.18 24);
+  --background: oklch(0.14 0.03 265);
+  --foreground: oklch(0.97 0.01 255);
+  --card: oklch(0.18 0.028 265);
+  --card-foreground: oklch(0.97 0.01 255);
+  --popover: oklch(0.18 0.028 265);
+  --popover-foreground: oklch(0.97 0.01 255);
+  --primary: oklch(0.88 0.13 88);
+  --primary-foreground: oklch(0.17 0.03 265);
+  --secondary: oklch(0.24 0.03 262);
+  --secondary-foreground: oklch(0.97 0.01 255);
+  --muted: oklch(0.21 0.028 265);
+  --muted-foreground: oklch(0.76 0.02 255);
+  --accent: oklch(0.6 0.12 235);
+  --accent-foreground: oklch(0.97 0.01 255);
+  --destructive: oklch(0.72 0.17 25);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.72 0.15 258);
-  --chart-1: oklch(0.72 0.15 258);
-  --chart-2: oklch(0.78 0.14 78);
-  --chart-3: oklch(0.72 0.12 195);
-  --chart-4: oklch(0.7 0.15 300);
-  --chart-5: oklch(0.72 0.16 22);
-  --sidebar: oklch(0.25 0.022 264);
-  --sidebar-foreground: oklch(0.97 0.004 264);
-  --sidebar-primary: oklch(0.72 0.15 258);
-  --sidebar-primary-foreground: oklch(0.18 0.03 264);
-  --sidebar-accent: oklch(0.42 0.08 76);
-  --sidebar-accent-foreground: oklch(0.95 0.04 88);
+  --ring: oklch(0.88 0.13 88);
+  --chart-1: oklch(0.88 0.13 88);
+  --chart-2: oklch(0.66 0.12 235);
+  --chart-3: oklch(0.76 0.1 195);
+  --chart-4: oklch(0.74 0.13 300);
+  --chart-5: oklch(0.76 0.14 25);
+  --sidebar: oklch(0.18 0.028 265);
+  --sidebar-foreground: oklch(0.97 0.01 255);
+  --sidebar-primary: oklch(0.88 0.13 88);
+  --sidebar-primary-foreground: oklch(0.17 0.03 265);
+  --sidebar-accent: oklch(0.6 0.12 235);
+  --sidebar-accent-foreground: oklch(0.97 0.01 255);
   --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.72 0.15 258);
+  --sidebar-ring: oklch(0.88 0.13 88);
 }
 
 @layer base {
@@ -186,30 +186,6 @@
       color-mix(in oklch, var(--color-primary) 14%, transparent),
       transparent 70%
     );
-  }
-
-  /* Desktop wallpaper: one deep saturated wash so the frosted chrome above it stays legible. */
-  .desktop-wallpaper {
-    background-color: oklch(0.26 0.06 282);
-    background-image:
-      radial-gradient(64rem 40rem at 14% 4%, oklch(0.52 0.19 262 / 62%), transparent 62%),
-      radial-gradient(52rem 36rem at 86% 10%, oklch(0.54 0.17 318 / 52%), transparent 64%),
-      radial-gradient(76rem 48rem at 62% 108%, oklch(0.46 0.13 214 / 55%), transparent 66%),
-      linear-gradient(158deg, oklch(0.3 0.075 274), oklch(0.17 0.045 298));
-  }
-
-  /* Icon captions sit straight on the wallpaper, so they carry their own contrast.
-     Use --foreground, not --color-foreground: the latter is resolved once on :root and
-     would keep the light theme's near-black text under the desktop's .dark scope. */
-  .desktop-icon-label {
-    color: var(--foreground);
-    text-shadow: 0 1px 3px oklch(0 0 0 / 55%);
-  }
-
-  /* Tool bodies scroll inside a window, so the bar stays slim and picks up the theme border. */
-  .window-scroll {
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
   }
 
   /* Entrance: direct children rise in sequence, once, on first paint. */

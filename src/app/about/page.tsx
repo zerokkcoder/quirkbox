@@ -9,7 +9,7 @@ export const metadata = buildMetadata({
   title: messages.about.title,
   description: messages.about.description,
   pathname: "/about",
-  keywords: ["quirkbox", "fun tool collection", "generator site"],
+  keywords: ["starrudder", "star rudder", "星舵工坊", "tool collection", "generator site"],
 });
 
 export default function Page() {

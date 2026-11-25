@@ -66,6 +66,17 @@ export function rgba(hex: string, alpha: number): string {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
+/** Blends a route color toward white so animated highlights stand out over the base line. */
+export function lighten(hex: string, amount = 0.6): string {
+  const channel = (value: number) =>
+    Math.round(value + (255 - value) * amount)
+      .toString(16)
+      .padStart(2, "0");
+
+  const [r, g, b] = hexToRgb(hex);
+  return `#${channel(r)}${channel(g)}${channel(b)}`;
+}
+
 /** Clamps a persisted width to the slider's range, including fractional/NaN values. */
 export function normalizeLineWidth(value: unknown): number {
   if (typeof value !== "number" || !Number.isFinite(value)) {

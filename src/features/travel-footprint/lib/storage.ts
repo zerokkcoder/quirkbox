@@ -5,7 +5,9 @@ import {
   type TravelFootprintState,
 } from "./types";
 
-export const travelFootprintStorageKey = "quirkbox:travel-footprint:v1";
+export const travelFootprintStorageKey = "starrudder:travel-footprint:v1";
+/** Legacy key from the QuirkBox era. Read as a fallback, never deleted. */
+export const legacyTravelFootprintStorageKey = "quirkbox:travel-footprint:v1";
 
 /** Guards against pathological payloads; a longer list is treated as corrupt. */
 const maxSpots = 1000;
@@ -76,12 +78,20 @@ export function readTravelFootprintState(): TravelFootprintState {
 
   try {
     const raw = window.localStorage.getItem(travelFootprintStorageKey);
+    if (raw !== null) {
+      return parseTravelFootprintState(JSON.parse(raw));
+    }
 
-    if (raw === null) {
+    // Migrate legacy data once: read the old key, write the new one, and keep
+    // the old key intact as a rollback backup.
+    const legacyRaw = window.localStorage.getItem(legacyTravelFootprintStorageKey);
+    if (legacyRaw === null) {
       return { ...DEFAULT_TRAVEL_FOOTPRINT_STATE, spots: [] };
     }
 
-    return parseTravelFootprintState(JSON.parse(raw));
+    const migrated = parseTravelFootprintState(JSON.parse(legacyRaw));
+    writeTravelFootprintState(migrated);
+    return migrated;
   } catch {
     return { ...DEFAULT_TRAVEL_FOOTPRINT_STATE, spots: [] };
   }

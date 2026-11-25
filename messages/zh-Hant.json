@@ -1,20 +1,13 @@
 {
   "site": {
-    "title": "QuirkBox - 隨機名字產生器、像素頭像產生器與更多有趣工具",
-    "description": "一個偏好英文主站的趣味工具集合，首波提供外國名字產生器與像素風頭像產生器。"
+    "title": "星舵工坊 — 為旅程準備的小工具",
+    "description": "星舵工坊是一間瀏覽器裡的小工具工坊：產生名字、畫出頭像、拼出桌布，或畫出路線，再把落點分享出去。"
   },
   "nav": {
+    "main": "主導覽",
     "tools": "工具",
     "about": "關於",
     "language": "語言"
-  },
-  "desktop": {
-    "label": "QuirkBox 桌面",
-    "dock": "Dock",
-    "minimize": "縮到最小",
-    "maximize": "放到最大",
-    "restore": "還原",
-    "close": "關閉"
   },
   "share": {
     "action": "分享到 X",
@@ -22,11 +15,72 @@
     "failed": "無法開啟 X，請再試一次。"
   },
   "home": {
-    "title": "隨機名字與像素頭像，直接在瀏覽器裡生成。"
+    "badge": "4 個免費工具 · 無需註冊",
+    "title": "為旅程準備的小工具。",
+    "description": "星舵工坊是一間放在瀏覽器裡的小工坊。用名字、頭像、桌布或路線定好方向，再把落點分享出去。",
+    "primaryCta": "探索所有工具",
+    "secondaryCta": "關於星舵工坊",
+    "preview": {
+      "label": "工坊一瞥",
+      "randomName": "點一下就有名字",
+      "pixelAvatar": "由種子生成的頭像",
+      "emojiWallpaper": "親手拼出的桌布",
+      "travelFootprint": "地圖上的旅行路線"
+    },
+    "tools": {
+      "eyebrow": "工坊清單",
+      "title": "挑個工具，定好方向",
+      "description": "每個工具都有自己的頁面與網址，打開就能用。",
+      "randomName": "依文化規則產生名字，一鍵就能換一個。",
+      "pixelAvatar": "用種子產生獨一無二的像素頭像，可匯出 PNG。",
+      "emojiWallpaper": "用 emoji 拼出桌布，並自由選擇畫面比例。",
+      "travelFootprint": "把去過的地點放上地圖，自由設計連線樣式。"
+    },
+    "features": {
+      "eyebrow": "為什麼是星舵工坊",
+      "title": "為旅程而生",
+      "items": [
+        {
+          "title": "隨時可用",
+          "description": "不需設定、不需等待，點開工具馬上就能得到結果。"
+        },
+        {
+          "title": "坐標可分享",
+          "description": "每個工具都有獨立網址、描述與一鍵分享按鈕。"
+        },
+        {
+          "title": "自由探索",
+          "description": "不用帳號、不用訂閱，也沒有藏在背後的付費 AI。"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "航行日誌",
+      "title": "你可能會想知道",
+      "items": [
+        {
+          "question": "需要註冊帳號嗎？",
+          "answer": "不需要。打開任何工具就能直接使用，不用安裝，也不用註冊。"
+        },
+        {
+          "question": "有付費 AI 功能嗎？",
+          "answer": "沒有。工具使用在地規則與瀏覽器程式碼，因此網站能保持快速又免費。"
+        },
+        {
+          "question": "可以分享我做的成果嗎？",
+          "answer": "可以。每個工具都有獨立網址，以及能直接開啟發文視窗的分享按鈕。"
+        }
+      ]
+    },
+    "cta": {
+      "title": "準備起航？",
+      "description": "四個小工具已經就位，挑一個試試看。",
+      "button": "打開工坊"
+    }
   },
   "tools": {
-    "title": "工具集合",
-    "description": "在瀏覽器裡生成隨機名字與像素頭像的輕量工具。",
+    "title": "工坊清單",
+    "description": "在瀏覽器裡產生名字、頭像、桌布與路線的輕量工具。",
     "randomName": {
       "title": "隨機名字產生器"
     },
@@ -41,8 +95,8 @@
     }
   },
   "about": {
-    "title": "關於 QuirkBox",
-    "description": "一個輕巧、好分享的生成工具小天地。"
+    "title": "關於星舵工坊",
+    "description": "一個輕巧、好分享的工具工坊。"
   },
   "randomName": {
     "title": "隨機名字產生器",
@@ -52,6 +106,7 @@
     "result": "建議名字",
     "shuffle": "換一個",
     "listen": "播放發音",
+    "pronunciationFailed": "無法播放發音，請試試其他瀏覽器。",
     "feminine": "偏女性",
     "masculine": "偏男性",
     "neutral": "中性",

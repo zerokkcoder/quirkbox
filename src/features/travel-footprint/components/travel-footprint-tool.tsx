@@ -82,10 +82,9 @@ import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import { getMessages, type Messages } from "@/lib/i18n";
 import { createSeed } from "@/lib/seeds";
-import { cn } from "@/lib/utils";
 
 /** How long MapLibre gets to reach "loaded" before the map is treated as broken. */
-const mapLoadTimeoutMs = 9000;
+const mapLoadTimeoutMs = 15000;
 
 /** Default zoom when only a single point exists (fitBounds on one point is undefined). */
 const singlePointZoom = 9;
@@ -214,14 +213,16 @@ function MapBridge({
 function PanelSection({
   title,
   action,
+  className = "",
   children,
 }: {
   title: string;
   action?: ReactNode;
+  className?: string;
   children: ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-border bg-card/40 p-4">
+    <section className={`rounded-2xl border border-border bg-card/40 p-4 ${className}`}>
       <div className="mb-3 flex items-center justify-between gap-2">
         <h2 className="text-sm font-semibold tracking-tight">{title}</h2>
         {action}
@@ -281,15 +282,9 @@ function StyleRow({ label, children }: { label: string; children: ReactNode }) {
 export function TravelFootprintTool({
   locale,
   labels,
-  theme,
-  compact = false,
 }: {
   locale: Locale;
   labels: Labels;
-  /** Force a basemap theme. The desktop shell puts `.dark` on a wrapper, not on <html>. */
-  theme?: "light" | "dark";
-  /** Shorter map without sticky docking, for the small desktop windows. */
-  compact?: boolean;
 }) {
   const [state, setState] = useState<TravelFootprintState>(DEFAULT_TRAVEL_FOOTPRINT_STATE);
   const [hydrated, setHydrated] = useState(false);
@@ -520,21 +515,14 @@ export function TravelFootprintTool({
   const home = state.home;
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-      <div className="flex flex-col gap-2">
-        <div
-          data-testid="travel-footprint-map"
-          className={cn(
-            "relative overflow-hidden rounded-2xl border border-border bg-muted/20",
-            compact
-              ? "h-[360px] sm:h-[420px]"
-              : "h-[460px] sm:h-[560px] xl:sticky xl:top-(--tool-sticky-top,1rem) xl:self-start",
-          )}
-        >
+    <div className="flex flex-col gap-6">
+      <div
+        data-testid="travel-footprint-map"
+        className="relative h-[400px] w-full overflow-hidden rounded-2xl border border-border bg-muted/20 sm:h-[480px] lg:h-[560px]"
+      >
           <MapErrorBoundary onError={handleMapError}>
             <Map
               ref={mapRef}
-              theme={theme}
               canvasContextAttributes={{ preserveDrawingBuffer: true }}
               renderWorldCopies
               className="h-full w-full"
@@ -619,11 +607,11 @@ export function TravelFootprintTool({
               {labels.mapLoading}
             </div>
           ) : null}
-        </div>
       </div>
 
-      <div className="flex flex-col gap-4">
-        <PanelSection title={labels.home}>
+      <div className="grid gap-4 lg:grid-cols-2 lg:items-start">
+        <div className="contents lg:order-1 lg:flex lg:flex-col lg:gap-4">
+          <PanelSection title={labels.home} className="order-1">
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap items-center gap-2">
               {home ? (
@@ -669,34 +657,7 @@ export function TravelFootprintTool({
           </div>
         </PanelSection>
 
-        <PanelSection
-          title={labels.spotList}
-          action={
-            <span className="text-xs tabular-nums text-muted-foreground">
-              {labels.spotCount} · {state.spots.length}
-            </span>
-          }
-        >
-          <div className="flex flex-col gap-3">
-            <PlaceSearch labels={labels} onSelect={handleSelect} className="w-full" />
-            <CoordinateEntry
-              labels={labels}
-              onSetHome={handleSetHome}
-              onAddSpot={handleAddSpot}
-            />
-            <SpotList
-              spots={state.spots}
-              home={home}
-              locale={locale}
-              labels={labels}
-              onRename={renameSpot}
-              onDelete={removeSpot}
-              onMove={moveSpot}
-            />
-          </div>
-        </PanelSection>
-
-        <PanelSection title={labels.lineStyle}>
+          <PanelSection title={labels.lineStyle} className="order-3">
           <div className="flex flex-col gap-3">
             <StyleRow label={labels.lineStyle}>
               <OptionToggle<LineStyleId>
@@ -776,7 +737,7 @@ export function TravelFootprintTool({
           </div>
         </PanelSection>
 
-        <PanelSection title={labels.dataTitle}>
+          <PanelSection title={labels.dataTitle} className="order-4">
           <div className="flex flex-col gap-3">
             <div className="grid grid-cols-3 gap-2">
               <div className="rounded-lg bg-muted/60 px-2 py-1.5">
@@ -842,7 +803,38 @@ export function TravelFootprintTool({
               url={shareUrl}
             />
           </div>
-        </PanelSection>
+          </PanelSection>
+        </div>
+
+        <div className="contents lg:order-2 lg:flex lg:flex-col lg:gap-4">
+          <PanelSection
+            title={labels.spotList}
+            className="order-2"
+            action={
+              <span className="text-xs tabular-nums text-muted-foreground">
+                {labels.spotCount} · {state.spots.length}
+              </span>
+            }
+          >
+            <div className="flex flex-col gap-3">
+              <PlaceSearch labels={labels} onSelect={handleSelect} className="w-full" />
+              <CoordinateEntry
+                labels={labels}
+                onSetHome={handleSetHome}
+                onAddSpot={handleAddSpot}
+              />
+              <SpotList
+                spots={state.spots}
+                home={home}
+                locale={locale}
+                labels={labels}
+                onRename={renameSpot}
+                onDelete={removeSpot}
+                onMove={moveSpot}
+              />
+            </div>
+          </PanelSection>
+        </div>
       </div>
     </div>
   );

@@ -23,10 +23,22 @@ describe("travel footprint data transfer", () => {
     const text = serializeTravelFootprintState(state, "2026-01-01T00:00:00.000Z");
     const envelope = JSON.parse(text);
 
-    expect(envelope.app).toBe("quirkbox");
+    expect(envelope.app).toBe("starrudder");
     expect(envelope.tool).toBe("travel-footprint");
     expect(envelope.version).toBe(travelFootprintFileVersion);
     expect(parseTravelFootprintFile(text)).toEqual(state);
+  });
+
+  it("accepts legacy QuirkBox exports", () => {
+    const legacy = JSON.stringify({
+      app: "quirkbox",
+      tool: "travel-footprint",
+      version: 1,
+      exportedAt: "2026-01-01T00:00:00.000Z",
+      state,
+    });
+
+    expect(parseTravelFootprintFile(legacy)).toEqual(state);
   });
 
   it("accepts a bare state object", () => {

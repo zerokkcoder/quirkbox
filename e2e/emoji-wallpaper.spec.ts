@@ -73,7 +73,7 @@ test("downloads a png wallpaper", async ({ page }) => {
   const downloadPromise = page.waitForEvent("download", { timeout: 30000 });
   await page.getByRole("button", { name: "Download" }).click();
   const download = await downloadPromise;
-  expect(download.suggestedFilename()).toMatch(/^quirkbox-emoji-wallpaper-9x16-.+\.png$/);
+  expect(download.suggestedFilename()).toMatch(/^starrudder-emoji-wallpaper-9x16-.+\.png$/);
 });
 
 test("draws content for every arrangement", async ({ page }) => {

@@ -5,7 +5,7 @@ import { resolveLineStyle } from "./line-styles";
 import type { TravelFootprintState } from "./types";
 
 /** Stable, tool-specific download name. */
-export const travelFootprintExportFilename = "quirkbox-travel-footprint.png";
+export const travelFootprintExportFilename = "starrudder-travel-footprint.png";
 
 export type TravelFootprintExportOptions = {
   /** The live MapLibre instance. It must have been created with `preserveDrawingBuffer`. */

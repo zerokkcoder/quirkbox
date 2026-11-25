@@ -113,7 +113,7 @@ test("a blocked composer surfaces the failure message and keeps the button usabl
   await expect(shareButton).toBeEnabled();
 });
 
-test("every tool page and the desktop window expose the share entry", async ({ page }) => {
+test("every tool page exposes the share entry", async ({ page }) => {
   await page.goto("/tools/random-name");
   await expect(page.getByRole("button", { name: "Another name" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Share to X" })).toBeVisible();
@@ -125,8 +125,6 @@ test("every tool page and the desktop window expose the share entry", async ({ p
   await openEmojiWallpaper(page);
   await expect(page.getByRole("button", { name: "Share to X" })).toBeVisible();
 
-  // The desktop window hosts the same tool, so its share button has to be reachable there too.
-  await page.goto("/");
-  await page.getByRole("button", { name: "Pixel Avatar Maker" }).first().click();
-  await expect(page.getByRole("button", { name: "Share to X" }).first()).toBeVisible();
+  await page.goto("/tools/travel-footprint");
+  await expect(page.getByRole("button", { name: "Share to X" })).toBeVisible();
 });

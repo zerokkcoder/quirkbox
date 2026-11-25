@@ -1,0 +1,100 @@
+{
+  "https://starrudder.cc/": {
+    "title": "StarRudder — Small tools for the journey",
+    "description": "StarRudder is a workshop of browser-sized tools: generate a name, draw an avatar, compose a wallpaper, or chart a route — then share where you landed.",
+    "h1": [
+      "Small tools for the journey."
+    ]
+  },
+  "https://starrudder.cc/zh-Hant": {
+    "title": "星舵工坊 — 為旅程準備的小工具 | StarRudder",
+    "description": "星舵工坊是一間瀏覽器裡的小工具工坊：產生名字、畫出頭像、拼出桌布，或畫出路線，再把落點分享出去。",
+    "h1": [
+      "為旅程準備的小工具。"
+    ]
+  },
+  "https://starrudder.cc/tools": {
+    "title": "The workshop | StarRudder",
+    "description": "Browser-sized tools for names, avatars, wallpapers, and routes.",
+    "h1": [
+      "The workshop"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools": {
+    "title": "工坊清單 | StarRudder",
+    "description": "在瀏覽器裡產生名字、頭像、桌布與路線的輕量工具。",
+    "h1": [
+      "工坊清單"
+    ]
+  },
+  "https://starrudder.cc/tools/random-name": {
+    "title": "Random Name Generator | StarRudder",
+    "description": "Pick a language and get a full name with a surname, written in its native script and read out loud by your browser.",
+    "h1": [
+      "Random Name Generator"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/random-name": {
+    "title": "隨機名字產生器 | StarRudder",
+    "description": "選一個語言，得到以當地文字書寫、含姓氏的完整名字，還能請瀏覽器直接朗讀。",
+    "h1": [
+      "隨機名字產生器"
+    ]
+  },
+  "https://starrudder.cc/tools/pixel-avatar": {
+    "title": "Pixel Avatar Maker | StarRudder",
+    "description": "Pick a pixel-art style, then grow a one-of-a-kind avatar from a shareable seed and export it as a PNG.",
+    "h1": [
+      "Pixel Avatar Maker"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/pixel-avatar": {
+    "title": "像素頭像產生器 | StarRudder",
+    "description": "挑一種像素風格，用可分享的 seed 長出獨一無二的頭像，並直接匯出 PNG。",
+    "h1": [
+      "像素頭像產生器"
+    ]
+  },
+  "https://starrudder.cc/tools/emoji-wallpaper": {
+    "title": "Emoji Wallpaper Maker | StarRudder",
+    "description": "Tile a set of emoji into a phone wallpaper, pick the emoji, the arrangement and the aspect ratio, then export it at 4K.",
+    "h1": [
+      "Emoji Wallpaper Maker"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/emoji-wallpaper": {
+    "title": "Emoji 手機壁紙產生器 | StarRudder",
+    "description": "把一組 emoji 鋪成一張手機壁紙，自選 emoji、排列方式與畫面比例，再以 4K 匯出。",
+    "h1": [
+      "Emoji 手機壁紙產生器"
+    ]
+  },
+  "https://starrudder.cc/tools/travel-footprint": {
+    "title": "Travel Footprint | StarRudder",
+    "description": "Set a home point, drop in every place you have been, and let the map draw a route from home to each one. Restyle the lines, then export your map.",
+    "h1": [
+      "Travel Footprint"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/travel-footprint": {
+    "title": "旅行足跡 | StarRudder",
+    "description": "設定一個家為起點，把走過的每個地方放上地圖，讓它從家畫出連線。自由調整路線樣式，再把地圖匯出。",
+    "h1": [
+      "旅行足跡"
+    ]
+  },
+  "https://starrudder.cc/about": {
+    "title": "About StarRudder",
+    "description": "A small workshop of fast, shareable tools.",
+    "h1": [
+      "About StarRudder"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/about": {
+    "title": "關於星舵工坊 | StarRudder",
+    "description": "一個輕巧、好分享的工具工坊。",
+    "h1": [
+      "關於星舵工坊"
+    ]
+  }
+}

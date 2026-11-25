@@ -1,14 +1,22 @@
-# QuirkBox
+# StarRudder · 星舵工坊
 
-QuirkBox is a playful tool collection site built with Next.js 16, TypeScript, Tailwind CSS v4, and shadcn/ui.
+StarRudder is a small workshop of browser-sized tools, built with Next.js 16, TypeScript, Tailwind CSS v4, and shadcn/ui. A star to steer by, a rudder to hold the course — [starrudder.cc](https://starrudder.cc).
+
+星舵工坊是一间放在浏览器里的小工具工坊。以星导航、以舵定向，把一次命名、一张头像、一条路线变成可以分享的成果。
+
+See [docs/brand.md](docs/brand.md) for the full brand guide (中文 / English).
 
 The launch version includes:
 
-- `Random Name Generator`: generates culture-aware foreign name suggestions using curated name libraries and rule-based scoring.
-- `Pixel Avatar Maker`: generates deterministic pixel portraits in the browser and exports PNG files.
-- `English + Traditional Chinese`: English is the default route, while Traditional Chinese is available under `/zh-Hant`.
+- `Random Name Generator`: culture-aware name suggestions with browser pronunciation.
+- `Pixel Avatar Maker`: deterministic pixel portraits with PNG export.
+- `Emoji Wallpaper Maker`: tiled emoji wallpapers at 4K, in any aspect ratio.
+- `Travel Footprint`: map your home and footprints, style the routes, export PNG/JSON.
+- `English + Traditional Chinese`: English is the default route; Traditional Chinese lives under `/zh-Hant`.
 
 ## Scripts
+
+The dev and production servers listen on port **4000** (`http://localhost:4000`).
 
 ```bash
 npm run dev
@@ -16,7 +24,29 @@ npm run lint
 npm test
 npm run build
 npm run test:e2e
+npm run seo:audit
+npm run seo:audit:baseline
 ```
+
+## SSR SEO gate
+
+A two-stage SEO audit guards every commit that touches rendered HTML (see
+`docs/seo-audit.md`, adapted from
+[this DEV article](https://dev.to/tarotfortunecards/how-i-built-a-pre-merge-ssr-seo-audit-gate-for-nextjs-16-content-pages-271i)):
+
+- **Static repo check** — sitemap route coverage, template sentence overlap
+  (`>= 15%` fails), inbound links, WebP/60 KB primary visuals, and protected
+  title/description/h1 snapshots in `scripts/seo-baseline.json`.
+- **Raw SSR HTML check** — the production build is served locally and every
+  sitemap URL is fetched without a browser: HTTP 200, exact canonical, no
+  `noindex`, one `<h1>` with no skipped levels, server-rendered FAQ headings,
+  valid JSON-LD, and expected above-the-fold image attributes.
+
+`npm install` points git at the committed hook in `.githooks/`; CI runs the
+same gate via `npm run seo:audit -- --skip-build`. To audit a deployed preview
+instead of a local build, use `SEO_AUDIT_URL=https://… npm run seo:audit -- --skip-build`.
+Intentional SEO copy changes need `npm run seo:audit:baseline` to refresh the
+protected snapshot. Add `--strict` to turn length/word-count warnings into errors.
 
 ## Stack
 
@@ -36,4 +66,4 @@ The project includes:
 - `deploy/nginx.conf`
 - `.github/workflows/ci.yml`
 
-Set `NEXT_PUBLIC_SITE_URL` before production deploys so metadata and sitemap URLs are correct.
+Set `NEXT_PUBLIC_SITE_URL` before production deploys so metadata and sitemap URLs are correct (defaults to `https://starrudder.cc`).

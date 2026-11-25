@@ -31,3 +31,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: SSR SEO audit
+        run: npm run seo:audit -- --skip-build

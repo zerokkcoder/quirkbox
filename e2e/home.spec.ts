@@ -1,57 +1,43 @@
 import { expect, test } from "@playwright/test";
 
-test("home page renders the desktop shell", async ({ page }) => {
+const toolNames = [
+  "Random Name Generator",
+  "Pixel Avatar Maker",
+  "Emoji Wallpaper Maker",
+  "Travel Footprint",
+];
+
+test("home page renders the official landing page, not a desktop shell", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(/QuirkBox/);
-  await expect(page.getByRole("navigation", { name: "QuirkBox desktop" })).toBeVisible();
-  await expect(page.getByRole("toolbar", { name: "Dock" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Random Name Generator" })).toHaveCount(2);
-  await expect(page.getByRole("button", { name: "Pixel Avatar Maker" })).toHaveCount(2);
-  await expect(page.getByRole("button", { name: "Emoji Wallpaper Maker" })).toHaveCount(2);
-  await expect(page.getByRole("button", { name: "Travel Footprint" })).toHaveCount(2);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Small tools for the journey.");
+  await expect(page.getByRole("navigation", { name: "Main navigation" })).toBeVisible();
+  await expect(page.getByRole("toolbar", { name: "Dock" })).toHaveCount(0);
+
+  for (const name of toolNames) {
+    await expect(page.getByRole("link", { name: new RegExp(name) }).first()).toBeVisible();
+  }
+
+  await expect(page.getByRole("heading", { name: "Pick a tool, chart a course" })).toBeVisible();
+  await expect(page.getByText("Built for the journey")).toBeVisible();
 });
 
-test("tool windows open, drag, minimize, maximize and close", async ({ page }) => {
+test("home tool cards link to their own pages", async ({ page }) => {
   await page.goto("/");
 
-  const dock = page.getByRole("toolbar", { name: "Dock" });
-  await page.getByRole("button", { name: "Random Name Generator" }).first().click();
+  await page.getByRole("link", { name: /Travel Footprint/ }).first().click();
 
-  await expect(page.getByRole("button", { name: "Another name" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Close" })).toBeVisible();
+  await expect(page).toHaveURL(/\/tools\/travel-footprint$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Travel Footprint");
+});
 
-  // Drag by the title bar. The move has to stay small enough vertically that the window
-  // bounds of the desktop layer do not clamp it back.
-  const titleBar = page.locator(".window-drag-handle").first();
-  const beforeDrag = await titleBar.boundingBox();
-  expect(beforeDrag).not.toBeNull();
+test("home FAQ can be expanded", async ({ page }) => {
+  await page.goto("/");
 
-  const grabX = beforeDrag!.x + beforeDrag!.width / 2;
-  const grabY = beforeDrag!.y + beforeDrag!.height / 2;
+  const question = page.getByText("Do I need an account?");
+  const answer = page.getByText("No. Open any tool and start using it right away", { exact: false });
+  await expect(answer).toBeHidden();
 
-  await page.mouse.move(grabX, grabY);
-  await page.mouse.down();
-  await page.mouse.move(grabX + 120, grabY + 30, { steps: 12 });
-  await page.mouse.up();
-
-  const afterDrag = await titleBar.boundingBox();
-  expect(afterDrag!.x).toBeGreaterThan(beforeDrag!.x + 80);
-  expect(afterDrag!.y).toBeGreaterThan(beforeDrag!.y + 10);
-
-  // Minimize, then restore from the dock.
-  await page.getByRole("button", { name: "Minimize" }).click();
-  await expect(page.getByRole("button", { name: "Close" })).toBeHidden();
-  await dock.getByRole("button", { name: "Random Name Generator" }).click();
-  await expect(page.getByRole("button", { name: "Close" })).toBeVisible();
-
-  // Maximize, then restore.
-  await page.getByRole("button", { name: "Maximize" }).click();
-  await expect(page.getByRole("button", { name: "Restore" })).toBeVisible();
-  await page.getByRole("button", { name: "Restore" }).click();
-  await expect(page.getByRole("button", { name: "Maximize" })).toBeVisible();
-
-  // Close.
-  await page.getByRole("button", { name: "Close" }).click();
-  await expect(page.getByRole("button", { name: "Close" })).toBeHidden();
+  await question.click();
+  await expect(answer).toBeVisible();
 });

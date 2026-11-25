@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
+  legacyTravelFootprintStorageKey,
   parseTravelFootprintState,
   readTravelFootprintState,
   travelFootprintStorageKey,
@@ -68,6 +69,22 @@ describe("travel footprint storage", () => {
     writeTravelFootprintState(sampleState);
 
     expect(readTravelFootprintState()).toEqual(sampleState);
+  });
+
+  it("migrates legacy data into the new key without deleting the old one", () => {
+    window.localStorage.setItem(legacyTravelFootprintStorageKey, JSON.stringify(sampleState));
+
+    expect(readTravelFootprintState()).toEqual(sampleState);
+    expect(JSON.parse(window.localStorage.getItem(travelFootprintStorageKey)!)).toEqual(sampleState);
+    expect(window.localStorage.getItem(legacyTravelFootprintStorageKey)).not.toBeNull();
+  });
+
+  it("prefers the new key when both keys hold data", () => {
+    const newer = { ...sampleState, spots: [], lineColor: "ocean" as const };
+    window.localStorage.setItem(legacyTravelFootprintStorageKey, JSON.stringify(sampleState));
+    window.localStorage.setItem(travelFootprintStorageKey, JSON.stringify(newer));
+
+    expect(readTravelFootprintState()).toEqual(newer);
   });
 
   it("drops individual invalid spots but keeps the good ones", () => {

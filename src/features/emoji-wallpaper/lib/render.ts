@@ -136,7 +136,7 @@ export function exportWallpaper(
   const dataUrl =
     options.format === "jpg" ? canvas.toDataURL("image/jpeg", 0.92) : canvas.toDataURL("image/png");
   const ratioSlug = options.ratio.replace(/:/g, "x");
-  const filename = `quirkbox-emoji-wallpaper-${ratioSlug}-${options.seed}.${options.format}`;
+  const filename = `starrudder-emoji-wallpaper-${ratioSlug}-${options.seed}.${options.format}`;
 
   const link = document.createElement("a");
   link.href = dataUrl;

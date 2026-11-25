@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import type * as MapLibreGL from "maplibre-gl";
 import { useMap } from "@/components/ui/map";
 import { buildConnectors, connectorsToGeoJSON } from "../lib/geometry";
-import { resolveLineStyle, rgba } from "../lib/line-styles";
+import { lighten, resolveLineStyle, rgba } from "../lib/line-styles";
 import type { AnimationId, TravelFootprintState } from "../lib/types";
 
 /**
@@ -21,9 +21,22 @@ const haloLayerId = "travel-footprint-lines-halo";
 const baseLayerId = "travel-footprint-lines-base";
 const glowLayerId = "travel-footprint-lines-glow";
 
-const animationPeriodMs = 2600;
-const gradientSteps = 28;
-const minimumFrameGapMs = 32;
+const animationPeriodMs: Record<Exclude<AnimationId, "none">, number> = {
+  pulse: 1400,
+  comet: 2200,
+  flow: 2600,
+};
+const gradientSteps = 48;
+const minimumFrameGapMs = 24;
+const cometTail = 0.28;
+
+/** A comet head plus a fading tail behind it, moving from the start of each line to its end. */
+function cometAlpha(position: number, phase: number): number {
+  const head = -cometTail + phase * (1 + 2 * cometTail);
+  const behind = head - position;
+  if (behind < 0 || behind > cometTail) return 0;
+  return (1 - behind / cometTail) ** 1.6;
+}
 
 function gradientExpression(
   animation: AnimationId,
@@ -31,23 +44,24 @@ function gradientExpression(
   color: string,
 ): MapLibreGL.ExpressionSpecification {
   const stops: (number | string)[] = [];
+  const highlight = lighten(color, 0.65);
 
   for (let index = 0; index <= gradientSteps; index += 1) {
     const position = index / gradientSteps;
     let alpha = 0;
 
     if (animation === "pulse") {
-      alpha = 0.1 + 0.5 * (0.5 + 0.5 * Math.cos(2 * Math.PI * phase));
+      // A broad band that sweeps along each route, plus a global width beat.
+      const wave = Math.max(0, Math.cos(2 * Math.PI * (phase - position * 0.55))) ** 2;
+      alpha = 0.04 + 0.96 * wave;
     } else if (animation === "comet") {
-      const center = 0.08 + phase * 0.84;
-      const falloff = Math.max(0, 1 - Math.abs(position - center) / 0.14);
-      alpha = 0.9 * falloff * falloff;
+      alpha = cometAlpha(position, phase);
     } else if (animation === "flow") {
       const wave = Math.max(0, Math.cos(2 * Math.PI * (position * 3 - phase)));
-      alpha = 0.9 * wave ** 4;
+      alpha = 0.95 * wave ** 2;
     }
 
-    stops.push(position, rgba(color, alpha));
+    stops.push(position, rgba(highlight, alpha));
   }
 
   return ["interpolate", ["linear"], ["line-progress"], ...stops] as unknown as MapLibreGL.ExpressionSpecification;
@@ -149,9 +163,9 @@ export function FootprintLines({ state }: { state: TravelFootprintState }) {
         source: sourceId,
         layout: { ...lineLayout(), visibility: "none" },
         paint: {
-          "line-gradient": emptyGradient(paint.color),
-          "line-width": paint.width + 2,
-          "line-opacity": 0.95,
+          "line-gradient": emptyGradient(lighten(paint.color, 0.65)),
+          "line-width": paint.width + 6,
+          "line-opacity": 1,
         },
       },
     ];
@@ -196,17 +210,19 @@ export function FootprintLines({ state }: { state: TravelFootprintState }) {
     map.setPaintProperty(baseLayerId, "line-width", resolved.width);
     map.setPaintProperty(baseLayerId, "line-opacity", resolved.opacity);
     map.setPaintProperty(baseLayerId, "line-dasharray", resolved.dashArray);
-    map.setPaintProperty(glowLayerId, "line-width", resolved.width + 2);
+    map.setPaintProperty(glowLayerId, "line-width", resolved.width + 6);
     map.setLayoutProperty(glowLayerId, "visibility", animation === "none" ? "none" : "visible");
   }, [isLoaded, map, resolved, animation]);
 
   // One rAF loop per animation mode. It only touches a single paint property,
   // so React never re-renders while the lines are moving.
   useEffect(() => {
-    if (!isLoaded || !map || animation === "none") return;
+    const mode = animation;
+    if (!isLoaded || !map || mode === "none") return;
 
     let frame = 0;
     let lastFrameAt = 0;
+    const period = animationPeriodMs[mode];
 
     const tick = (timestamp: number) => {
       frame = window.requestAnimationFrame(tick);
@@ -215,12 +231,15 @@ export function FootprintLines({ state }: { state: TravelFootprintState }) {
       lastFrameAt = timestamp;
 
       if (!map.getLayer(glowLayerId)) return;
-      const phase = (timestamp % animationPeriodMs) / animationPeriodMs;
-      map.setPaintProperty(
-        glowLayerId,
-        "line-gradient",
-        gradientExpression(animation, phase, latestPaintRef.current.resolved.color),
-      );
+      const phase = (timestamp % period) / period;
+      const paint = latestPaintRef.current.resolved;
+
+      if (mode === "pulse") {
+        const beat = Math.max(0, Math.cos(2 * Math.PI * phase)) ** 2;
+        map.setPaintProperty(glowLayerId, "line-width", paint.width + 2 + 14 * beat);
+      }
+
+      map.setPaintProperty(glowLayerId, "line-gradient", gradientExpression(mode, phase, paint.color));
     };
 
     frame = window.requestAnimationFrame(tick);

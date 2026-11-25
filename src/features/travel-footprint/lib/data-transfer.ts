@@ -2,10 +2,11 @@ import { parseTravelFootprintState } from "./storage";
 import type { TravelFootprintState } from "./types";
 
 export const travelFootprintFileVersion = 1;
-export const travelFootprintDataFilename = "quirkbox-travel-footprint.json";
+export const travelFootprintDataFilename = "starrudder-travel-footprint.json";
 
+/** The legacy app id is accepted on import so old exports remain usable. */
 export type TravelFootprintFile = {
-  app: "quirkbox";
+  app: "quirkbox" | "starrudder";
   tool: "travel-footprint";
   version: number;
   exportedAt: string;
@@ -18,7 +19,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 export function serializeTravelFootprintState(state: TravelFootprintState, exportedAt: string): string {
   const payload: TravelFootprintFile = {
-    app: "quirkbox",
+    app: "starrudder",
     tool: "travel-footprint",
     version: travelFootprintFileVersion,
     exportedAt,
@@ -44,8 +45,9 @@ export function parseTravelFootprintFile(text: string): TravelFootprintState | n
 
   if (!isRecord(parsed)) return null;
 
+  const isKnownApp = parsed.app === "starrudder" || parsed.app === "quirkbox";
   const candidate =
-    parsed.app === "quirkbox" && parsed.tool === "travel-footprint" && isRecord(parsed.state)
+    isKnownApp && parsed.tool === "travel-footprint" && isRecord(parsed.state)
       ? parsed.state
       : parsed;
 

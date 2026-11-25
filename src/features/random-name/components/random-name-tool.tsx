@@ -15,6 +15,7 @@ import { trackEvent } from "@/lib/analytics";
 import { replaceSearchState } from "@/lib/url-state";
 import { createSeed } from "@/lib/seeds";
 import { cultures, nameGenders, type NameFilters, type NameSuggestion } from "@/features/random-name/lib/types";
+import { fallbackAudioUrl, findVoice } from "@/features/random-name/lib/speech";
 import { getMessages, type Messages } from "@/lib/i18n";
 import { localizePath } from "@/i18n/navigation";
 import { siteConfig, type Locale } from "@/config/site";
@@ -33,23 +34,6 @@ function getSpeechSynthesis() {
   }
 
   return window.speechSynthesis;
-}
-
-function findLocalVoice(voices: SpeechSynthesisVoice[], langCode: string) {
-  const target = langCode.replace("_", "-").toLowerCase();
-
-  return (
-    voices.find((voice) => voice.lang.replace("_", "-").toLowerCase() === target) ??
-    voices.find((voice) => voice.lang.replace("_", "-").toLowerCase().startsWith(target.slice(0, 2)))
-  );
-}
-
-const onlineTtsEndpoint = "https://translate.google.com/translate_tts";
-
-function onlineSpeechUrl(name: string, langCode: string) {
-  const query = new URLSearchParams({ ie: "UTF-8", client: "tw-ob", tl: langCode, q: name });
-
-  return `${onlineTtsEndpoint}?${query.toString()}`;
 }
 
 export function RandomNameTool({
@@ -71,6 +55,7 @@ export function RandomNameTool({
   const [result, setResult] = useState<NameSuggestion>(initialResult);
   const [isLoading, setIsLoading] = useState(false);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [pronunciationError, setPronunciationError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const shareLabels = getMessages(locale).share;
@@ -127,24 +112,31 @@ export function RandomNameTool({
   function playPronunciation() {
     audioRef.current?.pause();
     audioRef.current = null;
+    setPronunciationError(false);
 
     const synth = getSpeechSynthesis();
-    const voice = synth ? findLocalVoice(voices, result.langCode) : undefined;
-
-    if (synth && voice) {
+    if (synth) {
+      // Prefer a voice matching the name's language, but still speak without
+      // one: the browser falls back to its default voice, which is audible
+      // even when only a different language's voice pack is installed.
+      const voice = findVoice(voices, result.langCode);
       const utterance = new SpeechSynthesisUtterance(result.fullName);
       utterance.lang = result.langCode;
-      utterance.voice = voice;
+      if (voice) utterance.voice = voice;
+      utterance.onerror = () => setPronunciationError(true);
       synth.cancel();
+      synth.resume();
       synth.speak(utterance);
       return;
     }
 
-    const audio = new Audio(onlineSpeechUrl(result.fullName, result.langCode));
+    // SpeechSynthesis is missing entirely — last resort is remote audio.
+    const audio = new Audio(fallbackAudioUrl(result.fullName));
     audioRef.current = audio;
     void audio.play().catch(() => {
       if (audioRef.current === audio) {
         audioRef.current = null;
+        setPronunciationError(true);
       }
     });
   }
@@ -249,6 +241,11 @@ export function RandomNameTool({
               <Volume2Icon />
             </Button>
           </div>
+          {pronunciationError ? (
+            <p data-testid="pronunciation-error" role="status" className="text-sm text-destructive">
+              {labels.pronunciationFailed}
+            </p>
+          ) : null}
         </CardContent>
       </Card>
     </div>

@@ -24,7 +24,7 @@ export function LanguageSwitcher({
     <div
       role="group"
       aria-label={label}
-      className="flex items-center gap-0.5 rounded-full border border-border/70 bg-background/70 p-0.5"
+      className="flex shrink-0 items-center gap-0.5 rounded-full border border-border/70 bg-background/70 p-0.5"
     >
       <LanguagesIcon aria-hidden className="mx-1.5 size-3.5 text-muted-foreground" />
       {options.map((option) => {
@@ -36,7 +36,7 @@ export function LanguageSwitcher({
             href={localizePath(option.locale, basePath)}
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "rounded-full px-2.5 py-1 text-xs font-medium transition-colors",
+              "rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors",
               isActive
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"

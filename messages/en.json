@@ -1,20 +1,13 @@
 {
   "site": {
-    "title": "QuirkBox - Random Name Generator, Pixel Avatar Maker & More Fun Tools",
-    "description": "A playful collection of tiny tools with a random foreign name generator, a pixel avatar maker, and room for more experiments."
+    "title": "StarRudder — Small tools for the journey",
+    "description": "A workshop of browser-sized tools: generate a name, draw an avatar, compose a wallpaper, or chart a route — then share where you landed."
   },
   "nav": {
+    "main": "Main navigation",
     "tools": "Tools",
     "about": "About",
     "language": "Language"
-  },
-  "desktop": {
-    "label": "QuirkBox desktop",
-    "dock": "Dock",
-    "minimize": "Minimize",
-    "maximize": "Maximize",
-    "restore": "Restore",
-    "close": "Close"
   },
   "share": {
     "action": "Share to X",
@@ -22,11 +15,72 @@
     "failed": "Couldn't open X. Please try again."
   },
   "home": {
-    "title": "Random names and pixel avatars, generated in your browser."
+    "badge": "4 free tools · No sign-up",
+    "title": "Small tools for the journey.",
+    "description": "StarRudder is a workshop of browser-sized tools. Set your course with a name, a portrait, a wallpaper, or a route — then share where you landed.",
+    "primaryCta": "Explore the tools",
+    "secondaryCta": "About StarRudder",
+    "preview": {
+      "label": "A look at the workshop",
+      "randomName": "A name, ready in a click",
+      "pixelAvatar": "A portrait from a seed",
+      "emojiWallpaper": "A wallpaper you composed",
+      "travelFootprint": "Routes across your map"
+    },
+    "tools": {
+      "eyebrow": "The workshop",
+      "title": "Pick a tool, chart a course",
+      "description": "Each tool has its own page, its own link, and no setup to get started.",
+      "randomName": "Culture-aware name suggestions with a single click.",
+      "pixelAvatar": "Deterministic pixel portraits you can export as PNG.",
+      "emojiWallpaper": "Arrange emoji into a wallpaper in any aspect ratio.",
+      "travelFootprint": "Drop places on a map and style the routes between them."
+    },
+    "features": {
+      "eyebrow": "Why StarRudder",
+      "title": "Built for the journey",
+      "items": [
+        {
+          "title": "Ready when you are",
+          "description": "No setup, no waiting. Open a tool and get your bearings right away."
+        },
+        {
+          "title": "Coordinates to share",
+          "description": "Every tool has its own URL, metadata and a one-click share button."
+        },
+        {
+          "title": "Free to wander",
+          "description": "No account, no subscription, and no paid AI behind the curtain."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Ship log",
+      "title": "Good to know",
+      "items": [
+        {
+          "question": "Do I need an account?",
+          "answer": "No. Open any tool and start using it right away — nothing to install and nothing to sign up for."
+        },
+        {
+          "question": "Are there paid AI features?",
+          "answer": "No. The tools use local rules and browser code, so the site stays fast and free to run."
+        },
+        {
+          "question": "Can I share what I made?",
+          "answer": "Yes. Each tool has its own URL and a share button that opens a ready-to-post composer."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to set sail?",
+      "description": "Four small tools are waiting. Pick one and try it now.",
+      "button": "Open the workshop"
+    }
   },
   "tools": {
-    "title": "Tool collection",
-    "description": "Tiny browser-based generators for random names and pixel avatars.",
+    "title": "The workshop",
+    "description": "Browser-sized tools for names, avatars, wallpapers, and routes.",
     "randomName": {
       "title": "Random Name Generator"
     },
@@ -41,8 +95,8 @@
     }
   },
   "about": {
-    "title": "About QuirkBox",
-    "description": "A small playground of fast, shareable generators."
+    "title": "About StarRudder",
+    "description": "A small workshop of fast, shareable tools."
   },
   "randomName": {
     "title": "Random Name Generator",
@@ -52,6 +106,7 @@
     "result": "Suggested name",
     "shuffle": "Another name",
     "listen": "Play pronunciation",
+    "pronunciationFailed": "Audio couldn't play. Try another browser.",
     "feminine": "Feminine",
     "masculine": "Masculine",
     "neutral": "Neutral",

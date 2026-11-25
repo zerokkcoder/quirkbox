@@ -5,7 +5,7 @@ services:
     environment:
       NEXT_PUBLIC_SITE_URL: http://localhost
     expose:
-      - "3000"
+      - "4000"
 
   nginx:
     image: nginx:1.27-alpine

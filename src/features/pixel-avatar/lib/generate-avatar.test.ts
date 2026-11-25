@@ -17,7 +17,7 @@ describe("pixel avatar generator", () => {
 
   it("renders an SVG data URI for every style", () => {
     for (const styleId of avatarStyles) {
-      const uri = generateAvatarDataUri("quirkbox", { styleId });
+      const uri = generateAvatarDataUri("starrudder", { styleId });
 
       expect(uri.startsWith("data:image/svg+xml")).toBe(true);
       expect(decodeURIComponent(uri)).toContain("<svg");
@@ -25,7 +25,7 @@ describe("pixel avatar generator", () => {
   });
 
   it("rebuilds the exact same image for the same seed", () => {
-    expect(generateAvatarDataUri("quirkbox")).toBe(generateAvatarDataUri("quirkbox"));
+    expect(generateAvatarDataUri("starrudder")).toBe(generateAvatarDataUri("starrudder"));
   });
 
   it("varies the image between seeds and styles", () => {
@@ -36,8 +36,8 @@ describe("pixel avatar generator", () => {
   });
 
   it("tints the art styles that paint their own background", () => {
-    expect(generateAvatarDataUri("quirkbox", { styleId: "pixelbot", paletteId: "mint" })).not.toBe(
-      generateAvatarDataUri("quirkbox", { styleId: "pixelbot", paletteId: "rose" })
+    expect(generateAvatarDataUri("starrudder", { styleId: "pixelbot", paletteId: "mint" })).not.toBe(
+      generateAvatarDataUri("starrudder", { styleId: "pixelbot", paletteId: "rose" })
     );
   });
 });

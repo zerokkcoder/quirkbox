@@ -1,9 +1,10 @@
 export const siteConfig = {
-  name: "QuirkBox",
-  title: "QuirkBox - Random Name Generator, Pixel Avatar Maker & More Fun Tools",
+  name: "StarRudder",
+  nameZh: "星舵工坊",
+  title: "StarRudder — Small tools for the journey",
   description:
-    "QuirkBox is a playful generator playground with a random foreign name tool, a pixel avatar maker, and more tiny tools worth sharing.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    "StarRudder is a workshop of browser-sized tools: generate a name, draw an avatar, compose a wallpaper, or chart a route — then share where you landed.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://starrudder.cc",
   defaultLocale: "en",
   locales: ["en", "zh-Hant"] as const,
 } as const;

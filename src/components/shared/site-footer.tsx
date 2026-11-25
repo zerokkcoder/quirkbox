@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SparklesIcon } from "lucide-react";
+import { BrandMark } from "@/components/shared/brand-mark";
 import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import type { Messages } from "@/lib/i18n";
@@ -17,7 +17,7 @@ export function SiteFooter({
         <div className="flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2.5">
             <span className="flex size-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <SparklesIcon className="size-3.5" />
+              <BrandMark size={16} />
             </span>
             <span className="font-heading text-sm font-semibold tracking-tight">
               {siteConfig.name}

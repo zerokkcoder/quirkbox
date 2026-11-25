@@ -3,6 +3,7 @@ import {
   getLineColor,
   getLineStyle,
   hexToRgb,
+  lighten,
   lineColorOptions,
   lineStyleOptions,
   normalizeLineWidth,
@@ -78,6 +79,8 @@ describe("resolved style", () => {
 
   it("converts hex colors and guards enums", () => {
     expect(hexToRgb("#2563eb")).toEqual([37, 99, 235]);
+    expect(lighten("#000000")).toBe("#999999");
+    expect(lighten("#ffffff", 0.5)).toBe("#ffffff");
     expect(toAnimationId("comet")).toBe("comet");
     expect(toAnimationId("teleport")).toBeNull();
   });
