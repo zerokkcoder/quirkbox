@@ -62,7 +62,7 @@ export function PreviewPanel({
           data-testid="image-preview-download"
           disabled={!result}
           onClick={() => job && onDownload(job)}
-          className="flex size-7 shrink-0 items-center justify-center rounded-full border border-border/70 text-foreground transition hover:bg-primary hover:text-primary-foreground disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-foreground"
+          className="flex size-7 shrink-0 items-center justify-center rounded-full border border-border/70 text-foreground transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-primary hover:text-primary-foreground active:scale-90 disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-foreground"
         >
           <DownloadIcon className="size-3.5" />
         </button>

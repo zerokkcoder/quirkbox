@@ -108,7 +108,7 @@ export function PixelAvatarTool({
           type="button"
           onClick={shuffle}
           aria-label={labels.shuffle}
-          className="w-full max-w-72 cursor-pointer rounded-[2rem] border border-border bg-card p-4 shadow-sm transition hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          className="w-full max-w-72 cursor-pointer rounded-[2rem] border border-border bg-card p-4 shadow-sm transition-[box-shadow,transform] duration-200 ease-[var(--ease-out)] hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none active:scale-[0.98]"
         >
           <canvas
             ref={canvasRef}
@@ -175,7 +175,7 @@ export function PixelAvatarTool({
                     onClick={() => updateState({ palette: palette.id })}
                     style={{ backgroundColor: palette.swatch }}
                     className={cn(
-                      "size-9 cursor-pointer rounded-full border-2 transition hover:scale-105 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+                      "size-9 cursor-pointer rounded-full border-2 transition-[border-color,transform] duration-150 ease-[var(--ease-out)] hover:scale-105 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none active:scale-95",
                       active ? "border-foreground" : "border-transparent"
                     )}
                   />

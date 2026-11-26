@@ -34,7 +34,7 @@ export function UploadPanel({
   return (
     <div
       data-testid="image-drop-zone"
-      className={`flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-5 py-8 text-center transition duration-200 ${
+      className={`flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-5 py-8 text-center transition-[border-color,background-color] duration-200 ease-[var(--ease-out)] ${
         dragging ? "border-primary bg-primary/10" : "border-border bg-background/40"
       }`}
     >
@@ -66,7 +66,7 @@ export function AddTile({
 }) {
   return (
     <li
-      className={`rounded-xl border-2 border-dashed transition duration-200 ${
+      className={`rounded-xl border-2 border-dashed transition-[border-color,background-color] duration-200 ease-[var(--ease-out)] ${
         dragging ? "border-primary bg-primary/10 text-primary" : "border-border/70"
       }`}
     >
@@ -76,7 +76,7 @@ export function AddTile({
         type="button"
         data-testid="image-add-more"
         onClick={onBrowse}
-        className="flex size-full flex-col rounded-[inherit] text-[11px] font-medium text-muted-foreground transition hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        className="flex size-full flex-col rounded-[inherit] text-[11px] font-medium text-muted-foreground transition-colors duration-150 ease-[var(--ease-out)] hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none active:scale-[0.97]"
       >
         <span className="flex aspect-square w-full items-center justify-center">
           <PlusIcon className="size-5" />

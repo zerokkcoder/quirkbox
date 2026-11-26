@@ -23,13 +23,18 @@ test("renders a live gradient preview and CSS", async ({ page }) => {
   const canvas = page.getByTestId("gradient-preview");
   await expect(canvas).toBeVisible();
 
-  const painted = await canvas.evaluate((node) => {
-    const context = (node as HTMLCanvasElement).getContext("2d");
-    if (!context) return false;
-    const sample = context.getImageData(20, 20, 1, 1).data;
-    return sample[0] + sample[1] + sample[2] > 0;
-  });
-  expect(painted).toBe(true);
+  // The canvas is painted in a client effect, so wait for the first frame
+  // instead of sampling right after the element becomes visible.
+  await expect
+    .poll(() =>
+      canvas.evaluate((node) => {
+        const context = (node as HTMLCanvasElement).getContext("2d");
+        if (!context) return false;
+        const sample = context.getImageData(20, 20, 1, 1).data;
+        return sample[0] + sample[1] + sample[2] > 0;
+      })
+    )
+    .toBe(true);
 
   await expect(page.getByTestId("gradient-css")).toContainText("linear-gradient(");
 });

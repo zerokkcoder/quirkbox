@@ -26,7 +26,7 @@ export function Swatch({
       onClick={() => onCopy(hex)}
       aria-label={`${withHash(hex)} — ${labels.copyHint}`}
       style={{ backgroundColor: withHash(hex), color: bestForeground(hex) }}
-      className="flex min-h-36 flex-1 cursor-pointer flex-col justify-between rounded-xl border border-border/70 p-3 text-left transition duration-200 hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      className="flex min-h-36 flex-1 cursor-pointer flex-col justify-between rounded-xl border border-border/70 p-3 text-left transition-[transform,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none active:translate-y-0 active:scale-[0.97]"
     >
       <span className="text-xs font-medium opacity-80">#{index + 1}</span>
       <span className="font-mono text-sm font-semibold tracking-tight">{withHash(hex)}</span>

@@ -7,7 +7,19 @@
     "main": "主導覽",
     "tools": "工具",
     "about": "關於",
-    "language": "語言"
+    "language": "語言",
+    "theme": "主題",
+    "themeLight": "淺色",
+    "themeDark": "深色",
+    "themeSystem": "跟隨系統"
+  },
+  "support": {
+    "action": "請我喝杯咖啡",
+    "qrTitle": "掃碼支持",
+    "wechat": "微信支付",
+    "alipay": "支付寶",
+    "close": "關閉",
+    "hint": "每一份支持都讓工具繼續免費、繼續只在瀏覽器中運行。"
   },
   "share": {
     "action": "分享到 X",

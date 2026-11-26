@@ -210,7 +210,7 @@ export function PaletteStudioTool({
                 data-testid={`palette-preset-${preset.id}`}
                 aria-pressed={active}
                 onClick={() => applyPreset(preset.id)}
-                className={`flex flex-col gap-2 rounded-xl border p-2 text-left transition duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none ${
+                className={`flex flex-col gap-2 rounded-xl border p-2 text-left transition-[transform,border-color,background-color] duration-200 ease-[var(--ease-out)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none active:translate-y-0 active:scale-[0.97] ${
                   active
                     ? "border-primary bg-primary/10 ring-1 ring-primary/40"
                     : "border-border/70 hover:-translate-y-0.5 hover:border-primary/60"

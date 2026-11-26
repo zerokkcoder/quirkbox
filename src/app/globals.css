@@ -48,42 +48,47 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Mist-white starlight: cool paper background, navy ink, warm gold accents. */
 :root {
-  --background: oklch(0.18 0.035 265);
-  --foreground: oklch(0.96 0.012 255);
-  --card: oklch(0.22 0.032 265);
-  --card-foreground: oklch(0.96 0.012 255);
-  --popover: oklch(0.22 0.032 265);
-  --popover-foreground: oklch(0.96 0.012 255);
-  --primary: oklch(0.84 0.14 88);
-  --primary-foreground: oklch(0.19 0.03 265);
-  --secondary: oklch(0.28 0.035 262);
-  --secondary-foreground: oklch(0.94 0.014 255);
-  --muted: oklch(0.24 0.03 265);
-  --muted-foreground: oklch(0.72 0.025 255);
-  --accent: oklch(0.55 0.13 235);
-  --accent-foreground: oklch(0.96 0.012 255);
-  --destructive: oklch(0.68 0.19 25);
-  --border: oklch(1 0 0 / 14%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.84 0.14 88);
-  --chart-1: oklch(0.84 0.14 88);
-  --chart-2: oklch(0.62 0.13 235);
-  --chart-3: oklch(0.72 0.11 195);
-  --chart-4: oklch(0.7 0.14 300);
-  --chart-5: oklch(0.72 0.15 25);
+  color-scheme: light;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --background: oklch(0.975 0.008 250);
+  --foreground: oklch(0.23 0.03 260);
+  --card: oklch(0.995 0.004 250);
+  --card-foreground: oklch(0.23 0.03 260);
+  --popover: oklch(0.995 0.004 250);
+  --popover-foreground: oklch(0.23 0.03 260);
+  --primary: oklch(0.58 0.12 82);
+  --primary-foreground: oklch(0.99 0.01 80);
+  --secondary: oklch(0.94 0.014 250);
+  --secondary-foreground: oklch(0.27 0.03 260);
+  --muted: oklch(0.95 0.01 250);
+  --muted-foreground: oklch(0.47 0.025 260);
+  --accent: oklch(0.55 0.12 235);
+  --accent-foreground: oklch(0.99 0.005 250);
+  --destructive: oklch(0.56 0.19 25);
+  --border: oklch(0.28 0.03 260 / 16%);
+  --input: oklch(0.28 0.03 260 / 18%);
+  --ring: oklch(0.58 0.12 82);
+  --chart-1: oklch(0.58 0.12 82);
+  --chart-2: oklch(0.55 0.12 235);
+  --chart-3: oklch(0.58 0.1 190);
+  --chart-4: oklch(0.58 0.13 300);
+  --chart-5: oklch(0.6 0.14 25);
   --radius: 0.625rem;
-  --sidebar: oklch(0.21 0.032 265);
-  --sidebar-foreground: oklch(0.96 0.012 255);
-  --sidebar-primary: oklch(0.84 0.14 88);
-  --sidebar-primary-foreground: oklch(0.19 0.03 265);
-  --sidebar-accent: oklch(0.55 0.13 235);
-  --sidebar-accent-foreground: oklch(0.96 0.012 255);
-  --sidebar-border: oklch(1 0 0 / 14%);
-  --sidebar-ring: oklch(0.84 0.14 88);
+  --sidebar: oklch(0.97 0.01 250);
+  --sidebar-foreground: oklch(0.23 0.03 260);
+  --sidebar-primary: oklch(0.58 0.12 82);
+  --sidebar-primary-foreground: oklch(0.99 0.01 80);
+  --sidebar-accent: oklch(0.55 0.12 235);
+  --sidebar-accent-foreground: oklch(0.99 0.005 250);
+  --sidebar-border: oklch(0.28 0.03 260 / 16%);
+  --sidebar-ring: oklch(0.58 0.12 82);
 }
 
 .dark {
+  color-scheme: dark;
   --background: oklch(0.14 0.03 265);
   --foreground: oklch(0.97 0.01 255);
   --card: oklch(0.18 0.028 265);
@@ -128,7 +133,7 @@
     @apply font-sans;
   }
   a {
-    @apply transition-colors;
+    @apply transition-colors duration-150 ease-[var(--ease-out)];
   }
   ::selection {
     background-color: color-mix(in oklch, var(--color-primary) 22%, transparent);
@@ -220,25 +225,25 @@
 
   /* Entrance: direct children rise in sequence, once, on first paint. */
   .stagger > * {
-    animation: quirk-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: quirk-rise 0.6s var(--ease-out) both;
   }
   .stagger > *:nth-child(1) {
-    animation-delay: 60ms;
+    animation-delay: 40ms;
   }
   .stagger > *:nth-child(2) {
-    animation-delay: 160ms;
+    animation-delay: 80ms;
   }
   .stagger > *:nth-child(3) {
-    animation-delay: 260ms;
+    animation-delay: 120ms;
   }
   .stagger > *:nth-child(4) {
-    animation-delay: 360ms;
+    animation-delay: 160ms;
   }
   .stagger > *:nth-child(5) {
-    animation-delay: 460ms;
+    animation-delay: 200ms;
   }
   .stagger > *:nth-child(6) {
-    animation-delay: 560ms;
+    animation-delay: 240ms;
   }
 }
 
@@ -266,10 +271,32 @@
   }
 }
 
+/* Support dialog: scrim fades, card rises from 0.95 (never from zero). */
+.support-dialog-backdrop {
+  transition: opacity 180ms var(--ease-out);
+}
+.support-dialog-card {
+  transform-origin: center;
+  transition: transform 220ms var(--ease-out), opacity 180ms var(--ease-out);
+}
+@starting-style {
+  .support-dialog-backdrop {
+    opacity: 0;
+  }
+  .support-dialog-card {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .stagger > *,
   .reveal,
   .header-scroll {
     animation: none !important;
+  }
+  .support-dialog-backdrop,
+  .support-dialog-card {
+    transition: none !important;
   }
 }

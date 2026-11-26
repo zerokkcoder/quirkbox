@@ -14,6 +14,18 @@ const publicRoots = new Set([
   "_next",
 ]);
 
+// Root-level files served from /public that must reach the asset handler.
+const publicFiles = new Set([
+  "wechat-pay.jpg",
+  "allipay.jpg",
+  "ko-fi-logo.png",
+  "file.svg",
+  "globe.svg",
+  "next.svg",
+  "vercel.svg",
+  "window.svg",
+]);
+
 const toolSlugs = new Set([
   "emoji-wallpaper",
   "image-converter",
@@ -120,7 +132,7 @@ export function proxy(request: NextRequest) {
   // Known static-file roots continue; unknown dotted paths still get a real
   // single-language 404 instead of Next's streaming fallback.
   if (/\.[a-z0-9]+$/i.test(pathname)) {
-    if (publicRoots.has(segment)) return NextResponse.next();
+    if (publicRoots.has(segment) || publicFiles.has(segment)) return NextResponse.next();
     return notFoundResponse(
       siteConfig.locales.includes(segment as Locale) ? (segment as Locale) : "en"
     );

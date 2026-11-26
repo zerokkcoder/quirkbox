@@ -252,9 +252,9 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
               <Link
                 key={tool.href}
                 href={localizePath(locale, tool.href)}
-                className="group flex flex-col rounded-2xl border border-border/70 bg-card p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_24px_50px_-40px_var(--color-primary)] focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+                className="group flex flex-col rounded-2xl border border-border/70 bg-card p-5 transition-[transform,border-color,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_24px_50px_-40px_var(--color-primary)] focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none active:scale-[0.98]"
               >
-                <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition duration-300 group-hover:bg-primary group-hover:text-primary-foreground [&_svg]:size-5">
+                <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-[background-color,color] duration-200 ease-[var(--ease-out)] group-hover:bg-primary group-hover:text-primary-foreground [&_svg]:size-5">
                   {tool.icon}
                 </span>
                 <h3 className="mt-5 font-heading text-base font-semibold tracking-tight">
@@ -262,7 +262,7 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{tool.description}</p>
                 <span className="mt-auto flex items-center pt-5 text-xs font-medium text-primary">
-                  <ArrowUpRightIcon className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRightIcon className="size-3.5 transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
               </Link>
             ))}
@@ -291,7 +291,7 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
               <details key={item.question} className="group px-5 py-4">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-medium tracking-tight marker:content-none">
                   <h3 className="font-medium">{item.question}</h3>
-                  <PlusIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45" />
+                  <PlusIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 ease-[var(--ease-out)] group-open:rotate-45" />
                 </summary>
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.answer}</p>
               </details>

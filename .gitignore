@@ -44,3 +44,10 @@ next-env.d.ts
 /.trae/
 /.screenshots/
 .workbuddy/
+
+# AI agent skill directories (local tooling, not part of the product)
+/.*/
+!/.github/
+/agent/
+/data/
+/skills/

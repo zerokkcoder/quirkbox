@@ -35,7 +35,7 @@ export function JobCard({
     <li
       data-testid="image-job"
       data-selected={selected ? "true" : undefined}
-      className={`group relative overflow-hidden rounded-xl border bg-card/60 transition ${
+      className={`group relative overflow-hidden rounded-xl border bg-card/60 transition-colors duration-150 ease-[var(--ease-out)] ${
         selected ? "border-primary ring-1 ring-primary/40" : "border-border/70 hover:border-primary/50"
       }`}
     >
@@ -82,7 +82,7 @@ export function JobCard({
           title={labels.download}
           disabled={!job.result}
           onClick={() => onDownload(job)}
-          className="flex size-7 items-center justify-center rounded-full bg-background/90 text-foreground shadow-sm backdrop-blur transition hover:bg-primary hover:text-primary-foreground disabled:opacity-40 disabled:hover:bg-background/90 disabled:hover:text-foreground"
+          className="flex size-7 items-center justify-center rounded-full bg-background/90 text-foreground shadow-sm backdrop-blur transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-primary hover:text-primary-foreground active:scale-90 disabled:opacity-40 disabled:hover:bg-background/90 disabled:hover:text-foreground"
         >
           <DownloadIcon className="size-3.5" />
         </button>
@@ -91,7 +91,7 @@ export function JobCard({
           aria-label={labels.remove}
           title={labels.remove}
           onClick={() => onRemove(job)}
-          className="flex size-7 items-center justify-center rounded-full bg-background/90 text-foreground shadow-sm backdrop-blur transition hover:bg-destructive hover:text-destructive-foreground"
+          className="flex size-7 items-center justify-center rounded-full bg-background/90 text-foreground shadow-sm backdrop-blur transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-destructive hover:text-destructive-foreground active:scale-90"
         >
           <Trash2Icon className="size-3.5" />
         </button>

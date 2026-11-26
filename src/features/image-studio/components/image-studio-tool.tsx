@@ -542,7 +542,7 @@ export function ImageStudioTool({
           <span>{labels.advancedTitle}</span>
           <span className="flex items-center gap-2 text-xs font-normal text-muted-foreground">
             {summaryText}
-            <ChevronDownIcon className="size-4 transition group-open:rotate-180" />
+            <ChevronDownIcon className="size-4 transition-transform duration-200 ease-[var(--ease-out)] group-open:rotate-180" />
           </span>
         </summary>
         <div className="grid gap-4 border-t border-border/70 px-4 py-4 sm:grid-cols-2">

@@ -132,7 +132,7 @@ export function ToolsPage({
             <a
               key={category.id}
               href={`#category-${category.id}`}
-              className="rounded-full border border-border/70 bg-background px-3.5 py-1.5 text-xs font-medium tracking-tight text-muted-foreground transition hover:border-primary/40 hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+              className="rounded-full border border-border/70 bg-background px-3.5 py-1.5 text-xs font-medium tracking-tight text-muted-foreground transition-[border-color,color,transform] duration-150 ease-[var(--ease-out)] hover:border-primary/40 hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none active:scale-[0.97]"
             >
               {messages.tools.categories[category.id].title}
             </a>

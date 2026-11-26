@@ -1,3 +1,4 @@
+import { SupportCreator } from "@/components/shared/support-creator";
 import type { Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import { absoluteUrl } from "@/lib/seo";
@@ -51,6 +52,9 @@ export function ToolPageIntro({
           {howToLabel}
         </h2>
         <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{howTo}</p>
+        <div className="mt-3 flex justify-end">
+          <SupportCreator locale={locale} variant="tool" />
+        </div>
       </section>
     </>
   );

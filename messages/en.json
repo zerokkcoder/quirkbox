@@ -7,7 +7,19 @@
     "main": "Main navigation",
     "tools": "Tools",
     "about": "About",
-    "language": "Language"
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "Follow system"
+  },
+  "support": {
+    "action": "Buy me a coffee",
+    "qrTitle": "Scan to support",
+    "wechat": "WeChat Pay",
+    "alipay": "Alipay",
+    "close": "Close",
+    "hint": "Every bit of support keeps these tools free and browser-only."
   },
   "share": {
     "action": "Share to X",

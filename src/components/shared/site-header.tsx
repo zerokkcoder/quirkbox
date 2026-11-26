@@ -4,6 +4,8 @@ import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import type { Messages } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
+import { SupportCreator } from "@/components/shared/support-creator";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader({
@@ -21,7 +23,7 @@ export function SiteHeader({
         <div className="flex min-h-16 items-center justify-between gap-4">
           <Link
             href={localizePath(locale, "/")}
-            className="flex items-center gap-3 text-foreground hover:text-primary"
+            className="flex items-center gap-3 text-foreground hover:text-primary active:scale-[0.98]"
           >
             <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
               <BrandMark size={22} />
@@ -44,7 +46,7 @@ export function SiteHeader({
                   href={href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "rounded-lg px-3 py-1.5 font-medium transition-colors",
+                    "rounded-lg px-3 py-1.5 font-medium transition-colors duration-150 ease-[var(--ease-out)] active:scale-[0.97]",
                     active
                       ? "bg-primary/10 text-primary"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -55,7 +57,18 @@ export function SiteHeader({
               );
             })}
           </nav>
-          <LanguageSwitcher locale={locale} pathname={pathname} label={messages.nav.language} />
+          <div className="flex shrink-0 items-center gap-2">
+            <SupportCreator locale={locale} variant="header" />
+            <ThemeToggle
+              labels={{
+                label: messages.nav.theme,
+                light: messages.nav.themeLight,
+                dark: messages.nav.themeDark,
+                system: messages.nav.themeSystem,
+              }}
+            />
+            <LanguageSwitcher locale={locale} pathname={pathname} label={messages.nav.language} />
+          </div>
         </div>
       </div>
     </header>

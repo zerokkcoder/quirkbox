@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/shared/brand-mark";
+import { SupportCreator } from "@/components/shared/support-creator";
 import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import type { Messages } from "@/lib/i18n";
@@ -26,16 +27,17 @@ export function SiteFooter({
           <nav className="flex items-center gap-6 text-sm">
             <Link
               href={localizePath(locale, "/tools")}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground active:scale-[0.97]"
             >
               {messages.nav.tools}
             </Link>
             <Link
               href={localizePath(locale, "/about")}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground active:scale-[0.97]"
             >
               {messages.nav.about}
             </Link>
+            <SupportCreator locale={locale} />
           </nav>
         </div>
       </div>

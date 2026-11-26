@@ -36,7 +36,7 @@ export function LanguageSwitcher({
             href={localizePath(option.locale, basePath)}
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors",
+              "rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors duration-150 ease-[var(--ease-out)] active:scale-95",
               isActive
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
