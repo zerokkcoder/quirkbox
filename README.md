@@ -12,8 +12,9 @@ The launch version includes:
 - `Pixel Avatar Maker`: deterministic pixel portraits with PNG export.
 - `Emoji Wallpaper Maker`: tiled emoji wallpapers at 4K, in any aspect ratio.
 - `Travel Footprint`: map your home and footprints, style the routes, export PNG/JSON.
-- `Palette Studio`: generate a palette from one seed color, with WCAG contrast checks, color-blind previews and CSS/Tailwind/PNG export.
-- `Image Studio`: batch-convert images between PNG, JPG, WebP, AVIF, GIF, BMP and ICO with presets, resizing and ZIP download — all in the browser.
+- `Color Palette Generator`: generate a palette from one seed color, with WCAG contrast checks, color-blind previews and CSS/Tailwind/PNG export.
+- `Image Converter`: batch-convert images between PNG, JPG, WebP, AVIF, GIF, BMP and ICO with resizing and ZIP download — all in the browser.
+- `QR Code Generator`: create scannable QR codes with custom colors, dot styles and an optional center logo, then export PNG or SVG — nothing uploaded.
 - `English + Traditional Chinese`: English is the default route; Traditional Chinese lives under `/zh-Hant`.
 
 ## Scripts

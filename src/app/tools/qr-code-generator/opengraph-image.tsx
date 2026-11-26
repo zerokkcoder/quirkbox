@@ -11,9 +11,9 @@ export const contentType = "image/png";
 export default function OpenGraphImage() {
   return new ImageResponse(
     <OGCard
-      title="Palette Studio"
-      description="Turn one seed color into a harmonious, accessible palette."
-      footer="No signup · runs in your browser"
+      title="QR Code Generator"
+      description="Create scannable QR codes right in your browser."
+      footer="No uploads · no watermark"
       accent="#3E5C9E"
     />,
     size

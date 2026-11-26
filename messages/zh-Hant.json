@@ -21,13 +21,26 @@
     "primaryCta": "探索所有工具",
     "secondaryCta": "關於星舵工坊",
     "preview": {
-      "label": "你可以做的事",
-      "randomName": "產生 14 種語言的名字",
-      "pixelAvatar": "用種子畫出像素頭像",
-      "emojiWallpaper": "用 emoji 拼出 4K 桌布",
-      "travelFootprint": "標註地點並畫出路線",
-      "paletteStudio": "用一個顏色配出整組色盤",
-      "imageStudio": "在各式圖片格式間轉換"
+      "label": "在這裡可以做的事",
+      "footnote": "7 個工具 · 2 種語言 · 0 次上傳",
+      "focus": [
+        {
+          "title": "設計",
+          "description": "配色、頭像、桌布與圖片格式，一次搞定。"
+        },
+        {
+          "title": "行銷",
+          "description": "把任何連結變成可掃描的 QR 碼。"
+        },
+        {
+          "title": "內容創作",
+          "description": "為角色、品牌與故事產生名字。"
+        },
+        {
+          "title": "文旅",
+          "description": "標註地點，畫出走過的路線。"
+        }
+      ]
     },
     "tools": {
       "eyebrow": "工具清單",
@@ -38,7 +51,8 @@
       "emojiWallpaper": "自選 emoji 與排列方式，拼出 4K 手機桌布。",
       "travelFootprint": "在地圖上標註家與去過的地點，畫出並匯出路線。",
       "paletteStudio": "用一個種子色產生和諧配色，並檢查對比度。",
-      "imageStudio": "批次轉換 PNG、JPG、WebP 等格式，內建常用預設且不上傳。"
+      "imageStudio": "批次轉換 PNG、JPG、WebP 等格式，內建常用預設且不上傳。",
+      "qrCodeGenerator": "把連結或文字變成可掃描的 QR 碼，自訂顏色與 Logo，再匯出 PNG 或 SVG。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -100,20 +114,75 @@
       "title": "旅行足跡"
     },
     "paletteStudio": {
-      "title": "配色方案生成器"
+      "title": "配色方案產生器"
     },
     "imageStudio": {
       "title": "圖片格式轉換器"
+    },
+    "qrCodeGenerator": {
+      "title": "QR 碼產生器"
+    },
+    "categoriesLabel": "依分類瀏覽",
+    "comingSoon": "待開發",
+    "categories": {
+      "design": {
+        "title": "設計",
+        "description": "配色、頭像、桌布與圖片格式，服務視覺工作。"
+      },
+      "development": {
+        "title": "開發",
+        "description": "協助編碼、測試與除錯的小工具。"
+      },
+      "ecommerce": {
+        "title": "電商",
+        "description": "商品照片、上架素材與商店視覺。"
+      },
+      "marketing": {
+        "title": "行銷",
+        "description": "可分享的 QR 碼與活動素材。"
+      },
+      "content": {
+        "title": "內容創作",
+        "description": "為故事與品牌產生名字與靈感。"
+      },
+      "travel": {
+        "title": "文旅",
+        "description": "旅程地圖與路線視覺化。"
+      },
+      "education": {
+        "title": "教育",
+        "description": "教學視覺與學習輔助工具。"
+      },
+      "finance": {
+        "title": "金融",
+        "description": "報表視覺與文件小工具。"
+      },
+      "data": {
+        "title": "數據分析",
+        "description": "圖表與數據視覺摘要。"
+      },
+      "office": {
+        "title": "行政辦公",
+        "description": "文件、PDF 與日常檔案處理。"
+      },
+      "hr": {
+        "title": "人資招聘",
+        "description": "個人檔案、識別證與入職素材。"
+      },
+      "healthcare": {
+        "title": "醫療健康",
+        "description": "病患溝通視覺與診所素材。"
+      }
     }
   },
   "paletteStudio": {
-    "title": "配色方案生成器",
-    "seoTitle": "配色方案生成器 — 在線調色盤與色卡匯出",
+    "title": "配色方案產生器",
+    "seoTitle": "配色方案產生器 — 在線調色盤與色卡匯出",
     "description": "輸入一個種子色即可產生和諧配色，即時檢查 WCAG 對比度與色盲模擬，並複製 CSS 變數或 Tailwind token。免註冊、全部在瀏覽器完成。",
-    "intro": "在瀏覽器執行的配色方案生成器，把一個種子色變成和諧、可讀、可複製與分享的配色。",
+    "intro": "在瀏覽器執行的配色方案產生器，把一個種子色變成和諧、可讀、可複製與分享的配色。",
     "howTo": "先選一個風格預設，或微調種子色與配色規則，再複製任一色值或匯出 CSS 與 Tailwind token。網址會保留完整設定。",
     "keywords": [
-      "配色方案生成器",
+      "配色方案產生器",
       "在線調色盤",
       "色卡產生器",
       "無障礙配色",
@@ -222,7 +291,7 @@
       "thai": "泰文",
       "vietnamese": "越南文"
     },
-    "generating": "生成中…"
+    "generating": "產生中…"
   },
   "pixelAvatar": {
     "title": "像素頭像產生器",
@@ -506,5 +575,54 @@
     },
     "privacyNote": "全部作業都在這個分頁完成，圖片絕不上傳或保存，分享連結只包含設定。",
     "auto": "自動"
+  },
+  "qrCodeGenerator": {
+    "title": "QR 碼產生器",
+    "seoTitle": "QR 碼產生器 — 免費、私密、無浮水印",
+    "description": "在瀏覽器產生可掃描的 QR 碼，自訂顏色、點樣式與中心 Logo，匯出 PNG 或 SVG。不上傳、無浮水印。",
+    "intro": "純瀏覽器 QR 碼產生器。輸入文字或連結、調整樣式，再匯出乾淨的條碼——內容不上傳、不儲存。",
+    "howTo": "輸入文字或貼上網址，選擇容錯級別、顏色與點樣式，然後下載 PNG 或 SVG。需要時可加上小 Logo。",
+    "keywords": [
+      "qr 碼產生器",
+      "自訂 qr 碼",
+      "免費 qr 碼 無浮水印",
+      "qr code 產生器"
+    ],
+    "inputLabel": "內容",
+    "inputPlaceholder": "https://starrudder.cc",
+    "levelLabel": "容錯級別",
+    "levelHint": "級別越高越耐損毀，但可容納的資料越少。加 Logo 時建議選 H。",
+    "sizeLabel": "匯出尺寸（px）",
+    "dotsLabel": "點樣式",
+    "dotsNames": {
+      "square": "方形",
+      "dots": "圓點",
+      "rounded": "圓角"
+    },
+    "foregroundLabel": "前景色",
+    "backgroundLabel": "背景色",
+    "transparentLabel": "透明背景",
+    "transparentHint": "僅 PNG 有效；開啟時 SVG 亦使用透明填充。",
+    "on": "開",
+    "off": "關",
+    "logoLabel": "中心 Logo",
+    "logoAdd": "加入 Logo",
+    "logoRemove": "移除 Logo",
+    "preview": "即時預覽",
+    "downloadPng": "下載 PNG",
+    "downloadSvg": "下載 SVG",
+    "empty": "輸入內容後會產生 QR 碼。",
+    "tooLong": "內容超過此容錯級別的容量。請縮短內容或降低級別。",
+    "lowContrast": "對比不足，可能不易掃描。請加大兩色之間的差異。",
+    "logoHint": "Logo 請保持小巧，以維持可掃描性。",
+    "shareWarning": "分享連結含有你輸入的內容——只分享給可以看到該內容的人。",
+    "privacyNote": "所有處理都在本分頁完成。內容與 Logo 不上傳、不儲存；Logo 也不會寫入分享連結。",
+    "feedback": {
+      "logoAdded": "已加入 Logo。",
+      "logoRemoved": "已移除 Logo。",
+      "pngDownloaded": "開始下載 PNG。",
+      "svgDownloaded": "開始下載 SVG。",
+      "downloadFailed": "無法產生 PNG。"
+    }
   }
 }

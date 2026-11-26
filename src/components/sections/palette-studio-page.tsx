@@ -20,7 +20,7 @@ export function PaletteStudioPage({
     <SiteShell
       locale={locale}
       messages={messages}
-      pathname={localizePath(locale, "/tools/palette-studio")}
+      pathname={localizePath(locale, "/tools/color-palette-generator")}
     >
       <div className="flex flex-col gap-8">
         <PageHeader
@@ -30,7 +30,7 @@ export function PaletteStudioPage({
         />
         <ToolPageIntro
           locale={locale}
-          pathname="/tools/palette-studio"
+          pathname="/tools/color-palette-generator"
           title={messages.paletteStudio.title}
           intro={messages.paletteStudio.intro}
           howTo={messages.paletteStudio.howTo}

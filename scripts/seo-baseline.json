@@ -83,18 +83,18 @@
       "旅行足跡"
     ]
   },
-  "https://starrudder.cc/tools/palette-studio": {
+  "https://starrudder.cc/tools/color-palette-generator": {
     "title": "Color Palette Generator — Free Online Palette Maker | StarRudder",
     "description": "Generate a harmonious color palette from one seed color. Check WCAG contrast, simulate color blindness, and copy CSS variables or Tailwind tokens — no signup.",
     "h1": [
-      "Palette Studio"
+      "Color Palette Generator"
     ]
   },
-  "https://starrudder.cc/zh-Hant/tools/palette-studio": {
-    "title": "配色方案生成器 — 在線調色盤與色卡匯出 | StarRudder",
+  "https://starrudder.cc/zh-Hant/tools/color-palette-generator": {
+    "title": "配色方案產生器 — 在線調色盤與色卡匯出 | StarRudder",
     "description": "輸入一個種子色即可產生和諧配色，即時檢查 WCAG 對比度與色盲模擬，並複製 CSS 變數或 Tailwind token。免註冊、全部在瀏覽器完成。",
     "h1": [
-      "配色方案生成器"
+      "配色方案產生器"
     ]
   },
   "https://starrudder.cc/about": {
@@ -111,18 +111,32 @@
       "關於星舵工坊"
     ]
   },
-  "https://starrudder.cc/tools/image-studio": {
+  "https://starrudder.cc/tools/image-converter": {
     "title": "Image Converter — Convert PNG, JPG, WebP & More Online | StarRudder",
     "description": "Convert images between PNG, JPEG, WebP, AVIF, GIF, ICO and BMP entirely in your browser. Batch convert, resize and compress locally — no uploads, no signup.",
     "h1": [
-      "Image Studio"
+      "Image Converter"
     ]
   },
-  "https://starrudder.cc/zh-Hant/tools/image-studio": {
+  "https://starrudder.cc/zh-Hant/tools/image-converter": {
     "title": "圖片格式轉換器 — 在線 PNG/JPG/WebP 互轉 | StarRudder",
     "description": "在瀏覽器中將圖片於 PNG、JPG、WebP、AVIF、GIF、ICO、BMP 間互轉，支援批量、壓縮與尺寸調整。不上傳、不註冊。",
     "h1": [
       "圖片格式轉換器"
+    ]
+  },
+  "https://starrudder.cc/tools/qr-code-generator": {
+    "title": "QR Code Generator — Free, Private, No Watermark | StarRudder",
+    "description": "Create scannable QR codes in your browser. Customize colors, dot styles and a center logo, then export PNG or SVG. Nothing uploaded, no watermark.",
+    "h1": [
+      "QR Code Generator"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/qr-code-generator": {
+    "title": "QR 碼產生器 — 免費、私密、無浮水印 | StarRudder",
+    "description": "在瀏覽器產生可掃描的 QR 碼，自訂顏色、點樣式與中心 Logo，匯出 PNG 或 SVG。不上傳、無浮水印。",
+    "h1": [
+      "QR 碼產生器"
     ]
   }
 }

@@ -1,6 +1,6 @@
 import { connection } from "next/server";
-import { ImageStudioPage } from "@/components/sections/image-studio-page";
-import { parseImageStudioState } from "@/features/image-studio/lib/settings";
+import { QrCodeGeneratorPage } from "@/components/sections/qr-code-generator-page";
+import { parseQrState } from "@/features/qr-code-generator/lib/settings";
 import { getMessages } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 
@@ -9,10 +9,10 @@ export const instant = false;
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: messages.imageStudio.seoTitle,
-  description: messages.imageStudio.description,
-  pathname: "/tools/image-studio",
-  keywords: messages.imageStudio.keywords,
+  title: messages.qrCodeGenerator.seoTitle,
+  description: messages.qrCodeGenerator.description,
+  pathname: "/tools/qr-code-generator",
+  keywords: messages.qrCodeGenerator.keywords,
 });
 
 export default async function Page({
@@ -24,10 +24,10 @@ export default async function Page({
   await connection();
 
   return (
-    <ImageStudioPage
+    <QrCodeGeneratorPage
       locale="en"
       messages={messages}
-      initialState={parseImageStudioState(resolvedSearchParams)}
+      initialState={parseQrState(resolvedSearchParams)}
     />
   );
 }

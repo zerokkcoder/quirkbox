@@ -9,8 +9,11 @@ import {
   ImageIcon,
   Link2Icon,
   MapPinnedIcon,
+  MegaphoneIcon,
   PaletteIcon,
+  PenLineIcon,
   PlusIcon,
+  QrCodeIcon,
   SmileIcon,
   ZapIcon,
 } from "lucide-react";
@@ -48,19 +51,24 @@ function SectionHeading({
   );
 }
 
-function PreviewTile({
+function FocusTile({
   icon,
-  children,
+  title,
+  description,
 }: {
   icon: ReactNode;
-  children: ReactNode;
+  title: string;
+  description: string;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-border/70 bg-background/80 px-4 py-3.5">
+    <div className="flex gap-3 rounded-2xl border border-border/70 bg-background/80 px-4 py-3.5">
       <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary [&_svg]:size-5">
         {icon}
       </span>
-      <span className="text-sm font-medium tracking-tight">{children}</span>
+      <div className="flex flex-col gap-1">
+        <p className="text-sm font-medium tracking-tight">{title}</p>
+        <p className="text-xs leading-5 text-muted-foreground">{description}</p>
+      </div>
     </div>
   );
 }
@@ -98,16 +106,48 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       description: labels.tools.travelFootprint,
     },
     {
-      href: "/tools/palette-studio",
+      href: "/tools/color-palette-generator",
       icon: <PaletteIcon />,
       title: messages.tools.paletteStudio.title,
       description: labels.tools.paletteStudio,
     },
     {
-      href: "/tools/image-studio",
+      href: "/tools/image-converter",
       icon: <ImageIcon />,
       title: messages.tools.imageStudio.title,
       description: labels.tools.imageStudio,
+    },
+    {
+      href: "/tools/qr-code-generator",
+      icon: <QrCodeIcon />,
+      title: messages.tools.qrCodeGenerator.title,
+      description: labels.tools.qrCodeGenerator,
+    },
+  ];
+  const focusTiles = [
+    {
+      key: "design",
+      icon: <PaletteIcon />,
+      title: labels.preview.focus[0].title,
+      description: labels.preview.focus[0].description,
+    },
+    {
+      key: "marketing",
+      icon: <MegaphoneIcon />,
+      title: labels.preview.focus[1].title,
+      description: labels.preview.focus[1].description,
+    },
+    {
+      key: "content",
+      icon: <PenLineIcon />,
+      title: labels.preview.focus[2].title,
+      description: labels.preview.focus[2].description,
+    },
+    {
+      key: "travel",
+      icon: <MapPinnedIcon />,
+      title: labels.preview.focus[3].title,
+      description: labels.preview.focus[3].description,
     },
   ];
   const featureIcons = [<ZapIcon key="zap" />, <Link2Icon key="link" />, <HeartIcon key="heart" />];
@@ -177,26 +217,19 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
                   <span className="size-2 rounded-full bg-primary/15" />
                 </span>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <PreviewTile icon={<DicesIcon />}>
-                  {labels.preview.randomName}
-                </PreviewTile>
-                <PreviewTile icon={<Grid2x2Icon />}>
-                  {labels.preview.pixelAvatar}
-                </PreviewTile>
-                <PreviewTile icon={<SmileIcon />}>
-                  {labels.preview.emojiWallpaper}
-                </PreviewTile>
-                <PreviewTile icon={<MapPinnedIcon />}>
-                  {labels.preview.travelFootprint}
-                </PreviewTile>
-                <PreviewTile icon={<PaletteIcon />}>
-                  {labels.preview.paletteStudio}
-                </PreviewTile>
-                <PreviewTile icon={<ImageIcon />}>
-                  {labels.preview.imageStudio}
-                </PreviewTile>
+              <div className="mt-5 flex flex-col gap-3">
+                {focusTiles.map((tile) => (
+                  <FocusTile
+                    key={tile.key}
+                    icon={tile.icon}
+                    title={tile.title}
+                    description={tile.description}
+                  />
+                ))}
               </div>
+              <p className="mt-4 text-center text-xs tracking-wide text-muted-foreground">
+                {labels.preview.footnote}
+              </p>
             </div>
           </div>
         </section>

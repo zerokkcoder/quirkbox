@@ -11,9 +11,9 @@ export const contentType = "image/png";
 export default function OpenGraphImage() {
   return new ImageResponse(
     <OGCard
-      title="Image Studio"
-      description="Convert images between formats — right in your browser."
-      footer="No uploads · nothing stored"
+      title="Color Palette Generator"
+      description="Turn one seed color into a harmonious, accessible palette."
+      footer="No signup · runs in your browser"
       accent="#3E5C9E"
     />,
     size

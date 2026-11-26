@@ -30,7 +30,7 @@ export async function generateMetadata({
     locale,
     title: messages.paletteStudio.seoTitle,
     description: messages.paletteStudio.description,
-    pathname: "/tools/palette-studio",
+    pathname: "/tools/color-palette-generator",
     keywords: messages.paletteStudio.keywords,
   });
 }

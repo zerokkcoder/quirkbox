@@ -64,7 +64,7 @@ export function PaletteStudioTool({
     count: String(state.count),
   });
   if (state.preset) shareParams.set("preset", state.preset);
-  const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/palette-studio")}?${shareParams.toString()}`;
+  const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/color-palette-generator")}?${shareParams.toString()}`;
 
   useEffect(() => {
     return () => {
@@ -348,7 +348,7 @@ export function PaletteStudioTool({
             </Button>
             <ShareToXButton
               labels={getMessages(locale).share}
-              tool="palette-studio"
+              tool="color-palette-generator"
               title={labels.title}
               description={labels.description}
               url={shareUrl}

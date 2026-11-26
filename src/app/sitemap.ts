@@ -13,8 +13,9 @@ const routes = [
   "/tools/pixel-avatar",
   "/tools/emoji-wallpaper",
   "/tools/travel-footprint",
-  "/tools/palette-studio",
-  "/tools/image-studio",
+  "/tools/color-palette-generator",
+  "/tools/image-converter",
+  "/tools/qr-code-generator",
   "/about",
 ];
 

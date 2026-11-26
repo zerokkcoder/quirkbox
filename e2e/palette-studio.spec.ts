@@ -4,9 +4,9 @@ const swatches = (page: import("@playwright/test").Page) =>
   page.locator('[data-testid^="palette-swatch-"]');
 
 test("palette studio generates and restyles swatches", async ({ page }) => {
-  await page.goto("/tools/palette-studio");
+  await page.goto("/tools/color-palette-generator");
 
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Palette Studio");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Color Palette Generator");
   await expect(swatches(page)).toHaveCount(5);
 
   const initial = await swatches(page).first().getAttribute("style");
@@ -23,7 +23,7 @@ test("palette studio generates and restyles swatches", async ({ page }) => {
 });
 
 test("color-blind simulation changes the preview without changing state", async ({ page }) => {
-  await page.goto("/tools/palette-studio?color=ff0000&harmony=triadic&count=4");
+  await page.goto("/tools/color-palette-generator?color=ff0000&harmony=triadic&count=4");
 
   const before = await swatches(page).first().getAttribute("style");
   await page.getByTestId("palette-simulation-deuteranopia").click();
@@ -35,18 +35,18 @@ test("color-blind simulation changes the preview without changing state", async 
 
 test("copy and share actions report feedback", async ({ page, context }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  await page.goto("/tools/palette-studio");
+  await page.goto("/tools/color-palette-generator");
 
   await page.getByRole("button", { name: "Copy CSS" }).click();
   await expect(page.getByTestId("palette-feedback")).toHaveText("Copied");
   expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("--palette-1:");
 
   await page.getByRole("button", { name: "Copy link" }).click();
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("palette-studio?color=");
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("color-palette-generator?color=");
 });
 
 test("URL state reproduces an exact palette", async ({ page }) => {
-  await page.goto("/tools/palette-studio?color=ff00ff&harmony=mono&count=6");
+  await page.goto("/tools/color-palette-generator?color=ff00ff&harmony=mono&count=6");
 
   await expect(page.getByTestId("palette-seed-input")).toHaveValue("#ff00ff");
   await expect(swatches(page)).toHaveCount(6);
@@ -57,9 +57,9 @@ test("URL state reproduces an exact palette", async ({ page }) => {
 });
 
 test("Traditional Chinese route stays fully localized", async ({ page }) => {
-  await page.goto("/zh-Hant/tools/palette-studio");
+  await page.goto("/zh-Hant/tools/color-palette-generator");
 
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("配色方案生成器");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("配色方案產生器");
   await expect(page.getByRole("heading", { level: 2, name: "怎麼用" })).toBeVisible();
   await expect(page.getByTestId("palette-seed-input")).toBeVisible();
   await expect(page.getByText("決定其他顏色與種子色的關係。", { exact: true })).toBeVisible();
@@ -67,7 +67,7 @@ test("Traditional Chinese route stays fully localized", async ({ page }) => {
 });
 
 test("style presets apply instantly and survive a reload", async ({ page }) => {
-  await page.goto("/tools/palette-studio");
+  await page.goto("/tools/color-palette-generator");
 
   await page.getByTestId("palette-preset-tech").click();
   await expect(page.getByTestId("palette-feedback")).toHaveText("Applied: Tech");
@@ -80,7 +80,7 @@ test("style presets apply instantly and survive a reload", async ({ page }) => {
 });
 
 test("fine-tuning a preset falls back to generated colors", async ({ page }) => {
-  await page.goto("/tools/palette-studio?preset=tech");
+  await page.goto("/tools/color-palette-generator?preset=tech");
 
   const before = await swatches(page).first().getAttribute("style");
   await page.getByTestId("palette-harmony-mono").click();
@@ -91,7 +91,7 @@ test("fine-tuning a preset falls back to generated colors", async ({ page }) => 
 
 test("copy all hex values takes one click", async ({ page, context }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  await page.goto("/tools/palette-studio");
+  await page.goto("/tools/color-palette-generator");
 
   await page.getByRole("button", { name: "Copy all hex" }).click();
   await expect(page.getByTestId("palette-feedback")).toHaveText("Copied");
@@ -102,7 +102,7 @@ test("copy all hex values takes one click", async ({ page, context }) => {
 });
 
 test("preset labels are localized on the Traditional Chinese route", async ({ page }) => {
-  await page.goto("/zh-Hant/tools/palette-studio");
+  await page.goto("/zh-Hant/tools/color-palette-generator");
 
   await expect(page.getByRole("button", { name: "科技風" })).toBeVisible();
   await page.getByRole("button", { name: "科技風" }).click();

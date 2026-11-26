@@ -101,7 +101,7 @@ export function ImageStudioTool({
   for (const [key, value] of Object.entries(stateToParams(state))) {
     if (value !== undefined) shareParams.set(key, value);
   }
-  const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/image-studio")}?${shareParams.toString()}`;
+  const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/image-converter")}?${shareParams.toString()}`;
 
   useEffect(() => {
     let cancelled = false;
@@ -519,7 +519,7 @@ export function ImageStudioTool({
         <div className="ml-auto">
           <ShareToXButton
             labels={getMessages(locale).share}
-            tool="image-studio"
+            tool="image-converter"
             title={labels.title}
             description={labels.description}
             url={shareUrl}

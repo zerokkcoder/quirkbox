@@ -16,11 +16,12 @@ const publicRoots = new Set([
 
 const toolSlugs = new Set([
   "emoji-wallpaper",
-  "image-studio",
-  "palette-studio",
+  "image-converter",
+  "color-palette-generator",
   "pixel-avatar",
   "random-name",
   "travel-footprint",
+  "qr-code-generator",
 ]);
 
 type NotFoundCopy = {

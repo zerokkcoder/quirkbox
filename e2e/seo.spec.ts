@@ -33,8 +33,9 @@ test("tool pages expose what/how copy and a keyword-rich meta description", asyn
     { path: "/tools/pixel-avatar", title: "Pixel Avatar Maker", hint: "Pick a style and palette" },
     { path: "/tools/emoji-wallpaper", title: "Emoji Wallpaper Maker", hint: "Choose an emoji set" },
     { path: "/tools/travel-footprint", title: "Travel Footprint", hint: "Set home" },
-    { path: "/tools/palette-studio", title: "Palette Studio", hint: "Start from a style preset" },
-    { path: "/tools/image-studio", title: "Image Studio", hint: "Drop or paste images" },
+    { path: "/tools/color-palette-generator", title: "Color Palette Generator", hint: "Start from a style preset" },
+    { path: "/tools/image-converter", title: "Image Converter", hint: "Drop or paste images" },
+    { path: "/tools/qr-code-generator", title: "QR Code Generator", hint: "Type text or paste a URL" },
   ];
 
   for (const item of cases) {

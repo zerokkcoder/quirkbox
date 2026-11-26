@@ -23,8 +23,8 @@ async function addPngFixture(page: Page, name = "sample.png", expectedCount = 1)
 }
 
 test("tool page exposes localized what/how copy", async ({ page }) => {
-  await page.goto("/tools/image-studio");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Image Studio");
+  await page.goto("/tools/image-converter");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Image Converter");
   await expect(page.getByRole("heading", { level: 2, name: "How to use" })).toBeVisible();
   await expect(page.getByText("Drop or paste images", { exact: false }).first()).toBeVisible();
 
@@ -33,7 +33,7 @@ test("tool page exposes localized what/how copy", async ({ page }) => {
 });
 
 test("Traditional Chinese route stays fully localized", async ({ page }) => {
-  await page.goto("/zh-Hant/tools/image-studio");
+  await page.goto("/zh-Hant/tools/image-converter");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("圖片格式轉換器");
   await expect(page.getByRole("heading", { level: 2, name: "怎麼用" })).toBeVisible();
   await expect(page.getByText("把圖片拖到這裡", { exact: true })).toBeVisible();
@@ -51,7 +51,7 @@ test("changing the target format never triggers a render-phase Router update", a
     if (isRenderWarning(error.message)) renderErrors.push(error.message);
   });
 
-  await page.goto("/tools/image-studio");
+  await page.goto("/tools/image-converter");
   await page.getByTestId("image-format-jpeg").click();
 
   // Wait for the click's state + URL sync to commit before inspecting console output.
@@ -61,7 +61,7 @@ test("changing the target format never triggers a render-phase Router update", a
 });
 
 test("URL parameters restore the exact settings", async ({ page }) => {
-  await page.goto("/tools/image-studio?format=jpeg&quality=70");
+  await page.goto("/tools/image-converter?format=jpeg&quality=70");
   await expect(page.getByTestId("image-format-jpeg")).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("image-quality")).toHaveValue("70");
 
@@ -71,7 +71,7 @@ test("URL parameters restore the exact settings", async ({ page }) => {
 });
 
 test("the preview converts on its own, without pressing Convert all", async ({ page }) => {
-  await page.goto("/tools/image-studio");
+  await page.goto("/tools/image-converter");
   await addPngFixture(page);
 
   await expect(page.getByTestId("image-preview")).toBeVisible();
@@ -85,7 +85,7 @@ test("the preview converts on its own, without pressing Convert all", async ({ p
 });
 
 test("converts a PNG to WebP with a valid RIFF/WEBP header", async ({ page }) => {
-  await page.goto("/tools/image-studio");
+  await page.goto("/tools/image-converter");
   await addPngFixture(page);
   await page.getByTestId("image-format-webp").click();
   await page.getByTestId("image-convert-all").click();
@@ -102,7 +102,7 @@ test("converts a PNG to WebP with a valid RIFF/WEBP header", async ({ page }) =>
 });
 
 test("batch conversion produces a ZIP containing every result", async ({ page }) => {
-  await page.goto("/tools/image-studio");
+  await page.goto("/tools/image-converter");
   await addPngFixture(page, "one.png");
   await addPngFixture(page, "two.png", 2);
   await addPngFixture(page, "three.png", 3);
@@ -130,14 +130,14 @@ test("works with all external requests blocked", async ({ page }) => {
     return route.abort();
   });
 
-  await page.goto("/tools/image-studio");
+  await page.goto("/tools/image-converter");
   await addPngFixture(page);
   await page.getByTestId("image-convert-all").click();
   await expect(page.getByTestId("image-job")).toContainText("Done");
 });
 
 test("returning to an already converted image keeps its preview alive", async ({ page }) => {
-  await page.goto("/tools/image-studio");
+  await page.goto("/tools/image-converter");
   await addPngFixture(page, "one.png");
   await addPngFixture(page, "two.png", 2);
   await page.getByTestId("image-convert-all").click();
@@ -158,7 +158,7 @@ test("returning to an already converted image keeps its preview alive", async ({
 });
 
 test("the add-more tile matches the height of an image card", async ({ page }) => {
-  await page.goto("/tools/image-studio");
+  await page.goto("/tools/image-converter");
   await addPngFixture(page);
 
   // Measure the grid items (the <li>s), not the button inside the tile: the

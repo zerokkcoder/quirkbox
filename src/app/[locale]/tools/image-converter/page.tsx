@@ -30,7 +30,7 @@ export async function generateMetadata({
     locale,
     title: messages.imageStudio.seoTitle,
     description: messages.imageStudio.description,
-    pathname: "/tools/image-studio",
+    pathname: "/tools/image-converter",
     keywords: messages.imageStudio.keywords,
   });
 }

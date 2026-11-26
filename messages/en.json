@@ -22,12 +22,25 @@
     "secondaryCta": "About StarRudder",
     "preview": {
       "label": "What you can do here",
-      "randomName": "Generate a name in 14 languages",
-      "pixelAvatar": "Turn a seed into a pixel avatar",
-      "emojiWallpaper": "Tile emoji into a 4K wallpaper",
-      "travelFootprint": "Map places and draw routes",
-      "paletteStudio": "Build a palette from one color",
-      "imageStudio": "Convert images between formats"
+      "footnote": "7 tools · 2 languages · 0 uploads",
+      "focus": [
+        {
+          "title": "Design",
+          "description": "Palettes, avatars, wallpapers and image formats in one place."
+        },
+        {
+          "title": "Marketing",
+          "description": "Turn any link into a scannable QR code."
+        },
+        {
+          "title": "Content creation",
+          "description": "Generate names for characters, brands and stories."
+        },
+        {
+          "title": "Travel & tourism",
+          "description": "Plot places and draw the routes between them."
+        }
+      ]
     },
     "tools": {
       "eyebrow": "The tools",
@@ -38,7 +51,8 @@
       "emojiWallpaper": "Tile emoji into a 4K phone wallpaper in the pattern you choose.",
       "travelFootprint": "Plot home and visited places on a map, then draw and export routes.",
       "paletteStudio": "Turn one seed color into a harmonious palette with contrast checks.",
-      "imageStudio": "Convert PNG, JPG, WebP and more in batch — with presets and no uploads."
+      "imageStudio": "Convert PNG, JPG, WebP and more in batch — with presets and no uploads.",
+      "qrCodeGenerator": "Turn any link or text into a scannable QR code, with colors and a logo, then export PNG or SVG."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -100,14 +114,69 @@
       "title": "Travel Footprint"
     },
     "paletteStudio": {
-      "title": "Palette Studio"
+      "title": "Color Palette Generator"
     },
     "imageStudio": {
-      "title": "Image Studio"
+      "title": "Image Converter"
+    },
+    "qrCodeGenerator": {
+      "title": "QR Code Generator"
+    },
+    "categoriesLabel": "Browse by category",
+    "comingSoon": "Coming soon",
+    "categories": {
+      "design": {
+        "title": "Design",
+        "description": "Palettes, avatars, wallpapers and image formats for visual work."
+      },
+      "development": {
+        "title": "Development",
+        "description": "Helpers for building, encoding and debugging software."
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Product photos, listing assets and store visuals."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Shareable codes and campaign visuals."
+      },
+      "content": {
+        "title": "Content creation",
+        "description": "Names and inspiration for stories and brands."
+      },
+      "travel": {
+        "title": "Travel & tourism",
+        "description": "Maps and route visuals for trips and hospitality."
+      },
+      "education": {
+        "title": "Education",
+        "description": "Classroom visuals and learning aids."
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "Report visuals and document helpers."
+      },
+      "data": {
+        "title": "Data analysis",
+        "description": "Charts and visual summaries for data."
+      },
+      "office": {
+        "title": "Office & admin",
+        "description": "Documents, PDFs and everyday file tasks."
+      },
+      "hr": {
+        "title": "HR & recruiting",
+        "description": "Profiles, badges and onboarding assets."
+      },
+      "healthcare": {
+        "title": "Healthcare",
+        "description": "Patient-facing visuals and clinic materials."
+      }
     }
   },
   "paletteStudio": {
-    "title": "Palette Studio",
+    "title": "Color Palette Generator",
     "seoTitle": "Color Palette Generator — Free Online Palette Maker",
     "description": "Generate a harmonious color palette from one seed color. Check WCAG contrast, simulate color blindness, and copy CSS variables or Tailwind tokens — no signup.",
     "intro": "A browser-based color palette generator that turns one seed color into a harmonious, readable palette you can copy or share.",
@@ -429,7 +498,7 @@
     "clearConfirm": "Clear home and every footprint? This cannot be undone."
   },
   "imageStudio": {
-    "title": "Image Studio",
+    "title": "Image Converter",
     "seoTitle": "Image Converter — Convert PNG, JPG, WebP & More Online",
     "description": "Convert images between PNG, JPEG, WebP, AVIF, GIF, ICO and BMP entirely in your browser. Batch convert, resize and compress locally — no uploads, no signup.",
     "intro": "A browser-only image converter that changes formats, resizes and compresses in batch — your files never leave the device.",
@@ -506,5 +575,54 @@
     },
     "privacyNote": "Everything runs in this tab. Images are never uploaded or stored, and the share link contains settings only.",
     "auto": "Auto"
+  },
+  "qrCodeGenerator": {
+    "title": "QR Code Generator",
+    "seoTitle": "QR Code Generator — Free, Private, No Watermark",
+    "description": "Create scannable QR codes in your browser. Customize colors, dot styles and a center logo, then export PNG or SVG. Nothing uploaded, no watermark.",
+    "intro": "A browser-only QR code generator. Enter text or a link, tune the style, and export a clean code — nothing is uploaded or stored.",
+    "howTo": "Type text or paste a URL, choose error correction, colors and dot style, then download a PNG or SVG. Add a small logo if you like.",
+    "keywords": [
+      "qr code generator",
+      "custom qr code",
+      "free qr code no watermark",
+      "qr code maker"
+    ],
+    "inputLabel": "Content",
+    "inputPlaceholder": "https://starrudder.cc",
+    "levelLabel": "Error correction",
+    "levelHint": "Higher levels survive damage but hold less data. Use H when adding a logo.",
+    "sizeLabel": "Export size (px)",
+    "dotsLabel": "Dot style",
+    "dotsNames": {
+      "square": "Square",
+      "dots": "Dots",
+      "rounded": "Rounded"
+    },
+    "foregroundLabel": "Foreground",
+    "backgroundLabel": "Background",
+    "transparentLabel": "Transparent background",
+    "transparentHint": "PNG only. SVG keeps a transparent fill when enabled.",
+    "on": "ON",
+    "off": "OFF",
+    "logoLabel": "Center logo",
+    "logoAdd": "Add logo",
+    "logoRemove": "Remove logo",
+    "preview": "Live preview",
+    "downloadPng": "Download PNG",
+    "downloadSvg": "Download SVG",
+    "empty": "Enter content to generate a code.",
+    "tooLong": "Content is too long for this error-correction level. Shorten it or lower the level.",
+    "lowContrast": "Low contrast — the code may be hard to scan. Increase the difference between the two colors.",
+    "logoHint": "Keep the logo small so the code stays scannable.",
+    "shareWarning": "The share link contains the text you entered — only share it with people who should see it.",
+    "privacyNote": "Everything runs in this tab. Your content and logo are never uploaded or stored; the logo is not included in the share link.",
+    "feedback": {
+      "logoAdded": "Logo added.",
+      "logoRemoved": "Logo removed.",
+      "pngDownloaded": "PNG download started.",
+      "svgDownloaded": "SVG download started.",
+      "downloadFailed": "Could not create the PNG."
+    }
   }
 }

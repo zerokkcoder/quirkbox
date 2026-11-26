@@ -20,7 +20,7 @@ export function ImageStudioPage({
     <SiteShell
       locale={locale}
       messages={messages}
-      pathname={localizePath(locale, "/tools/image-studio")}
+      pathname={localizePath(locale, "/tools/image-converter")}
     >
       <div className="flex flex-col gap-8">
         <PageHeader
@@ -30,7 +30,7 @@ export function ImageStudioPage({
         />
         <ToolPageIntro
           locale={locale}
-          pathname="/tools/image-studio"
+          pathname="/tools/image-converter"
           title={messages.imageStudio.title}
           intro={messages.imageStudio.intro}
           howTo={messages.imageStudio.howTo}
