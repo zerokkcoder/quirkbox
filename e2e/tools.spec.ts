@@ -15,6 +15,9 @@ test("tools page groups tools by work domain with coming-soon placeholders", asy
   await expect(
     designSection.getByRole("link", { name: /Image Converter/ }).first()
   ).toBeVisible();
+  await expect(
+    designSection.getByRole("link", { name: /Gradient Wallpaper Generator/ }).first()
+  ).toBeVisible();
 
   const travelSection = page.locator("#category-travel");
   await expect(travelSection.getByRole("heading", { level: 2 })).toHaveText("Travel & tourism");

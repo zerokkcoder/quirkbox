@@ -35,7 +35,7 @@ existing feature/section/route/OG/audit skeleton without new infrastructure.
 - **契合点 / Fit**：内容不上传、不在服务器生成，正好击中隐私痛点；SEO 词 `qr code generator`、`custom qr code`。
 - **复杂度 / Effort**：中 / Medium。
 
-### 3. 渐变背景生成器 — Gradient Studio
+### 3. 渐变背景壁纸生成器 — Gradient Wallpaper Generator ⭐ 已选 / Selected
 
 - **是什么 / What it is**：可视化调色标与角度，生成 CSS 渐变，支持随机种子。
 - **怎么用 / How to use**：拖动色标 → 选线性 / 径向 / 锥形 → 复制 CSS 或导出壁纸图。
@@ -91,3 +91,4 @@ existing feature/section/route/OG/audit skeleton without new infrastructure.
 | 2026-11-25 | 优先序参考：#5 图片格式转换器 > #6 JSON 工具箱 > #2 QR 码生成器 > 其余。 |
 | 2026-11-25 | 选择 **#5 图片格式转换器 Image Studio** 进入规划；规划文档见 `docs/image-studio-plan.md`，待审阅 §8 待决项。 |
 | 2026-11-25 | §8 六项待决项全部按推荐 A 执行：原生 + ICO/BMP/静态 GIF；GIF 仅首帧；手写 ZIP + 逐张下载；SVG 输入栅格化；站点描述加入图片转换关键词；主线程逐项转换。 |
+| 2026-11-26 | §8 五待决全按提议实现 QR 码产生器（`0b27b8e`）；选择 **#3 渐变背景壁纸生成器 Gradient Wallpaper Generator** 进入规划，§8 八项全按提议通过。 |

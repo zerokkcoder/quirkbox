@@ -138,5 +138,19 @@
     "h1": [
       "QR 碼產生器"
     ]
+  },
+  "https://starrudder.cc/tools/gradient-wallpaper-generator": {
+    "title": "Gradient Wallpaper Generator — Free CSS Gradient Maker | StarRudder",
+    "description": "Design a gradient wallpaper in your browser. Drag color stops, switch linear/radial/conic, copy CSS or export high-res PNG. No upload, no account.",
+    "h1": [
+      "Gradient Wallpaper Generator"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/gradient-wallpaper-generator": {
+    "title": "漸層壁紙產生器 — 在線 CSS 漸層背景製作 | StarRudder",
+    "description": "在瀏覽器拖動色標製作漸層壁紙，支援線性／徑向／錐形，複製 CSS 或匯出高清 PNG。不上傳、不註冊。",
+    "h1": [
+      "漸層壁紙產生器"
+    ]
   }
 }

@@ -16,6 +16,7 @@ const routes = [
   "/tools/color-palette-generator",
   "/tools/image-converter",
   "/tools/qr-code-generator",
+  "/tools/gradient-wallpaper-generator",
   "/about",
 ];
 

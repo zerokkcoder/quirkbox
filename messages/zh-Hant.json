@@ -22,11 +22,11 @@
     "secondaryCta": "關於星舵工坊",
     "preview": {
       "label": "在這裡可以做的事",
-      "footnote": "7 個工具 · 2 種語言 · 0 次上傳",
+      "footnote": "8 個工具 · 2 種語言 · 0 次上傳",
       "focus": [
         {
           "title": "設計",
-          "description": "配色、頭像、桌布與圖片格式，一次搞定。"
+          "description": "配色、頭像、漸層桌布與圖片格式，一次搞定。"
         },
         {
           "title": "行銷",
@@ -52,7 +52,8 @@
       "travelFootprint": "在地圖上標註家與去過的地點，畫出並匯出路線。",
       "paletteStudio": "用一個種子色產生和諧配色，並檢查對比度。",
       "imageStudio": "批次轉換 PNG、JPG、WebP 等格式，內建常用預設且不上傳。",
-      "qrCodeGenerator": "把連結或文字變成可掃描的 QR 碼，自訂顏色與 Logo，再匯出 PNG 或 SVG。"
+      "qrCodeGenerator": "把連結或文字變成可掃描的 QR 碼，自訂顏色與 Logo，再匯出 PNG 或 SVG。",
+      "gradientWallpaper": "混合色標製作高清桌布，並複製可用的 CSS。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -173,6 +174,9 @@
         "title": "醫療健康",
         "description": "病患溝通視覺與診所素材。"
       }
+    },
+    "gradientWallpaper": {
+      "title": "漸層壁紙產生器"
     }
   },
   "paletteStudio": {
@@ -624,5 +628,67 @@
       "svgDownloaded": "開始下載 SVG。",
       "downloadFailed": "無法產生 PNG。"
     }
+  },
+  "gradientWallpaper": {
+    "title": "漸層壁紙產生器",
+    "seoTitle": "漸層壁紙產生器 — 在線 CSS 漸層背景製作",
+    "description": "在瀏覽器拖動色標製作漸層壁紙，支援線性／徑向／錐形，複製 CSS 或匯出高清 PNG。不上傳、不註冊。",
+    "intro": "純瀏覽器漸層壁紙產生器。混合最多五個色標，選擇線性、徑向或錐形，複製 CSS 或下載高清 PNG——不上傳、不儲存任何資料。",
+    "howTo": "選擇漸層類型，拖動或編輯色標，設定角度或中心點，然後複製 CSS 或下載 PNG 桌布。分享連結會保留完整設定。",
+    "keywords": [
+      "漸層壁紙產生器",
+      "css 漸層產生器",
+      "漸層背景製作",
+      "線性漸層桌布"
+    ],
+    "preview": "即時漸層預覽",
+    "shuffle": "隨機配色",
+    "download": "下載 PNG",
+    "copyCss": "複製 CSS",
+    "cssCopied": "已複製 CSS 到剪貼簿。",
+    "copyFailed": "無法存取剪貼簿，請手動選取並複製 CSS。",
+    "cssLabel": "CSS background-image",
+    "sampleText": "星舵工坊",
+    "conicUnsupported": "此瀏覽器不支援錐形漸層，請改用較新的瀏覽器。",
+    "type": "漸層類型",
+    "types": {
+      "linear": "線性",
+      "radial": "徑向",
+      "conic": "錐形"
+    },
+    "angle": "角度",
+    "conicAngle": "起始角度",
+    "center": "中心點",
+    "centers": {
+      "top-left": "左上",
+      "top": "上",
+      "top-right": "右上",
+      "left": "左",
+      "center": "正中",
+      "right": "右",
+      "bottom-left": "左下",
+      "bottom": "下",
+      "bottom-right": "右下"
+    },
+    "stops": "色標",
+    "stopColor": "顏色",
+    "stopPosition": "位置",
+    "addStop": "新增色標",
+    "removeStop": "移除",
+    "stopsHint": "點擊色條可新增色標，拖動圓點可移動。方向鍵微調，Delete 刪除。",
+    "ratio": "桌布尺寸",
+    "ratios": {
+      "9:16": "手機 9:16",
+      "9:19.5": "手機 19.5:9",
+      "9:20": "手機 20:9",
+      "16:9": "桌面 16:9",
+      "16:10": "桌面 16:10",
+      "4:3": "桌面 4:3"
+    },
+    "ratioHint": "以下載尺寸完整輸出，預覽會自動縮放。",
+    "seed": "種子",
+    "seedHint": "同一種子會重現相同配色；修改後會取代現有色標。",
+    "showText": "文字預覽",
+    "showTextHint": "疊加範例文字，檢查圖示與文字的可讀性。"
   }
 }

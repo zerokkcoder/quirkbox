@@ -22,11 +22,11 @@
     "secondaryCta": "About StarRudder",
     "preview": {
       "label": "What you can do here",
-      "footnote": "7 tools · 2 languages · 0 uploads",
+      "footnote": "8 tools · 2 languages · 0 uploads",
       "focus": [
         {
           "title": "Design",
-          "description": "Palettes, avatars, wallpapers and image formats in one place."
+          "description": "Palettes, avatars, gradient wallpapers and image formats in one place."
         },
         {
           "title": "Marketing",
@@ -52,7 +52,8 @@
       "travelFootprint": "Plot home and visited places on a map, then draw and export routes.",
       "paletteStudio": "Turn one seed color into a harmonious palette with contrast checks.",
       "imageStudio": "Convert PNG, JPG, WebP and more in batch — with presets and no uploads.",
-      "qrCodeGenerator": "Turn any link or text into a scannable QR code, with colors and a logo, then export PNG or SVG."
+      "qrCodeGenerator": "Turn any link or text into a scannable QR code, with colors and a logo, then export PNG or SVG.",
+      "gradientWallpaper": "Blend color stops into a high-res wallpaper, with CSS you can copy."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -173,6 +174,9 @@
         "title": "Healthcare",
         "description": "Patient-facing visuals and clinic materials."
       }
+    },
+    "gradientWallpaper": {
+      "title": "Gradient Wallpaper Generator"
     }
   },
   "paletteStudio": {
@@ -624,5 +628,67 @@
       "svgDownloaded": "SVG download started.",
       "downloadFailed": "Could not create the PNG."
     }
+  },
+  "gradientWallpaper": {
+    "title": "Gradient Wallpaper Generator",
+    "seoTitle": "Gradient Wallpaper Generator — Free CSS Gradient Maker",
+    "description": "Design a gradient wallpaper in your browser. Drag color stops, switch linear/radial/conic, copy CSS or export high-res PNG. No upload, no account.",
+    "intro": "A browser-only gradient wallpaper maker. Blend up to five color stops, pick linear, radial or conic, then copy the CSS or download a high-resolution PNG — nothing is uploaded or stored.",
+    "howTo": "Choose a gradient type, drag or edit the color stops, set the angle or center, then copy the CSS or download a PNG wallpaper. The share link keeps your exact setup.",
+    "keywords": [
+      "gradient wallpaper generator",
+      "css gradient generator",
+      "gradient background maker",
+      "online wallpaper maker"
+    ],
+    "preview": "Live gradient preview",
+    "shuffle": "Shuffle colors",
+    "download": "Download PNG",
+    "copyCss": "Copy CSS",
+    "cssCopied": "CSS copied to clipboard.",
+    "copyFailed": "Could not access the clipboard. Select and copy the CSS manually.",
+    "cssLabel": "CSS background-image",
+    "sampleText": "StarRudder",
+    "conicUnsupported": "Conic gradients are not supported in this browser. Try a modern browser.",
+    "type": "Gradient type",
+    "types": {
+      "linear": "Linear",
+      "radial": "Radial",
+      "conic": "Conic"
+    },
+    "angle": "Angle",
+    "conicAngle": "Start angle",
+    "center": "Center",
+    "centers": {
+      "top-left": "Top left",
+      "top": "Top",
+      "top-right": "Top right",
+      "left": "Left",
+      "center": "Center",
+      "right": "Right",
+      "bottom-left": "Bottom left",
+      "bottom": "Bottom",
+      "bottom-right": "Bottom right"
+    },
+    "stops": "Color stops",
+    "stopColor": "Color",
+    "stopPosition": "Position",
+    "addStop": "Add stop",
+    "removeStop": "Remove",
+    "stopsHint": "Click the color bar to add a stop, drag handles to move them. Arrow keys nudge a focused handle; Delete removes it.",
+    "ratio": "Wallpaper size",
+    "ratios": {
+      "9:16": "Phone 9:16",
+      "9:19.5": "Phone 19.5:9",
+      "9:20": "Phone 20:9",
+      "16:9": "Desktop 16:9",
+      "16:10": "Desktop 16:10",
+      "4:3": "Desktop 4:3"
+    },
+    "ratioHint": "Exported at full resolution. Preview is scaled to fit.",
+    "seed": "Seed",
+    "seedHint": "A seed recreates its original colors. Changing it replaces the color stops.",
+    "showText": "Text preview",
+    "showTextHint": "Overlay sample text to check icon and text legibility."
   }
 }

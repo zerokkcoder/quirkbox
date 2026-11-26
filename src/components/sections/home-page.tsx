@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
+  BlendIcon,
   DicesIcon,
   Grid2x2Icon,
   HeartIcon,
@@ -122,6 +123,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       icon: <QrCodeIcon />,
       title: messages.tools.qrCodeGenerator.title,
       description: labels.tools.qrCodeGenerator,
+    },
+    {
+      href: "/tools/gradient-wallpaper-generator",
+      icon: <BlendIcon />,
+      title: messages.tools.gradientWallpaper.title,
+      description: labels.tools.gradientWallpaper,
     },
   ];
   const focusTiles = [

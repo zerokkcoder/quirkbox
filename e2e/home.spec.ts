@@ -8,6 +8,7 @@ const toolNames = [
   "Color Palette Generator",
   "Image Converter",
   "QR Code Generator",
+  "Gradient Wallpaper Generator",
 ];
 
 test("home page renders the official landing page, not a desktop shell", async ({ page }) => {

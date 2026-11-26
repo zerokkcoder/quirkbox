@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import {
   BarChart3Icon,
+  BlendIcon,
   BriefcaseBusinessIcon,
   ClockIcon,
   Code2Icon,
@@ -66,6 +67,11 @@ export function ToolsPage({
           title: messages.tools.imageStudio.title,
           href: "/tools/image-converter",
           icon: <ImageIcon />,
+        },
+        {
+          title: messages.tools.gradientWallpaper.title,
+          href: "/tools/gradient-wallpaper-generator",
+          icon: <BlendIcon />,
         },
       ],
     },

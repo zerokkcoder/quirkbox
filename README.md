@@ -15,6 +15,7 @@ The launch version includes:
 - `Color Palette Generator`: generate a palette from one seed color, with WCAG contrast checks, color-blind previews and CSS/Tailwind/PNG export.
 - `Image Converter`: batch-convert images between PNG, JPG, WebP, AVIF, GIF, BMP and ICO with resizing and ZIP download — all in the browser.
 - `QR Code Generator`: create scannable QR codes with custom colors, dot styles and an optional center logo, then export PNG or SVG — nothing uploaded.
+- `Gradient Wallpaper Generator`: blend color stops into linear, radial or conic gradients, copy the CSS or export a high-res PNG wallpaper — all in the browser.
 - `English + Traditional Chinese`: English is the default route; Traditional Chinese lives under `/zh-Hant`.
 
 ## Scripts

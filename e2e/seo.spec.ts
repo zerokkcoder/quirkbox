@@ -36,6 +36,7 @@ test("tool pages expose what/how copy and a keyword-rich meta description", asyn
     { path: "/tools/color-palette-generator", title: "Color Palette Generator", hint: "Start from a style preset" },
     { path: "/tools/image-converter", title: "Image Converter", hint: "Drop or paste images" },
     { path: "/tools/qr-code-generator", title: "QR Code Generator", hint: "Type text or paste a URL" },
+    { path: "/tools/gradient-wallpaper-generator", title: "Gradient Wallpaper Generator", hint: "Color stops" },
   ];
 
   for (const item of cases) {
