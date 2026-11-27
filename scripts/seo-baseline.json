@@ -97,20 +97,6 @@
       "配色方案產生器"
     ]
   },
-  "https://starrudder.cc/about": {
-    "title": "About StarRudder",
-    "description": "StarRudder makes free tools that run in your browser. No account, no uploads, no stored data — just open a tool and use it.",
-    "h1": [
-      "About StarRudder"
-    ]
-  },
-  "https://starrudder.cc/zh-Hant/about": {
-    "title": "關於星舵工坊 | StarRudder",
-    "description": "星舵工坊製作在瀏覽器執行的免費工具。免帳號、不上傳、不保存資料，打開就能用。",
-    "h1": [
-      "關於星舵工坊"
-    ]
-  },
   "https://starrudder.cc/tools/image-converter": {
     "title": "Image Converter — Convert PNG, JPG, WebP & More Online | StarRudder",
     "description": "Convert images between PNG, JPEG, WebP, AVIF, GIF, ICO and BMP entirely in your browser. Batch convert, resize and compress locally — no uploads, no signup.",
@@ -151,6 +137,34 @@
     "description": "在瀏覽器拖動色標製作漸層壁紙，支援線性／徑向／錐形，複製 CSS 或匯出高清 PNG。不上傳、不註冊。",
     "h1": [
       "漸層壁紙產生器"
+    ]
+  },
+  "https://starrudder.cc/tools/ascii-art-generator": {
+    "title": "ASCII Art Generator — Text & Image to ASCII Art | StarRudder",
+    "description": "Turn text or an image into ASCII art in your browser. Pick fonts or image settings, copy the text or export a PNG. No signup, no upload.",
+    "h1": [
+      "ASCII Art Generator"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/ascii-art-generator": {
+    "title": "ASCII 藝術產生器 — 文字與圖片轉字符畫 | StarRudder",
+    "description": "在瀏覽器把文字或圖片轉成 ASCII 字符畫。選字型或調整圖片參數，複製純文字或匯出 PNG。免註冊、不上傳。",
+    "h1": [
+      "ASCII 藝術產生器"
+    ]
+  },
+  "https://starrudder.cc/about": {
+    "title": "About StarRudder",
+    "description": "StarRudder makes free tools that run in your browser. No account, no uploads, no stored data — just open a tool and use it.",
+    "h1": [
+      "About StarRudder"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/about": {
+    "title": "關於星舵工坊 | StarRudder",
+    "description": "星舵工坊製作在瀏覽器執行的免費工具。免帳號、不上傳、不保存資料，打開就能用。",
+    "h1": [
+      "關於星舵工坊"
     ]
   }
 }

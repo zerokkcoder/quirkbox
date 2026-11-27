@@ -42,12 +42,12 @@ existing feature/section/route/OG/audit skeleton without new infrastructure.
 - **契合点 / Fit**：与 Emoji 壁纸同属「视觉生成器 + 种子分享」模式，复用成本低。
 - **复杂度 / Effort**：低 / Low。
 
-### 4. ASCII 艺术生成器 — Text Art
+### 4. ASCII 艺术生成器 — Text & Image Art
 
-- **是什么 / What it is**：把文字或短句转成字符画，可调字体风格与宽度。
-- **怎么用 / How to use**：输入文字 → 选风格 → 复制纯文本到处分享。
-- **契合点 / Fit**：分享性极强、零依赖；SEO 词 `ascii art generator`。
-- **复杂度 / Effort**：低 / Low。
+- **是什么 / What it is**：把文字或本地图片转成字符画；文字走 figlet 字体，图片走亮度映射与 2×4 点字网格。
+- **怎么用 / How to use**：切换文本/图片 → 选字体或图片参数 → 复制纯文本、导出 PNG 或分享设置链接。
+- **契合点 / Fit**：分享性极强、零运行时依赖；SEO 词 `ascii art generator` / `image to ascii art`。
+- **复杂度 / Effort**：中 / Medium（图片模式含采样、抖色与彩色输出）。
 
 ---
 
@@ -92,3 +92,4 @@ existing feature/section/route/OG/audit skeleton without new infrastructure.
 | 2026-11-25 | 选择 **#5 图片格式转换器 Image Studio** 进入规划；规划文档见 `docs/image-studio-plan.md`，待审阅 §8 待决项。 |
 | 2026-11-25 | §8 六项待决项全部按推荐 A 执行：原生 + ICO/BMP/静态 GIF；GIF 仅首帧；手写 ZIP + 逐张下载；SVG 输入栅格化；站点描述加入图片转换关键词；主线程逐项转换。 |
 | 2026-11-26 | §8 五待决全按提议实现 QR 码产生器（`0b27b8e`）；选择 **#3 渐变背景壁纸生成器 Gradient Wallpaper Generator** 进入规划，§8 八项全按提议通过。 |
+| 2026-11-27 | 选择 **#4 ASCII 艺术生成器 ASCII Art Generator** 进入规划；规划文档见 `docs/ascii-art-generator-plan.md`，待审阅 §8 八项待决。 |

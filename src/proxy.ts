@@ -35,6 +35,7 @@ const toolSlugs = new Set([
   "travel-footprint",
   "qr-code-generator",
   "gradient-wallpaper-generator",
+  "ascii-art-generator",
 ]);
 
 type NotFoundCopy = {

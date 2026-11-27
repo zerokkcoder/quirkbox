@@ -34,7 +34,7 @@
     "secondaryCta": "關於星舵工坊",
     "preview": {
       "label": "在這裡可以做的事",
-      "footnote": "8 個工具 · 2 種語言 · 0 次上傳",
+      "footnote": "9 個工具 · 2 種語言 · 0 次上傳",
       "focus": [
         {
           "title": "設計",
@@ -46,7 +46,7 @@
         },
         {
           "title": "內容創作",
-          "description": "為角色、品牌與故事產生名字。"
+          "description": "為角色、品牌與故事產生名字與 ASCII 字符畫。"
         },
         {
           "title": "文旅",
@@ -65,7 +65,8 @@
       "paletteStudio": "用一個種子色產生和諧配色，並檢查對比度。",
       "imageStudio": "批次轉換 PNG、JPG、WebP 等格式，內建常用預設且不上傳。",
       "qrCodeGenerator": "把連結或文字變成可掃描的 QR 碼，自訂顏色與 Logo，再匯出 PNG 或 SVG。",
-      "gradientWallpaper": "混合色標製作高清桌布，並複製可用的 CSS。"
+      "gradientWallpaper": "混合色標製作高清桌布，並複製可用的 CSS。",
+      "asciiArt": "把文字或本機圖片變成可複製的 ASCII 字符畫，也能匯出 PNG。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -156,7 +157,7 @@
       },
       "content": {
         "title": "內容創作",
-        "description": "為故事與品牌產生名字與靈感。"
+        "description": "為故事、品牌與貼文產生名字與 ASCII 字符畫。"
       },
       "travel": {
         "title": "文旅",
@@ -189,6 +190,9 @@
     },
     "gradientWallpaper": {
       "title": "漸層壁紙產生器"
+    },
+    "asciiArt": {
+      "title": "ASCII 藝術產生器"
     }
   },
   "paletteStudio": {
@@ -702,5 +706,89 @@
     "seedHint": "同一種子會重現相同配色；修改後會取代現有色標。",
     "showText": "文字預覽",
     "showTextHint": "疊加範例文字，檢查圖示與文字的可讀性。"
+  },
+  "asciiArt": {
+    "title": "ASCII 藝術產生器",
+    "seoTitle": "ASCII 藝術產生器 — 文字與圖片轉字符畫",
+    "description": "在瀏覽器把文字或圖片轉成 ASCII 字符畫。選字型或調整圖片參數，複製純文字或匯出 PNG。免註冊、不上傳。",
+    "intro": "純瀏覽器 ASCII 藝術產生器。把短句變成字符標題，或將本機圖片轉換成字符畫；可複製純文字或下載 PNG——不上傳、不儲存任何資料。",
+    "howTo": "切換「文字」或「圖片」。文字可選字型、間距與對齊；圖片可調整寬度、字符梯度與色階。完成後複製字符畫或匯出 PNG；分享連結會保留設定。",
+    "keywords": [
+      "ascii art 產生器",
+      "文字轉 ascii art",
+      "圖片轉 ascii art",
+      "ascii 字符畫",
+      "ascii art 線上製作"
+    ],
+    "modeLabel": "輸入類型",
+    "modeNames": {
+      "text": "文字",
+      "image": "圖片"
+    },
+    "inputLabel": "輸入文字",
+    "inputPlaceholder": "HELLO",
+    "inputHint": "使用英文字母、數字與常見標點；中文與 emoji 會以 ? 代替。",
+    "fontLabel": "字型風格",
+    "fontNames": {
+      "standard": "標準",
+      "big": "粗體",
+      "slant": "斜體",
+      "small": "小巧",
+      "banner": "橫幅",
+      "digital": "數位",
+      "isometric2": "等距 2"
+    },
+    "gapLabel": "水平間距",
+    "vGapLabel": "垂直間距",
+    "flipLabel": "水平翻轉",
+    "alignLabel": "對齊",
+    "alignNames": {
+      "left": "靠左",
+      "center": "置中",
+      "right": "靠右"
+    },
+    "imageInputLabel": "來源圖片",
+    "imageUpload": "選擇圖片",
+    "imageDropHint": "拖入圖片或按 Ctrl+V 貼上；支援 PNG、JPG、GIF、WebP。",
+    "imageLoaded": "已載入圖片：",
+    "imageLoadFailed": "無法載入圖片，請改選本機檔案或允許跨域的網址。",
+    "unsupportedFile": "請選擇圖片檔案。",
+    "imageEmpty": "載入圖片後就會出現字符畫。",
+    "widthLabel": "寬度（欄）",
+    "rampLabel": "字符梯度",
+    "rampNames": {
+      "classic": "經典",
+      "blocks": "方塊",
+      "matrix": "矩陣",
+      "minimal": "極簡",
+      "braille": "點字"
+    },
+    "brightnessLabel": "亮度",
+    "contrastLabel": "對比",
+    "invertLabel": "反相",
+    "ditherLabel": "抖色",
+    "ditherNames": {
+      "none": "無",
+      "floyd-steinberg": "Floyd–Steinberg"
+    },
+    "imageShareHint": "分享連結只保留圖片設定，不包含圖片本身；圖片仍留在你的裝置上。",
+    "backgroundLabel": "背景",
+    "backgroundNames": {
+      "transparent": "透明",
+      "space": "深空",
+      "mist": "霧白"
+    },
+    "backgroundHint": "同時套用在預覽與匯出的 PNG；複製的文字不受影響。",
+    "preview": "ASCII 即時預覽",
+    "empty": "輸入文字後就會出現字符畫。",
+    "unsupportedHint": "已用 ? 取代：",
+    "columns": "欄",
+    "copyText": "複製文字",
+    "copied": "字符畫已複製到剪貼簿。",
+    "copyFailed": "無法存取剪貼簿，請手動選取並複製。",
+    "download": "下載 PNG",
+    "downloaded": "PNG 已下載。",
+    "downloadFailed": "無法匯出 PNG，請再試一次。",
+    "privacyNote": "文字與圖片都在你裝置上轉換，不上傳、不保存，也不會傳到任何地方。"
   }
 }

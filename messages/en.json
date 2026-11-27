@@ -34,7 +34,7 @@
     "secondaryCta": "About StarRudder",
     "preview": {
       "label": "What you can do here",
-      "footnote": "8 tools · 2 languages · 0 uploads",
+      "footnote": "9 tools · 2 languages · 0 uploads",
       "focus": [
         {
           "title": "Design",
@@ -46,7 +46,7 @@
         },
         {
           "title": "Content creation",
-          "description": "Generate names for characters, brands and stories."
+          "description": "Generate names and ASCII art for characters, brands and stories."
         },
         {
           "title": "Travel & tourism",
@@ -65,7 +65,8 @@
       "paletteStudio": "Turn one seed color into a harmonious palette with contrast checks.",
       "imageStudio": "Convert PNG, JPG, WebP and more in batch — with presets and no uploads.",
       "qrCodeGenerator": "Turn any link or text into a scannable QR code, with colors and a logo, then export PNG or SVG.",
-      "gradientWallpaper": "Blend color stops into a high-res wallpaper, with CSS you can copy."
+      "gradientWallpaper": "Blend color stops into a high-res wallpaper, with CSS you can copy.",
+      "asciiArt": "Turn text or a local image into copyable ASCII art and export a PNG."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -156,7 +157,7 @@
       },
       "content": {
         "title": "Content creation",
-        "description": "Names and inspiration for stories and brands."
+        "description": "Names and ASCII character art for stories, brands and posts."
       },
       "travel": {
         "title": "Travel & tourism",
@@ -189,6 +190,9 @@
     },
     "gradientWallpaper": {
       "title": "Gradient Wallpaper Generator"
+    },
+    "asciiArt": {
+      "title": "ASCII Art Generator"
     }
   },
   "paletteStudio": {
@@ -702,5 +706,89 @@
     "seedHint": "A seed recreates its original colors. Changing it replaces the color stops.",
     "showText": "Text preview",
     "showTextHint": "Overlay sample text to check icon and text legibility."
+  },
+  "asciiArt": {
+    "title": "ASCII Art Generator",
+    "seoTitle": "ASCII Art Generator — Text & Image to ASCII Art",
+    "description": "Turn text or an image into ASCII art in your browser. Pick fonts or image settings, copy the text or export a PNG. No signup, no upload.",
+    "intro": "A browser-only ASCII art generator. Turn a short phrase into a character-built headline, or map a local image to characters. Copy the result as plain text or download a PNG — nothing is uploaded or stored.",
+    "howTo": "Switch between Text and Image. For text, choose a font, spacing and alignment; for an image, set width, character ramp and tone. Copy the art or export a PNG; the share link keeps your settings.",
+    "keywords": [
+      "ascii art generator",
+      "text to ascii art",
+      "image to ascii art",
+      "ascii art maker",
+      "ascii text art"
+    ],
+    "modeLabel": "Input type",
+    "modeNames": {
+      "text": "Text",
+      "image": "Image"
+    },
+    "inputLabel": "Your text",
+    "inputPlaceholder": "HELLO",
+    "inputHint": "Use letters, numbers and basic punctuation. Chinese and emoji are replaced with ?.",
+    "fontLabel": "Font style",
+    "fontNames": {
+      "standard": "Standard",
+      "big": "Big",
+      "slant": "Slant",
+      "small": "Small",
+      "banner": "Banner",
+      "digital": "Digital",
+      "isometric2": "Isometric 2"
+    },
+    "gapLabel": "Horizontal spacing",
+    "vGapLabel": "Vertical spacing",
+    "flipLabel": "Flip horizontally",
+    "alignLabel": "Align",
+    "alignNames": {
+      "left": "Left",
+      "center": "Center",
+      "right": "Right"
+    },
+    "imageInputLabel": "Source image",
+    "imageUpload": "Choose image",
+    "imageDropHint": "Drop an image here or paste with Ctrl+V. PNG, JPG, GIF and WebP work.",
+    "imageLoaded": "Image loaded:",
+    "imageLoadFailed": "Could not load that image. Try a local file or a CORS-enabled URL.",
+    "unsupportedFile": "Please choose an image file.",
+    "imageEmpty": "Load an image to see it as ASCII art.",
+    "widthLabel": "Width (cols)",
+    "rampLabel": "Character ramp",
+    "rampNames": {
+      "classic": "Classic",
+      "blocks": "Blocks",
+      "matrix": "Matrix",
+      "minimal": "Minimal",
+      "braille": "Braille"
+    },
+    "brightnessLabel": "Brightness",
+    "contrastLabel": "Contrast",
+    "invertLabel": "Invert",
+    "ditherLabel": "Dithering",
+    "ditherNames": {
+      "none": "None",
+      "floyd-steinberg": "Floyd–Steinberg"
+    },
+    "imageShareHint": "Share links keep image settings, not the image itself. The image stays on your device.",
+    "backgroundLabel": "Background",
+    "backgroundNames": {
+      "transparent": "Transparent",
+      "space": "Deep space",
+      "mist": "Mist white"
+    },
+    "backgroundHint": "Changes the preview and the exported PNG; copied text stays plain.",
+    "preview": "Live ASCII preview",
+    "empty": "Type something to see your art.",
+    "unsupportedHint": "Replaced with ?:",
+    "columns": "cols",
+    "copyText": "Copy text",
+    "copied": "ASCII art copied to clipboard.",
+    "copyFailed": "Could not access the clipboard. Select and copy the art manually.",
+    "download": "Download PNG",
+    "downloaded": "PNG downloaded.",
+    "downloadFailed": "Could not export the PNG. Please try again.",
+    "privacyNote": "Your text and images are converted on this device. Nothing is uploaded, saved or sent anywhere."
   }
 }

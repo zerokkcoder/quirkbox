@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import {
   BarChart3Icon,
   BlendIcon,
+  BracesIcon,
   BriefcaseBusinessIcon,
   ClockIcon,
   Code2Icon,
@@ -94,6 +95,11 @@ export function ToolsPage({
           title: messages.tools.randomName.title,
           href: "/tools/random-name",
           icon: <DicesIcon />,
+        },
+        {
+          title: messages.tools.asciiArt.title,
+          href: "/tools/ascii-art-generator",
+          icon: <BracesIcon />,
         },
       ],
     },

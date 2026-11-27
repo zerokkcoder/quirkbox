@@ -4,6 +4,7 @@ import {
   ArrowRightIcon,
   ArrowUpRightIcon,
   BlendIcon,
+  BracesIcon,
   DicesIcon,
   Grid2x2Icon,
   HeartIcon,
@@ -129,6 +130,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       icon: <BlendIcon />,
       title: messages.tools.gradientWallpaper.title,
       description: labels.tools.gradientWallpaper,
+    },
+    {
+      href: "/tools/ascii-art-generator",
+      icon: <BracesIcon />,
+      title: messages.tools.asciiArt.title,
+      description: labels.tools.asciiArt,
     },
   ];
   const focusTiles = [
