@@ -79,9 +79,14 @@ function big(rows: string[]): string[] {
   return lines;
 }
 
-/** Shift each row right to create an italic slant. */
+/** Shift each row right to create an italic slant, padding to keep a rectangular cell. */
 function slant(rows: string[]): string[] {
-  return rows.map((row, index) => `${" ".repeat(Math.floor(index / 2))}${row.replace(/\./g, " ")}`);
+  const maxOffset = Math.floor((rows.length - 1) / 2);
+  return rows.map((row, index) => {
+    const offset = Math.floor(index / 2);
+    const body = row.replace(/\./g, " ");
+    return `${" ".repeat(offset)}${body}${" ".repeat(maxOffset - offset)}`;
+  });
 }
 
 /** Downsample to a compact 3x5 grid for narrow columns. */
@@ -140,10 +145,25 @@ export const fonts: Record<FontId, FontDefinition> = Object.fromEntries(
   fontIds.map((id) => [id, buildFont(id)])
 ) as Record<FontId, FontDefinition>;
 
+/** Some bundled fonts carry blank cells for characters their source didn't draw. */
+function isBlankGlyph(glyph: string[]): boolean {
+  return glyph.every((row) => row.trim() === "");
+}
+
 export function getGlyph(font: FontId, char: string): string[] {
   const key = char.toUpperCase();
   const definition = fonts[font] ?? fonts.standard;
-  return definition.glyphs[key] ?? definition.glyphs[fallbackChar] ?? ["?"];
+  const glyph = definition.glyphs[key] ?? definition.glyphs[fallbackChar] ?? ["?"];
+
+  // A blank glyph renders as invisible output. Fall back to the standard font's
+  // drawing so the character stays readable (isometric2 ships blank digits and
+  // punctuation, including the `?` fallback itself).
+  if (definition.id !== "standard" && isBlankGlyph(glyph)) {
+    const standard = fonts.standard.glyphs[key] ?? fonts.standard.glyphs[fallbackChar];
+    if (standard && !isBlankGlyph(standard)) return standard;
+  }
+
+  return glyph;
 }
 
 /** Characters the bundled fonts can draw, for the input hint. */

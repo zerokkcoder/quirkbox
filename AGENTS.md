@@ -21,3 +21,9 @@ Five canonical triage roles map 1:1 to GitHub labels. See `docs/agents/triage-la
 ### Domain docs
 
 Single-context: one `GLOSSARY.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+## Shipping checks
+
+SEO metadata is snapshotted in `scripts/seo-baseline.json`. When you change copy under `messages/` or a page's `generateMetadata`, refresh it with `npm run seo:audit:baseline` before committing — the pre-commit gate rejects a drifted baseline.
+
+A long-running `next build` can be killed when the tool's output stream drops; that clears `.next/BUILD_ID` and aborts the commit. Rerun the build with buffered output, confirm `BUILD_ID` is newer than every staged file, then commit so the hook reuses it.

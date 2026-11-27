@@ -12,16 +12,19 @@ describe("ascii art fonts", () => {
     expect(Object.keys(fonts).sort()).toEqual([...fontIds].sort());
   });
 
-  it("has a complete, rectangular glyph for every required character in every font", () => {
+  it("has a complete glyph with ink for every required character in every font", () => {
     for (const id of fontIds) {
       for (const char of requiredCharacters) {
         const glyph = getGlyph(id, char);
         expect(glyph.length, `${id}/${char} row count`).toBeGreaterThan(0);
-        const width = glyph[0].length;
-        expect(width, `${id}/${char} cell width`).toBeGreaterThan(0);
         for (const row of glyph) {
-          expect(row.length, `${id}/${char} row width`).toBe(width);
+          expect(row.length, `${id}/${char} row width`).toBeGreaterThan(0);
         }
+        // A blank glyph renders as invisible output; fonts must fall back to a
+        // visible drawing rather than silently dropping the character.
+        // (Row widths may differ by design — banner's frame is wider than its
+        // body — so no rectangularity assertion here.)
+        expect(glyph.some((row) => row.trim().length > 0), `${id}/${char} has ink`).toBe(true);
       }
     }
   });

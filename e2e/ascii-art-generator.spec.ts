@@ -73,8 +73,8 @@ test("unsupported characters are replaced with a question mark", async ({ page }
 test("share link reproduces the exact art", async ({ page }) => {
   await page.goto("/tools/ascii-art-generator?text=U1RBUlM&font=digital&gap=2&align=right&bg=mist");
   await expect(page.getByTestId("ascii-text")).toHaveValue("STARS");
-  await expect(page.getByTestId("ascii-font-digital")).toHaveAttribute("data-state", "on");
-  await expect(page.getByTestId("ascii-background-mist")).toHaveAttribute("data-state", "on");
+  await expect(page.getByTestId("ascii-font-digital")).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("ascii-background-mist")).toHaveAttribute("aria-pressed", "true");
 });
 
 test("copies plain text and downloads a PNG", async ({ page, context }) => {
@@ -129,8 +129,8 @@ test("image mode converts a local image and exposes image controls", async ({ pa
 
 test("supports Isometric2 font with vertical spacing and flip", async ({ page }) => {
   await page.goto("/tools/ascii-art-generator?text=U0FSUw&font=isometric2&vgap=2&flip=1");
-  await expect(page.getByTestId("ascii-font-isometric2")).toHaveAttribute("data-state", "on");
-  await expect(page.getByTestId("ascii-vgap-2")).toHaveAttribute("data-state", "on");
+  await expect(page.getByTestId("ascii-font-isometric2")).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("ascii-vgap-2")).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("ascii-flip")).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("ascii-preview").locator("pre")).toContainText("/");
 });
@@ -138,6 +138,6 @@ test("supports Isometric2 font with vertical spacing and flip", async ({ page })
 test("Traditional Chinese image mode stays localized", async ({ page }) => {
   await page.goto("/zh-Hant/tools/ascii-art-generator?mode=image");
   await expect(page.getByTestId("ascii-image-upload")).toContainText("選擇圖片");
-  await expect(page.getByTestId("ascii-width")).toBeVisible();
+  await expect(page.getByTestId("ascii-width").first()).toBeVisible();
   await expect(page.getByTestId("ascii-ramp-braille")).toContainText("點字");
 });

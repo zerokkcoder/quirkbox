@@ -14,7 +14,8 @@ describe("ascii art renderer", () => {
 
   it("uppercases input and replaces unsupported characters with `?`", () => {
     const sanitized = sanitizeText("Hi 中文!");
-    expect(sanitized.safe).toBe("HI ???!");
+    // Two CJK characters become two `?` — one fallback per unsupported char.
+    expect(sanitized.safe).toBe("HI ??!");
     expect(sanitized.unsupported).toEqual(["中", "文"]);
 
     const result = renderAscii({ text: "Hi 中文!", font: "standard", gap: 1, align: "left" });
@@ -45,9 +46,11 @@ describe("ascii art renderer", () => {
     const center = renderAscii({ ...input, align: "center" });
     const right = renderAscii({ ...input, align: "right" });
     expect(left.width).toBe(center.width);
-    expect(center.lines[0].startsWith(" ")).toBe(true);
-    expect(right.lines[0].startsWith(" ")).toBe(true);
-    expect(right.lines[0].trimStart()).toBe(left.lines[0].trimStart());
+    // "I" renders its widest rows as `#####` with no pad; the narrow `  #` rows
+    // carry the alignment padding. Check a narrow row, not the first one.
+    expect(center.lines[1].startsWith(" ")).toBe(true);
+    expect(right.lines[1].startsWith(" ")).toBe(true);
+    expect(right.lines[1].trimStart()).toBe(left.lines[1].trimStart());
   });
 
   it("right-trims every line so copied text has no dead spaces", () => {
@@ -62,7 +65,9 @@ describe("ascii art renderer", () => {
   });
 
   it("supports TAAG-style vertical spacing and horizontal flip", () => {
-    const input = { text: "A", font: "standard" as const, gap: 1, align: "left" as const };
+    // "A" is horizontally symmetric in every row, so a flip is invisible.
+    // Use a non-palindrome glyph to make the flip observable.
+    const input = { text: "J", font: "standard" as const, gap: 1, align: "left" as const };
     const plain = renderAscii(input);
     const spaced = renderAscii({ ...input, vGap: 2 });
     expect(spaced.lines).toHaveLength(plain.lines.length + (plain.lines.length - 1) * 2);

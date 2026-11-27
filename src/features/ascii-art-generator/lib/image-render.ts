@@ -182,7 +182,8 @@ export function renderImageAscii(grid: ImageGrid, options: ImageRenderOptions): 
         brailleDots.forEach(([dx, dy], index) => {
           const sampleY = y * 4 + dy;
           const sampleX = x * 2 + dx;
-          if ((samples[sampleY * sampleWidth + sampleX] ?? 0) >= 128) bits |= 1 << index;
+          // Dark pixels light a dot, matching the dark-to-dense character ramps.
+          if ((samples[sampleY * sampleWidth + sampleX] ?? 0) < 128) bits |= 1 << index;
         });
         chars.push(bits === 0 ? " " : String.fromCharCode(0x2800 + bits));
       } else {

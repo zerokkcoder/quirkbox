@@ -200,7 +200,11 @@ export function AsciiArtGeneratorTool({
     [flash, labels.imageLoaded, labels.imageLoadFailed, labels.unsupportedFile]
   );
 
-  loadSourceRef.current = loadSource;
+  // Keep the paste handler pointed at the latest callback without touching the
+  // ref during render (react-hooks/refs). Effects run before any paste event.
+  useEffect(() => {
+    loadSourceRef.current = loadSource;
+  }, [loadSource]);
 
   useEffect(() => {
     return () => {
