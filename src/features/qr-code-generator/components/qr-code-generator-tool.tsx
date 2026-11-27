@@ -178,7 +178,7 @@ export function QrCodeGeneratorTool({
       <div className="grid gap-4 lg:grid-cols-2">
         <section
           aria-labelledby="qr-input-heading"
-          className="scrollbar-slim flex h-[340px] flex-col gap-3 overflow-y-auto rounded-2xl border border-border/70 bg-card/40 p-4 pr-3 lg:h-[460px]"
+          className="flex min-w-0 flex-col gap-3 self-start rounded-2xl border border-border/70 bg-card/40 p-4"
         >
           <div>
             <div className="flex items-center justify-between gap-2">

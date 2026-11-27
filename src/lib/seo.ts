@@ -16,7 +16,9 @@ export function absoluteUrl(pathname: string) {
 
 /** File-based OG images live on the unprefixed routes; point localized pages at them. */
 function socialImagePath(pathname: string): string | undefined {
-  if (pathname === "/" || pathname === "/tools") return "/opengraph-image";
+  if (pathname === "/") return "/opengraph-image";
+  if (pathname === "/about") return "/about/opengraph-image";
+  if (pathname === "/tools") return "/opengraph-image";
   if (/^\/tools\/[^/]+$/.test(pathname)) return `${pathname}/opengraph-image`;
   return undefined;
 }
