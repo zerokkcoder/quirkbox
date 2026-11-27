@@ -36,6 +36,7 @@ const toolSlugs = new Set([
   "qr-code-generator",
   "gradient-wallpaper-generator",
   "ascii-art-generator",
+  "json-toolkit",
 ]);
 
 type NotFoundCopy = {

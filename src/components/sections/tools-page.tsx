@@ -114,7 +114,17 @@ export function ToolsPage({
         },
       ],
     },
-    { id: "development", icon: <Code2Icon />, tools: [] },
+    {
+      id: "development",
+      icon: <Code2Icon />,
+      tools: [
+        {
+          title: messages.tools.jsonToolkit.title,
+          href: "/tools/json-toolkit",
+          icon: <BracesIcon />,
+        },
+      ],
+    },
     { id: "ecommerce", icon: <ShoppingBagIcon />, tools: [] },
     { id: "education", icon: <GraduationCapIcon />, tools: [] },
     { id: "finance", icon: <WalletIcon />, tools: [] },

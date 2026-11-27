@@ -18,6 +18,7 @@ const routes = [
   "/tools/qr-code-generator",
   "/tools/gradient-wallpaper-generator",
   "/tools/ascii-art-generator",
+  "/tools/json-toolkit",
   "/about",
 ];
 

@@ -153,6 +153,20 @@
       "ASCII 藝術產生器"
     ]
   },
+  "https://starrudder.cc/tools/json-toolkit": {
+    "title": "JSON Formatter & Validator — Format, Validate, Convert | StarRudder",
+    "description": "Format, validate and minify JSON in your browser. Convert JSON to CSV or TSV and back. No signup, no upload — your data never leaves your device.",
+    "h1": [
+      "JSON Toolkit"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/json-toolkit": {
+    "title": "JSON 格式化與驗證工具 — 線上 JSON 轉 CSV | StarRudder",
+    "description": "在瀏覽器格式化、驗證與壓縮 JSON，並支援 JSON 與 CSV/TSV 雙向轉換。免註冊、不上傳，資料不離開你的裝置。",
+    "h1": [
+      "JSON 工具箱"
+    ]
+  },
   "https://starrudder.cc/about": {
     "title": "About StarRudder",
     "description": "StarRudder makes free tools that run in your browser. No account, no uploads, no stored data — just open a tool and use it.",

@@ -34,7 +34,7 @@
     "secondaryCta": "About StarRudder",
     "preview": {
       "label": "What you can do here",
-      "footnote": "9 tools · 2 languages · 0 uploads",
+      "footnote": "10 tools · 2 languages · 0 uploads",
       "focus": [
         {
           "title": "Design",
@@ -51,6 +51,10 @@
         {
           "title": "Travel & tourism",
           "description": "Plot places and draw the routes between them."
+        },
+        {
+          "title": "Development",
+          "description": "Format, validate and convert JSON without leaving the browser."
         }
       ]
     },
@@ -66,7 +70,8 @@
       "imageStudio": "Convert PNG, JPG, WebP and more in batch — with presets and no uploads.",
       "qrCodeGenerator": "Turn any link or text into a scannable QR code, with colors and a logo, then export PNG or SVG.",
       "gradientWallpaper": "Blend color stops into a high-res wallpaper, with CSS you can copy.",
-      "asciiArt": "Turn text or a local image into copyable ASCII art and export a PNG."
+      "asciiArt": "Turn text or a local image into copyable ASCII art and export a PNG.",
+      "jsonToolkit": "Format, validate and convert JSON to CSV or TSV — entirely in your browser."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -193,6 +198,9 @@
     },
     "asciiArt": {
       "title": "ASCII Art Generator"
+    },
+    "jsonToolkit": {
+      "title": "JSON Toolkit"
     }
   },
   "paletteStudio": {
@@ -790,5 +798,69 @@
     "downloaded": "PNG downloaded.",
     "downloadFailed": "Could not export the PNG. Please try again.",
     "privacyNote": "Your text and images are converted on this device. Nothing is uploaded, saved or sent anywhere."
+  },
+  "jsonToolkit": {
+    "title": "JSON Toolkit",
+    "seoTitle": "JSON Formatter & Validator — Format, Validate, Convert",
+    "description": "Format, validate and minify JSON in your browser. Convert JSON to CSV or TSV and back. No signup, no upload — your data never leaves your device.",
+    "intro": "A browser-only JSON toolkit. Format, validate and minify JSON, or convert it to and from CSV/TSV. Nothing is uploaded or stored.",
+    "howTo": "Paste JSON or drop a local file, choose indentation and key ordering, then copy the result. Switch to Convert to move between JSON and CSV/TSV. Share links keep your settings, not your data.",
+    "keywords": [
+      "json formatter",
+      "json validator",
+      "json minify",
+      "json to csv",
+      "json to tsv"
+    ],
+    "modeLabel": "Mode",
+    "tabNames": {
+      "format": "Format",
+      "convert": "Convert"
+    },
+    "inputLabel": "Your JSON",
+    "convertInputLabel": "JSON or CSV / TSV",
+    "inputPlaceholder": "Paste JSON here…",
+    "dropHint": "Paste here or drop a local .json / .txt file. Nothing is uploaded.",
+    "chooseFile": "Choose a file",
+    "clear": "Clear input",
+    "fileInvalid": "Please choose a .json or .txt file.",
+    "fileLoaded": "Loaded",
+    "fileFailed": "Could not read that file.",
+    "indentLabel": "Indentation",
+    "indentNames": {
+      "2": "2 spaces",
+      "4": "4 spaces",
+      "tab": "Tab"
+    },
+    "sortLabel": "Sort keys",
+    "sortAction": "Sort object keys",
+    "sortHint": "Recursive alphabetical order. Turn off to keep the original order.",
+    "minify": "Minify",
+    "minified": "Minified JSON is ready to copy.",
+    "directionLabel": "Direction",
+    "directionNames": {
+      "to-csv": "JSON → CSV / TSV",
+      "to-json": "CSV / TSV → JSON"
+    },
+    "delimiterLabel": "Delimiter",
+    "delimiterNames": {
+      "csv": "CSV (comma)",
+      "tsv": "TSV (tab)"
+    },
+    "lossyHint": "Nested values are kept as JSON text in a cell. CSV cells always import as strings.",
+    "outputLabel": "Result",
+    "invalidOutput": "Fix the input to see the result.",
+    "validStatus": "Valid JSON",
+    "shareHint": "Share links contain settings only — never the text you entered.",
+    "privacyNote": "Everything runs in this tab. Nothing is uploaded, saved or sent anywhere.",
+    "copy": "Copy result",
+    "copied": "Result copied to clipboard.",
+    "copyFailed": "Could not access the clipboard. Select and copy the text manually.",
+    "collapseResult": "Collapse to one line",
+    "expandResult": "Restore formatting",
+    "collapseNode": "Collapse this value",
+    "expandNode": "Expand this value",
+    "line": "Line",
+    "column": "Column"
   }
 }

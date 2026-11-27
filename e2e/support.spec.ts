@@ -9,6 +9,7 @@ async function mockCountry(page: import("@playwright/test").Page, code: string) 
 test("English visitors go to Ko-fi", async ({ page }) => {
   await mockCountry(page, "US");
   await page.goto("/");
+  await page.waitForLoadState("networkidle");
 
   const trigger = page.getByTestId("support-button").first();
   await expect(trigger).toHaveAttribute("href", "https://ko-fi.com/starrudder");
@@ -18,6 +19,7 @@ test("English visitors go to Ko-fi", async ({ page }) => {
 test("Chinese locale opens both payment QR codes", async ({ page }) => {
   await mockCountry(page, "US");
   await page.goto("/zh-Hant/tools/qr-code-generator");
+  await page.waitForLoadState("networkidle");
 
   const triggers = page.getByTestId("support-button");
   await expect(triggers).toHaveCount(3); // sticky header + tool page + footer
@@ -42,6 +44,7 @@ test("Chinese locale opens both payment QR codes", async ({ page }) => {
 test("mainland visitors see QR codes even with an English UI", async ({ page }) => {
   await mockCountry(page, "CN");
   await page.goto("/tools/qr-code-generator");
+  await page.waitForLoadState("networkidle");
 
   const trigger = page.getByTestId("support-button").first();
   await expect(trigger).toBeVisible();

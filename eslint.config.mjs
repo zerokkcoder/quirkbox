@@ -9,6 +9,9 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
+    // Production builds for the pre-commit SEO gate live here so `next dev`
+    // never invalidates them; they are generated output, not source.
+    ".next-build/**",
     "out/**",
     "build/**",
     "next-env.d.ts",

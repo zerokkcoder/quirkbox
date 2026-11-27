@@ -17,6 +17,7 @@ The launch version includes:
 - `QR Code Generator`: create scannable QR codes with custom colors, dot styles and an optional center logo, then export PNG or SVG — nothing uploaded.
 - `Gradient Wallpaper Generator`: blend color stops into linear, radial or conic gradients, copy the CSS or export a high-res PNG wallpaper — all in the browser.
 - `ASCII Art Generator`: turn short text (six dot-matrix styles plus a static Isometric2 FIGlet font, with horizontal/vertical spacing and flip) or a local image (character ramps, Braille, dithering, colour output) into character art, then copy plain text or export a PNG — all in the browser.
+- `JSON Toolkit`: format, validate and minify JSON with line/column error locations, and convert JSON ↔ CSV/TSV — locally, with share links carrying settings only.
 - `English + Traditional Chinese`: English is the default route; Traditional Chinese lives under `/zh-Hant`.
 
 ## Scripts
@@ -70,11 +71,14 @@ output stays stable across crawls — bump that constant when content changes.
 
 ## Deployment
 
-The project includes:
-
-- `Dockerfile`
-- `docker-compose.yml`
-- `deploy/nginx.conf`
-- `.github/workflows/ci.yml`
-
 Set `NEXT_PUBLIC_SITE_URL` before production deploys so metadata and sitemap URLs are correct (defaults to `https://starrudder.cc`).
+
+Install, build and restart the Node process on the server:
+
+```sh
+npm ci
+npm run build
+# restart the process manager that runs `npm run start`
+```
+
+`next start` reads the build once at boot. Uploading new source or replacing `.next` while the old process is still running keeps serving the previous build, so always rebuild **and** restart. `deploy/nginx.conf` proxies `127.0.0.1:4000`; `.github/workflows/ci.yml` runs lint, unit tests, build and the SEO audit.

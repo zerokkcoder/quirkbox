@@ -93,3 +93,4 @@ existing feature/section/route/OG/audit skeleton without new infrastructure.
 | 2026-11-25 | §8 六项待决项全部按推荐 A 执行：原生 + ICO/BMP/静态 GIF；GIF 仅首帧；手写 ZIP + 逐张下载；SVG 输入栅格化；站点描述加入图片转换关键词；主线程逐项转换。 |
 | 2026-11-26 | §8 五待决全按提议实现 QR 码产生器（`0b27b8e`）；选择 **#3 渐变背景壁纸生成器 Gradient Wallpaper Generator** 进入规划，§8 八项全按提议通过。 |
 | 2026-11-27 | 选择 **#4 ASCII 艺术生成器 ASCII Art Generator** 进入规划；规划文档见 `docs/ascii-art-generator-plan.md`，待审阅 §8 八项待决。 |
+| 2026-11-27 | 选择 **#6 JSON 工具箱 JSON Toolkit** 进入规划；经 `/grill-with-docs` 两轮访谈定稿（格式化/校验/minify + JSON↔CSV/TSV，砍路径查询），规划文档见 `docs/json-toolkit-plan.md`，无待决项。 |

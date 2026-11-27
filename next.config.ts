@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // Keep the pre-commit SEO build out of `.next`, which `next dev` fills with a
+  // large dev cache. Sharing the directory forces every commit to delete that
+  // cache before rebuilding.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   cacheComponents: true,
   partialPrefetching: true,
   pageExtensions: ["ts", "tsx", "md", "mdx"],

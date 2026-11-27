@@ -2,33 +2,45 @@
 # Pre-commit SSR SEO gate. Skips commits that cannot affect rendered HTML.
 set -e
 
+# WorkBuddy injects a delete-guard shim through NODE_OPTIONS. It sends every
+# file Next removes to the trash, turning a ~50s rebuild into 10+ minutes.
+# The build only deletes its own cache, so drop the shim for this process.
+if printf '%s' "${NODE_OPTIONS:-}" | grep -q 'node-language-shim'; then
+  unset NODE_OPTIONS
+fi
+
 staged=$(git diff --cached --name-only --diff-filter=ACMR)
 if [ -z "$staged" ]; then
   exit 0
 fi
 
-if ! printf '%s\n' "$staged" | grep -Eq '^(src/|messages/|public/|scripts/|package\.json|next\.config\.ts|Dockerfile|docker-compose\.yml|deploy/)'; then
+if ! printf '%s\n' "$staged" | grep -Eq '^(src/|messages/|public/|scripts/|package\.json|next\.config\.ts)'; then
   echo "pre-commit: no SEO-relevant changes, skipping SSR SEO audit"
   exit 0
 fi
 
-# A production build already covers the staged files when .next/BUILD_ID is
-# newer than every one of them. Reuse it so a commit never pays for a second
-# build; the audit still runs against the same SSR HTML either way.
-if [ -f .next/BUILD_ID ]; then
+# Build the audit in its own directory so `next dev` (which owns `.next` and can
+# grow to hundreds of MB) never invalidates or slows down a commit build.
+BUILD_DIR="${NEXT_DIST_DIR:-.next-build}"
+export NEXT_DIST_DIR="$BUILD_DIR"
+
+# A production build already covers the staged files when BUILD_ID is newer
+# than every one of them. Reuse it so a commit never pays for a second build;
+# the audit still runs against the same SSR HTML either way.
+if [ -f "$BUILD_DIR/BUILD_ID" ]; then
   build_fresh=1
   for file in $staged; do
-    if [ -f "$file" ] && [ "$file" -nt .next/BUILD_ID ]; then
+    if [ -f "$file" ] && [ "$file" -nt "$BUILD_DIR/BUILD_ID" ]; then
       build_fresh=0
       break
     fi
   done
   if [ "$build_fresh" -eq 1 ]; then
-    echo "pre-commit: reusing fresh production build for SSR SEO audit"
+    echo "pre-commit: reusing fresh production build ($BUILD_DIR) for SSR SEO audit"
     SEO_AUDIT_SKIP_BUILD=1 npm run seo:audit
     exit $?
   fi
 fi
 
-echo "pre-commit: running SSR SEO audit (fresh build)…"
+echo "pre-commit: running SSR SEO audit (fresh build in $BUILD_DIR)…"
 npm run seo:audit

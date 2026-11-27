@@ -5,6 +5,7 @@ import {
   ArrowUpRightIcon,
   BlendIcon,
   BracesIcon,
+  Code2Icon,
   DicesIcon,
   Grid2x2Icon,
   HeartIcon,
@@ -137,6 +138,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       title: messages.tools.asciiArt.title,
       description: labels.tools.asciiArt,
     },
+    {
+      href: "/tools/json-toolkit",
+      icon: <Code2Icon />,
+      title: messages.tools.jsonToolkit.title,
+      description: labels.tools.jsonToolkit,
+    },
   ];
   const focusTiles = [
     {
@@ -162,6 +169,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       icon: <MapPinnedIcon />,
       title: labels.preview.focus[3].title,
       description: labels.preview.focus[3].description,
+    },
+    {
+      key: "development",
+      icon: <Code2Icon />,
+      title: labels.preview.focus[4].title,
+      description: labels.preview.focus[4].description,
     },
   ];
   const featureIcons = [<ZapIcon key="zap" />, <Link2Icon key="link" />, <HeartIcon key="heart" />];

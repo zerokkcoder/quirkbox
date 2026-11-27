@@ -34,7 +34,7 @@
     "secondaryCta": "關於星舵工坊",
     "preview": {
       "label": "在這裡可以做的事",
-      "footnote": "9 個工具 · 2 種語言 · 0 次上傳",
+      "footnote": "10 個工具 · 2 種語言 · 0 次上傳",
       "focus": [
         {
           "title": "設計",
@@ -51,6 +51,10 @@
         {
           "title": "文旅",
           "description": "標註地點，畫出走過的路線。"
+        },
+        {
+          "title": "開發",
+          "description": "格式化、驗證與轉換 JSON，全程在瀏覽器完成。"
         }
       ]
     },
@@ -66,7 +70,8 @@
       "imageStudio": "批次轉換 PNG、JPG、WebP 等格式，內建常用預設且不上傳。",
       "qrCodeGenerator": "把連結或文字變成可掃描的 QR 碼，自訂顏色與 Logo，再匯出 PNG 或 SVG。",
       "gradientWallpaper": "混合色標製作高清桌布，並複製可用的 CSS。",
-      "asciiArt": "把文字或本機圖片變成可複製的 ASCII 字符畫，也能匯出 PNG。"
+      "asciiArt": "把文字或本機圖片變成可複製的 ASCII 字符畫，也能匯出 PNG。",
+      "jsonToolkit": "格式化、驗證並把 JSON 轉成 CSV/TSV，完全在瀏覽器完成。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -193,6 +198,9 @@
     },
     "asciiArt": {
       "title": "ASCII 藝術產生器"
+    },
+    "jsonToolkit": {
+      "title": "JSON 工具箱"
     }
   },
   "paletteStudio": {
@@ -790,5 +798,69 @@
     "downloaded": "PNG 已下載。",
     "downloadFailed": "無法匯出 PNG，請再試一次。",
     "privacyNote": "文字與圖片都在你裝置上轉換，不上傳、不保存，也不會傳到任何地方。"
+  },
+  "jsonToolkit": {
+    "title": "JSON 工具箱",
+    "seoTitle": "JSON 格式化與驗證工具 — 線上 JSON 轉 CSV",
+    "description": "在瀏覽器格式化、驗證與壓縮 JSON，並支援 JSON 與 CSV/TSV 雙向轉換。免註冊、不上傳，資料不離開你的裝置。",
+    "intro": "純瀏覽器 JSON 工具箱。格式化、驗證與壓縮 JSON，或與 CSV/TSV 雙向轉換；不上傳、不保存任何資料。",
+    "howTo": "貼上 JSON 或拖入本機檔案，選擇縮排與鍵值排序，即可複製結果。切換到「轉換」可在 JSON 與 CSV/TSV 之間來回。分享連結只保留設定，不包含你的資料。",
+    "keywords": [
+      "json 格式化",
+      "json 驗證",
+      "json 壓縮",
+      "json 轉 csv",
+      "json 轉 tsv"
+    ],
+    "modeLabel": "模式",
+    "tabNames": {
+      "format": "格式化",
+      "convert": "轉換"
+    },
+    "inputLabel": "你的 JSON",
+    "convertInputLabel": "JSON 或 CSV / TSV",
+    "inputPlaceholder": "在此貼上 JSON…",
+    "dropHint": "在此貼上或拖入本機 .json / .txt 檔案。不會上傳任何內容。",
+    "chooseFile": "選擇檔案",
+    "clear": "清空輸入",
+    "fileInvalid": "請選擇 .json 或 .txt 檔案。",
+    "fileLoaded": "已載入",
+    "fileFailed": "無法讀取該檔案。",
+    "indentLabel": "縮排",
+    "indentNames": {
+      "2": "2 空格",
+      "4": "4 空格",
+      "tab": "Tab"
+    },
+    "sortLabel": "排序鍵值",
+    "sortAction": "排序物件鍵值",
+    "sortHint": "遞迴按字母順序排列。關閉可保留原始順序。",
+    "minify": "壓縮",
+    "minified": "已壓縮 JSON，可以複製。",
+    "directionLabel": "方向",
+    "directionNames": {
+      "to-csv": "JSON → CSV / TSV",
+      "to-json": "CSV / TSV → JSON"
+    },
+    "delimiterLabel": "分隔符",
+    "delimiterNames": {
+      "csv": "CSV（逗號）",
+      "tsv": "TSV（Tab）"
+    },
+    "lossyHint": "巢狀值會以 JSON 文字保留在儲存格中。CSV 儲存格一律以字串匯入。",
+    "outputLabel": "結果",
+    "invalidOutput": "修正輸入後即可看到結果。",
+    "validStatus": "有效的 JSON",
+    "shareHint": "分享連結只包含設定，絕不包含你輸入的內容。",
+    "privacyNote": "全部都在這個分頁執行，不上傳、不保存，也不會傳到任何地方。",
+    "copy": "複製結果",
+    "copied": "結果已複製到剪貼簿。",
+    "copyFailed": "無法存取剪貼簿，請手動選取並複製。",
+    "collapseResult": "合成一行",
+    "expandResult": "還原格式化",
+    "collapseNode": "合併此值",
+    "expandNode": "展開此值",
+    "line": "行",
+    "column": "欄"
   }
 }

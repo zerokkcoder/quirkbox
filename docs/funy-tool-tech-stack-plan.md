@@ -199,19 +199,17 @@
 ### 9. 部署与运维
 
 #### 文件
-- `/Dockerfile`
-- `/docker-compose.yml`
 - `/.github/workflows/ci.yml`
 - `/deploy/nginx.conf`
 
 #### 方案
-- 部署形态：`Docker + Node.js + Nginx`
+- 部署形态：`Node.js + Nginx`
 - CI：GitHub Actions 负责 lint、test、build
-- 运行方式：容器化后部署到你的自有服务器
+- 运行方式：源码上传到自有服务器，`npm ci && npm run build` 后用进程管理器重启 `npm run start`
 - 统计方案：优先选 `Umami` 或 `Plausible` 的自托管模式
 
 #### 原因
-- 你已经明确选择自有服务器，因此直接设计为可容器化方案最稳妥。
+- 你已经明确选择自有服务器，直接用 Node 进程托管最简单，也少一层构建缓存。
 - 自托管统计和工具站定位匹配，也能避免过早绑定第三方平台。
 
 ### 10. 文档落地

@@ -51,3 +51,6 @@ next-env.d.ts
 /agent/
 /data/
 /skills/
+
+# pre-commit SEO audit build (separate from the dev server's .next)
+/.next-build/
