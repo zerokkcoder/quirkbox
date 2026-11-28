@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test";
 
+// A cold dev server can exceed the 30s default on this machine.
+test.setTimeout(120_000);
+
 const toolNames = [
   "Random Name Generator",
   "Pixel Avatar Maker",

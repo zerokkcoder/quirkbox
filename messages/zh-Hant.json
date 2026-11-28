@@ -34,7 +34,7 @@
     "secondaryCta": "關於星舵工坊",
     "preview": {
       "label": "在這裡可以做的事",
-      "footnote": "12 個工具 · 2 種語言 · 0 次上傳",
+      "footnote": "13 個工具 · 2 種語言 · 0 次上傳",
       "focus": [
         {
           "title": "設計",
@@ -55,6 +55,10 @@
         {
           "title": "開發",
           "description": "格式化、驗證與轉換 JSON，全程在瀏覽器完成。"
+        },
+        {
+          "title": "資料分析",
+          "description": "並排比較各大模型的價格，完全在瀏覽器完成。"
         }
       ]
     },
@@ -73,7 +77,8 @@
       "asciiArt": "把文字或本機圖片變成可複製的 ASCII 字符畫，也能匯出 PNG。",
       "jsonToolkit": "格式化、驗證並把 JSON 轉成 CSV/TSV，完全在瀏覽器完成。",
       "passwordGenerator": "在本機產生高強度密碼或好記口令，一鍵複製結果。",
-      "unixTimestampConverter": "把 Unix 時間戳讀成 UTC 或本地日期，秒到奈秒都支援，完全在瀏覽器完成。"
+      "unixTimestampConverter": "把 Unix 時間戳讀成 UTC 或本地日期，秒到奈秒都支援，完全在瀏覽器完成。",
+      "tokenCostCalculator": "並排比較各大模型價格，一次勾選多個模型、自訂匯率，找出最便宜的選擇。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -209,6 +214,9 @@
     },
     "unixTimestampConverter": {
       "title": "Unix 時間戳轉換器"
+    },
+    "tokenCostCalculator": {
+      "title": "Token 成本計算器"
     }
   },
   "paletteStudio": {
@@ -1018,5 +1026,41 @@
     "howItWorksTitle": "運作方式",
     "howItWorksBody": "輸入以 BigInt 解析並正規化為奈秒，因此微秒與奈秒時間戳不會流失精度。格式化使用瀏覽器的 Intl API 與 IANA 時區規則，包含日光節約時間。Unix 時間依定義不計閏秒。",
     "loading": "計算中…"
+  },
+  "tokenCostCalculator": {
+    "title": "模型價格比較器",
+    "seoTitle": "模型價格比較器 — AI 模型 API 成本對比",
+    "description": "並排比較 20 個 AI 模型的每百萬 token 價格。一次勾選多個模型、自訂美元人民幣匯率，立刻找出最便宜的選擇，全部在瀏覽器完成。",
+    "intro": "一次比較各大模型的 token 單價。勾選幾個模型，並排查看輸入、輸出與加權後的成本。",
+    "howTo": "勾選你關心的模型；若比較中國模型，設定美元兌人民幣匯率；畫面會標示加權後最低的價格。費率每日更新一次。",
+    "keywords": [
+      "模型價格比較",
+      "AI 模型成本對比",
+      "token 價格計算",
+      "API 費率表",
+      "最便宜 AI API",
+      "llm price compare"
+    ],
+    "modelsLabel": "要比較的模型",
+    "selectAll": "全選",
+    "clearAll": "清除",
+    "rateLabel": "1 美元 = ? 人民幣",
+    "rateHint": "只有人民幣計價的模型會依此匯率換算，美元價格不受影響。用你的銀行或信用卡匯率比較會更接近實際成本。",
+    "inputLabel": "輸入 / 百萬",
+    "outputLabel": "輸出 / 百萬",
+    "blendedLabel": "加權 / 百萬",
+    "blendedNote": "加權價 = (3 × 輸入 + 1 × 輸出) ÷ 4。多數呼叫的輸入 token 多於輸出，權重固定才能公平比較排名。",
+    "lowestLabel": "最低加權價格",
+    "lowestBadge": "最低",
+    "noSelection": "請至少勾選一個模型進行比較。",
+    "cachedToday": "費率已於今日抓取並快取在此裝置。",
+    "staleCache": "更新失敗，目前使用快取的費率。",
+    "offlineDefaults": "更新失敗且沒有快取，目前使用內建的精簡費率表。",
+    "staleData": "費率資料來自 {date}，可能已過期，請以官方頁面為準。",
+    "updatedAt": "費率資料：{date}",
+    "promoNote": "促銷價適用至 {date}。",
+    "howItWorksTitle": "運作方式",
+    "howItWorksBody": "各模型公布的每百萬 token 輸入與輸出價格，來自每日更新一次的公開檔案。人民幣價格按你設定的匯率換算，再以固定的 3:1 輸入輸出比得出可排名的單一數字。類目佣金與合約議價一律不計入。",
+    "privacyNote": "什麼都不會上傳。網站只會請求本站的公開費率檔，你選的模型與匯率只留在這個分頁。"
   }
 }

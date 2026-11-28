@@ -195,6 +195,20 @@
       "Unix 時間戳轉換器"
     ]
   },
+  "https://starrudder.cc/tools/token-cost-calculator": {
+    "title": "LLM Price Compare — Compare AI Model API Costs | StarRudder",
+    "description": "Compare per-million-token prices across 20 AI models. Select several at once, set your own USD/CNY rate, and spot the cheapest model instantly — all in your browser.",
+    "h1": [
+      "LLM Price Compare"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/token-cost-calculator": {
+    "title": "模型價格比較器 — AI 模型 API 成本對比 | StarRudder",
+    "description": "並排比較 20 個 AI 模型的每百萬 token 價格。一次勾選多個模型、自訂美元人民幣匯率，立刻找出最便宜的選擇，全部在瀏覽器完成。",
+    "h1": [
+      "模型價格比較器"
+    ]
+  },
   "https://starrudder.cc/about": {
     "title": "About StarRudder",
     "description": "StarRudder makes free tools that run in your browser. No account, no uploads, no stored data — just open a tool and use it.",

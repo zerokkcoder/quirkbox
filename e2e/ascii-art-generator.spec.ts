@@ -1,5 +1,8 @@
 ﻿import { expect, test, type Locator } from "@playwright/test";
 
+// A cold dev server can exceed the 30s default on this machine.
+test.setTimeout(120_000);
+
 async function expectNoScroll(element: Locator) {
   const metrics = await element.evaluate((node) => ({
     scrollWidth: node.scrollWidth,

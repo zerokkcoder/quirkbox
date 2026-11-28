@@ -6,6 +6,7 @@ import {
   BlendIcon,
   BracesIcon,
   ClockIcon,
+  CoinsIcon,
   Code2Icon,
   DicesIcon,
   Grid2x2Icon,
@@ -158,6 +159,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       title: messages.tools.unixTimestampConverter.title,
       description: labels.tools.unixTimestampConverter,
     },
+    {
+      href: "/tools/token-cost-calculator",
+      icon: <CoinsIcon />,
+      title: messages.tools.tokenCostCalculator.title,
+      description: labels.tools.tokenCostCalculator,
+    },
   ];
   const focusTiles = [
     {
@@ -189,6 +196,12 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       icon: <Code2Icon />,
       title: labels.preview.focus[4].title,
       description: labels.preview.focus[4].description,
+    },
+    {
+      key: "data",
+      icon: <CoinsIcon />,
+      title: labels.preview.focus[5].title,
+      description: labels.preview.focus[5].description,
     },
   ];
   const featureIcons = [<ZapIcon key="zap" />, <Link2Icon key="link" />, <HeartIcon key="heart" />];

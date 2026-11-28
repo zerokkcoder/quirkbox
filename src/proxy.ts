@@ -5,6 +5,7 @@ import { siteConfig, type Locale } from "@/config/site";
 const publicRoots = new Set([
   "about",
   "api",
+  "data",
   "emoji-data",
   "favicon.ico",
   "opengraph-image",
@@ -34,6 +35,7 @@ const toolSlugs = new Set([
   "json-toolkit",
   "password-generator",
   "unix-timestamp-converter",
+  "token-cost-calculator",
 ]);
 
 type NotFoundCopy = {

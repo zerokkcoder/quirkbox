@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "updatedAt": "2026-11-28",
+    "note": "公开挂牌价，以官方/签约页为准。类目佣金与签约议价不在此文件。",
+    "exchangeRate": 7.1,
+    "fxDate": "2026-11-28",
+    "fxSource": "user default (run npm run rates:update to refresh)"
+  },
+  "llmPricing": [
+    {
+      "vendor": "OpenAI",
+      "model": "GPT-6.2 Astra",
+      "inputPerM": 8,
+      "outputPerM": 40,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "OpenAI",
+      "model": "GPT-6.2 Sol",
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "OpenAI",
+      "model": "GPT-6.1 Terra",
+      "inputPerM": 1,
+      "outputPerM": 5,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "OpenAI",
+      "model": "GPT-6 Luna",
+      "inputPerM": 0.1,
+      "outputPerM": 0.5,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Anthropic",
+      "model": "Claude Fable 5.2",
+      "inputPerM": 8,
+      "outputPerM": 40,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Anthropic",
+      "model": "Claude Mythos 5.2",
+      "inputPerM": 8,
+      "outputPerM": 40,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Anthropic",
+      "model": "Claude Opus 5.5",
+      "inputPerM": 4,
+      "outputPerM": 20,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Anthropic",
+      "model": "Claude Sonnet 5.5",
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Anthropic",
+      "model": "Claude Haiku 5.5",
+      "inputPerM": 0.1,
+      "outputPerM": 0.5,
+      "currency": "USD",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Google",
+      "model": "Gemini 4 Argon",
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "currency": "USD",
+      "promoUntil": "2026-11-30",
+      "regularInputPerM": 4,
+      "regularOutputPerM": 20,
+      "confidence": "low"
+    },
+    {
+      "vendor": "Google",
+      "model": "Gemini 3.8 Flash",
+      "inputPerM": 0.75,
+      "outputPerM": 3.75,
+      "currency": "USD",
+      "promoUntil": "2026-12-31",
+      "regularInputPerM": 1.5,
+      "regularOutputPerM": 7.5,
+      "confidence": "low"
+    },
+    {
+      "vendor": "Google",
+      "model": "Gemini 3.1 Flash-Lite",
+      "inputPerM": 0.25,
+      "outputPerM": 1.5,
+      "currency": "USD",
+      "confidence": "low"
+    },
+    {
+      "vendor": "DeepSeek",
+      "model": "V4-Flash (peak)",
+      "inputPerM": 3,
+      "outputPerM": 9,
+      "currency": "CNY",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "DeepSeek",
+      "model": "V4-Pro (peak)",
+      "inputPerM": 9,
+      "outputPerM": 27,
+      "currency": "CNY",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Alibaba",
+      "model": "Qwen4-max",
+      "inputPerM": 10,
+      "outputPerM": 30,
+      "currency": "CNY",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Alibaba",
+      "model": "Qwen3.8-flash",
+      "inputPerM": 0.8,
+      "outputPerM": 2.7,
+      "currency": "CNY",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "Alibaba",
+      "model": "Qwen3.7-max (intl)",
+      "inputPerM": 2.5,
+      "outputPerM": 7.5,
+      "currency": "USD",
+      "confidence": "low"
+    },
+    {
+      "vendor": "ByteDance",
+      "model": "Doubao Seed-Evolving",
+      "inputPerM": 6,
+      "outputPerM": 30,
+      "currency": "CNY",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "ByteDance",
+      "model": "Doubao 2.1 Pro",
+      "inputPerM": 6,
+      "outputPerM": 30,
+      "currency": "CNY",
+      "confidence": "medium"
+    },
+    {
+      "vendor": "ByteDance",
+      "model": "Doubao 2.1 Turbo",
+      "inputPerM": 3,
+      "outputPerM": 15,
+      "currency": "CNY",
+      "confidence": "medium"
+    }
+  ],
+  "paymentFees": [],
+  "platformFees": []
+}

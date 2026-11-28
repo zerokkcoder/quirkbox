@@ -20,6 +20,7 @@ The launch version includes:
 - `JSON Toolkit`: format, validate and minify JSON with line/column error locations, and convert JSON ↔ CSV/TSV — locally, with share links carrying settings only.
 - `Password Generator`: generate strong passwords or memorable passphrases with the Web Crypto API — results live in the tab only, never in the URL.
 - `Unix Timestamp Converter`: read epoch seconds, milliseconds, microseconds or nanoseconds as UTC and any IANA time zone — BigInt precision, no uploads.
+- `LLM Price Compare`: compare per-million-token prices across 20 AI models side by side, with a custom USD/CNY rate and lowest-price highlight — no uploads.
 - `English + Traditional Chinese`: English is the default route; Traditional Chinese lives under `/zh-Hant`.
 
 ## Scripts
@@ -34,7 +35,13 @@ npm run build
 npm run test:e2e
 npm run seo:audit
 npm run seo:audit:baseline
+npm run rates:update            # refresh model prices + USD→CNY rate into public/data/rates.json
+npm run rates:update -- --dry-run  # preview changes without writing
 ```
+
+`rates:update` pulls public prices from Models.dev and the reference FX rate
+from Frankfurter, then preserves manually annotated CNY peak prices and promo
+windows. Review the printed diff before committing the generated JSON.
 
 ## SSR SEO gate
 

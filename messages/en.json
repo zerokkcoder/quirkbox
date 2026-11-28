@@ -34,7 +34,7 @@
     "secondaryCta": "About StarRudder",
     "preview": {
       "label": "What you can do here",
-      "footnote": "12 tools · 2 languages · 0 uploads",
+      "footnote": "13 tools · 2 languages · 0 uploads",
       "focus": [
         {
           "title": "Design",
@@ -55,6 +55,10 @@
         {
           "title": "Development",
           "description": "Format, validate and convert JSON without leaving the browser."
+        },
+        {
+          "title": "Data analysis",
+          "description": "Compare AI model prices side by side, entirely in the browser."
         }
       ]
     },
@@ -73,7 +77,8 @@
       "asciiArt": "Turn text or a local image into copyable ASCII art and export a PNG.",
       "jsonToolkit": "Format, validate and convert JSON to CSV or TSV — entirely in your browser.",
       "passwordGenerator": "Generate strong passwords or memorable passphrases locally — copy a result in one click.",
-      "unixTimestampConverter": "Read Unix timestamps as UTC or local dates — seconds to nanoseconds, entirely in your browser."
+      "unixTimestampConverter": "Read Unix timestamps as UTC or local dates — seconds to nanoseconds, entirely in your browser.",
+      "tokenCostCalculator": "Compare AI model prices side by side — pick several models, set your own FX rate, and spot the cheapest."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -209,6 +214,9 @@
     },
     "unixTimestampConverter": {
       "title": "Unix Timestamp Converter"
+    },
+    "tokenCostCalculator": {
+      "title": "Token Cost Calculator"
     }
   },
   "paletteStudio": {
@@ -1018,5 +1026,41 @@
     "howItWorksTitle": "How it works",
     "howItWorksBody": "Values are parsed as BigInt and normalised to nanoseconds, so microsecond and nanosecond timestamps never lose precision. Formatting uses the browser Intl API with IANA time zone rules, including daylight saving. Unix time ignores leap seconds by definition.",
     "loading": "Computing…"
+  },
+  "tokenCostCalculator": {
+    "title": "LLM Price Compare",
+    "seoTitle": "LLM Price Compare — Compare AI Model API Costs",
+    "description": "Compare per-million-token prices across 20 AI models. Select several at once, set your own USD/CNY rate, and spot the cheapest model instantly — all in your browser.",
+    "intro": "Compare AI model token prices in one place. Pick a few models to see their input, output and blended costs side by side.",
+    "howTo": "Tick the models you care about, set the USD to CNY rate if you compare Chinese models, and read the highlighted lowest blended price. Prices refresh once a day.",
+    "keywords": [
+      "llm price comparison",
+      "ai model cost compare",
+      "token price calculator",
+      "api pricing table",
+      "cheapest llm api",
+      "模型价格对比"
+    ],
+    "modelsLabel": "Models to compare",
+    "selectAll": "Select all",
+    "clearAll": "Clear",
+    "rateLabel": "1 USD = ? CNY",
+    "rateHint": "Only CNY-priced models are converted at this rate; USD prices are never changed. Use your bank or card rate for a fair comparison.",
+    "inputLabel": "Input / 1M",
+    "outputLabel": "Output / 1M",
+    "blendedLabel": "Blended / 1M",
+    "blendedNote": "Blended price = (3 × input + 1 × output) ÷ 4. Most calls use more input tokens than output tokens; the weight is fixed so rankings stay comparable.",
+    "lowestLabel": "Lowest blended price",
+    "lowestBadge": "Lowest",
+    "noSelection": "Select at least one model to compare.",
+    "cachedToday": "Prices were loaded today and cached on this device.",
+    "staleCache": "Using cached prices because the refresh failed.",
+    "offlineDefaults": "Using a small offline price list — the refresh failed and there is no cache.",
+    "staleData": "Price data is from {date} and may be out of date. Check the provider's official page.",
+    "updatedAt": "Price data: {date}",
+    "promoNote": "Promotional price through {date}.",
+    "howItWorksTitle": "How it works",
+    "howItWorksBody": "Every model's published input and output price per million tokens is loaded from a public file that refreshes once a day. CNY prices are converted at your rate, then a fixed 3:1 input/output blend gives one number you can rank. Category commissions and negotiated rates are never included.",
+    "privacyNote": "Nothing is uploaded. Only the public price file is requested from this site — your model selection and rate stay in this tab."
   }
 }

@@ -30,6 +30,13 @@ test("tools page groups tools by work domain with coming-soon placeholders", asy
     developmentSection.getByRole("link", { name: /JSON Toolkit/ }).first()
   ).toBeVisible();
   await expect(developmentSection.getByText("Coming soon")).toHaveCount(0);
+
+  const dataSection = page.locator("#category-data");
+  await expect(dataSection.getByRole("heading", { level: 2 })).toHaveText("Data analysis");
+  await expect(
+    dataSection.getByRole("link", { name: /Token Cost Calculator/ }).first()
+  ).toBeVisible();
+  await expect(dataSection.getByText("Coming soon")).toHaveCount(0);
 });
 
 test("traditional Chinese tools page uses localized work-domain labels", async ({ page }) => {

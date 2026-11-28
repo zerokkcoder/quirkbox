@@ -15,6 +15,7 @@
     "test:e2e": "playwright test",
     "seo:audit": "node scripts/seo-audit.mjs",
     "seo:audit:baseline": "node scripts/seo-audit.mjs --update-baseline",
+    "rates:update": "node scripts/update-rates.mjs",
     "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
