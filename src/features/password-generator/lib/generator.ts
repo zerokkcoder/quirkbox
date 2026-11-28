@@ -7,7 +7,18 @@ import {
   clampWordCount,
   type GeneratorState,
 } from "./types";
-import { WORDLIST, WORDLIST_SIZE } from "./wordlist";
+
+type WordlistModule = typeof import("./wordlist");
+
+let wordlistModule: WordlistModule | null = null;
+let wordlistRequest: Promise<WordlistModule> | null = null;
+
+/** The EFF list is ~61 KB and only passphrase mode needs it. */
+export async function loadWordlist(): Promise<void> {
+  if (wordlistModule) return;
+  wordlistRequest ??= import("./wordlist");
+  wordlistModule = await wordlistRequest;
+}
 
 export class EmptyCharsetError extends Error {
   constructor() {
@@ -79,6 +90,8 @@ function capitalise(word: string): string {
 }
 
 export function generatePassphrase(state: GeneratorState): string {
+  if (!wordlistModule) throw new Error("Wordlist not loaded");
+  const { WORDLIST, WORDLIST_SIZE } = wordlistModule;
   const count = clampWordCount(state.wordCount);
   const words: string[] = [];
 

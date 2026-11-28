@@ -30,8 +30,14 @@ export function EmojiWallpaperPage({
           intro={messages.emojiWallpaper.intro}
           howTo={messages.emojiWallpaper.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
-        <EmojiWallpaperTool locale={locale} labels={messages.emojiWallpaper} initialState={initialState} />
+        <EmojiWallpaperTool
+          locale={locale}
+          labels={messages.emojiWallpaper}
+          shareLabels={messages.share}
+          initialState={initialState}
+        />
       </div>
     </SiteShell>
   );

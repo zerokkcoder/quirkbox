@@ -36,7 +36,7 @@ import {
   type SourceFormatId,
 } from "@/features/image-studio/lib/types";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
 import { localizePath } from "@/i18n/navigation";
 import { siteConfig, type Locale } from "@/config/site";
@@ -49,11 +49,13 @@ const previewDelay = 350;
 export function ImageStudioTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Messages["imageStudio"];
+  shareLabels: Messages["share"];
   initialState: ImageStudioState;
   syncUrl?: boolean;
 }) {
@@ -518,7 +520,7 @@ export function ImageStudioTool({
         </Button>
         <div className="ml-auto">
           <ShareToXButton
-            labels={getMessages(locale).share}
+            labels={shareLabels}
             tool="image-converter"
             title={labels.title}
             description={labels.description}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ClipboardIcon, DownloadIcon, ShuffleIcon } from "lucide-react";
 import { ShareToXButton } from "@/components/shared/share-to-x-button";
 import { Button } from "@/components/ui/button";
@@ -11,9 +11,10 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { createSeed } from "@/lib/seeds";
 import { replaceSearchState } from "@/lib/url-state";
+import { useDebouncedCallback } from "@/lib/use-debounced";
 import { ColorStopTrack, type ColorStopTrackLabels } from "./color-stop-track";
 import { GradientPreview } from "./gradient-preview";
 import { exportGradientWallpaper } from "@/features/gradient-wallpaper-generator/lib/export";
@@ -32,21 +33,21 @@ export type { GradientState } from "@/features/gradient-wallpaper-generator/lib/
 export function GradientWallpaperGeneratorTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Messages["gradientWallpaper"];
+  shareLabels: Messages["share"];
   initialState: GradientState;
   syncUrl?: boolean;
 }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [state, setState] = useState(initialState);
   const [feedback, setFeedback] = useState("");
   const feedbackTimerRef = useRef<number | null>(null);
 
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/gradient-wallpaper-generator")}`;
   const cssValue = buildCssGradient(state);
 
@@ -56,16 +57,15 @@ export function GradientWallpaperGeneratorTool({
     };
   }, []);
 
+  const syncUrl = useDebouncedCallback((nextState: GradientState) => {
+    replaceSearchState(pathname, new URLSearchParams(window.location.search), stateToParams(nextState));
+  });
+
   function updateState(nextPartial: Partial<GradientState>) {
     const nextState = { ...state, ...nextPartial };
     setState(nextState);
-
     if (!shouldSyncUrl) return;
-    replaceSearchState(
-      pathname,
-      new URLSearchParams(searchParams.toString()),
-      stateToParams(nextState)
-    );
+    syncUrl(nextState);
   }
 
   function flash(message: string) {

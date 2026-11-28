@@ -1,6 +1,7 @@
 import { SupportCreator } from "@/components/shared/support-creator";
 import type { Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
+import type { Messages } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/seo";
 
 /** Concise how-to block plus crawlable SoftwareApplication structured data. */
@@ -11,6 +12,7 @@ export function ToolPageIntro({
   intro,
   howTo,
   howToLabel,
+  supportLabels,
 }: {
   locale: Locale;
   pathname: string;
@@ -18,6 +20,7 @@ export function ToolPageIntro({
   intro: string;
   howTo: string;
   howToLabel: string;
+  supportLabels: Messages["support"];
 }) {
   const structuredData = {
     "@context": "https://schema.org",
@@ -53,7 +56,7 @@ export function ToolPageIntro({
         </h2>
         <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{howTo}</p>
         <div className="mt-3 flex justify-end">
-          <SupportCreator locale={locale} variant="tool" />
+          <SupportCreator locale={locale} labels={supportLabels} variant="tool" />
         </div>
       </section>
     </>

@@ -37,10 +37,12 @@ export function AsciiArtGeneratorPage({
           intro={messages.asciiArt.intro}
           howTo={messages.asciiArt.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
         <AsciiArtGeneratorTool
           locale={locale}
           labels={messages.asciiArt}
+          shareLabels={messages.share}
           initialState={initialState}
         />
       </div>

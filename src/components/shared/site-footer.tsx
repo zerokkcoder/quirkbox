@@ -37,7 +37,7 @@ export function SiteFooter({
             >
               {messages.nav.about}
             </Link>
-            <SupportCreator locale={locale} />
+            <SupportCreator locale={locale} labels={messages.support} />
           </nav>
         </div>
       </div>

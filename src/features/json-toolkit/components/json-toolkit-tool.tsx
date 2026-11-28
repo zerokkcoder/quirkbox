@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { BracesIcon, ClipboardIcon, Maximize2Icon, Minimize2Icon, UploadIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import { ShareToXButton } from "@/components/shared/share-to-x-button";
 import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
 import { JsonCodeBlock } from "./json-code-block";
 import { delimitedToJson, jsonToDelimited } from "../lib/csv";
@@ -38,11 +38,13 @@ const acceptedExtensions = [".json", ".txt"];
 export function JsonToolkitTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Labels;
+  shareLabels: Messages["share"];
   initialState: ToolkitState;
   syncUrl?: boolean;
 }) {
@@ -57,37 +59,40 @@ export function JsonToolkitTool({
   const feedbackTimerRef = useRef<number | null>(null);
 
   const isFormat = state.tab === "format";
+  // Keep the textarea responsive; the derived views may lag by a frame.
+  const deferredInput = useDeferredValue(input);
 
+  // Only the active tab's transformation is needed. In particular the CSV
+  // conversion must not run while the user is formatting JSON, and vice versa.
   const formatResult = useMemo(
-    () => formatJson(input, { indent: state.indent, sortKeys: state.sortKeys }),
-    [input, state.indent, state.sortKeys]
+    () => (isFormat ? formatJson(deferredInput, { indent: state.indent, sortKeys: state.sortKeys }) : null),
+    [deferredInput, isFormat, state.indent, state.sortKeys]
   );
   const conversion = useMemo(
     () =>
-      state.direction === "to-csv"
-        ? jsonToDelimited(input, state.delimiter)
-        : delimitedToJson(input, state.delimiter),
-    [input, state.direction, state.delimiter]
+      isFormat
+        ? null
+        : state.direction === "to-csv"
+          ? jsonToDelimited(deferredInput, state.delimiter)
+          : delimitedToJson(deferredInput, state.delimiter),
+    [deferredInput, isFormat, state.direction, state.delimiter]
   );
-  const result = isFormat ? formatResult : conversion;
-  const minifiedResult = useMemo(
-    () => formatJson(input, { minify: true, sortKeys: state.sortKeys }),
-    [input, state.sortKeys]
-  );
+  const result = isFormat ? formatResult! : conversion!;
   const compact = isFormat && oneLine;
+  const minifiedResult = useMemo(
+    () => (compact ? formatJson(deferredInput, { minify: true, sortKeys: state.sortKeys }) : null),
+    [compact, deferredInput, state.sortKeys]
+  );
   const displayText = !result.ok
     ? labels.invalidOutput
-    : compact && minifiedResult.ok
+    : compact && minifiedResult?.ok
       ? minifiedResult.text
       : result.text;
-  const viewValue = useMemo(() => {
-    if (!result.ok || !isFormat || compact) return undefined;
-    try {
-      return JSON.parse(result.text) as unknown;
-    } catch {
-      return undefined;
-    }
-  }, [compact, isFormat, result]);
+  // formatJson already parsed the input; reusing that value avoids a second parse.
+  const viewValue = !compact && formatResult?.ok ? formatResult.value : undefined;
+  // The tree renderer creates one DOM node per line. Large documents fall back
+  // to a single <pre> so pasting a big JSON file cannot freeze the page.
+  const treeValue = result.ok && result.text.length < 100_000 ? viewValue : undefined;
 
   const errorText = result.ok
     ? ""
@@ -362,9 +367,9 @@ export function JsonToolkitTool({
               </Button>
             ) : null}
           </div>
-          {viewValue !== undefined ? (
+          {treeValue !== undefined ? (
             <JsonCodeBlock
-              value={viewValue}
+              value={treeValue}
               indent={state.indent}
               labels={{ collapseNode: labels.collapseNode, expandNode: labels.expandNode }}
             />
@@ -399,7 +404,7 @@ export function JsonToolkitTool({
           {labels.copy}
         </Button>
         <ShareToXButton
-          labels={getMessages(locale).share}
+          labels={shareLabels}
           tool="json-toolkit"
           title={labels.title}
           description={labels.description}

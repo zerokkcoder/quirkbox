@@ -33,10 +33,12 @@ export function RandomNamePage({
           intro={messages.randomName.intro}
           howTo={messages.randomName.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
         <RandomNameTool
           locale={locale}
           labels={messages.randomName}
+          shareLabels={messages.share}
           initialFilters={initialFilters}
           initialResult={initialResult}
         />

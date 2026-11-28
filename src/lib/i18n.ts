@@ -1,3 +1,5 @@
+import "server-only";
+
 import enMessages from "../../messages/en.json";
 import zhHantMessages from "../../messages/zh-Hant.json";
 import { defaultLocale, isPrefixedLocale, isSupportedLocale } from "@/i18n/routing";

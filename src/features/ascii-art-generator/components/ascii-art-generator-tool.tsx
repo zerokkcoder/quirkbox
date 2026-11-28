@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ClipboardIcon, DownloadIcon, ImageIcon, TypeIcon, UploadIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
@@ -12,8 +12,9 @@ import { ShareToXButton } from "@/components/shared/share-to-x-button";
 import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
+import { useDebouncedCallback, useDebouncedValue } from "@/lib/use-debounced";
 import { AsciiPreview, type AsciiPreviewLabels } from "./ascii-preview";
 import {
   asciiFilename,
@@ -106,16 +107,17 @@ function SliderField({
 export function AsciiArtGeneratorTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Labels;
+  shareLabels: Messages["share"];
   initialState: AsciiState;
   syncUrl?: boolean;
 }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [state, setState] = useState(initialState);
   const [feedback, setFeedback] = useState("");
   const [image, setImage] = useState<ImageSource | null>(null);
@@ -142,19 +144,28 @@ export function AsciiArtGeneratorTool({
     [state.text, state.font, state.gap, state.vGap, state.flip, state.align]
   );
 
+  // Rendering up to ~25k cells is far too expensive to repeat on every slider
+  // tick. The controls update immediately; the preview catches up shortly after.
+  const renderWidth = useDebouncedValue(state.width, 120);
+  const renderRamp = useDebouncedValue(state.ramp, 120);
+  const renderBrightness = useDebouncedValue(state.brightness, 120);
+  const renderContrast = useDebouncedValue(state.contrast, 120);
+  const renderInvert = useDebouncedValue(state.invert, 120);
+  const renderDither = useDebouncedValue(state.dither, 120);
+
   const imageResult = useMemo(
     () =>
       image
         ? renderImageAscii(image.grid, {
-            width: state.width,
-            ramp: state.ramp,
-            brightness: state.brightness,
-            contrast: state.contrast,
-            invert: state.invert,
-            dither: state.dither,
+            width: renderWidth,
+            ramp: renderRamp,
+            brightness: renderBrightness,
+            contrast: renderContrast,
+            invert: renderInvert,
+            dither: renderDither,
           })
         : emptyResult,
-    [image, state.width, state.ramp, state.brightness, state.contrast, state.invert, state.dither]
+    [image, renderWidth, renderRamp, renderBrightness, renderContrast, renderInvert, renderDither]
   );
 
   const result = state.mode === "image" ? imageResult : textResult;
@@ -227,17 +238,22 @@ export function AsciiArtGeneratorTool({
     return () => window.removeEventListener("paste", onPaste);
   }, [state.mode]);
 
+  // Never call replaceState from a setState updater — App Router patches
+  // history and would update Router during render (Palette Studio hit this).
+  // Reading the URL inside the callback keeps it current after a burst of edits.
+  const syncUrl = useDebouncedCallback((nextState: AsciiState) => {
+    replaceSearchState(
+      pathname,
+      new URLSearchParams(window.location.search),
+      stateToParams(nextState)
+    );
+  });
+
   function updateState(nextPartial: Partial<AsciiState>) {
     const nextState = { ...state, ...nextPartial };
     setState(nextState);
     if (!shouldSyncUrl) return;
-    // Never call replaceState from a setState updater — App Router patches
-    // history and would update Router during render (Palette Studio hit this).
-    replaceSearchState(
-      pathname,
-      new URLSearchParams(searchParams.toString()),
-      stateToParams(nextState)
-    );
+    syncUrl(nextState);
   }
 
   async function copyText() {
@@ -621,7 +637,7 @@ export function AsciiArtGeneratorTool({
           {labels.download}
         </Button>
         <ShareToXButton
-          labels={getMessages(locale).share}
+          labels={shareLabels}
           tool="ascii-art-generator"
           title={labels.title}
           description={labels.description}

@@ -34,8 +34,14 @@ export function PixelAvatarPage({
           intro={messages.pixelAvatar.intro}
           howTo={messages.pixelAvatar.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
-        <PixelAvatarTool locale={locale} labels={messages.pixelAvatar} initialState={initialState} />
+        <PixelAvatarTool
+          locale={locale}
+          labels={messages.pixelAvatar}
+          shareLabels={messages.share}
+          initialState={initialState}
+        />
       </div>
     </SiteShell>
   );

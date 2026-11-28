@@ -2,7 +2,6 @@
 
 import type * as MapLibreGL from "maplibre-gl";
 import type { PopupOptions, MarkerOptions } from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
 import type * as GeoJSON from "geojson";
 import {
   createContext,
@@ -27,8 +26,11 @@ type MapLibreModule = typeof MapLibreGL;
 let maplibrePromise: Promise<MapLibreModule> | null = null;
 
 function loadMapLibre() {
-  maplibrePromise ??= import("maplibre-gl")
-    .then((lib) => {
+  maplibrePromise ??= Promise.all([
+    import("maplibre-gl"),
+    import("./maplibre-assets"),
+  ])
+    .then(([lib]) => {
       if (!lib.getWorkerUrl()) {
         // Bundle the worker locally. Pulling it from a CDN at runtime makes the
         // whole map fail whenever that host is unreachable.
@@ -43,7 +45,8 @@ function loadMapLibre() {
   return maplibrePromise;
 }
 
-if (typeof window !== "undefined") loadMapLibre().catch(() => {});
+// The map is loaded by its own mount effect, not at module evaluation: importing
+// this component must not start a ~1 MB download on every page that bundles it.
 
 const defaultStyles = {
   dark: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
@@ -83,10 +86,18 @@ const blankGlobeStyle: MapLibreGL.StyleSpecification = {
 };
 
 // Prevent equivalent inline style objects from triggering a full map style reload.
-function useStableValue<T>(value: T): T {
-  const key = useMemo(() => JSON.stringify(value) ?? "", [value]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  return useMemo(() => value, [key]);
+// A shallow comparison is enough here (the two values are URLs or style specs)
+// and avoids serializing the whole object on every render.
+function useStableStyles<T extends { light?: unknown; dark?: unknown } | undefined>(styles: T): T {
+  const ref = useRef(styles);
+  if (
+    ref.current?.light !== styles?.light ||
+    ref.current?.dark !== styles?.dark ||
+    (ref.current === undefined) !== (styles === undefined)
+  ) {
+    ref.current = styles;
+  }
+  return ref.current;
 }
 
 function mergeHoverPaint<T extends Record<string, unknown>>(
@@ -306,7 +317,7 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
   const onViewportChangeRef = useRef(onViewportChange);
   onViewportChangeRef.current = onViewportChange;
 
-  const stableStyles = useStableValue(styles);
+  const stableStyles = useStableStyles(styles);
   const isGlobe = projection?.type === "globe";
 
   const mapStyles = useMemo(() => {

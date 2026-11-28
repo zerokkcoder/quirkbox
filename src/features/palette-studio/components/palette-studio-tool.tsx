@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { CopyIcon, DownloadIcon, Link2Icon, ShuffleIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
@@ -33,24 +33,26 @@ import {
 } from "@/features/palette-studio/lib/types";
 import { createSeed, hashSeed } from "@/lib/seeds";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
+import { useDebouncedCallback } from "@/lib/use-debounced";
 import { localizePath } from "@/i18n/navigation";
 import { siteConfig, type Locale } from "@/config/site";
 
 export function PaletteStudioTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Messages["paletteStudio"];
+  shareLabels: Messages["share"];
   initialState: PaletteState;
   syncUrl?: boolean;
 }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [state, setState] = useState(initialState);
   const [simulation, setSimulation] = useState<SimulationId>("none");
   const [feedback, setFeedback] = useState("");
@@ -78,17 +80,20 @@ export function PaletteStudioTool({
     timerRef.current = window.setTimeout(() => setFeedback(""), 4000);
   }
 
-  function updateState(next: Partial<PaletteState>) {
-    const nextState = { ...state, ...next };
-    setState(nextState);
-
-    if (!shouldSyncUrl) return;
-    replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), {
+  const syncUrl = useDebouncedCallback((nextState: PaletteState) => {
+    replaceSearchState(pathname, new URLSearchParams(window.location.search), {
       color: nextState.color,
       harmony: nextState.harmony,
       count: String(nextState.count),
       preset: nextState.preset ?? undefined,
     });
+  });
+
+  function updateState(next: Partial<PaletteState>) {
+    const nextState = { ...state, ...next };
+    setState(nextState);
+    if (!shouldSyncUrl) return;
+    syncUrl(nextState);
   }
 
   async function copy(text: string, eventName = "palette_copied") {
@@ -347,7 +352,7 @@ export function PaletteStudioTool({
               {labels.downloadPng}
             </Button>
             <ShareToXButton
-              labels={getMessages(locale).share}
+              labels={shareLabels}
               tool="color-palette-generator"
               title={labels.title}
               description={labels.description}

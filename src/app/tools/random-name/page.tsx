@@ -27,7 +27,7 @@ export default async function Page({
     gender: typeof resolvedSearchParams.gender === "string" ? resolvedSearchParams.gender : undefined,
   });
   await connection();
-  const serverResult = generateNameSuggestion(initialFilters);
+  const serverResult = await generateNameSuggestion(initialFilters);
 
   return <RandomNamePage locale="en" messages={messages} initialFilters={initialFilters} initialResult={serverResult} />;
 }

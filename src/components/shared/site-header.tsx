@@ -58,7 +58,7 @@ export function SiteHeader({
             })}
           </nav>
           <div className="flex shrink-0 items-center gap-2">
-            <SupportCreator locale={locale} variant="header" />
+            <SupportCreator locale={locale} labels={messages.support} variant="header" />
             <ThemeToggle
               labels={{
                 label: messages.nav.theme,

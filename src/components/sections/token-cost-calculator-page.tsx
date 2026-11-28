@@ -30,8 +30,13 @@ export function TokenCostCalculatorPage({
           intro={messages.tokenCostCalculator.intro}
           howTo={messages.tokenCostCalculator.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
-        <TokenCostCalculatorTool locale={locale} labels={messages.tokenCostCalculator} />
+        <TokenCostCalculatorTool
+          locale={locale}
+          labels={messages.tokenCostCalculator}
+          shareLabels={messages.share}
+        />
       </div>
     </SiteShell>
   );

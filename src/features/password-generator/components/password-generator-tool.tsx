@@ -21,7 +21,11 @@ import { Toggle } from "@/components/ui/toggle";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { siteConfig, type Locale } from "@/config/site";
 import { estimateEntropy, shouldShowWeakHint } from "@/features/password-generator/lib/entropy";
-import { EmptyCharsetError, generateBatch } from "@/features/password-generator/lib/generator";
+import {
+  EmptyCharsetError,
+  generateBatch,
+  loadWordlist,
+} from "@/features/password-generator/lib/generator";
 import { stateToParams } from "@/features/password-generator/lib/settings";
 import {
   applyPreset,
@@ -36,7 +40,7 @@ import {
 } from "@/features/password-generator/lib/types";
 import { localizePath } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
 
 const typeIds = ["uppercase", "lowercase", "digits", "symbols"] as const;
@@ -46,10 +50,11 @@ const minPerTypeOptions = Array.from({ length: maxMinPerType + 1 }, (_, index) =
 
 const feedbackDurationMs = 2600;
 
-function attemptGeneration(state: GeneratorState): {
+async function attemptGeneration(state: GeneratorState): Promise<{
   secrets: string[];
   charsetEmpty: boolean;
-} {
+}> {
+  if (state.mode === "passphrase") await loadWordlist();
   try {
     return { secrets: generateBatch(state), charsetEmpty: false };
   } catch (error) {
@@ -60,10 +65,12 @@ function attemptGeneration(state: GeneratorState): {
 export function PasswordGeneratorTool({
   locale,
   labels,
+  shareLabels,
   initialState,
 }: {
   locale: Locale;
   labels: Messages["passwordGenerator"];
+  shareLabels: Messages["share"];
   initialState: GeneratorState;
 }) {
   const pathname = usePathname();
@@ -74,7 +81,6 @@ export function PasswordGeneratorTool({
   const [feedback, setFeedback] = useState("");
   const timerRef = useRef<number | null>(null);
 
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/password-generator")}`;
   const entropy = useMemo(() => estimateEntropy(state), [state]);
   const weak = useMemo(() => shouldShowWeakHint(state), [state]);
@@ -87,10 +93,15 @@ export function PasswordGeneratorTool({
   // Hydration constraint: only the client owns a CSPRNG, so the secret cannot
   // be generated during render or on the server.
   useEffect(() => {
-    const { secrets: next, charsetEmpty: empty } = attemptGeneration(state);
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only CSPRNG, SSR must not render a secret
-    setSecrets(next);
-    setCharsetEmpty(empty);
+    let active = true;
+    void attemptGeneration(state).then(({ secrets: next, charsetEmpty: empty }) => {
+      if (!active) return;
+      setSecrets(next);
+      setCharsetEmpty(empty);
+    });
+    return () => {
+      active = false;
+    };
   }, [state]);
 
   useEffect(() => {
@@ -136,8 +147,8 @@ export function PasswordGeneratorTool({
     trackEvent({ name: "password_preset", metadata: { preset } });
   }
 
-  function regenerate() {
-    const { secrets: next, charsetEmpty: empty } = attemptGeneration(state);
+  async function regenerate() {
+    const { secrets: next, charsetEmpty: empty } = await attemptGeneration(state);
     setSecrets(next);
     setCharsetEmpty(empty);
     trackEvent({ name: "password_regenerated", metadata: { preset: state.preset } });

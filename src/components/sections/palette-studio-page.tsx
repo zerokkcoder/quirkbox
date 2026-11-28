@@ -35,8 +35,14 @@ export function PaletteStudioPage({
           intro={messages.paletteStudio.intro}
           howTo={messages.paletteStudio.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
-        <PaletteStudioTool locale={locale} labels={messages.paletteStudio} initialState={initialState} />
+        <PaletteStudioTool
+          locale={locale}
+          labels={messages.paletteStudio}
+          shareLabels={messages.share}
+          initialState={initialState}
+        />
       </div>
     </SiteShell>
   );

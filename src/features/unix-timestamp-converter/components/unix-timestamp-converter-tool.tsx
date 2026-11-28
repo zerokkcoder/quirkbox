@@ -40,7 +40,7 @@ import {
 } from "@/features/unix-timestamp-converter/lib/types";
 import { localizePath } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 
 const feedbackDurationMs = 2600;
 const relativeRefreshMs = 30_000;
@@ -87,9 +87,11 @@ function ResultRow({
 export function UnixTimestampConverterTool({
   locale,
   labels,
+  shareLabels,
 }: {
   locale: Locale;
   labels: Messages["unixTimestampConverter"];
+  shareLabels: Messages["share"];
 }) {
   const [input, setInput] = useState("");
   const [unit, setUnit] = useState<UnitChoice>("auto");
@@ -100,7 +102,6 @@ export function UnixTimestampConverterTool({
   const timerRef = useRef<number | null>(null);
 
   const displayLocale: "en" | "zh-Hant" = locale === "zh-Hant" ? "zh-Hant" : "en";
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(
     locale,
     "/tools/unix-timestamp-converter"

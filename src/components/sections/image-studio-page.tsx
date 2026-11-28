@@ -35,8 +35,14 @@ export function ImageStudioPage({
           intro={messages.imageStudio.intro}
           howTo={messages.imageStudio.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
-        <ImageStudioTool locale={locale} labels={messages.imageStudio} initialState={initialState} />
+        <ImageStudioTool
+          locale={locale}
+          labels={messages.imageStudio}
+          shareLabels={messages.share}
+          initialState={initialState}
+        />
       </div>
     </SiteShell>
   );

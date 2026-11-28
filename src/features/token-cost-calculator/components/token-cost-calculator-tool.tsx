@@ -11,7 +11,7 @@ import { comparePrices, DEFAULT_USD_TO_CNY, markLowest, normalizeRate } from "@/
 import type { PriceComparison } from "@/features/token-cost-calculator/lib/compare";
 import type { RatesData } from "@/features/token-cost-calculator/lib/types";
 import { localizePath } from "@/i18n/navigation";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 
 const staleAfterDays = 30;
 const defaultSelectionSize = 6;
@@ -40,9 +40,11 @@ function money(value: number, currency: "USD" | "CNY"): string {
 export function TokenCostCalculatorTool({
   locale,
   labels,
+  shareLabels,
 }: {
   locale: Locale;
   labels: Messages["tokenCostCalculator"];
+  shareLabels: Messages["share"];
 }) {
   const [rates, setRates] = useState<RatesData | null>(null);
   const [source, setSource] = useState<"cache" | "network" | "stale" | "fallback" | "loading">(
@@ -54,7 +56,6 @@ export function TokenCostCalculatorTool({
   const selectionRef = useRef<string[] | null>(null);
   const rateRef = useRef(DEFAULT_USD_TO_CNY);
 
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(locale, path)}`;
   const usdToCny = normalizeRate(Number(rateInput));
 

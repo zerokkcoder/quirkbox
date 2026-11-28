@@ -26,7 +26,7 @@ import {
   type QrState,
 } from "@/features/qr-code-generator/lib/types";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
 import { localizePath } from "@/i18n/navigation";
 import { siteConfig, type Locale } from "@/config/site";
@@ -36,11 +36,13 @@ type Labels = Messages["qrCodeGenerator"];
 export function QrCodeGeneratorTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Labels;
+  shareLabels: Messages["share"];
   initialState: QrState;
   syncUrl?: boolean;
 }) {
@@ -372,7 +374,7 @@ export function QrCodeGeneratorTool({
 
       <div className="flex flex-wrap items-center gap-2">
         <ShareToXButton
-          labels={getMessages(locale).share}
+          labels={shareLabels}
           tool="qr-code-generator"
           title={labels.title}
           description={labels.description}

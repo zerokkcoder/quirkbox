@@ -16,7 +16,7 @@ import { replaceSearchState } from "@/lib/url-state";
 import { createSeed } from "@/lib/seeds";
 import { cultures, nameGenders, type NameFilters, type NameSuggestion } from "@/features/random-name/lib/types";
 import { fallbackAudioUrl, findVoice } from "@/features/random-name/lib/speech";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { localizePath } from "@/i18n/navigation";
 import { siteConfig, type Locale } from "@/config/site";
 
@@ -39,12 +39,14 @@ function getSpeechSynthesis() {
 export function RandomNameTool({
   locale,
   labels,
+  shareLabels,
   initialFilters,
   initialResult,
   syncUrl = true,
 }: {
   locale: Locale;
   labels: Messages["randomName"];
+  shareLabels: Messages["share"];
   initialFilters: NameFilters;
   initialResult: NameSuggestion;
   syncUrl?: boolean;
@@ -58,7 +60,6 @@ export function RandomNameTool({
   const [pronunciationError, setPronunciationError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/random-name")}`;
 
   useEffect(() => {

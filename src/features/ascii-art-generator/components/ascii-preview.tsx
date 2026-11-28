@@ -17,6 +17,29 @@ const charWidthRatio = 0.62;
 const lineHeightRatio = 1.15;
 const containerPadding = 24;
 
+/** Quantize preview colors so nearby pixels collapse into one styled span. */
+function previewColor(color: string | undefined): string | undefined {
+  if (!color) return undefined;
+  const match = /^rgb\((\d+),(\d+),(\d+)\)$/.exec(color);
+  if (!match) return color;
+  const quantize = (value: string) => Math.min(255, Math.round(Number(value) / 8) * 8);
+  return `rgb(${quantize(match[1])},${quantize(match[2])},${quantize(match[3])})`;
+}
+
+function colorRuns(line: string, colors: string[] | undefined) {
+  const runs: { text: string; color?: string }[] = [];
+  for (let column = 0; column < line.length; column += 1) {
+    const color = previewColor(colors?.[column]);
+    const last = runs[runs.length - 1];
+    if (last && last.color === color) {
+      last.text += line[column];
+    } else {
+      runs.push({ text: line[column], color });
+    }
+  }
+  return runs;
+}
+
 export function AsciiPreview({
   result,
   labels,
@@ -97,16 +120,15 @@ export function AsciiPreview({
             {showColors
               ? result.lines.map((line, row) => (
                   <span key={row} className="block whitespace-pre">
-                    {Array.from(line).map((char, column) => {
-                      const color = result.colors?.[row]?.[column];
-                      return color ? (
-                        <span key={column} style={{ color }}>
-                          {char}
+                    {colorRuns(line, result.colors?.[row]).map((run, index) =>
+                      run.color ? (
+                        <span key={index} style={{ color: run.color }}>
+                          {run.text}
                         </span>
                       ) : (
-                        <span key={column}>{char}</span>
-                      );
-                    })}
+                        <span key={index}>{run.text}</span>
+                      )
+                    )}
                   </span>
                 ))
               : result.lines.join("\n")}

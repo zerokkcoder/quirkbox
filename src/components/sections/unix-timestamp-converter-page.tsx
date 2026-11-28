@@ -32,10 +32,12 @@ export function UnixTimestampConverterPage({
           intro={messages.unixTimestampConverter.intro}
           howTo={messages.unixTimestampConverter.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
         <UnixTimestampConverterTool
           locale={locale}
           labels={messages.unixTimestampConverter}
+          shareLabels={messages.share}
         />
       </div>
     </SiteShell>

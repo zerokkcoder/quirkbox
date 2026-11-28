@@ -1,17 +1,4 @@
-import { faker as fakerAR } from "@faker-js/faker/locale/ar";
-import { faker as fakerDE } from "@faker-js/faker/locale/de";
-import { faker as fakerEN } from "@faker-js/faker/locale/en";
-import { faker as fakerES } from "@faker-js/faker/locale/es";
-import { faker as fakerFR } from "@faker-js/faker/locale/fr";
-import { faker as fakerIT } from "@faker-js/faker/locale/it";
-import { faker as fakerJA } from "@faker-js/faker/locale/ja";
-import { faker as fakerKO } from "@faker-js/faker/locale/ko";
-import { faker as fakerPT_BR } from "@faker-js/faker/locale/pt_BR";
-import { faker as fakerRU } from "@faker-js/faker/locale/ru";
-import { faker as fakerTH } from "@faker-js/faker/locale/th";
-import { faker as fakerVI } from "@faker-js/faker/locale/vi";
-import { faker as fakerZH_CN } from "@faker-js/faker/locale/zh_CN";
-import { faker as fakerZH_TW } from "@faker-js/faker/locale/zh_TW";
+import type { faker as fakerEN } from "@faker-js/faker/locale/en";
 import { createSeed, hashSeed } from "@/lib/seeds";
 import { normalizeNameFilters } from "@/features/random-name/lib/rules";
 import type {
@@ -25,22 +12,34 @@ import type {
 type FakerInstance = typeof fakerEN;
 type FakerSex = NonNullable<Parameters<FakerInstance["person"]["firstName"]>[0]>;
 
-const fakersByCulture: Record<Culture, FakerInstance> = {
-  english: fakerEN,
-  french: fakerFR,
-  spanish: fakerES,
-  german: fakerDE,
-  italian: fakerIT,
-  portuguese: fakerPT_BR,
-  russian: fakerRU,
-  japanese: fakerJA,
-  korean: fakerKO,
-  "chinese-simplified": fakerZH_CN,
-  "chinese-traditional": fakerZH_TW,
-  arabic: fakerAR,
-  thai: fakerTH,
-  vietnamese: fakerVI,
+// Load only the locale the request actually needs. Importing all 14 at startup
+// costs memory and slows cold starts for a tool that usually uses one culture.
+const localeLoaders: Record<Culture, () => Promise<{ faker: FakerInstance }>> = {
+  english: () => import("@faker-js/faker/locale/en"),
+  french: () => import("@faker-js/faker/locale/fr"),
+  spanish: () => import("@faker-js/faker/locale/es"),
+  german: () => import("@faker-js/faker/locale/de"),
+  italian: () => import("@faker-js/faker/locale/it"),
+  portuguese: () => import("@faker-js/faker/locale/pt_BR"),
+  russian: () => import("@faker-js/faker/locale/ru"),
+  japanese: () => import("@faker-js/faker/locale/ja"),
+  korean: () => import("@faker-js/faker/locale/ko"),
+  "chinese-simplified": () => import("@faker-js/faker/locale/zh_CN"),
+  "chinese-traditional": () => import("@faker-js/faker/locale/zh_TW"),
+  arabic: () => import("@faker-js/faker/locale/ar"),
+  thai: () => import("@faker-js/faker/locale/th"),
+  vietnamese: () => import("@faker-js/faker/locale/vi"),
 };
+
+const fakerCache = new Map<Culture, FakerInstance>();
+
+async function getFaker(culture: Culture): Promise<FakerInstance> {
+  const cached = fakerCache.get(culture);
+  if (cached) return cached;
+  const loaded = await localeLoaders[culture]();
+  fakerCache.set(culture, loaded.faker);
+  return loaded.faker;
+}
 
 const langCodeByCulture: Record<Culture, string> = {
   english: "en-US",
@@ -91,11 +90,13 @@ function formatFullName(culture: Culture, firstName: string, lastName: string) {
   }
 }
 
-export function generateNameSuggestion(rawFilters: Partial<Record<keyof NameFilters, string>>): NameSuggestion {
+export async function generateNameSuggestion(
+  rawFilters: Partial<Record<keyof NameFilters, string>>
+): Promise<NameSuggestion> {
   const normalized = normalizeNameFilters(rawFilters);
   const seed = normalized.seed || createSeed(8);
   const culture = normalized.culture;
-  const faker = fakersByCulture[culture];
+  const faker = await getFaker(culture);
 
   faker.seed(hashSeed(seed));
 

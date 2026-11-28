@@ -37,10 +37,12 @@ export function GradientWallpaperGeneratorPage({
           intro={messages.gradientWallpaper.intro}
           howTo={messages.gradientWallpaper.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
         <GradientWallpaperGeneratorTool
           locale={locale}
           labels={messages.gradientWallpaper}
+          shareLabels={messages.share}
           initialState={initialState}
         />
       </div>

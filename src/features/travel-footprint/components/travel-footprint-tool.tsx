@@ -80,7 +80,7 @@ import {
 } from "@/features/travel-footprint/lib/types";
 import { siteConfig, type Locale } from "@/config/site";
 import { localizePath } from "@/i18n/navigation";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { createSeed } from "@/lib/seeds";
 
 /** How long MapLibre gets to reach "loaded" before the map is treated as broken. */
@@ -282,9 +282,11 @@ function StyleRow({ label, children }: { label: string; children: ReactNode }) {
 export function TravelFootprintTool({
   locale,
   labels,
+  shareLabels,
 }: {
   locale: Locale;
   labels: Labels;
+  shareLabels: Messages["share"];
 }) {
   const [state, setState] = useState<TravelFootprintState>(DEFAULT_TRAVEL_FOOTPRINT_STATE);
   const [hydrated, setHydrated] = useState(false);
@@ -299,7 +301,6 @@ export function TravelFootprintTool({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const mapReadyRef = useRef(false);
 
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/travel-footprint")}`;
 
   // Hydrate from localStorage after mount so the SSR frame and the first client frame stay empty.

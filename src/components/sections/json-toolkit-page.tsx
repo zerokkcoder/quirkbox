@@ -37,10 +37,12 @@ export function JsonToolkitPage({
           intro={messages.jsonToolkit.intro}
           howTo={messages.jsonToolkit.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
         <JsonToolkitTool
           locale={locale}
           labels={messages.jsonToolkit}
+          shareLabels={messages.share}
           initialState={initialState}
         />
       </div>

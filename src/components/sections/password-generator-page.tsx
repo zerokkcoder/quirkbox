@@ -35,10 +35,12 @@ export function PasswordGeneratorPage({
           intro={messages.passwordGenerator.intro}
           howTo={messages.passwordGenerator.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
         <PasswordGeneratorTool
           locale={locale}
           labels={messages.passwordGenerator}
+          shareLabels={messages.share}
           initialState={initialState}
         />
       </div>

@@ -8,7 +8,7 @@ export type FormatOptions = {
 };
 
 export type FormatResult =
-  | { ok: true; text: string; charCount: number }
+  | { ok: true; text: string; charCount: number; value: unknown }
   | { ok: false; issue: SyntaxIssue };
 
 function sortValue(value: unknown): unknown {
@@ -39,5 +39,5 @@ export function formatJson(input: string, options: FormatOptions = {}): FormatRe
     options.minify ? undefined : indentUnit(options.indent ?? defaultIndent)
   );
 
-  return { ok: true, text, charCount: text.length };
+  return { ok: true, text, charCount: text.length, value: prepared };
 }

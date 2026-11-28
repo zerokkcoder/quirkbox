@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { buildCharset } from "./charset";
 import {
   EmptyCharsetError,
@@ -6,9 +6,14 @@ import {
   generatePassphrase,
   generatePassword,
   generateSecret,
+  loadWordlist,
 } from "./generator";
 import { defaultState, presets, type GeneratorState } from "./types";
 import { WORDLIST } from "./wordlist";
+
+beforeAll(async () => {
+  await loadWordlist();
+});
 
 function state(overrides: Partial<GeneratorState> = {}): GeneratorState {
   return { ...defaultState, ...overrides };

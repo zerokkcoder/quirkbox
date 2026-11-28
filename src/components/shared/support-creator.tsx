@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { CoffeeIcon, XIcon } from "lucide-react";
 import type { Locale } from "@/config/site";
-import { getMessages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { fetchCountryCode, usesQrPayment } from "@/lib/region";
 import { cn } from "@/lib/utils";
 
@@ -12,24 +12,37 @@ const koFiUrl = "https://ko-fi.com/starrudder";
 
 export function SupportCreator({
   locale,
+  labels,
   variant = "footer",
 }: {
   locale: Locale;
+  labels: Messages["support"];
   variant?: "header" | "footer" | "tool";
 }) {
-  const labels = getMessages(locale).support;
   const [countryCode, setCountryCode] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
 
+  // The lookup only changes which payment options the dialog offers, so it must
+  // never compete with hydration. Skip it entirely when the locale already
+  // guarantees the QR dialog.
   useEffect(() => {
+    if (locale === "zh-Hant") return;
+
     let active = true;
-    fetchCountryCode().then((code) => {
-      if (active) setCountryCode(code);
-    });
+    const load = () => {
+      fetchCountryCode().then((code) => {
+        if (active) setCountryCode(code);
+      });
+    };
+    const idle = window.requestIdleCallback?.(load, { timeout: 2000 });
+    const timer = idle === undefined ? window.setTimeout(load, 1200) : undefined;
+
     return () => {
       active = false;
+      if (idle !== undefined) window.cancelIdleCallback?.(idle);
+      if (timer !== undefined) window.clearTimeout(timer);
     };
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     if (!open) return;

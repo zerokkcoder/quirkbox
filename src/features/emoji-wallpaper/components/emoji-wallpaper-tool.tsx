@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { cn } from "cn";
 import { ChevronDownIcon, DownloadIcon, ShuffleIcon, SlidersHorizontalIcon, SmilePlusIcon } from "lucide-react";
 import { ShareToXButton } from "@/components/shared/share-to-x-button";
@@ -38,9 +38,10 @@ import { exportWallpaper, renderEmojiWallpaper } from "@/features/emoji-wallpape
 import { createSeed } from "@/lib/seeds";
 import { trackEvent } from "@/lib/analytics";
 import { siteConfig, type Locale } from "@/config/site";
-import { getMessages, type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { localizePath } from "@/i18n/navigation";
 import { replaceSearchState } from "@/lib/url-state";
+import { useDebouncedCallback, useDebouncedValue } from "@/lib/use-debounced";
 
 export type EmojiWallpaperState = {
   seed: string;
@@ -57,22 +58,22 @@ export type EmojiWallpaperState = {
 export function EmojiWallpaperTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Messages["emojiWallpaper"];
+  shareLabels: Messages["share"];
   initialState: EmojiWallpaperState;
   syncUrl?: boolean;
 }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [state, setState] = useState(initialState);
   const [rendering, setRendering] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
 
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/emoji-wallpaper")}`;
   const selectedEmojis = useMemo(() => splitEmojiInput(state.emoji), [state.emoji]);
   const usingCustomEmojis = selectedEmojis.length > 0;
@@ -91,13 +92,16 @@ export function EmojiWallpaperTool({
     };
   }, [state.ratio]);
 
+  // Canvas painting is synchronous; debounce seed keystrokes so typing stays fluid.
+  const renderSeed = useDebouncedValue(state.seed, 120);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     renderEmojiWallpaper(canvas, {
       emojiPool,
-      seed: state.seed,
+      seed: renderSeed,
       width: previewWidth,
       height: previewHeight,
       columns: state.columns,
@@ -108,7 +112,7 @@ export function EmojiWallpaperTool({
     });
   }, [
     emojiPool,
-    state.seed,
+    renderSeed,
     state.columns,
     state.pattern,
     state.ratio,
@@ -119,12 +123,8 @@ export function EmojiWallpaperTool({
     activePalette,
   ]);
 
-  function updateState(nextPartial: Partial<EmojiWallpaperState>) {
-    const nextState = { ...state, ...nextPartial };
-    setState(nextState);
-
-    if (!shouldSyncUrl) return;
-    replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), {
+  const syncUrl = useDebouncedCallback((nextState: EmojiWallpaperState) => {
+    replaceSearchState(pathname, new URLSearchParams(window.location.search), {
       seed: nextState.seed,
       theme: nextState.theme,
       emoji: nextState.emoji,
@@ -134,6 +134,13 @@ export function EmojiWallpaperTool({
       palette: nextState.palette,
       tone: nextState.tone,
     });
+  });
+
+  function updateState(nextPartial: Partial<EmojiWallpaperState>) {
+    const nextState = { ...state, ...nextPartial };
+    setState(nextState);
+    if (!shouldSyncUrl) return;
+    syncUrl(nextState);
   }
 
   function applyPreset(themeId: string) {

@@ -35,10 +35,12 @@ export function QrCodeGeneratorPage({
           intro={messages.qrCodeGenerator.intro}
           howTo={messages.qrCodeGenerator.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
         <QrCodeGeneratorTool
           locale={locale}
           labels={messages.qrCodeGenerator}
+          shareLabels={messages.share}
           initialState={initialState}
         />
       </div>

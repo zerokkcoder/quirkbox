@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { cn } from "cn";
 import { DownloadIcon, ShuffleIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,9 +18,9 @@ import {
 import { avatarPalettes, getAvatarPalette } from "@/features/pixel-avatar/lib/palettes";
 import { createSeed } from "@/lib/seeds";
 import { trackEvent } from "@/lib/analytics";
-import { getMessages } from "@/lib/i18n";
 import type { Messages } from "@/lib/i18n";
 import { replaceSearchState } from "@/lib/url-state";
+import { useDebouncedCallback, useDebouncedValue } from "@/lib/use-debounced";
 import { localizePath } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import type { Locale } from "@/config/site";
@@ -34,25 +34,27 @@ export type PixelAvatarState = {
 export function PixelAvatarTool({
   locale,
   labels,
+  shareLabels,
   initialState,
   syncUrl: shouldSyncUrl = true,
 }: {
   locale: Locale;
   labels: Messages["pixelAvatar"];
+  shareLabels: Messages["share"];
   initialState: PixelAvatarState;
   syncUrl?: boolean;
 }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [state, setState] = useState(initialState);
 
-  const shareLabels = getMessages(locale).share;
   const shareUrl = `${siteConfig.url}${localizePath(locale, "/tools/pixel-avatar")}`;
   const activePalette = getAvatarPalette(state.palette);
+  // DiceBear builds a full SVG synchronously; debounce seed keystrokes.
+  const renderSeed = useDebouncedValue(state.seed, 150);
   const dataUri = useMemo(
-    () => generateAvatarDataUri(state.seed, { styleId: state.style, paletteId: state.palette }),
-    [state.palette, state.seed, state.style]
+    () => generateAvatarDataUri(renderSeed, { styleId: state.style, paletteId: state.palette }),
+    [state.palette, renderSeed, state.style]
   );
 
   useEffect(() => {
@@ -80,12 +82,15 @@ export function PixelAvatarTool({
     };
   }, [activePalette, dataUri]);
 
+  const syncUrl = useDebouncedCallback((nextState: PixelAvatarState) => {
+    replaceSearchState(pathname, new URLSearchParams(window.location.search), nextState);
+  });
+
   function updateState(nextPartial: Partial<PixelAvatarState>) {
     const nextState = { ...state, ...nextPartial };
     setState(nextState);
-
     if (!shouldSyncUrl) return;
-    replaceSearchState(pathname, new URLSearchParams(searchParams.toString()), nextState);
+    syncUrl(nextState);
   }
 
   function shuffle() {

@@ -28,8 +28,13 @@ export function TravelFootprintPage({
           intro={messages.travelFootprint.intro}
           howTo={messages.travelFootprint.howTo}
           howToLabel={messages.tools.howToTitle}
+          supportLabels={messages.support}
         />
-        <TravelFootprintTool locale={locale} labels={messages.travelFootprint} />
+        <TravelFootprintTool
+          locale={locale}
+          labels={messages.travelFootprint}
+          shareLabels={messages.share}
+        />
       </div>
     </SiteShell>
   );

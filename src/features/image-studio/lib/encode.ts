@@ -3,6 +3,8 @@ import { formatMeta } from "./formats";
 import { calculateSize, icoDimension, type Size } from "./resize";
 import { icoMaxDimension, type FormatId, type ImageStudioState } from "./types";
 
+export { encodeBmp } from "./encode-bmp";
+
 function canvasToBlob(canvas: HTMLCanvasElement, mime: string, quality?: number): Promise<Blob> {
   return new Promise((resolve, reject) => {
     canvas.toBlob(
@@ -38,40 +40,6 @@ function draw(
   return canvas;
 }
 
-/** 24-bit BMP with bottom-up BGRA rows, padded to a 4-byte boundary. */
-export function encodeBmp(width: number, height: number, rgba: Uint8ClampedArray): Uint8Array {
-  const rowSize = Math.ceil((width * 3) / 4) * 4;
-  const pixelsSize = rowSize * height;
-  const fileSize = 54 + pixelsSize;
-  const bytes = new Uint8Array(fileSize);
-  const view = new DataView(bytes.buffer);
-
-  bytes[0] = 0x42; // B
-  bytes[1] = 0x4d; // M
-  view.setUint32(2, fileSize, true);
-  view.setUint32(10, 54, true);
-  view.setUint32(14, 40, true); // BITMAPINFOHEADER size
-  view.setInt32(18, width, true);
-  view.setInt32(22, height, true);
-  view.setUint16(26, 1, true); // planes
-  view.setUint16(28, 24, true); // bits per pixel
-  view.setUint32(34, pixelsSize, true);
-
-  for (let row = 0; row < height; row += 1) {
-    const sourceRow = (height - 1 - row) * width * 4;
-    const targetRow = 54 + row * rowSize;
-    for (let column = 0; column < width; column += 1) {
-      const source = sourceRow + column * 4;
-      const target = targetRow + column * 3;
-      bytes[target] = rgba[source + 2];
-      bytes[target + 1] = rgba[source + 1];
-      bytes[target + 2] = rgba[source];
-    }
-  }
-
-  return bytes;
-}
-
 /** Single-image ICO whose payload is a PNG (works in all modern browsers). */
 export function wrapPngInIco(png: Uint8Array, width: number, height: number): Uint8Array {
   const bytes = new Uint8Array(22 + png.length);
@@ -92,23 +60,76 @@ export function wrapPngInIco(png: Uint8Array, width: number, height: number): Ui
   return bytes;
 }
 
-function gifColors(quality: number) {
-  return Math.max(16, Math.min(256, Math.round((quality / 100) * 256)));
+/** One worker per page, lazily created on the first CPU-bound conversion. */
+let encodeWorker: Worker | null = null;
+let nextRequestId = 1;
+
+type PendingEncode = {
+  resolve: (bytes: Uint8Array) => void;
+  reject: (error: Error) => void;
+};
+const pendingEncodes = new Map<number, PendingEncode>();
+
+type WorkerRequest =
+  | { id: number; kind: "gif"; width: number; height: number; rgba: ArrayBuffer; quality: number }
+  | { id: number; kind: "bmp"; width: number; height: number; rgba: ArrayBuffer };
+
+type WorkerResponse = { id: number; bytes?: ArrayBuffer; error?: string };
+
+function getEncodeWorker(): Worker {
+  if (encodeWorker) return encodeWorker;
+
+  const worker = new Worker(new URL("./encode.worker.ts", import.meta.url), { type: "module" });
+  worker.onmessage = (event: MessageEvent<WorkerResponse>) => {
+    const response = event.data;
+    const pending = pendingEncodes.get(response.id);
+    if (!pending) return;
+    pendingEncodes.delete(response.id);
+    if (response.error) {
+      pending.reject(new Error(response.error));
+    } else if (response.bytes) {
+      pending.resolve(new Uint8Array(response.bytes));
+    } else {
+      pending.reject(new Error("Image encoding worker returned no data"));
+    }
+  };
+  worker.onerror = () => {
+    for (const pending of pendingEncodes.values()) {
+      pending.reject(new Error("Image encoding worker failed"));
+    }
+    pendingEncodes.clear();
+    encodeWorker = null;
+    void worker.terminate();
+  };
+
+  encodeWorker = worker;
+  return worker;
+}
+
+function encodeInWorker(request: WorkerRequest): Promise<Uint8Array> {
+  const worker = getEncodeWorker();
+  return new Promise((resolve, reject) => {
+    pendingEncodes.set(request.id, { resolve, reject });
+    worker.postMessage(request, [request.rgba]);
+  });
+}
+
+function taskRgba(canvas: HTMLCanvasElement): ArrayBuffer {
+  const context = canvas.getContext("2d");
+  if (!context) throw new Error("Canvas is unavailable");
+  return context.getImageData(0, 0, canvas.width, canvas.height).data.buffer as ArrayBuffer;
 }
 
 async function encodeGif(canvas: HTMLCanvasElement, quality: number): Promise<Blob> {
-  const { GIFEncoder, quantize, applyPalette } = await import("gifenc");
-  const context = canvas.getContext("2d");
-  if (!context) throw new Error("Canvas is unavailable");
-
-  const rgba = context.getImageData(0, 0, canvas.width, canvas.height).data;
-  const palette = quantize(rgba, gifColors(quality));
-  const indexed = applyPalette(rgba, palette);
-  const gif = GIFEncoder();
-  gif.writeFrame(indexed, canvas.width, canvas.height, { palette, repeat: 0 });
-  gif.finish();
-
-  return new Blob([gif.bytes() as BlobPart], { type: "image/gif" });
+  const bytes = await encodeInWorker({
+    id: nextRequestId++,
+    kind: "gif",
+    width: canvas.width,
+    height: canvas.height,
+    rgba: taskRgba(canvas),
+    quality,
+  });
+  return new Blob([bytes as BlobPart], { type: "image/gif" });
 }
 
 async function encodeCanvas(
@@ -130,10 +151,14 @@ async function encodeCanvas(
   }
 
   if (format === "bmp") {
-    const context = canvas.getContext("2d");
-    if (!context) throw new Error("Canvas is unavailable");
-    const rgba = context.getImageData(0, 0, canvas.width, canvas.height).data;
-    return new Blob([encodeBmp(canvas.width, canvas.height, rgba) as BlobPart], { type: meta.mime });
+    const bytes = await encodeInWorker({
+      id: nextRequestId++,
+      kind: "bmp",
+      width: canvas.width,
+      height: canvas.height,
+      rgba: taskRgba(canvas),
+    });
+    return new Blob([bytes as BlobPart], { type: meta.mime });
   }
 
   return canvasToBlob(canvas, meta.mime, meta.supportsQuality ? quality / 100 : undefined);
