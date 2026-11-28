@@ -15,5 +15,5 @@ Every other StarRudder tool keeps its shareable state in URL query parameters th
 
 - `ShareToXButton` keeps linking to the fixed tool page. The fragment is a user-side permalink, not a marketing URL, and the share intent must not carry the input.
 - The fragment is read and written client-side (`location.hash` + `hashchange`), never through `useSearchParams`; SSR renders a skeleton so the current time and the input never cause a hydration mismatch.
-- `src/lib/analytics.ts` is a no-op today, but `docs/funy-tool-tech-stack-plan.md` plans a real SDK. "No input value in event metadata" must be enforced as a code constraint, not left to an empty function body.
+- `src/lib/analytics.ts` is a no-op today, but a real SDK may be attached later. "No input value in event metadata" must be enforced as a code constraint, not left to an empty function body.
 - Moving to query parameters, adding conversion history, or exporting pasted inputs should reopen this ADR rather than be treated as small features.

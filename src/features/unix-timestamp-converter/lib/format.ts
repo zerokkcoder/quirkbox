@@ -1,5 +1,4 @@
 import { floorDiv, pow10 } from "./bigint";
-import { subMillisecondDigits } from "./units";
 import type { InstantView, UnitId } from "./types";
 
 type DisplayLocale = "en" | "zh-Hant";

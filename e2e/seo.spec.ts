@@ -28,6 +28,9 @@ test("unknown locale-prefixed routes return a real Traditional-Chinese-only 404"
 });
 
 test("tool pages expose what/how copy and a keyword-rich meta description", async ({ page }) => {
+  // Twelve pages on a cold dev server exceed the 30s default; the dev server
+  // compiles each tool route on first navigation.
+  test.setTimeout(120_000);
   const cases = [
     { path: "/tools/random-name", title: "Random Name Generator", hint: "Choose a language" },
     { path: "/tools/pixel-avatar", title: "Pixel Avatar Maker", hint: "Pick a style and palette" },

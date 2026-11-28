@@ -13,5 +13,5 @@ Every other StarRudder tool keeps its state in the URL and derives reproducible 
 
 ## Consequences
 
-- `src/lib/analytics.ts` is currently a no-op, but `docs/funy-tool-tech-stack-plan.md` plans to attach a real analytics SDK. "No secret in event metadata" must be enforced as a code constraint, not left to an empty function body.
+- `src/lib/analytics.ts` is currently a no-op, but a real analytics SDK may be attached later. "No secret in event metadata" must be enforced as a code constraint, not left to an empty function body.
 - Requests to share, export, or keep a history of generated secrets should reopen this ADR rather than be treated as small features.

@@ -58,10 +58,6 @@ export function TimezonePicker({
   }, [open]);
 
   useEffect(() => {
-    setActiveIndex(0);
-  }, [query]);
-
-  useEffect(() => {
     if (!open || !listRef.current) return;
     const active = listRef.current.querySelector<HTMLElement>('[data-active="true"]');
     active?.scrollIntoView({ block: "nearest" });
@@ -122,6 +118,7 @@ export function TimezonePicker({
           onFocus={() => setOpen(true)}
           onChange={(event) => {
             setQuery(event.target.value);
+            setActiveIndex(0);
             setOpen(true);
           }}
           onKeyDown={handleKeyDown}

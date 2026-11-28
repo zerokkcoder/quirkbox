@@ -95,6 +95,7 @@ export function UnixTimestampConverterTool({
   const [unit, setUnit] = useState<UnitChoice>("auto");
   const [zone, setZone] = useState<string>(localZoneId);
   const [nowMs, setNowMs] = useState<number | null>(null);
+  const [hydrated, setHydrated] = useState(false);
   const [feedback, setFeedback] = useState("");
   const timerRef = useRef<number | null>(null);
 
@@ -110,10 +111,14 @@ export function UnixTimestampConverterTool({
    * state, so no Date.now()/location.hash value can differ between server and
    * client (ADR-0002 + the hydration rule from the password tool).
    */
+  // Hydration constraint: location.hash and Date.now() are client-only, so SSR
+  // must render the empty state rather than a value that differs on the client.
   useEffect(() => {
     const restored = readInputFromLocation();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only hash/clock, SSR renders empty state
     setInput(restored || String(Math.floor(Date.now() / 1000)));
     setNowMs(Date.now());
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
@@ -128,9 +133,12 @@ export function UnixTimestampConverterTool({
   }, []);
 
   // replaceState, never pushState: typing must not add a history entry per key.
+  // Gated on hydration so the initial empty render cannot overwrite the hash
+  // that the first effect is about to restore.
   useEffect(() => {
+    if (!hydrated) return;
     writeInputToLocation(input);
-  }, [input]);
+  }, [input, hydrated]);
 
   useEffect(() => {
     const interval = window.setInterval(() => setNowMs(Date.now()), relativeRefreshMs);

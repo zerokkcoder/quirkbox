@@ -84,8 +84,11 @@ export function PasswordGeneratorTool({
    * hold a different CSPRNG, so rendering a secret on both sides would cause a
    * hydration mismatch.
    */
+  // Hydration constraint: only the client owns a CSPRNG, so the secret cannot
+  // be generated during render or on the server.
   useEffect(() => {
     const { secrets: next, charsetEmpty: empty } = attemptGeneration(state);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only CSPRNG, SSR must not render a secret
     setSecrets(next);
     setCharsetEmpty(empty);
   }, [state]);

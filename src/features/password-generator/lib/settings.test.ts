@@ -39,7 +39,7 @@ describe("parseGeneratorState", () => {
     const parsed = parseGeneratorState({
       len: "999",
       words: "1",
-      batch: "99",
+      n: "99",
       min: "99",
       p: "nope",
       sep: "nope",

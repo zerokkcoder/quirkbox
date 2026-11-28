@@ -2,6 +2,9 @@ import { expect, test } from "@playwright/test";
 
 const path = "/tools/password-generator";
 
+// navigator.clipboard.writeText needs an explicit grant in headless Chromium.
+test.use({ permissions: ["clipboard-read", "clipboard-write"] });
+
 test("renders a secret on load and copies it in one click", async ({ page }) => {
   await page.goto(path);
 
