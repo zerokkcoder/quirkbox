@@ -98,7 +98,7 @@ export function SupportCreator({
                     type="button"
                     onClick={() => setOpen(false)}
                     aria-label={labels.close}
-                    className="rounded-full p-1 text-muted-foreground transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-muted hover:text-foreground active:scale-90"
+                    className="rounded-full p-1 text-muted-foreground transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-hover hover:text-foreground active:scale-90"
                   >
                     <XIcon aria-hidden className="size-4" />
                   </button>

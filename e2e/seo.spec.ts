@@ -37,6 +37,10 @@ test("tool pages expose what/how copy and a keyword-rich meta description", asyn
     { path: "/tools/image-converter", title: "Image Converter", hint: "Drop or paste images" },
     { path: "/tools/qr-code-generator", title: "QR Code Generator", hint: "Type text or paste a URL" },
     { path: "/tools/gradient-wallpaper-generator", title: "Gradient Wallpaper Generator", hint: "Color stops" },
+    { path: "/tools/ascii-art-generator", title: "ASCII Art Generator", hint: "Switch between Text and Image" },
+    { path: "/tools/json-toolkit", title: "JSON Toolkit", hint: "Paste JSON or drop a local file" },
+    { path: "/tools/password-generator", title: "Password Generator", hint: "Pick a scenario preset" },
+    { path: "/tools/unix-timestamp-converter", title: "Unix Timestamp Converter", hint: "Paste a Unix timestamp" },
   ];
 
   for (const item of cases) {

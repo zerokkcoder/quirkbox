@@ -49,7 +49,7 @@ export function SiteHeader({
                     "rounded-lg px-3 py-1.5 font-medium transition-colors duration-150 ease-[var(--ease-out)] active:scale-[0.97]",
                     active
                       ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      : "text-muted-foreground hover:bg-hover hover:text-foreground"
                   )}
                 >
                   {item.label}

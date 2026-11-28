@@ -57,7 +57,7 @@ export function ThemeToggle({ labels }: { labels: ThemeToggleLabels }) {
       title={`${labels.label}: ${name}`}
       className={cn(
         "flex size-9 shrink-0 items-center justify-center rounded-full border border-border/70 bg-background/70",
-        "text-muted-foreground transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-muted hover:text-foreground active:scale-95",
+        "text-muted-foreground transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-hover hover:text-foreground active:scale-95",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
       )}
     >

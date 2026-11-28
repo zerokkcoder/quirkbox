@@ -18,6 +18,8 @@ The launch version includes:
 - `Gradient Wallpaper Generator`: blend color stops into linear, radial or conic gradients, copy the CSS or export a high-res PNG wallpaper — all in the browser.
 - `ASCII Art Generator`: turn short text (six dot-matrix styles plus a static Isometric2 FIGlet font, with horizontal/vertical spacing and flip) or a local image (character ramps, Braille, dithering, colour output) into character art, then copy plain text or export a PNG — all in the browser.
 - `JSON Toolkit`: format, validate and minify JSON with line/column error locations, and convert JSON ↔ CSV/TSV — locally, with share links carrying settings only.
+- `Password Generator`: generate strong passwords or memorable passphrases with the Web Crypto API — results live in the tab only, never in the URL.
+- `Unix Timestamp Converter`: read epoch seconds, milliseconds, microseconds or nanoseconds as UTC and any IANA time zone — BigInt precision, no uploads.
 - `English + Traditional Chinese`: English is the default route; Traditional Chinese lives under `/zh-Hant`.
 
 ## Scripts

@@ -44,7 +44,7 @@ function Emoji({ emoji, ...props }: EmojiPickerListEmojiProps) {
     <button
       {...props}
       type="button"
-      className="flex aspect-square flex-1 cursor-pointer items-center justify-center rounded-md text-xl transition-[background-color,transform] duration-150 ease-[var(--ease-out)] hover:bg-muted data-active:bg-muted active:scale-90"
+      className="flex aspect-square flex-1 cursor-pointer items-center justify-center rounded-md text-xl transition-[background-color,transform] duration-150 ease-[var(--ease-out)] hover:bg-hover data-active:bg-hover active:scale-90"
     >
       {emoji.emoji}
     </button>

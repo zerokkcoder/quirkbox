@@ -167,6 +167,34 @@
       "JSON 工具箱"
     ]
   },
+  "https://starrudder.cc/tools/password-generator": {
+    "title": "Password Generator — Free, Private, Runs in Your Browser | StarRudder",
+    "description": "Generate strong random passwords or memorable passphrases in your browser. Cryptographically secure, nothing uploaded, no signup — copy any result in one click.",
+    "h1": [
+      "Password Generator"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/password-generator": {
+    "title": "密碼產生器 — 免費、私密、純瀏覽器 | StarRudder",
+    "description": "在瀏覽器內產生高強度隨機密碼或好記的口令短語。密碼學等級隨機、不上傳、免註冊，一鍵即可複製結果。",
+    "h1": [
+      "密碼產生器"
+    ]
+  },
+  "https://starrudder.cc/tools/unix-timestamp-converter": {
+    "title": "Unix Timestamp Converter — Free, Private | StarRudder",
+    "description": "Convert Unix timestamps to dates and back in your browser. Seconds, milliseconds, microseconds and nanoseconds, UTC and any IANA time zone — nothing uploaded.",
+    "h1": [
+      "Unix Timestamp Converter"
+    ]
+  },
+  "https://starrudder.cc/zh-Hant/tools/unix-timestamp-converter": {
+    "title": "Unix 時間戳轉換器 — 免費、私密、純瀏覽器 | StarRudder",
+    "description": "在瀏覽器把 Unix 時間戳與日期互轉，支援秒、毫秒、微秒、奈秒，以及 UTC 與任意 IANA 時區。免註冊、不上傳、不保存。",
+    "h1": [
+      "Unix 時間戳轉換器"
+    ]
+  },
   "https://starrudder.cc/about": {
     "title": "About StarRudder",
     "description": "StarRudder makes free tools that run in your browser. No account, no uploads, no stored data — just open a tool and use it.",

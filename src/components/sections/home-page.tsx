@@ -5,11 +5,13 @@ import {
   ArrowUpRightIcon,
   BlendIcon,
   BracesIcon,
+  ClockIcon,
   Code2Icon,
   DicesIcon,
   Grid2x2Icon,
   HeartIcon,
   ImageIcon,
+  KeyRoundIcon,
   Link2Icon,
   MapPinnedIcon,
   MegaphoneIcon,
@@ -143,6 +145,18 @@ export function HomePage({ locale, messages }: { locale: Locale; messages: Messa
       icon: <Code2Icon />,
       title: messages.tools.jsonToolkit.title,
       description: labels.tools.jsonToolkit,
+    },
+    {
+      href: "/tools/password-generator",
+      icon: <KeyRoundIcon />,
+      title: messages.tools.passwordGenerator.title,
+      description: labels.tools.passwordGenerator,
+    },
+    {
+      href: "/tools/unix-timestamp-converter",
+      icon: <ClockIcon />,
+      title: messages.tools.unixTimestampConverter.title,
+      description: labels.tools.unixTimestampConverter,
     },
   ];
   const focusTiles = [

@@ -19,11 +19,6 @@ const publicFiles = new Set([
   "wechat-pay.jpg",
   "allipay.jpg",
   "ko-fi-logo.png",
-  "file.svg",
-  "globe.svg",
-  "next.svg",
-  "vercel.svg",
-  "window.svg",
 ]);
 
 const toolSlugs = new Set([
@@ -37,6 +32,8 @@ const toolSlugs = new Set([
   "gradient-wallpaper-generator",
   "ascii-art-generator",
   "json-toolkit",
+  "password-generator",
+  "unix-timestamp-converter",
 ]);
 
 type NotFoundCopy = {

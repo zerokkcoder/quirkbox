@@ -34,7 +34,7 @@
     "secondaryCta": "About StarRudder",
     "preview": {
       "label": "What you can do here",
-      "footnote": "10 tools · 2 languages · 0 uploads",
+      "footnote": "12 tools · 2 languages · 0 uploads",
       "focus": [
         {
           "title": "Design",
@@ -71,7 +71,9 @@
       "qrCodeGenerator": "Turn any link or text into a scannable QR code, with colors and a logo, then export PNG or SVG.",
       "gradientWallpaper": "Blend color stops into a high-res wallpaper, with CSS you can copy.",
       "asciiArt": "Turn text or a local image into copyable ASCII art and export a PNG.",
-      "jsonToolkit": "Format, validate and convert JSON to CSV or TSV — entirely in your browser."
+      "jsonToolkit": "Format, validate and convert JSON to CSV or TSV — entirely in your browser.",
+      "passwordGenerator": "Generate strong passwords or memorable passphrases locally — copy a result in one click.",
+      "unixTimestampConverter": "Read Unix timestamps as UTC or local dates — seconds to nanoseconds, entirely in your browser."
     },
     "features": {
       "eyebrow": "Why StarRudder",
@@ -201,6 +203,12 @@
     },
     "jsonToolkit": {
       "title": "JSON Toolkit"
+    },
+    "passwordGenerator": {
+      "title": "Password Generator"
+    },
+    "unixTimestampConverter": {
+      "title": "Unix Timestamp Converter"
     }
   },
   "paletteStudio": {
@@ -862,5 +870,153 @@
     "expandNode": "Expand this value",
     "line": "Line",
     "column": "Column"
+  },
+  "passwordGenerator": {
+    "title": "Password Generator",
+    "seoTitle": "Password Generator — Free, Private, Runs in Your Browser",
+    "description": "Generate strong random passwords or memorable passphrases in your browser. Cryptographically secure, nothing uploaded, no signup — copy any result in one click.",
+    "intro": "A browser-only password and passphrase generator. It runs on your device with the Web Crypto API, so nothing is uploaded, saved or sent anywhere.",
+    "howTo": "Pick a scenario preset, or open Customise to set length, character types, word count and separators. Copy a result with one click and paste it straight into your password manager.",
+    "keywords": [
+      "password generator",
+      "strong password generator",
+      "random password generator",
+      "passphrase generator",
+      "memorable password"
+    ],
+    "resultLabel": "Your secret",
+    "copy": "Copy",
+    "copied": "Copied to clipboard.",
+    "copyFailed": "Could not access the clipboard. Select and copy the text manually.",
+    "regenerate": "Regenerate",
+    "entropyLine": "{bits} bits of entropy · local CSPRNG · zero uploads",
+    "weakHint": "Short for a guessable secret — raise the length or add words.",
+    "presetsLabel": "Scenario",
+    "presetsHint": "One click sets the mode and every parameter. Fine-tune anytime.",
+    "presetNames": {
+      "account": "Website account",
+      "strong": "High security",
+      "memorable": "Memorable phrase",
+      "pin": "PIN"
+    },
+    "customLabel": "Customise",
+    "customHint": "Changing anything here switches the preset to your own settings.",
+    "modeLabel": "Mode",
+    "modeNames": {
+      "password": "Password",
+      "passphrase": "Passphrase"
+    },
+    "lengthLabel": "Length",
+    "lengthHint": "Longer is stronger. Twelve characters or more is a sensible floor.",
+    "typesLabel": "Character types",
+    "typeNames": {
+      "uppercase": "A–Z",
+      "lowercase": "a–z",
+      "digits": "0–9",
+      "symbols": "Symbols"
+    },
+    "minPerTypeLabel": "Minimum per type",
+    "minPerTypeHint": "Guarantees at least this many of each enabled type, then shuffles the result.",
+    "minPerTypeNames": {
+      "0": "Any",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4"
+    },
+    "excludeAmbiguousLabel": "Exclude 0 O 1 l I",
+    "customCharsetLabel": "Custom character set",
+    "customCharsetPlaceholder": "Optional — overrides the toggles above",
+    "customCharsetHint": "When filled, only these characters are used.",
+    "wordCountLabel": "Words",
+    "wordCountHint": "Six words is about 77 bits; four is only about 52.",
+    "separatorLabel": "Separator",
+    "separatorNames": {
+      "dash": "Dash",
+      "space": "Space",
+      "dot": "Dot",
+      "none": "None",
+      "custom": "Custom"
+    },
+    "customSeparatorLabel": "Custom separator",
+    "customSeparatorPlaceholder": "-",
+    "capitalizeLabel": "Capitalise each word",
+    "appendNumberLabel": "Append a number",
+    "batchLabel": "How many",
+    "batchHint": "Every result is independent. Copy them one at a time.",
+    "emptyCharset": "Pick at least one character type to generate a password.",
+    "generateFailed": "This browser cannot provide a secure random source. Try a modern browser over HTTPS.",
+    "howItWorksTitle": "How it works",
+    "howItWorksBody": "Characters and words are drawn with crypto.getRandomValues and rejection sampling, so every value is equally likely. Entropy is length × log2(pool size); with a minimum per type the real figure is slightly lower. Nothing is written to the URL, storage or analytics.",
+    "privacyNote": "Generated in this tab and never stored — paste it somewhere safe right away. The URL keeps your settings only, never the secret."
+  },
+  "unixTimestampConverter": {
+    "title": "Unix Timestamp Converter",
+    "seoTitle": "Unix Timestamp Converter — Free, Private",
+    "description": "Convert Unix timestamps to dates and back in your browser. Seconds, milliseconds, microseconds and nanoseconds, UTC and any IANA time zone — nothing uploaded.",
+    "intro": "A browser-only Unix timestamp converter. Paste an epoch value or an ISO 8601 date and see the same instant in every format, in your time zone and in UTC.",
+    "howTo": "Paste a Unix timestamp or an ISO 8601 date with a time zone offset. The tool detects seconds, milliseconds, microseconds or nanoseconds, shows UTC and your chosen time zone, and lets you copy any result in one click.",
+    "keywords": [
+      "unix timestamp converter",
+      "epoch converter",
+      "unix time converter",
+      "timestamp to date",
+      "date to timestamp",
+      "milliseconds to date"
+    ],
+    "inputLabel": "Timestamp or ISO date",
+    "inputPlaceholder": "1800000000 or 2026-01-01T00:00:00+08:00",
+    "useCurrentTime": "Use current time",
+    "detectedLabel": "Detected: {unit}",
+    "detectedDateLabel": "Detected: ISO 8601 date",
+    "unitLabel": "Unit",
+    "unitNames": {
+      "auto": "Auto",
+      "seconds": "Seconds",
+      "milliseconds": "Milliseconds",
+      "microseconds": "Microseconds",
+      "nanoseconds": "Nanoseconds"
+    },
+    "zoneLabel": "Time zone",
+    "zoneLocalLabel": "Browser local",
+    "zoneSearchPlaceholder": "Search a time zone…",
+    "zoneNoResults": "No matching time zone.",
+    "zoneNote": "A timestamp has no time zone. Changing this only changes how the same instant is displayed.",
+    "resultsLabel": "This instant, six ways",
+    "rowNames": {
+      "utc": "UTC",
+      "local": "Your time zone",
+      "iso": "ISO 8601",
+      "seconds": "Unix seconds",
+      "milliseconds": "Unix milliseconds",
+      "relative": "Relative to now"
+    },
+    "moreFormatsLabel": "More formats",
+    "moreNames": {
+      "rfc": "HTTP-date / RFC 1123",
+      "sql": "SQL datetime (UTC)",
+      "weekday": "Weekday",
+      "weekNumber": "ISO week number",
+      "dayOfYear": "Day of year",
+      "microseconds": "Unix microseconds",
+      "nanoseconds": "Unix nanoseconds"
+    },
+    "codeSnippetsLabel": "Get this timestamp in code",
+    "copy": "Copy",
+    "copied": "Copied to clipboard.",
+    "copyFailed": "Could not access the clipboard. Select and copy the text manually.",
+    "errorEmpty": "Paste a Unix timestamp or an ISO 8601 date to begin.",
+    "errorInvalid": "That is not a Unix timestamp or an offset-bearing ISO 8601 date.",
+    "errorOutOfRange": "That value is outside the supported range, so no date is shown rather than a wrong one.",
+    "examplesLabel": "Accepted input",
+    "examplesBody": "An integer (minus sign allowed): 1800000000, 1800000000000, 1800000000000000, 1800000000000000000. Or an ISO 8601 date ending in Z or +08:00.",
+    "unitHeuristicHint": "Unit detection uses digit magnitude and is a convenience, not a guarantee: short values, negatives and far-future dates can be misread. Override it above.",
+    "negativeHint": "Negative values are instants before 1970-01-01 UTC.",
+    "year2038Hint": "Signed 32-bit Unix seconds overflow here (2038-01-19 03:14:07 UTC).",
+    "privacyNote": "Everything is computed in this tab. Nothing is uploaded, saved, or sent to a server.",
+    "privacyHashNote": "The link may contain your input after a #, which browsers never send in a request — sharing it stays private.",
+    "howItWorksTitle": "How it works",
+    "howItWorksBody": "Values are parsed as BigInt and normalised to nanoseconds, so microsecond and nanosecond timestamps never lose precision. Formatting uses the browser Intl API with IANA time zone rules, including daylight saving. Unix time ignores leap seconds by definition.",
+    "loading": "Computing…"
   }
 }

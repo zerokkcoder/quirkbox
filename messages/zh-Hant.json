@@ -34,7 +34,7 @@
     "secondaryCta": "關於星舵工坊",
     "preview": {
       "label": "在這裡可以做的事",
-      "footnote": "10 個工具 · 2 種語言 · 0 次上傳",
+      "footnote": "12 個工具 · 2 種語言 · 0 次上傳",
       "focus": [
         {
           "title": "設計",
@@ -71,7 +71,9 @@
       "qrCodeGenerator": "把連結或文字變成可掃描的 QR 碼，自訂顏色與 Logo，再匯出 PNG 或 SVG。",
       "gradientWallpaper": "混合色標製作高清桌布，並複製可用的 CSS。",
       "asciiArt": "把文字或本機圖片變成可複製的 ASCII 字符畫，也能匯出 PNG。",
-      "jsonToolkit": "格式化、驗證並把 JSON 轉成 CSV/TSV，完全在瀏覽器完成。"
+      "jsonToolkit": "格式化、驗證並把 JSON 轉成 CSV/TSV，完全在瀏覽器完成。",
+      "passwordGenerator": "在本機產生高強度密碼或好記口令，一鍵複製結果。",
+      "unixTimestampConverter": "把 Unix 時間戳讀成 UTC 或本地日期，秒到奈秒都支援，完全在瀏覽器完成。"
     },
     "features": {
       "eyebrow": "為什麼是星舵工坊",
@@ -201,6 +203,12 @@
     },
     "jsonToolkit": {
       "title": "JSON 工具箱"
+    },
+    "passwordGenerator": {
+      "title": "密碼產生器"
+    },
+    "unixTimestampConverter": {
+      "title": "Unix 時間戳轉換器"
     }
   },
   "paletteStudio": {
@@ -862,5 +870,153 @@
     "expandNode": "展開此值",
     "line": "行",
     "column": "欄"
+  },
+  "passwordGenerator": {
+    "title": "密碼產生器",
+    "seoTitle": "密碼產生器 — 免費、私密、純瀏覽器",
+    "description": "在瀏覽器內產生高強度隨機密碼或好記的口令短語。密碼學等級隨機、不上傳、免註冊，一鍵即可複製結果。",
+    "intro": "純瀏覽器的密碼與口令產生器，使用 Web Crypto 在你的裝置上運算，不上傳、不儲存、不外送。",
+    "howTo": "選一個情境預設，或展開「自訂」調整長度、字元類型、詞數與分隔符。一鍵複製結果，直接貼進密碼管理器。",
+    "keywords": [
+      "密碼產生器",
+      "高強度密碼",
+      "隨機密碼產生器",
+      "口令短語產生器",
+      "好記密碼"
+    ],
+    "resultLabel": "你的密碼",
+    "copy": "複製",
+    "copied": "已複製到剪貼簿。",
+    "copyFailed": "無法存取剪貼簿，請手動選取後複製。",
+    "regenerate": "換一個",
+    "entropyLine": "{bits} 位熵 · 本地 CSPRNG · 不上傳",
+    "weakHint": "長度偏短，建議提高長度或詞數。",
+    "presetsLabel": "使用情境",
+    "presetsHint": "一鍵套用模式與所有參數，之後仍可微調。",
+    "presetNames": {
+      "account": "網站帳號",
+      "strong": "高強度",
+      "memorable": "好記口令",
+      "pin": "PIN"
+    },
+    "customLabel": "自訂",
+    "customHint": "在這裡調整任何參數，預設會切換為自訂。",
+    "modeLabel": "模式",
+    "modeNames": {
+      "password": "密碼",
+      "passphrase": "口令"
+    },
+    "lengthLabel": "長度",
+    "lengthHint": "越長越安全，建議至少 12 個字元。",
+    "typesLabel": "字元類型",
+    "typeNames": {
+      "uppercase": "A–Z",
+      "lowercase": "a–z",
+      "digits": "0–9",
+      "symbols": "符號"
+    },
+    "minPerTypeLabel": "每類最少數量",
+    "minPerTypeHint": "保證每種啟用的類型至少出現這麼多個，再整體打亂。",
+    "minPerTypeNames": {
+      "0": "不限",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4"
+    },
+    "excludeAmbiguousLabel": "排除 0 O 1 l I",
+    "customCharsetLabel": "自訂字元集",
+    "customCharsetPlaceholder": "選填 — 會覆蓋上方開關",
+    "customCharsetHint": "填入後只使用這些字元。",
+    "wordCountLabel": "詞數",
+    "wordCountHint": "六詞約 77 位熵，四詞只有約 52 位。",
+    "separatorLabel": "分隔符",
+    "separatorNames": {
+      "dash": "連字號",
+      "space": "空格",
+      "dot": "句點",
+      "none": "無",
+      "custom": "自訂"
+    },
+    "customSeparatorLabel": "自訂分隔符",
+    "customSeparatorPlaceholder": "-",
+    "capitalizeLabel": "每詞首字母大寫",
+    "appendNumberLabel": "末尾加數字",
+    "batchLabel": "產生數量",
+    "batchHint": "每個結果彼此獨立，請逐個複製。",
+    "emptyCharset": "請至少選一種字元類型。",
+    "generateFailed": "此瀏覽器無法提供安全的亂數來源，請改用支援 HTTPS 的現代瀏覽器。",
+    "howItWorksTitle": "運作方式",
+    "howItWorksBody": "字元與詞彙皆以 crypto.getRandomValues 搭配拒絕取樣抽出，每個值的機率相同。熵為長度 × log2(字元集大小)；啟用每類最少數量時實際值略低。不會寫入網址、儲存空間或分析事件。",
+    "privacyNote": "只在此分頁產生、不會儲存 — 複製後請立刻貼到安全的地方。網址僅保留你的設定，永遠不含密碼本身。"
+  },
+  "unixTimestampConverter": {
+    "title": "Unix 時間戳轉換器",
+    "seoTitle": "Unix 時間戳轉換器 — 免費、私密、純瀏覽器",
+    "description": "在瀏覽器把 Unix 時間戳與日期互轉，支援秒、毫秒、微秒、奈秒，以及 UTC 與任意 IANA 時區。免註冊、不上傳、不保存。",
+    "intro": "純瀏覽器的 Unix 時間戳轉換器。貼上時間戳或 ISO 8601 日期，一次看到同一時刻在 UTC 與所選時區下的所有表示。",
+    "howTo": "貼上 Unix 時間戳或帶時區偏移的 ISO 8601 日期。工具會自動判斷秒、毫秒、微秒或奈秒，同時顯示 UTC 與所選時區，任何結果都能一鍵複製。",
+    "keywords": [
+      "Unix 時間戳轉換",
+      "epoch 轉換器",
+      "時間戳轉日期",
+      "日期轉時間戳",
+      "毫秒轉日期",
+      "unix timestamp converter"
+    ],
+    "inputLabel": "時間戳或 ISO 日期",
+    "inputPlaceholder": "1800000000 或 2026-01-01T00:00:00+08:00",
+    "useCurrentTime": "使用目前時間",
+    "detectedLabel": "已識別為：{unit}",
+    "detectedDateLabel": "已識別為：ISO 8601 日期",
+    "unitLabel": "單位",
+    "unitNames": {
+      "auto": "自動",
+      "seconds": "秒",
+      "milliseconds": "毫秒",
+      "microseconds": "微秒",
+      "nanoseconds": "奈秒"
+    },
+    "zoneLabel": "時區",
+    "zoneLocalLabel": "瀏覽器本地",
+    "zoneSearchPlaceholder": "搜尋時區…",
+    "zoneNoResults": "找不到符合的時區。",
+    "zoneNote": "時間戳本身沒有時區，切換這裡只改變同一時刻的顯示方式。",
+    "resultsLabel": "同一時刻，六種表示",
+    "rowNames": {
+      "utc": "UTC",
+      "local": "你所選時區",
+      "iso": "ISO 8601",
+      "seconds": "Unix 秒",
+      "milliseconds": "Unix 毫秒",
+      "relative": "相對現在"
+    },
+    "moreFormatsLabel": "更多格式",
+    "moreNames": {
+      "rfc": "HTTP-date / RFC 1123",
+      "sql": "SQL 日期時間（UTC）",
+      "weekday": "星期",
+      "weekNumber": "ISO 週數",
+      "dayOfYear": "一年第幾天",
+      "microseconds": "Unix 微秒",
+      "nanoseconds": "Unix 奈秒"
+    },
+    "codeSnippetsLabel": "在程式裡取得這個時間戳",
+    "copy": "複製",
+    "copied": "已複製到剪貼簿。",
+    "copyFailed": "無法存取剪貼簿，請手動選取後複製。",
+    "errorEmpty": "貼上 Unix 時間戳或 ISO 8601 日期即可開始。",
+    "errorInvalid": "這不是 Unix 時間戳，也不是帶時區偏移的 ISO 8601 日期。",
+    "errorOutOfRange": "這個值超出支援範圍，因此不顯示日期，以免給出看似正常卻錯誤的結果。",
+    "examplesLabel": "接受的輸入",
+    "examplesBody": "整數（可帶負號）：1800000000、1800000000000、1800000000000000、1800000000000000000；或是以 Z 或 +08:00 結尾的 ISO 8601 日期。",
+    "unitHeuristicHint": "單位以位數自動判斷，只是方便而非保證；過短的值、負值與遙遠的未來日期可能誤判，請在上方手動指定。",
+    "negativeHint": "負值代表 1970-01-01 UTC 之前的時刻。",
+    "year2038Hint": "32 位元有號 Unix 秒會在此溢位（2038-01-19 03:14:07 UTC）。",
+    "privacyNote": "所有運算都在此分頁完成，不上傳、不保存、不傳送給伺服器。",
+    "privacyHashNote": "網址的 # 後可能帶有你的輸入，但瀏覽器不會把 # 之後的內容放進請求，分享仍然私密。",
+    "howItWorksTitle": "運作方式",
+    "howItWorksBody": "輸入以 BigInt 解析並正規化為奈秒，因此微秒與奈秒時間戳不會流失精度。格式化使用瀏覽器的 Intl API 與 IANA 時區規則，包含日光節約時間。Unix 時間依定義不計閏秒。",
+    "loading": "計算中…"
   }
 }

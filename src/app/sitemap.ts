@@ -19,6 +19,8 @@ const routes = [
   "/tools/gradient-wallpaper-generator",
   "/tools/ascii-art-generator",
   "/tools/json-toolkit",
+  "/tools/password-generator",
+  "/tools/unix-timestamp-converter",
   "/about",
 ];
 

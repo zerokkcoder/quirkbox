@@ -67,19 +67,19 @@ existing feature/section/route/OG/audit skeleton without new infrastructure.
 - **契合点 / Fit**：纯本地处理，开发者高频刚需；SEO 词 `json formatter`、`json validator`。
 - **复杂度 / Effort**：低—中 / Low–medium。
 
-### 7. 密码 / 口令生成器 — Passphrase Lab
+### 7. 密码 / 口令生成器 — Passphrase Lab ⭐ 已选 / Selected
 
-- **是什么 / What it is**：生成高强度随机密码或可读口令，带强度指示与生成逻辑说明。
-- **怎么用 / How to use**：调长度与字符规则 → 生成 → 一键复制（密码本身不进 URL、不留存）。
+- **是什么 / What it is**：生成高强度随机密码或可读口令，附熵位数与生成逻辑说明。
+- **怎么用 / How to use**：选场景预设 → 生成 → 一键复制（密码本身不进 URL、不留存）。
 - **契合点 / Fit**：本地 CSPRNG 生成、无网络请求是信任卖点；SEO 词 `password generator`。
 - **复杂度 / Effort**：低 / Low。
 
-### 8. 时间戳转换工具 — Epoch Converter
+### 8. 时间戳转换工具 — Epoch Converter ⭐ 已选 / Selected
 
-- **是什么 / What it is**：Unix 时间戳 ↔ 各时区日期互转，支持秒 / 毫秒。
-- **怎么用 / How to use**：输入任一格式 → 实时看到所有表示。
-- **契合点 / Fit**：开发者 + SEO 双命中，实现极简；SEO 词 `unix timestamp converter`。
-- **复杂度 / Effort**：低 / Low。
+- **是什么 / What it is**：Unix 时间戳 ↔ 日期互转；秒 / 毫秒 / 微秒 / 奈秒四精度（BigInt）、UTC + 本地 + 任意 IANA 时区、6 项常显 + 折叠更多格式。纯本地、输入只存 URL hash 片段。
+- **怎么用 / How to use**：单输入框贴入任一合法值 → 进页即出结果 → 一键复制，无「转换」按钮。
+- **契合点 / Fit**：开发者 + SEO 双命中；刻意不做批量与计算器以守「零心智负担」；SEO 词 `unix timestamp converter`。
+- **复杂度 / Effort**：中 / Medium（BigInt 与 IANA 边界处理）。
 
 ---
 
@@ -89,8 +89,10 @@ existing feature/section/route/OG/audit skeleton without new infrastructure.
 | --- | --- |
 | 2026-11-25 | 从 8 个候选中选择 **#1 配色方案生成器 Palette Studio** 进入规划；其余保留在本池。 |
 | 2026-11-25 | 优先序参考：#5 图片格式转换器 > #6 JSON 工具箱 > #2 QR 码生成器 > 其余。 |
-| 2026-11-25 | 选择 **#5 图片格式转换器 Image Studio** 进入规划；规划文档见 `docs/image-studio-plan.md`，待审阅 §8 待决项。 |
+| 2026-11-25 | 选择 **#5 图片格式转换器 Image Studio** 进入规划（原规划文档已清理）。 |
 | 2026-11-25 | §8 六项待决项全部按推荐 A 执行：原生 + ICO/BMP/静态 GIF；GIF 仅首帧；手写 ZIP + 逐张下载；SVG 输入栅格化；站点描述加入图片转换关键词；主线程逐项转换。 |
 | 2026-11-26 | §8 五待决全按提议实现 QR 码产生器（`0b27b8e`）；选择 **#3 渐变背景壁纸生成器 Gradient Wallpaper Generator** 进入规划，§8 八项全按提议通过。 |
-| 2026-11-27 | 选择 **#4 ASCII 艺术生成器 ASCII Art Generator** 进入规划；规划文档见 `docs/ascii-art-generator-plan.md`，待审阅 §8 八项待决。 |
-| 2026-11-27 | 选择 **#6 JSON 工具箱 JSON Toolkit** 进入规划；经 `/grill-with-docs` 两轮访谈定稿（格式化/校验/minify + JSON↔CSV/TSV，砍路径查询），规划文档见 `docs/json-toolkit-plan.md`，无待决项。 |
+| 2026-11-27 | 选择 **#4 ASCII 艺术生成器 ASCII Art Generator** 进入规划；§8 八项待决已定（原规划文档已清理）。 |
+| 2026-11-27 | 选择 **#6 JSON 工具箱 JSON Toolkit** 进入规划；经 `/grill-with-docs` 两轮访谈定稿（格式化/校验/minify + JSON↔CSV/TSV，砍路径查询），无待决项（原规划文档已清理）。 |
+| 2026-11-27 | 选择 **#7 密码 / 口令生成器 Password Generator** 进入规划；经 `/grill-with-docs` 三轮访谈定稿（双模式、4 预设分层、本地 CSPRNG 且结果不持久化、只留 ShareToXButton 做宣传），**无待决项**（原规划文档已清理）；配套 `GLOSSARY.md` 两个词条与 `ADR-0001`。 |
+| 2026-11-28 | 选择 **#8 时间戳转换工具 Unix Timestamp Converter** 进入规划；经 `/grill-with-docs` **四轮访谈定稿、无待决项**（单输入框零决策、秒/毫秒/µs/ns 四精度 BigInt、核心 6 项+折叠更多、严格带偏移反向解析、刻意不做批量与计算器、输入只存 URL hash 片段）。配套 `GLOSSARY.md` 的 `## Time` 3 词条与 `ADR-0002`；本次实施顺手补齐 e2e 白名单与 SEO baseline 两笔历史欠账（原规划文档已清理）。 |

@@ -9,6 +9,10 @@ const toolNames = [
   "Image Converter",
   "QR Code Generator",
   "Gradient Wallpaper Generator",
+  "ASCII Art Generator",
+  "JSON Toolkit",
+  "Password Generator",
+  "Unix Timestamp Converter",
 ];
 
 test("home page renders the official landing page, not a desktop shell", async ({ page }) => {
